@@ -169,12 +169,17 @@ int main(void)
     float sample_rate = hw.AudioSampleRate();
 
     // Set up Encoder and OLED for PatchSM
+
+    /* Init Encoder (left pin, right pin, click pin)*/
+	myEnc.Init(DaisyPatchSM::D8,DaisyPatchSM::A8,DaisyPatchSM::B7);
+
     /** Configure the Display */
     MyOledDisplay::Config disp_cfg;
 
     disp_cfg.driver_config.transport_config.spi_config.periph = SpiHandle::Config::Peripheral::SPI_2;
     disp_cfg.driver_config.transport_config.spi_config.pin_config.sclk = hw.GetPin(DaisyPatchSM::PinBank::D, 10);
     disp_cfg.driver_config.transport_config.spi_config.pin_config.mosi = hw.GetPin(DaisyPatchSM::PinBank::D, 9);
+    disp_cfg.driver_config.transport_config.spi_config.pin_config.miso = Pin(); // Calling Pin() as it's not needed
     disp_cfg.driver_config.transport_config.spi_config.pin_config.nss  = hw.GetPin(DaisyPatchSM::PinBank::D, 1);
     disp_cfg.driver_config.transport_config.pin_config.dc    = hw.GetPin(DaisyPatchSM::PinBank::A, 2);
     disp_cfg.driver_config.transport_config.pin_config.reset = hw.GetPin(DaisyPatchSM::PinBank::A, 3);
@@ -262,9 +267,6 @@ int main(void)
 void Controls()
 {
     hw.ProcessAllControls();
-    /* Init Encoder (left pin, right pin, click pin)*/
-	myEnc.Init(DaisyPatchSM::D8,DaisyPatchSM::A8,DaisyPatchSM::B7); /* pins are currently placeholder values*/
-
 
     //process knobs
     for(int i = 0; i < 4; i++)

@@ -33,7 +33,8 @@
                 "${workspaceFolder}/../../libDaisy/**",
                 "${workspaceFolder}/../../DaisySP/**"
             ],
-            "name": "macOS"
+            "name": "macOS",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

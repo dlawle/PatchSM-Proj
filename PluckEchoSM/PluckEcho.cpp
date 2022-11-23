@@ -1,7 +1,7 @@
 #include "daisy_patch_sm.h"
 #include "daisysp.h"
 #include <string>
-#include "hid\encoder.h"
+#include <hid/encoder.h>
 #include "dev/oled_ssd130x.h"
 
 using namespace daisy;
@@ -105,8 +105,8 @@ int main(void)
     hw.Init();
     samplerate = hw.AudioSampleRate();
 
-    // Set up Encoder
-	myEnc.Init(DaisyPatchSM::D8,DaisyPatchSM::A8,DaisyPatchSM::A9);
+    /* Init Encoder (left pin, right pin, click pin)*/
+	myEnc.Init(DaisyPatchSM::D8,DaisyPatchSM::A8,DaisyPatchSM::B7);
 
     /** Configure the Display */
     MyOledDisplay::Config disp_cfg;
@@ -114,12 +114,14 @@ int main(void)
     disp_cfg.driver_config.transport_config.spi_config.periph = SpiHandle::Config::Peripheral::SPI_2;
     disp_cfg.driver_config.transport_config.spi_config.pin_config.sclk = hw.GetPin(DaisyPatchSM::PinBank::D, 10);
     disp_cfg.driver_config.transport_config.spi_config.pin_config.mosi = hw.GetPin(DaisyPatchSM::PinBank::D, 9);
+    disp_cfg.driver_config.transport_config.spi_config.pin_config.miso = Pin(); // Calling Pin() as it's not needed
     disp_cfg.driver_config.transport_config.spi_config.pin_config.nss  = hw.GetPin(DaisyPatchSM::PinBank::D, 1);
     disp_cfg.driver_config.transport_config.pin_config.dc    = hw.GetPin(DaisyPatchSM::PinBank::A, 2);
     disp_cfg.driver_config.transport_config.pin_config.reset = hw.GetPin(DaisyPatchSM::PinBank::A, 3);
+
     /** And Initialize */
     display.Init(disp_cfg);
-
+    
     //briefly display the module name
     std::string str  = "Pluck Echo";
     char *      cstr = &str[0];

@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
   27:dsp/pvoc/phase_vocoder.cpp **** // Naive phase vocoder.
   28:dsp/pvoc/phase_vocoder.cpp **** 
   29:dsp/pvoc/phase_vocoder.cpp **** #include "phase_vocoder.h"
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 2
 
 
   30:dsp/pvoc/phase_vocoder.cpp **** 
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
   54:dsp/pvoc/phase_vocoder.cpp ****     BufferAllocator  allocator_1(buffer[1], buffer_size[1]);
   57              		.loc 1 54 59 view .LVU6
   58 000e 4B68     		ldr	r3, [r1, #4]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 3
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 3
 
 
   59              	.LVL2:
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
   41:./buffer_allocator.h ****     BufferAllocator(void* buffer, size_t size) { Init(buffer, size); }
   42:./buffer_allocator.h **** 
   43:./buffer_allocator.h ****     inline void Init(void* buffer, size_t size)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 4
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 4
 
 
   44:./buffer_allocator.h ****     {
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
   95              		.loc 1 50 5 is_stmt 1 view .LVU14
   96              	.LVL5:
   51:dsp/pvoc/phase_vocoder.cpp **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 5
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 5
 
 
   97              		.loc 1 51 5 view .LVU15
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  138              		.loc 2 45 9 view .LVU31
   46:./buffer_allocator.h ****         Free();
  139              		.loc 2 46 9 view .LVU32
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 6
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 6
 
 
   47:./buffer_allocator.h ****     }
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
   56:dsp/pvoc/phase_vocoder.cpp ****     float*           fft_buffer   = allocator[0]->Allocate<float>(fft_size);
  189              		.loc 1 56 5 is_stmt 1 view .LVU43
  190              	.LVL6:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 7
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 7
 
 
  191              	.LBB97:
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  236              		.loc 1 58 38 is_stmt 0 view .LVU53
  237 004c 16AA     		add	r2, sp, #88
  238 004e 02EB8501 		add	r1, r2, r5, lsl #2
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 8
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 8
 
 
  239 0052 51F82C1C 		ldr	r1, [r1, #-44]
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  279 0068 002D     		cmp	r5, #0
  280 006a 46DD     		ble	.L1
  281              	.LBE106:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 9
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 9
 
 
   61:dsp/pvoc/phase_vocoder.cpp ****     size_t texture_size = (fft_size >> 1) - kHighFrequencyTruncation;
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  322              		.loc 2 54 9 view .LVU76
  323 008a 9045     		cmp	r8, r2
  324              	.LBE112:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 10
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 10
 
 
  325              	.LBE116:
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  367              	.LVL21:
  368              	.L7:
   57:./buffer_allocator.h ****             free_ -= size_bytes;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 11
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 11
 
 
  369              		.loc 2 57 19 view .LVU90
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  411 00c8 2146     		mov	r1, r4
  412 00ca 28BF     		it	cs
  413 00cc 1646     		movcs	r6, r2
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 12
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 12
 
 
  414              	.LVL25:
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
   63:./buffer_allocator.h ****         }
  457              		.loc 2 63 20 view .LVU119
  458 00f6 0021     		movs	r1, #0
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 13
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 13
 
 
  459 00f8 D8E7     		b	.L7
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  494              	.LBB152:
   81:dsp/pvoc/phase_vocoder.cpp ****             = allocator[i]->Allocate<float>(num_textures * texture_size);
  495              		.loc 1 81 9 is_stmt 1 view .LVU125
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 14
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 14
 
 
  496              	.LBB149:
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  538              		.loc 1 83 9 is_stmt 1 view .LVU137
   83:dsp/pvoc/phase_vocoder.cpp ****     }
  539              		.loc 1 83 38 is_stmt 0 view .LVU138
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 15
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 15
 
 
  540 0128 3846     		mov	r0, r7
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  581 014c 0021     		movs	r1, #0
  582 014e EBE7     		b	.L10
  583              	.LVL40:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 16
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 16
 
 
  584              	.L12:
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  631              		@ args = 4, pretend = 0, frame = 0
  632              		@ frame_needed = 0, uses_anonymous_args = 0
   92:dsp/pvoc/phase_vocoder.cpp ****     const float* input_samples  = &input[0].l;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 17
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 17
 
 
  633              		.loc 1 92 5 view .LVU156
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  680 0028 3846     		mov	r0, r7
  681 002a 4946     		mov	r1, r9
   94:dsp/pvoc/phase_vocoder.cpp ****     for(int32_t i = 0; i < num_channels_; ++i)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 18
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 18
 
 
  682              		.loc 1 94 5 discriminator 2 view .LVU169
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  727              		.loc 1 103 5 view .LVU178
  728              	.LBB160:
  729              		.loc 1 103 26 view .LVU179
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 19
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 19
 
 
  730 0000 D0F86431 		ldr	r3, [r0, #356]
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  776              	.LFE4860:
  778              		.text
  779              	.Letext0:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 20
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 20
 
 
  780              		.file 3 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
@@ -1189,17 +1189,17 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 1
  825              		.file 48 "./shy_fft.h"
  826              		.file 49 "dsp/pvoc/phase_vocoder.h"
  827              		.file 50 "<built-in>"
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s 			page 21
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 phase_vocoder.cpp
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s:17     .text._ZN12PhaseVocoder4InitEPPvPjPKfjllf:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s:26     .text._ZN12PhaseVocoder4InitEPPvPjPKfjllf:0000000000000000 _ZN12PhaseVocoder4InitEPPvPjPKfjllf
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s:618    .text._ZN12PhaseVocoder7ProcessERK10ParametersPK10FloatFramePS3_j:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s:626    .text._ZN12PhaseVocoder7ProcessERK10ParametersPK10FloatFramePS3_j:0000000000000000 _ZN12PhaseVocoder7ProcessERK10ParametersPK10FloatFramePS3_j
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s:712    .text._ZN12PhaseVocoder6BufferEv:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccZSsoBj.s:720    .text._ZN12PhaseVocoder6BufferEv:0000000000000000 _ZN12PhaseVocoder6BufferEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s:17     .text._ZN12PhaseVocoder4InitEPPvPjPKfjllf:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s:26     .text._ZN12PhaseVocoder4InitEPPvPjPKfjllf:0000000000000000 _ZN12PhaseVocoder4InitEPPvPjPKfjllf
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s:618    .text._ZN12PhaseVocoder7ProcessERK10ParametersPK10FloatFramePS3_j:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s:626    .text._ZN12PhaseVocoder7ProcessERK10ParametersPK10FloatFramePS3_j:0000000000000000 _ZN12PhaseVocoder7ProcessERK10ParametersPK10FloatFramePS3_j
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s:712    .text._ZN12PhaseVocoder6BufferEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccegg1qq.s:720    .text._ZN12PhaseVocoder6BufferEv:0000000000000000 _ZN12PhaseVocoder6BufferEv
 
 UNDEFINED SYMBOLS
 _ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation

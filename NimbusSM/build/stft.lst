@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   27:dsp/pvoc/stft.cpp **** // STFT with overlap-add.
   28:dsp/pvoc/stft.cpp **** 
   29:dsp/pvoc/stft.cpp **** #include "stft.h"
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 2
 
 
   30:dsp/pvoc/stft.cpp **** #include "stmtemp.h"
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   34              		.loc 1 79 5 view .LVU1
   78:dsp/pvoc/stft.cpp ****     buffer_ptr_  = 0;
   35              		.loc 1 78 1 is_stmt 0 view .LVU2
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 3
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 3
 
 
   36 0000 38B5     		push	{r3, r4, r5, lr}
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   19:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
   20:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // You should have received a copy of the GNU General Public License and
   21:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // a copy of the GCC Runtime Library Exception along with this program;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 4
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 4
 
 
   22:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   76:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** # include <compare>
   77:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #endif
   78:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 5
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 5
 
 
   79:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** namespace std _GLIBCXX_VISIBILITY(default)
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  133:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	{
  134:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  swap(*__a, *__b);
  135:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	}
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 6
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 6
 
 
  136:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     };
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  190:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __last1   A forward iterator.
  191:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __first2  A forward iterator.
  192:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @return   An iterator equal to @p first2+(last1-first1).
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 7
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 7
 
 
  193:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  247:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  This is the simple classic generic implementation.  It will work on
  248:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  temporary expressions, since they are only evaluated once, unlike a
  249:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  preprocessor macro.
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 8
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 8
 
 
  250:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   */
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  304:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	return __b;
  305:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       return __a;
  306:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     }
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 9
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 9
 
 
  307:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  361:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	{
  362:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  for (; __first != __last; ++__result, (void)++__first)
  363:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	    *__result = std::move(*__first);
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 10
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 10
 
 
  364:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  return __result;
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  418:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  using __assignable = conditional<_IsMove,
  419:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 					   is_move_assignable<_Tp>,
  420:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 					   is_copy_assignable<_Tp>>;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 11
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 11
 
 
  421:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  // trivial types can have deleted assignment
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  475:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
  476:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
  477:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<typename _Tp, typename _Ref, typename _Ptr>
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 12
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 12
 
 
  478:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     struct _Deque_iterator;
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  532:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<bool _IsMove,
  533:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	   typename _IIte, typename _ISeq, typename _ICat,
  534:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	   typename _OIte, typename _OSeq, typename _OCat>
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 13
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 13
 
 
  535:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     ::__gnu_debug::_Safe_iterator<_OIte, _OSeq, _OCat>
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  589:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   */
  590:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<typename _II, typename _OI>
  591:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     _GLIBCXX20_CONSTEXPR
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 14
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 14
 
 
  592:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     inline _OI
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  646:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	__copy_move_b(_BI1 __first, _BI1 __last, _BI2 __result)
  647:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	{
  648:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  typename iterator_traits<_BI1>::difference_type
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 15
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 15
 
 
  649:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	    __n = __last - __first;
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  703:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       if (std::is_constant_evaluated())
  704:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	return std::__copy_move_backward<_IsMove, false, _Category>::
  705:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  __copy_move_b(__first, __last, __result);
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 16
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 16
 
 
  706:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #endif
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  760:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
  761:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<bool _IsMove,
  762:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	   typename _II, typename _Ite, typename _Seq, typename _Cat>
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 17
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 17
 
 
  763:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     __gnu_debug::_Safe_iterator<_Ite, _Seq, _Cat>
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  817:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __result A bidirectional iterator.
  818:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @return   result - (last - first)
  819:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 18
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 18
 
 
  820:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  The function has the same effect as move, but starts at the end of the
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   66 0018 6D00     		lsls	r5, r5, #1
   67              	.LBE237:
   68              	.LBE236:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 19
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 19
 
 
   69              	.LBE235:
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  913:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     __fill_a(_FIte __first, _FIte __last, const _Tp& __value)
  914:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     { std::__fill_a1(__first, __last, __value); }
  915:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 20
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 20
 
 
  916:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<typename _Ite, typename _Seq, typename _Cat, typename _Tp>
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  106              		.loc 2 937 5 is_stmt 1 view .LVU25
  107              	.LBB243:
  108              	.LBI243:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 21
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 21
 
 
  913:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     { std::__fill_a1(__first, __last, __value); }
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   45:dsp/pvoc/stft.cpp ****     fft_size_       = fft_size;
  155              		.loc 1 45 1 is_stmt 0 view .LVU38
  156 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 22
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 22
 
 
  157              		.cfi_def_cfa_offset 36
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  199 001a DDE91152 		ldrd	r5, r2, [sp, #68]
  200 001e DDE90F69 		ldrd	r6, r9, [sp, #60]
  201 0022 0192     		str	r2, [sp, #4]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 23
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 23
 
 
  202              	.LBB259:
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   15:./shy_fft.h   **** // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   16:./shy_fft.h   **** // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   17:./shy_fft.h   **** // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 24
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 24
 
 
   18:./shy_fft.h   **** // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   72:./shy_fft.h   **** };
   73:./shy_fft.h   **** template <>
   74:./shy_fft.h   **** struct BitReversalLut<3>
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 25
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 25
 
 
   75:./shy_fft.h   **** {
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  129:./shy_fft.h   ****     inline T cos(T x);
  130:./shy_fft.h   ****     inline T sin(T x);
  131:./shy_fft.h   **** };
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 26
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 26
 
 
  132:./shy_fft.h   **** 
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  186:./shy_fft.h   ****     {
  187:./shy_fft.h   ****         ++cos_ptr_;
  188:./shy_fft.h   ****         --sin_ptr_;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 27
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 27
 
 
  189:./shy_fft.h   ****     }
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  243:./shy_fft.h   ****             sin_cos_lut_[index + 1] = math.sin(angle);
  244:./shy_fft.h   ****         }
  245:./shy_fft.h   ****     }
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 28
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 28
 
 
  246:./shy_fft.h   **** 
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  300:./shy_fft.h   **** struct DirectTransform
  301:./shy_fft.h   **** {
  302:./shy_fft.h   ****   private:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 29
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 29
 
 
  303:./shy_fft.h   ****     enum
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  357:./shy_fft.h   **** 
  358:./shy_fft.h   ****         // Remaining passes.
  359:./shy_fft.h   ****         for(size_t pass = 3; pass < num_passes; ++pass)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 30
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 30
 
 
  360:./shy_fft.h   ****         {
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  414:./shy_fft.h   ****                     Phasor*        phasor,
  415:./shy_fft.h   ****                     size_t         rt_num_passes)
  416:./shy_fft.h   ****     {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 31
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 31
 
 
  417:./shy_fft.h   ****         T*      s;
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  471:./shy_fft.h   **** 
  472:./shy_fft.h   ****             size_t n   = 1 << pass;
  473:./shy_fft.h   ****             size_t n_2 = n >> 1;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 32
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 32
 
 
  474:./shy_fft.h   **** 
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  528:./shy_fft.h   ****     {
  529:./shy_fft.h   ****         o[0] = i[0] + i[1];
  530:./shy_fft.h   ****         o[1] = i[0] - i[1];
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 33
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 33
 
 
  531:./shy_fft.h   ****     }
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  585:./shy_fft.h   ****                 T* d2i = d1i + n;
  586:./shy_fft.h   ****                 phasor->Start(pass);
  587:./shy_fft.h   ****                 for(size_t j = 1; j < n_2; ++j)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 34
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 34
 
 
  588:./shy_fft.h   ****                 {
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  642:./shy_fft.h   ****         for(size_t i = 0; i < size; i += 4)
  643:./shy_fft.h   ****         {
  644:./shy_fft.h   ****             size_t r0 = num_passes <= 8
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 35
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 35
 
 
  645:./shy_fft.h   ****                             ? bit_rev[i >> 2]
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  699:./shy_fft.h   ****                 {
  700:./shy_fft.h   ****                     d1r[j] = sr[j] + si[-j];
  701:./shy_fft.h   ****                     d1i[j] = si[j] - si[n - j];
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 36
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 36
 
 
  702:./shy_fft.h   **** 
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  756:./shy_fft.h   ****                         >> (16 - rt_num_passes);
  757:./shy_fft.h   ****             size_t r1 = r0 + 2 * (rt_size >> 2);
  758:./shy_fft.h   ****             size_t r2 = r0 + 1 * (rt_size >> 2);
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 37
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 37
 
 
  759:./shy_fft.h   ****             size_t r3 = r0 + 3 * (rt_size >> 2);
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  813:./shy_fft.h   **** class ShyFFT
  814:./shy_fft.h   **** {
  815:./shy_fft.h   ****   public:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 38
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 38
 
 
  816:./shy_fft.h   ****     enum
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  265              	.LBB288:
  266              	.LBB285:
  267              	.LBB282:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 39
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 39
 
 
  268              	.LBI262:
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  313              	.LBB279:
  314              	.LBB274:
  315              	.LBB272:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 40
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 40
 
 
  316              	.LBI266:
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  354              		.loc 3 241 54 view .LVU94
  355 0094 03FA0BF3 		lsl	r3, r3, fp
  356              	.LVL19:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 41
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 41
 
 
  241:./shy_fft.h   ****             sin_cos_lut_[index]     = math.cos(angle);
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   69:dsp/pvoc/stft.cpp ****     modifier_      = modifier;
  394              		.loc 1 69 48 view .LVU112
  395 00c4 B2FBF4F4 		udiv	r4, r2, r4
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 42
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 42
 
 
  396              	.LVL21:
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  437 00e4 16EFC33E 		.word	1053028118
  438 00e8 5E836C3F 		.word	1064076126
  439 00ec DB0F4940 		.word	1078530011
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 43
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 43
 
 
  440              		.cfi_endproc
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   97:dsp/pvoc/stft.cpp ****         size_t processed = min(size, hop_size_ - block_size_);
  484              		.loc 1 97 38 is_stmt 0 view .LVU133
  485 0014 C368     		ldr	r3, [r0, #12]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 44
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 44
 
 
  486              	.LVL25:
@@ -2638,7 +2638,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  520              		.loc 1 101 23 is_stmt 0 view .LVU142
  521 0038 DEF83420 		ldr	r2, [lr, #52]
  103:dsp/pvoc/stft.cpp ****             input += stride;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 45
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 45
 
 
  522              		.loc 1 103 38 view .LVU143
@@ -2698,7 +2698,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   28:./stmtemp.h   ****     }
   29:./stmtemp.h   **** 
   30:./stmtemp.h   **** #define JOIN(lhs, rhs) JOIN_1(lhs, rhs)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 46
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 46
 
 
   31:./stmtemp.h   **** #define JOIN_1(lhs, rhs) JOIN_2(lhs, rhs)
@@ -2758,7 +2758,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
   85:./stmtemp.h   **** 
   86:./stmtemp.h   ****         value_ = cos(phs_);
   87:./stmtemp.h   **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 47
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 47
 
 
   88:./stmtemp.h   ****         return value_;
@@ -2818,7 +2818,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  573              		.loc 1 104 13 is_stmt 1 discriminator 2 view .LVU159
  574              	.LVL32:
  105:dsp/pvoc/stft.cpp ****         }
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 48
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 48
 
 
  575              		.loc 1 105 13 discriminator 2 view .LVU160
@@ -2878,7 +2878,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  113:dsp/pvoc/stft.cpp ****             buffer_ptr_ -= buffer_size_;
  114:dsp/pvoc/stft.cpp ****         }
  115:dsp/pvoc/stft.cpp ****         if(block_size_ >= hop_size_)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 49
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 49
 
 
  614              		.loc 1 115 9 is_stmt 1 view .LVU178
@@ -2938,7 +2938,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  656 00d6 DCE7     		b	.L27
  657              	.LBE300:
  658              		.cfi_endproc
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 50
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 50
 
 
  659              	.LFE4858:
@@ -2998,7 +2998,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  132:dsp/pvoc/stft.cpp ****     const float* w          = window_;
  133:dsp/pvoc/stft.cpp ****     for(size_t i = 0; i < fft_size_; ++i)
  702              		.loc 1 133 27 is_stmt 0 view .LVU198
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 51
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 51
 
 
  703 0012 D0F804C0 		ldr	ip, [r0, #4]
@@ -3058,7 +3058,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  740              		.loc 1 135 27 is_stmt 0 view .LVU213
  741 0038 37F913E0 		ldrsh	lr, [r7, r3, lsl #1]
  136:dsp/pvoc/stft.cpp ****         if(source_ptr >= buffer_size_)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 52
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 52
 
 
  742              		.loc 1 136 9 view .LVU214
@@ -3118,7 +3118,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  154:dsp/pvoc/stft.cpp **** #else
  155:dsp/pvoc/stft.cpp ****     if(fft_size_ != FFT::max_size)
  773              		.loc 1 155 5 view .LVU228
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 53
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 53
 
 
  774 005e BCF5805F 		cmp	ip, #4096
@@ -3178,7 +3178,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  841:./shy_fft.h   ****                     byte |= destination;
  842:./shy_fft.h   ****                 }
  843:./shy_fft.h   ****                 destination >>= 1;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 54
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 54
 
 
  844:./shy_fft.h   ****                 source >>= 1;
@@ -3238,7 +3238,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  838              	.LVL55:
  839              	.LBB442:
  428:./shy_fft.h   ****             size_t r2 = r0 + 1 * (rt_size >> 2);
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 55
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 55
 
 
  840              		.loc 3 428 32 view .LVU243
@@ -3298,7 +3298,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  882              	.LBE445:
  423:./shy_fft.h   ****         {
  883              		.loc 3 423 29 view .LVU256
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 56
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 56
 
 
  884 00b6 8345     		cmp	fp, r0
@@ -3358,7 +3358,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  435:./shy_fft.h   ****             d[0] = a + b;
  923              		.loc 3 435 15 view .LVU272
  924 00f8 D2ED006A 		vldr.32	s13, [r2]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 57
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 57
 
 
  434:./shy_fft.h   ****             T b  = s[r2] + s[r3];
@@ -3418,7 +3418,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  966              	.LBE447:
  967              	.LBB448:
  968              	.LBB449:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 58
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 58
 
 
  448:./shy_fft.h   ****             d[i + 4] = s[i] - s[i + 4];
@@ -3478,7 +3478,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  454:./shy_fft.h   ****             d[i + 3] = s[i + 1] - v;
  1008              		.loc 3 454 33 view .LVU301
  1009 017c 53ED076A 		vldr.32	s13, [r3, #-28]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 59
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 59
 
 
  453:./shy_fft.h   ****             d[i + 1] = s[i + 1] + v;
@@ -3538,7 +3538,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1052              	.LBE514:
  137:./shy_fft.h   ****     inline float cos(float x) { return cosf(x); }
  1053              		.loc 3 137 41 is_stmt 1 view .LVU314
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 60
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 60
 
 
  1054              	.LBB515:
@@ -3598,7 +3598,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1099 01d4 0323     		movs	r3, #3
  1100 01d6 0E93     		str	r3, [sp, #56]
  1101              	.LVL79:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 61
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 61
 
 
  1102              	.L54:
@@ -3658,7 +3658,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1145 0218 9C44     		add	ip, ip, r3
  1146 021a 0B46     		mov	r3, r1
  1147 021c 8218     		adds	r2, r0, r2
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 62
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 62
 
 
  1148 021e 5B00     		lsls	r3, r3, #1
@@ -3718,7 +3718,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1191              		.loc 3 484 30 view .LVU346
  1192 0270 009B     		ldr	r3, [sp]
  1193 0272 53F8043C 		ldr	r3, [r3, #-4]	@ float
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 63
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 63
 
 
  484:./shy_fft.h   ****                 di[n_2] = s2r[n_2];
@@ -3778,7 +3778,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1235              	.LBB475:
  1236              	.LBB464:
  251:./shy_fft.h   ****     }
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 64
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 64
 
 
  1237              		.loc 3 251 14 view .LVU360
@@ -3838,7 +3838,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1280 02dc 26ED017A 		vstmdb.32	r6!, {s14}
  499:./shy_fft.h   ****                     di[j]     = v + s1i[j];
  1281              		.loc 3 499 53 view .LVU372
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 65
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 65
 
 
  1282 02e0 B2EC017A 		vldmia.32	r2!, {s14}
@@ -3898,7 +3898,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  257:./shy_fft.h   ****         cos_   = temp;
  1321              		.loc 3 257 38 view .LVU388
  1322 031e 65EEA66A 		vmul.f32	s13, s11, s13
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 66
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 66
 
 
  256:./shy_fft.h   ****         sin_   = cos_ * imag_ + sin_ * real_;
@@ -3958,7 +3958,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  475:./shy_fft.h   ****             {
  1363              		.loc 3 475 33 view .LVU403
  1364 033e F444     		add	ip, ip, lr
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 67
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 67
 
 
  475:./shy_fft.h   ****             {
@@ -4018,7 +4018,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1406 036a 0133     		adds	r3, r3, #1
  463:./shy_fft.h   ****         {
  1407              		.loc 3 463 35 view .LVU417
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 68
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 68
 
 
  1408 036c 0692     		str	r2, [sp, #24]
@@ -4078,7 +4078,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  511:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     {
  1453              		.loc 2 511 5 view .LVU427
  1454              	.LBB482:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 69
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 69
 
 
  1455              	.LBI482:
@@ -4138,7 +4138,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1501              	.LBE528:
  1502              	.LBE527:
  1503              	.LBE526:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 70
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 70
 
 
  1504              	.LBE525:
@@ -4198,7 +4198,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  172:dsp/pvoc/stft.cpp ****     }
  173:dsp/pvoc/stft.cpp **** 
  174:dsp/pvoc/stft.cpp ****     // Compute IFFT. ifft_in is lost.
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 71
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 71
 
 
  175:dsp/pvoc/stft.cpp **** #ifdef USE_ARM_FFT
@@ -4258,7 +4258,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1570              		.loc 3 665 10 view .LVU454
  1571              	.LBB604:
  675:./shy_fft.h   **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 72
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 72
 
 
  1572              		.loc 3 675 28 is_stmt 0 view .LVU455
@@ -4318,7 +4318,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1617              		.loc 3 681 20 view .LVU465
  1618 0416 4FEA5E03 		lsr	r3, lr, #1
  1619 041a 0693     		str	r3, [sp, #24]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 73
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 73
 
 
  1620              	.LVL122:
@@ -4378,7 +4378,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  690:./shy_fft.h   ****                 d2r[0]   = sr[0] - si[0];
  1667              		.loc 3 690 34 view .LVU473
  1668 0466 19ED017A 		vldr.32	s14, [r9, #-4]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 74
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 74
 
 
  1669 046a D8ED007A 		vldr.32	s15, [r8]
@@ -4438,7 +4438,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  247:./shy_fft.h   ****     {
  1708              		.loc 3 247 17 is_stmt 0 view .LVU489
  1709              	.LBE612:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 75
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 75
 
 
  1710              	.LBB613:
@@ -4498,7 +4498,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1752              	.LBB614:
  700:./shy_fft.h   ****                     d1i[j] = si[j] - si[n - j];
  1753              		.loc 3 700 32 view .LVU502
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 76
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 76
 
 
  1754 04e4 93ED007A 		vldr.32	s14, [r3]
@@ -4558,7 +4558,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1794              	.LBB619:
  1795              	.LBB616:
  261:./shy_fft.h   ****     inline T sin() const { return sin_; }
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 77
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 77
 
 
  1796              		.loc 3 261 35 view .LVU517
@@ -4618,7 +4618,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1836              	.LVL135:
  256:./shy_fft.h   ****         sin_   = cos_ * imag_ + sin_ * real_;
  1837              		.loc 3 256 18 view .LVU532
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 78
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 78
 
 
  1838 054e 9BED126A 		vldr.32	s12, [fp, #72]
@@ -4678,7 +4678,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1876              		.loc 3 683 33 view .LVU548
  1877 0576 039A     		ldr	r2, [sp, #12]
  1878 0578 7244     		add	r2, r2, lr
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 79
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 79
 
 
  683:./shy_fft.h   ****             {
@@ -4738,7 +4738,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  1921              		.loc 3 678 51 is_stmt 0 view .LVU560
  1922 05aa 059A     		ldr	r2, [sp, #20]
  678:./shy_fft.h   ****         {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 80
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 80
 
 
  1923              		.loc 3 678 9 view .LVU561
@@ -4798,7 +4798,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  735:./shy_fft.h   ****         {
  1968              		.loc 3 735 29 view .LVU571
  1969 05e8 2033     		adds	r3, r3, #32
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 81
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 81
 
 
  1970              	.LBB633:
@@ -4858,7 +4858,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2009              		.loc 3 745 22 view .LVU586
  2010 0640 53ED016A 		vldr.32	s13, [r3, #-4]
  744:./shy_fft.h   ****             vi       = s[i + 5] + s[i + 7];
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 82
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 82
 
 
  2011              		.loc 3 744 22 view .LVU587
@@ -4918,7 +4918,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2054              	.LBE673:
  2055              	.LBE679:
  137:./shy_fft.h   ****     inline float cos(float x) { return cosf(x); }
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 83
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 83
 
 
  2056              		.loc 3 137 41 is_stmt 1 view .LVU599
@@ -4978,7 +4978,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2098              	.LVL155:
  2099              	.L83:
  761:./shy_fft.h   ****             T b_2 = s[0] - s[2];
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 84
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 84
 
 
  2100              		.loc 3 761 29 view .LVU612
@@ -5038,7 +5038,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2138 06d0 07EB8808 		add	r8, r7, r8, lsl #2
  2139              	.LBE641:
  753:./shy_fft.h   ****         {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 85
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 85
 
 
  2140              		.loc 3 753 29 view .LVU629
@@ -5098,7 +5098,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2179              		.loc 3 753 9 is_stmt 1 view .LVU644
  753:./shy_fft.h   ****         {
  2180              		.loc 3 753 29 view .LVU645
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 86
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 86
 
 
  2181              	.LBB644:
@@ -5158,7 +5158,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2212              		.loc 1 200 46 view .LVU658
  2213 0722 B3FBF8F3 		udiv	r3, r3, r8
  200:dsp/pvoc/stft.cpp **** #endif // USE_ARM_FFT
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 87
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 87
 
 
  2214              		.loc 1 200 58 view .LVU659
@@ -5218,7 +5218,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2245 0748 D469     		ldr	r4, [r2, #28]
  2246              	.LBE683:
  204:dsp/pvoc/stft.cpp ****     {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 88
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 88
 
 
  2247              		.loc 1 204 16 view .LVU671
@@ -5278,7 +5278,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  214:dsp/pvoc/stft.cpp ****         ++destination_ptr;
  2286              		.loc 1 214 9 is_stmt 0 view .LVU687
  2287              	.LBE684:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 89
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 89
 
 
  2288              	.LBE687:
@@ -5338,7 +5338,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2329              	.LBE688:
  221:dsp/pvoc/stft.cpp ****     }
  222:dsp/pvoc/stft.cpp **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 90
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 90
 
 
  223:dsp/pvoc/stft.cpp ****     ++done_;
@@ -5398,7 +5398,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2370              	.LBE577:
  2371              	.LBE585:
  2372              	.LBE593:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 91
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 91
 
 
  2373              	.LBE689:
@@ -5458,7 +5458,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2416              		.loc 1 161 21 view .LVU727
  2417 07be 05E0     		b	.L62
  2418              	.L162:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 92
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 92
 
 
  2419              		.align	2
@@ -5518,7 +5518,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2461 07e4 06EB8303 		add	r3, r6, r3, lsl #2
  328:./shy_fft.h   ****             d[3] = s[r2] - s[r3];
  2462              		.loc 3 328 29 view .LVU740
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 93
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 93
 
 
  2463 07e8 01F50058 		add	r8, r1, #8192
@@ -5578,7 +5578,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2501              	.LVL195:
  332:./shy_fft.h   ****             d[2] = a - b;
  2502              		.loc 3 332 22 view .LVU757
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 94
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 94
 
 
  2503 0836 77EE876A 		vadd.f32	s13, s15, s14
@@ -5638,7 +5638,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  340:./shy_fft.h   ****         {
  2544              		.loc 3 340 29 view .LVU771
  2545 0864 9842     		cmp	r0, r3
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 95
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 95
 
 
  2546              	.LBB547:
@@ -5698,7 +5698,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  350:./shy_fft.h   ****             d[i + 3] = s[i + 1] - v;
  2587              		.loc 3 350 22 view .LVU785
  2588 089e 42ED076A 		vstr.32	s13, [r2, #-28]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 96
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 96
 
 
  351:./shy_fft.h   **** 
@@ -5758,7 +5758,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2629              		.loc 3 340 29 view .LVU799
  2630 08d2 BDD1     		bne	.L63
  2631 08d4 09F10403 		add	r3, r9, #4
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 97
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 97
 
 
  2632 08d8 CDF81490 		str	r9, [sp, #20]
@@ -5818,7 +5818,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2678              	.LBE574:
  369:./shy_fft.h   **** 
  2679              		.loc 3 369 20 is_stmt 0 view .LVU808
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 98
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 98
 
 
  2680 0900 4FEA5E02 		lsr	r2, lr, #1
@@ -5878,7 +5878,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2725              		.loc 3 251 14 view .LVU817
  2726 0946 5846     		mov	r0, fp
  2727              	.LBE557:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 99
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 99
 
 
  2728              	.LBE556:
@@ -5938,7 +5938,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2767              	.LVL209:
  2768              	.LBB561:
  2769              	.LBI556:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 100
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 100
 
 
  247:./shy_fft.h   ****     {
@@ -5998,7 +5998,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2808              		.loc 3 392 33 view .LVU848
  2809 09b2 91ED006A 		vldr.32	s12, [r1]
  391:./shy_fft.h   ****                     dr[j]  = s1r[j] + v;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 101
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 101
 
 
  2810              		.loc 3 391 28 view .LVU849
@@ -6058,7 +6058,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2850              	.LBB564:
  2851              	.LBI564:
  254:./shy_fft.h   ****     {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 102
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 102
 
 
  2852              		.loc 3 254 17 is_stmt 1 view .LVU864
@@ -6118,7 +6118,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  371:./shy_fft.h   ****             {
  2892              		.loc 3 371 13 is_stmt 1 view .LVU879
  371:./shy_fft.h   ****             {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 103
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 103
 
 
  2893              		.loc 3 371 43 is_stmt 0 view .LVU880
@@ -6178,7 +6178,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  2935              		.loc 3 359 9 is_stmt 1 view .LVU892
  359:./shy_fft.h   ****         {
  2936              		.loc 3 359 35 is_stmt 0 view .LVU893
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 104
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 104
 
 
  2937 0a52 059A     		ldr	r2, [sp, #20]
@@ -6238,7 +6238,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  718:./shy_fft.h   ****             }
  2981              		.loc 3 718 19 view .LVU904
  2982 0a7c 94E5     		b	.L73
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 105
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 105
 
 
  2983              	.LVL231:
@@ -6298,7 +6298,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3027              		.loc 2 505 5 view .LVU914
  3028              	.LBB712:
  3029              	.LBI700:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 106
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 106
 
 
  463:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     {
@@ -6358,7 +6358,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3073              		.loc 1 187 22 view .LVU925
  3074              	.LBE705:
  3075              	.LBE707:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 107
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 107
 
 
  3076              	.LBE710:
@@ -6418,7 +6418,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  562:./shy_fft.h   ****         T*      d = output;
  3121              		.loc 3 562 17 view .LVU937
  3122 0abe DDF83480 		ldr	r8, [sp, #52]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 108
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 108
 
 
  3123              	.LBB756:
@@ -6478,7 +6478,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3168              	.LBB754:
  3169              	.LBB751:
  575:./shy_fft.h   ****                 T* d1r = d + i;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 109
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 109
 
 
  3170              		.loc 3 575 29 view .LVU947
@@ -6538,7 +6538,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3213              		.loc 3 582 30 view .LVU958
  3214 0b2e 0699     		ldr	r1, [sp, #24]
  581:./shy_fft.h   ****                 d2r[n_2] = si[n_2] * T(2);
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 110
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 110
 
 
  3215              		.loc 3 581 26 view .LVU959
@@ -6598,7 +6598,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3254              		.loc 3 582 26 view .LVU974
  3255 0b66 47ED017A 		vstr.32	s15, [r7, #-4]
  3256              	.LBB736:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 111
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 111
 
 
  3257              	.LBB733:
@@ -6658,7 +6658,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  590:./shy_fft.h   **** 
  3298              		.loc 3 590 36 view .LVU988
  3299 0b98 31ED017A 		vldmdb.32	r1!, {s14}
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 112
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 112
 
 
  590:./shy_fft.h   **** 
@@ -6718,7 +6718,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3341              	.LBI741:
  262:./shy_fft.h   **** 
  3342              		.loc 3 262 14 is_stmt 1 view .LVU1002
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 113
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 113
 
 
  262:./shy_fft.h   **** 
@@ -6778,7 +6778,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3381              		.loc 3 256 11 view .LVU1018
  3382 0bfe E6EE267A 		vfma.f32	s15, s12, s13
  3383              	.LVL259:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 114
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 114
 
 
  257:./shy_fft.h   ****         cos_   = temp;
@@ -6838,7 +6838,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3423 0c26 029A     		ldr	r2, [sp, #8]
  3424 0c28 7244     		add	r2, r2, lr
  3425 0c2a 0292     		str	r2, [sp, #8]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 115
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 115
 
 
  3426              	.LVL264:
@@ -6898,7 +6898,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3467 0c5a 7FF439AF 		bne	.L87
  3468              	.LBE757:
  617:./shy_fft.h   ****         {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 116
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 116
 
 
  3469              		.loc 3 617 9 is_stmt 0 view .LVU1047
@@ -6958,7 +6958,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  628:./shy_fft.h   ****             d[i + 2] = s[i + 2] * T(2);
  3512              		.loc 3 628 22 view .LVU1059
  3513 0c98 02ED047A 		vstr.32	s14, [r2, #-16]
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 117
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 117
 
 
  629:./shy_fft.h   ****             d[i + 6] = s[i + 6] * T(2);
@@ -7018,7 +7018,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3553              	.LBE784:
  3554              	.LBE789:
  3555              	.LBE794:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 118
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 118
 
 
  3556              	.LBE799:
@@ -7078,7 +7078,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3599 0d0c 1031     		adds	r1, r1, #16
  3600              	.LBE766:
  3601              	.LBB767:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 119
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 119
 
 
  642:./shy_fft.h   ****         {
@@ -7138,7 +7138,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3642 0d3a 9A00     		lsls	r2, r3, #2
  3643              	.LBE769:
  642:./shy_fft.h   ****         {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 120
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 120
 
 
  3644              		.loc 3 642 29 view .LVU1100
@@ -7198,7 +7198,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3683              		.loc 3 657 19 view .LVU1115
  3684 0d72 83ED005A 		vstr.32	s10, [r3]
  3685              	.LVL289:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 121
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 121
 
 
  646:./shy_fft.h   ****                                   >> (16 - num_passes);
@@ -7258,7 +7258,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3726              	.LBE786:
  3727              	.LBE791:
  3728              	.LBE796:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 122
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 122
 
 
  3729              	.LBE801:
@@ -7318,7 +7318,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3773              	.LBE533:
  3774              	.LBE534:
  3775              	.LBE535:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 123
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 123
 
 
  3776              	.LBE576:
@@ -7378,7 +7378,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3822 0dc4 1B6A     		ldr	r3, [r3, #32]
  3823 0dc6 0D93     		str	r3, [sp, #52]
  3824              	.LVL299:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 124
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 124
 
 
  3825              	.LBB804:
@@ -7438,7 +7438,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3868              	.L71:
  730:./shy_fft.h   ****         }
  3869              		.loc 3 730 32 view .LVU1159
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 125
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 125
 
 
  3870 0ddc 0422     		movs	r2, #4
@@ -7498,7 +7498,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3914 0df0 5B68     		ldr	r3, [r3, #4]
  3915 0df2 1093     		str	r3, [sp, #64]
  3916              	.LBB806:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 126
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 126
 
 
  3917              	.LBB677:
@@ -7558,7 +7558,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  3964              		.loc 2 426 23 is_stmt 0 view .LVU1176
  3965 0df8 4FF48042 		mov	r2, #16384
  3966 0dfc 4146     		mov	r1, r8
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 127
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 127
 
 
  3967 0dfe 5046     		mov	r0, r10
@@ -7618,7 +7618,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  4015      58D838B8 
  4015      78F80484 
  4015      44C4
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 128
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 128
 
 
  4016 0024 24A464E4 		.ascii	"$\244d\344\024\224T\3244\264t\364\014\214L\314,\254"
@@ -7678,7 +7678,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  4026      1797
  4027 00ea 57D737B7 		.ascii	"W\3277\267w\367\017\217O\317/\257o\357\037\237_\337"
  4027      77F70F8F 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 129
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 129
 
 
  4027      4FCF2FAF 
@@ -7733,29 +7733,29 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 1
  4074              		.file 48 "dsp/pvoc/frame_transformation.h"
  4075              		.file 49 "dsp/pvoc/stft.h"
  4076              		.file 50 "<built-in>"
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s 			page 130
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s 			page 130
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stft.cpp
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:17     .text._ZN4STFT5ResetEv:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:26     .text._ZN4STFT5ResetEv:0000000000000000 _ZN4STFT5ResetEv
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:139    .text._ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:147    .text._ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation:0000000000000000 _ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:437    .text._ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation:00000000000000e4 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:444    .text._ZN4STFT7ProcessERK10ParametersPKfPfjj:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:452    .text._ZN4STFT7ProcessERK10ParametersPKfPfjj:0000000000000000 _ZN4STFT7ProcessERK10ParametersPKfPfjj
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:662    .text._ZN4STFT6BufferEv:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:670    .text._ZN4STFT6BufferEv:0000000000000000 _ZN4STFT6BufferEv
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:1429   .text._ZN4STFT6BufferEv:0000000000000388 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:4013   .rodata._ZN6ShyFFTIfLj4096E14RotationPhasorE16bit_rev_256_lut_E:0000000000000000 _ZN6ShyFFTIfLj4096E14RotationPhasorE16bit_rev_256_lut_E
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:1436   .text._ZN4STFT6BufferEv:0000000000000390 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:2421   .text._ZN4STFT6BufferEv:00000000000007c0 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:2431   .text._ZN4STFT6BufferEv:00000000000007c4 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:3097   .text._ZN4STFT6BufferEv:0000000000000ab0 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:3104   .text._ZN4STFT6BufferEv:0000000000000ab8 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:3998   .text._ZN4STFT6BufferEv:0000000000000e0c $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccmtJHk7.s:4010   .rodata._ZN6ShyFFTIfLj4096E14RotationPhasorE16bit_rev_256_lut_E:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:17     .text._ZN4STFT5ResetEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:26     .text._ZN4STFT5ResetEv:0000000000000000 _ZN4STFT5ResetEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:139    .text._ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:147    .text._ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation:0000000000000000 _ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:437    .text._ZN4STFT4InitEP6ShyFFTIfLj4096E14RotationPhasorEjjPfS4_PKfPsP19FrameTransformation:00000000000000e4 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:444    .text._ZN4STFT7ProcessERK10ParametersPKfPfjj:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:452    .text._ZN4STFT7ProcessERK10ParametersPKfPfjj:0000000000000000 _ZN4STFT7ProcessERK10ParametersPKfPfjj
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:662    .text._ZN4STFT6BufferEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:670    .text._ZN4STFT6BufferEv:0000000000000000 _ZN4STFT6BufferEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:1429   .text._ZN4STFT6BufferEv:0000000000000388 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:4013   .rodata._ZN6ShyFFTIfLj4096E14RotationPhasorE16bit_rev_256_lut_E:0000000000000000 _ZN6ShyFFTIfLj4096E14RotationPhasorE16bit_rev_256_lut_E
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:1436   .text._ZN4STFT6BufferEv:0000000000000390 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:2421   .text._ZN4STFT6BufferEv:00000000000007c0 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:2431   .text._ZN4STFT6BufferEv:00000000000007c4 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:3097   .text._ZN4STFT6BufferEv:0000000000000ab0 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:3104   .text._ZN4STFT6BufferEv:0000000000000ab8 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:3998   .text._ZN4STFT6BufferEv:0000000000000e0c $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccjmQ4hY.s:4010   .rodata._ZN6ShyFFTIfLj4096E14RotationPhasorE16bit_rev_256_lut_E:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 memset
