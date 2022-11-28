@@ -124,8 +124,8 @@ void AudioCallback(AudioHandle::InputBuffer  in,
 
     for(size_t i = 0; i < size; i++)
     {
-        input[i].l  = in[0][i] * .5f + in[2][i] * .5f;
-        input[i].r  = in[1][i] * .5f + in[3][i] * .5f;
+        input[i].l  = in[0][i] * .5f;
+        input[i].r  = in[1][i] * .5f;
         output[i].l = output[i].r = 0.f;
     }
 
@@ -133,8 +133,8 @@ void AudioCallback(AudioHandle::InputBuffer  in,
 
     for(size_t i = 0; i < size; i++)
     {
-        out[0][i] = out[2][i] = output[i].l;
-        out[1][i] = out[3][i] = output[i].r;
+        out[0][i] = output[i].l;
+        out[1][i] = output[i].r;
     }
 }
 
@@ -169,7 +169,6 @@ int main(void)
     float sample_rate = hw.AudioSampleRate();
 
     // Set up Encoder and OLED for PatchSM
-
     /* Init Encoder (left pin, right pin, click pin)*/
 	myEnc.Init(DaisyPatchSM::D8,DaisyPatchSM::A8,DaisyPatchSM::B7);
 
@@ -185,6 +184,7 @@ int main(void)
     disp_cfg.driver_config.transport_config.pin_config.reset = hw.GetPin(DaisyPatchSM::PinBank::A, 3);
     /** And Initialize */
     display.Init(disp_cfg);
+    
 
     //init the luts
     InitResources(sample_rate);
@@ -267,7 +267,8 @@ int main(void)
 void Controls()
 {
     hw.ProcessAllControls();
-
+    myEnc.Debounce();
+    
     //process knobs
     for(int i = 0; i < 4; i++)
     {

@@ -24,6 +24,8 @@ DAISYSP_DIR = ../../DaisySP
 #C_DEFS += \
 #-DUSE_ARM_FFT \
 
+OPT = -Os 
+
 C_INCLUDES += \
 -I. \
 -Idsp \

@@ -42,7 +42,7 @@
 using namespace daisy;
 using namespace patch_sm;
 
-DaisyPatchSM         hw;
+DaisyPatchSM hw1;
 
 namespace torus {
   
@@ -88,7 +88,7 @@ void CvScaler::Read(Patch* patch, PerformanceState* performance_state) {
   // Process all CVs / pots.
   for (size_t i = 0; i < 4; i++) {
     const ChannelSettings& settings = channel_settings_[i];
-    float value = hw.controls[i].Value();
+    float value = hw1.controls[i].Value();
 
     switch (settings.law) {
       case LAW_QUADRATIC_BIPOLAR:

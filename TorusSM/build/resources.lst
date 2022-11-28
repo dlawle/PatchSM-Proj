@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
   29:resources.cpp **** // Automatically generated with:
   30:resources.cpp **** // make resources
   31:resources.cpp **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 2
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 2
 
 
   32:resources.cpp **** // This is the only thing we'd need DaisySP for, so I'll just define it here
@@ -104,459 +104,459 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
   52              		.loc 1 46 9 discriminator 2 view .LVU6
   53              	.LBB8:
   54              	.LBI8:
-  55              		.file 2 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
-   1:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // -*- C++ -*- C forwarding header.
-   2:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-   3:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Copyright (C) 1997-2020 Free Software Foundation, Inc.
-   4:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
-   5:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // This file is part of the GNU ISO C++ Library.  This library is free
-   6:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // software; you can redistribute it and/or modify it under the
-   7:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // terms of the GNU General Public License as published by the
-   8:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Free Software Foundation; either version 3, or (at your option)
-   9:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // any later version.
-  10:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  11:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // This library is distributed in the hope that it will be useful,
-  12:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
-  13:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 3
+  55              		.file 2 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+   1:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // -*- C++ -*- C forwarding header.
+   2:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+   3:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // Copyright (C) 1997-2020 Free Software Foundation, Inc.
+   4:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** //
+   5:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // software; you can redistribute it and/or modify it under the
+   7:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // terms of the GNU General Public License as published by the
+   8:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // Free Software Foundation; either version 3, or (at your option)
+   9:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // any later version.
+  10:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  11:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // This library is distributed in the hope that it will be useful,
+  12:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 3
 
 
-  14:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // GNU General Public License for more details.
-  15:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  16:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Under Section 7 of GPL version 3, you are granted additional
-  17:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // permissions described in the GCC Runtime Library Exception, version
-  18:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // 3.1, as published by the Free Software Foundation.
-  19:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  20:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // You should have received a copy of the GNU General Public License and
-  21:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // a copy of the GCC Runtime Library Exception along with this program;
-  22:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
-  23:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // <http://www.gnu.org/licenses/>.
-  24:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  25:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** /** @file include/cmath
-  26:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  This is a Standard C++ Library file.  You should @c \#include this file
-  27:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  in your programs, rather than any of the @a *.h implementation files.
-  28:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *
-  29:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  This is the C++ version of the Standard C Library header @c math.h,
-  30:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  and its contents are (mostly) the same as that header, but are all
-  31:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  contained in the namespace @c std (except for names which are defined
-  32:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  as macros in C).
-  33:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  */
-  34:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  35:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
-  36:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // ISO C++ 14882: 26.5  C library
-  37:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
-  38:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  39:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #pragma GCC system_header
-  40:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  41:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/c++config.h>
-  42:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/cpp_type_traits.h>
-  43:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <ext/type_traits.h>
-  44:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #define _GLIBCXX_INCLUDE_NEXT_C_HEADERS
-  45:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include_next <math.h>
-  46:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS
-  47:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/std_abs.h>
-  48:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  49:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef _GLIBCXX_CMATH
-  50:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #define _GLIBCXX_CMATH 1
-  51:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  52:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Get rid of those macros defined in <math.h> in lieu of real functions.
-  53:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef div
-  54:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef acos
-  55:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef asin
-  56:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef atan
-  57:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef atan2
-  58:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef ceil
-  59:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef cos
-  60:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef cosh
-  61:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef exp
-  62:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef fabs
-  63:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef floor
-  64:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef fmod
-  65:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef frexp
-  66:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef ldexp
-  67:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef log
-  68:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef log10
-  69:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef modf
-  70:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef pow
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 4
+  14:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // GNU General Public License for more details.
+  15:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  16:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // Under Section 7 of GPL version 3, you are granted additional
+  17:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // permissions described in the GCC Runtime Library Exception, version
+  18:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // 3.1, as published by the Free Software Foundation.
+  19:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  20:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // You should have received a copy of the GNU General Public License and
+  21:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // <http://www.gnu.org/licenses/>.
+  24:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  25:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** /** @file include/cmath
+  26:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****  *  This is a Standard C++ Library file.  You should @c \#include this file
+  27:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****  *  in your programs, rather than any of the @a *.h implementation files.
+  28:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****  *
+  29:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****  *  This is the C++ version of the Standard C Library header @c math.h,
+  30:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****  *  and its contents are (mostly) the same as that header, but are all
+  31:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****  *  contained in the namespace @c std (except for names which are defined
+  32:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****  *  as macros in C).
+  33:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****  */
+  34:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  35:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** //
+  36:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // ISO C++ 14882: 26.5  C library
+  37:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** //
+  38:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  39:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #pragma GCC system_header
+  40:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  41:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #include <bits/c++config.h>
+  42:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #include <bits/cpp_type_traits.h>
+  43:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #include <ext/type_traits.h>
+  44:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #define _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  45:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #include_next <math.h>
+  46:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  47:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #include <bits/std_abs.h>
+  48:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  49:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef _GLIBCXX_CMATH
+  50:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #define _GLIBCXX_CMATH 1
+  51:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  52:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** // Get rid of those macros defined in <math.h> in lieu of real functions.
+  53:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef div
+  54:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef acos
+  55:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef asin
+  56:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef atan
+  57:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef atan2
+  58:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef ceil
+  59:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef cos
+  60:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef cosh
+  61:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef exp
+  62:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef fabs
+  63:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef floor
+  64:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef fmod
+  65:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef frexp
+  66:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef ldexp
+  67:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef log
+  68:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef log10
+  69:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef modf
+  70:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef pow
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 4
 
 
-  71:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sin
-  72:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sinh
-  73:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sqrt
-  74:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef tan
-  75:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef tanh
-  76:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  77:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** extern "C++"
-  78:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** {
-  79:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** namespace std _GLIBCXX_VISIBILITY(default)
-  80:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** {
-  81:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
-  82:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  83:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::acos;
-  84:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  85:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
-  86:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
-  87:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   acos(float __x)
-  88:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_acosf(__x); }
-  89:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  90:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
-  91:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   acos(long double __x)
-  92:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_acosl(__x); }
-  93:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
-  94:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-  95:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
-  96:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
-  97:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
-  98:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
-  99:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     acos(_Tp __x)
- 100:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_acos(__x); }
- 101:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 102:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::asin;
- 103:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 104:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 105:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 106:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   asin(float __x)
- 107:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_asinf(__x); }
- 108:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 109:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 110:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   asin(long double __x)
- 111:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_asinl(__x); }
- 112:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 113:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 114:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 115:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 116:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
- 117:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 118:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     asin(_Tp __x)
- 119:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_asin(__x); }
- 120:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 121:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::atan;
- 122:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 123:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 124:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 125:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan(float __x)
- 126:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atanf(__x); }
- 127:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 5
+  71:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef sin
+  72:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef sinh
+  73:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef sqrt
+  74:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef tan
+  75:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #undef tanh
+  76:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  77:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** extern "C++"
+  78:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** {
+  79:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** namespace std _GLIBCXX_VISIBILITY(default)
+  80:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** {
+  81:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  82:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  83:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::acos;
+  84:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  85:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+  86:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+  87:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   acos(float __x)
+  88:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_acosf(__x); }
+  89:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  90:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+  91:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   acos(long double __x)
+  92:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_acosl(__x); }
+  93:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+  94:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+  95:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+  96:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+  97:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+  98:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+  99:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     acos(_Tp __x)
+ 100:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_acos(__x); }
+ 101:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 102:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::asin;
+ 103:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 104:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 105:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 106:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   asin(float __x)
+ 107:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_asinf(__x); }
+ 108:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 109:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 110:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   asin(long double __x)
+ 111:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_asinl(__x); }
+ 112:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 113:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 114:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 115:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 116:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 117:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 118:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     asin(_Tp __x)
+ 119:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_asin(__x); }
+ 120:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 121:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::atan;
+ 122:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 123:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 124:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 125:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   atan(float __x)
+ 126:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_atanf(__x); }
+ 127:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 5
 
 
- 128:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 129:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan(long double __x)
- 130:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atanl(__x); }
- 131:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 132:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 133:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 134:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 135:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
- 136:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 137:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     atan(_Tp __x)
- 138:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_atan(__x); }
- 139:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 140:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::atan2;
- 141:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 142:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 143:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 144:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan2(float __y, float __x)
- 145:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atan2f(__y, __x); }
- 146:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 147:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 148:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan2(long double __y, long double __x)
- 149:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atan2l(__y, __x); }
- 150:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 151:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 152:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp, typename _Up>
- 153:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 154:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
- 155:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     atan2(_Tp __y, _Up __x)
- 156:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     {
- 157:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
- 158:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       return atan2(__type(__y), __type(__x));
- 159:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     }
- 160:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 161:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::ceil;
- 162:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 163:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 164:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 165:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ceil(float __x)
- 166:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ceilf(__x); }
- 167:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 168:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 169:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ceil(long double __x)
- 170:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ceill(__x); }
- 171:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 172:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 173:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 174:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 175:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
- 176:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 177:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     ceil(_Tp __x)
- 178:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_ceil(__x); }
- 179:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 180:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::cos;
- 181:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 182:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 183:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 184:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cos(float __x)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 6
+ 128:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 129:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   atan(long double __x)
+ 130:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_atanl(__x); }
+ 131:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 132:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 133:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 134:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 135:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 136:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 137:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     atan(_Tp __x)
+ 138:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_atan(__x); }
+ 139:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 140:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::atan2;
+ 141:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 142:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 143:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 144:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   atan2(float __y, float __x)
+ 145:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_atan2f(__y, __x); }
+ 146:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 147:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 148:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   atan2(long double __y, long double __x)
+ 149:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_atan2l(__y, __x); }
+ 150:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 151:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 152:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp, typename _Up>
+ 153:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 154:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 155:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     atan2(_Tp __y, _Up __x)
+ 156:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     {
+ 157:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 158:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****       return atan2(__type(__y), __type(__x));
+ 159:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     }
+ 160:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 161:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::ceil;
+ 162:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 163:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 164:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 165:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   ceil(float __x)
+ 166:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_ceilf(__x); }
+ 167:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 168:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 169:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   ceil(long double __x)
+ 170:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_ceill(__x); }
+ 171:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 172:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 173:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 174:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 175:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 176:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 177:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     ceil(_Tp __x)
+ 178:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_ceil(__x); }
+ 179:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 180:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::cos;
+ 181:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 182:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 183:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 184:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   cos(float __x)
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 6
 
 
- 185:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_cosf(__x); }
- 186:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 187:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 188:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cos(long double __x)
- 189:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_cosl(__x); }
- 190:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 191:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 192:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 193:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 194:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
- 195:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 196:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     cos(_Tp __x)
- 197:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_cos(__x); }
- 198:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 199:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::cosh;
- 200:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 201:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 202:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 203:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cosh(float __x)
- 204:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_coshf(__x); }
- 205:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 206:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 207:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cosh(long double __x)
- 208:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_coshl(__x); }
- 209:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 210:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 211:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 212:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 213:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
- 214:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 215:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     cosh(_Tp __x)
- 216:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_cosh(__x); }
- 217:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 218:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::exp;
- 219:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 220:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 221:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 222:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   exp(float __x)
- 223:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_expf(__x); }
- 224:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 225:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 226:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   exp(long double __x)
- 227:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_expl(__x); }
- 228:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 229:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 230:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 231:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 232:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
- 233:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 234:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     exp(_Tp __x)
- 235:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_exp(__x); }
- 236:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 237:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::fabs;
- 238:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 239:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 240:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 241:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fabs(float __x)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 7
+ 185:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_cosf(__x); }
+ 186:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 187:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 188:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   cos(long double __x)
+ 189:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_cosl(__x); }
+ 190:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 191:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 192:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 193:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 194:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 195:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 196:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     cos(_Tp __x)
+ 197:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_cos(__x); }
+ 198:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 199:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::cosh;
+ 200:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 201:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 202:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 203:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   cosh(float __x)
+ 204:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_coshf(__x); }
+ 205:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 206:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 207:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   cosh(long double __x)
+ 208:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_coshl(__x); }
+ 209:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 210:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 211:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 212:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 213:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 214:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 215:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     cosh(_Tp __x)
+ 216:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_cosh(__x); }
+ 217:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 218:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::exp;
+ 219:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 220:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 221:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 222:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   exp(float __x)
+ 223:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_expf(__x); }
+ 224:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 225:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 226:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   exp(long double __x)
+ 227:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_expl(__x); }
+ 228:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 229:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 230:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 231:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 232:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 233:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 234:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     exp(_Tp __x)
+ 235:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_exp(__x); }
+ 236:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 237:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::fabs;
+ 238:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 239:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 240:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 241:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   fabs(float __x)
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 7
 
 
- 242:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fabsf(__x); }
- 243:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 244:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 245:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fabs(long double __x)
- 246:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fabsl(__x); }
- 247:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 248:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 249:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 250:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 251:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
- 252:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 253:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     fabs(_Tp __x)
- 254:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_fabs(__x); }
- 255:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 256:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::floor;
- 257:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 258:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 259:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 260:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   floor(float __x)
- 261:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_floorf(__x); }
- 262:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 263:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 264:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   floor(long double __x)
- 265:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_floorl(__x); }
- 266:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 267:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 268:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 269:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 270:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
- 271:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 272:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     floor(_Tp __x)
- 273:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_floor(__x); }
- 274:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 275:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::fmod;
- 276:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 277:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 278:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 279:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fmod(float __x, float __y)
- 280:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fmodf(__x, __y); }
- 281:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 282:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 283:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fmod(long double __x, long double __y)
- 284:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fmodl(__x, __y); }
- 285:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 286:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 287:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp, typename _Up>
- 288:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 289:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
- 290:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     fmod(_Tp __x, _Up __y)
- 291:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     {
- 292:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
- 293:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       return fmod(__type(__x), __type(__y));
- 294:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     }
- 295:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 296:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::frexp;
- 297:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 298:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 8
+ 242:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_fabsf(__x); }
+ 243:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 244:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 245:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   fabs(long double __x)
+ 246:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_fabsl(__x); }
+ 247:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 248:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 249:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 250:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 251:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 252:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 253:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     fabs(_Tp __x)
+ 254:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_fabs(__x); }
+ 255:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 256:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::floor;
+ 257:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 258:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 259:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 260:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   floor(float __x)
+ 261:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_floorf(__x); }
+ 262:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 263:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 264:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   floor(long double __x)
+ 265:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_floorl(__x); }
+ 266:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 267:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 268:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 269:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 270:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 271:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 272:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     floor(_Tp __x)
+ 273:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_floor(__x); }
+ 274:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 275:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::fmod;
+ 276:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 277:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 278:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 279:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   fmod(float __x, float __y)
+ 280:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_fmodf(__x, __y); }
+ 281:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 282:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 283:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   fmod(long double __x, long double __y)
+ 284:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_fmodl(__x, __y); }
+ 285:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 286:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 287:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp, typename _Up>
+ 288:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 289:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 290:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     fmod(_Tp __x, _Up __y)
+ 291:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     {
+ 292:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 293:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****       return fmod(__type(__x), __type(__y));
+ 294:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     }
+ 295:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 296:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::frexp;
+ 297:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 298:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 8
 
 
- 299:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline float
- 300:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   frexp(float __x, int* __exp)
- 301:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_frexpf(__x, __exp); }
- 302:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 303:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline long double
- 304:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   frexp(long double __x, int* __exp)
- 305:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_frexpl(__x, __exp); }
- 306:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 307:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 308:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 309:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 310:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
- 311:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 312:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     frexp(_Tp __x, int* __exp)
- 313:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_frexp(__x, __exp); }
- 314:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 315:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::ldexp;
- 316:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 317:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 318:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 319:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ldexp(float __x, int __exp)
- 320:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ldexpf(__x, __exp); }
- 321:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 322:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 323:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ldexp(long double __x, int __exp)
- 324:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ldexpl(__x, __exp); }
- 325:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 326:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 327:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 328:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 329:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
- 330:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 331:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     ldexp(_Tp __x, int __exp)
- 332:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_ldexp(__x, __exp); }
- 333:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 334:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::log;
- 335:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 336:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 337:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 338:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   log(float __x)
- 339:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_logf(__x); }
- 340:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 341:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 342:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   log(long double __x)
- 343:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_logl(__x); }
- 344:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 345:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 346:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 347:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 348:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
- 349:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 350:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     log(_Tp __x)
- 351:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_log(__x); }
- 352:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 353:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::log10;
- 354:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 355:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 9
+ 299:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline float
+ 300:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   frexp(float __x, int* __exp)
+ 301:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_frexpf(__x, __exp); }
+ 302:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 303:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline long double
+ 304:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   frexp(long double __x, int* __exp)
+ 305:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_frexpl(__x, __exp); }
+ 306:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 307:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 308:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 309:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 310:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 311:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 312:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     frexp(_Tp __x, int* __exp)
+ 313:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_frexp(__x, __exp); }
+ 314:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 315:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::ldexp;
+ 316:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 317:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 318:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 319:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   ldexp(float __x, int __exp)
+ 320:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_ldexpf(__x, __exp); }
+ 321:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 322:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 323:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   ldexp(long double __x, int __exp)
+ 324:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_ldexpl(__x, __exp); }
+ 325:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 326:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 327:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 328:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 329:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 330:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 331:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     ldexp(_Tp __x, int __exp)
+ 332:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_ldexp(__x, __exp); }
+ 333:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 334:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::log;
+ 335:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 336:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 337:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 338:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   log(float __x)
+ 339:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_logf(__x); }
+ 340:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 341:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 342:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   log(long double __x)
+ 343:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_logl(__x); }
+ 344:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 345:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 346:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 347:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 348:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 349:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 350:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     log(_Tp __x)
+ 351:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_log(__x); }
+ 352:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 353:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::log10;
+ 354:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 355:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 9
 
 
- 356:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 357:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   log10(float __x)
- 358:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_log10f(__x); }
- 359:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 360:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 361:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   log10(long double __x)
- 362:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_log10l(__x); }
- 363:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 364:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 365:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
- 366:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 367:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
- 368:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
- 369:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     log10(_Tp __x)
- 370:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_log10(__x); }
- 371:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 372:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::modf;
- 373:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 374:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 375:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline float
- 376:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   modf(float __x, float* __iptr)
- 377:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_modff(__x, __iptr); }
- 378:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 379:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline long double
- 380:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   modf(long double __x, long double* __iptr)
- 381:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_modfl(__x, __iptr); }
- 382:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 383:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 384:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::pow;
- 385:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 386:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 387:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 388:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(float __x, float __y)
- 389:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powf(__x, __y); }
- 390:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 391:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
- 392:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(long double __x, long double __y)
- 393:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powl(__x, __y); }
- 394:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 395:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #if __cplusplus < 201103L
- 396:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   // _GLIBCXX_RESOLVE_LIB_DEFECTS
- 397:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   // DR 550. What should the return type of pow(float,int) be?
- 398:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline double
- 399:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(double __x, int __i)
- 400:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powi(__x, __i); }
- 401:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 402:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline float
- 403:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(float __x, int __n)
- 404:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powif(__x, __n); }
- 405:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 406:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline long double
- 407:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(long double __x, int __n)
- 408:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powil(__x, __n); }
- 409:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 410:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
- 411:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 412:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp, typename _Up>
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 10
+ 356:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 357:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   log10(float __x)
+ 358:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_log10f(__x); }
+ 359:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 360:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 361:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   log10(long double __x)
+ 362:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_log10l(__x); }
+ 363:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 364:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 365:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp>
+ 366:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 367:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 368:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****                                     double>::__type
+ 369:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     log10(_Tp __x)
+ 370:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     { return __builtin_log10(__x); }
+ 371:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 372:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::modf;
+ 373:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 374:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 375:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline float
+ 376:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   modf(float __x, float* __iptr)
+ 377:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_modff(__x, __iptr); }
+ 378:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 379:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline long double
+ 380:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   modf(long double __x, long double* __iptr)
+ 381:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_modfl(__x, __iptr); }
+ 382:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 383:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 384:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::pow;
+ 385:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 386:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 387:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 388:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   pow(float __x, float __y)
+ 389:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_powf(__x, __y); }
+ 390:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 391:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 392:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   pow(long double __x, long double __y)
+ 393:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_powl(__x, __y); }
+ 394:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 395:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #if __cplusplus < 201103L
+ 396:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   // _GLIBCXX_RESOLVE_LIB_DEFECTS
+ 397:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   // DR 550. What should the return type of pow(float,int) be?
+ 398:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline double
+ 399:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   pow(double __x, int __i)
+ 400:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_powi(__x, __i); }
+ 401:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 402:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline float
+ 403:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   pow(float __x, int __n)
+ 404:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_powif(__x, __n); }
+ 405:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 406:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline long double
+ 407:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   pow(long double __x, int __n)
+ 408:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_powil(__x, __n); }
+ 409:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 410:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #endif
+ 411:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 412:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   template<typename _Tp, typename _Up>
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 10
 
 
- 413:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
- 414:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
- 415:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     pow(_Tp __x, _Up __y)
- 416:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     {
- 417:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
- 418:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       return pow(__type(__x), __type(__y));
- 419:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     }
- 420:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 421:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::sin;
- 422:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
- 423:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
- 424:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
- 425:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   sin(float __x)
+ 413:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     inline _GLIBCXX_CONSTEXPR
+ 414:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 415:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     pow(_Tp __x, _Up __y)
+ 416:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     {
+ 417:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 418:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****       return pow(__type(__x), __type(__y));
+ 419:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****     }
+ 420:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 421:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   using ::sin;
+ 422:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** 
+ 423:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 424:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 425:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   sin(float __x)
   56              		.loc 2 425 3 discriminator 2 view .LVU7
   57              	.LBB9:
- 426:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_sinf(__x); }
+ 426:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\cmath ****   { return __builtin_sinf(__x); }
   58              		.loc 2 426 5 discriminator 2 view .LVU8
   59              	.LBE9:
   60              	.LBE8:
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
   92              		.loc 1 46 21 discriminator 2 view .LVU17
   93 0020 A5EC010A 		vstmia.32	r5!, {s0}
   94              	.LBE15:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 11
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 11
 
 
   43:resources.cpp ****     {
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  152 0000 0000803F 		.word	1065353216
  153 0004 63B0843F 		.word	1065660515
  154 0008 C08C893F 		.word	1065979072
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 12
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 12
 
 
  155 000c B2968E3F 		.word	1066309298
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  209 00e4 BEC1F840 		.word	1090044350
  210 00e8 4CEF0041 		.word	1090580300
  211 00ec 73A80541 		.word	1090889843
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 13
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 13
 
 
  212 00f0 E68D0A41 		.word	1091210726
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  266 01c8 F3B77142 		.word	1114748915
  267 01cc CB927A42 		.word	1115329227
  268 01d0 57E08142 		.word	1115807831
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 14
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 14
 
 
  269 01d4 53A28642 		.word	1116119635
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  323 02ac 23E1EA43 		.word	1139466531
  324 02b0 D87BF343 		.word	1140030424
  325 02b4 3E67FC43 		.word	1140614974
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 15
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 15
 
 
  326 02b8 25D30244 		.word	1141035813
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  380 0390 DC3B6445 		.word	1164196828
  381 0394 3E986C45 		.word	1164744766
  382 0398 09437545 		.word	1165312777
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 16
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 16
 
 
  383 039c 1C3F7E45 		.word	1165901596
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  439 0064 00001CBD 		.word	-1122238464
  440 0068 000018BD 		.word	-1122500608
  441 006c 000014BD 		.word	-1122762752
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 17
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 17
 
 
  442 0070 000010BD 		.word	-1123024896
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  496 0148 FBBBDD3A 		.word	987610107
  497 014c 333F063B 		.word	990265139
  498 0150 09571E3B 		.word	991844105
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 18
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 18
 
 
  499 0154 112B373B 		.word	993471249
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  553 022c 0DAC603D 		.word	1029745677
  554 0230 FAC6683D 		.word	1030276858
  555 0234 3721713D 		.word	1030824247
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 19
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 19
 
 
  556 0238 B2BC793D 		.word	1031388338
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  610 0310 630EB33E 		.word	1051922019
  611 0314 0AADB83E 		.word	1052290314
  612 0318 9677BE3E 		.word	1052669846
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 20
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 20
 
 
  613 031c 5F6FC43E 		.word	1053060959
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  667 03f4 FF3AF13F 		.word	1072773887
  668 03f8 D402F93F 		.word	1073283796
  669 03fc 00000040 		.word	1073741824
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 21
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 21
 
 
  670 0400 00000040 		.word	1073741824
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  726 00c8 4D0B913C 		.word	1016138573
  727 00cc 39EB883C 		.word	1015606073
  728 00d0 443F813C 		.word	1015103300
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 22
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 22
 
 
  729 00d4 0402743C 		.word	1014235652
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  783 01ac 57AA2C3A 		.word	976005719
  784 01b0 76F9223A 		.word	975370614
  785 01b4 D2D3193A 		.word	974771154
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 23
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 23
 
 
  786 01b8 9B31113A 		.word	974205339
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  840 0290 D055CD37 		.word	936203728
  841 0294 85CFC137 		.word	935448453
  842 0298 D1EEB637 		.word	934735569
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 24
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 24
 
 
  843 029c 67AAAC37 		.word	934062695
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  897 0374 A42F7435 		.word	896806820
  898 0378 217B6635 		.word	895908641
  899 037c 8A8B5935 		.word	895060874
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 25
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 25
 
 
  900 0380 D0554D35 		.word	894260688
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  956 0048 7E5E94C0 		.word	-1064018306
  957 004c 53D385C0 		.word	-1064971437
  958 0050 53D385C0 		.word	-1064971437
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 26
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 26
 
 
  959 0054 53D385C0 		.word	-1064971437
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  1013 012c FE1A8C41 		.word	1099700990
  1014 0130 FE1A8C41 		.word	1099700990
  1015 0134 FE1A8C41 		.word	1099700990
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 27
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 27
 
 
  1016 0138 00009041 		.word	1099956224
@@ -1614,44 +1614,44 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 1
  1066 0200 00001042 		.word	1108344832
  1067              		.text
  1068              	.Letext0:
- 1069              		.file 3 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
- 1070              		.file 4 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+ 1069              		.file 3 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 1070              		.file 4 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
  1071              		.file 5 "../../libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h"
- 1072              		.file 6 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 28
+ 1072              		.file 6 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 28
 
 
- 1073              		.file 7 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
- 1074              		.file 8 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
- 1075              		.file 9 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
- 1076              		.file 10 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1073              		.file 7 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 1074              		.file 8 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 1075              		.file 9 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 1076              		.file 10 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
  1077              		.file 11 "../../libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_comp.h"
  1078              		.file 12 "../../libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h"
  1079              		.file 13 "../../stmlib/stmlib.h"
  1080              		.file 14 "resources.h"
  1081              		.file 15 "<built-in>"
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s 			page 29
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s 			page 29
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 resources.cpp
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:17     .text._ZN5torus13InitResourcesEv:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:25     .text._ZN5torus13InitResourcesEv:0000000000000000 _ZN5torus13InitResourcesEv
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:108    .text._ZN5torus13InitResourcesEv:000000000000002c $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:135    .bss._ZN5torus8lut_sineE:0000000000000000 _ZN5torus8lut_sineE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:141    .data._ZN5torus18lookup_table_tableE:0000000000000000 _ZN5torus18lookup_table_tableE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:937    .rodata._ZN5torus26lut_fm_frequency_quantizerE:0000000000000000 _ZN5torus26lut_fm_frequency_quantizerE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:413    .rodata._ZN5torus13lut_stiffnessE:0000000000000000 _ZN5torus13lut_stiffnessE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:675    .rodata._ZN5torus13lut_svf_shiftE:0000000000000000 _ZN5torus13lut_svf_shiftE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:151    .rodata._ZN5torus13lut_4_decadesE:0000000000000000 _ZN5torus13lut_4_decadesE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:130    .bss._ZN5torus25lookup_table_uint32_tableE:0000000000000000 _ZN5torus25lookup_table_uint32_tableE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:125    .bss._ZN5torus24lookup_table_int16_tableE:0000000000000000 _ZN5torus24lookup_table_int16_tableE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:132    .bss._ZN5torus8lut_sineE:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:138    .data._ZN5torus18lookup_table_tableE:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:148    .rodata._ZN5torus13lut_4_decadesE:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:410    .rodata._ZN5torus13lut_stiffnessE:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:672    .rodata._ZN5torus13lut_svf_shiftE:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccPq8mU7.s:934    .rodata._ZN5torus26lut_fm_frequency_quantizerE:0000000000000000 $d
+                            *ABS*:00000000 resources.cpp
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:17     .text._ZN5torus13InitResourcesEv:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:25     .text._ZN5torus13InitResourcesEv:00000000 _ZN5torus13InitResourcesEv
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:108    .text._ZN5torus13InitResourcesEv:0000002c $d
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:135    .bss._ZN5torus8lut_sineE:00000000 _ZN5torus8lut_sineE
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:141    .data._ZN5torus18lookup_table_tableE:00000000 _ZN5torus18lookup_table_tableE
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:937    .rodata._ZN5torus26lut_fm_frequency_quantizerE:00000000 _ZN5torus26lut_fm_frequency_quantizerE
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:413    .rodata._ZN5torus13lut_stiffnessE:00000000 _ZN5torus13lut_stiffnessE
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:675    .rodata._ZN5torus13lut_svf_shiftE:00000000 _ZN5torus13lut_svf_shiftE
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:151    .rodata._ZN5torus13lut_4_decadesE:00000000 _ZN5torus13lut_4_decadesE
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:130    .bss._ZN5torus25lookup_table_uint32_tableE:00000000 _ZN5torus25lookup_table_uint32_tableE
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:125    .bss._ZN5torus24lookup_table_int16_tableE:00000000 _ZN5torus24lookup_table_int16_tableE
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:132    .bss._ZN5torus8lut_sineE:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:138    .data._ZN5torus18lookup_table_tableE:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:148    .rodata._ZN5torus13lut_4_decadesE:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:410    .rodata._ZN5torus13lut_stiffnessE:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:672    .rodata._ZN5torus13lut_svf_shiftE:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccJ6WJwj.s:934    .rodata._ZN5torus26lut_fm_frequency_quantizerE:00000000 $d
 
 UNDEFINED SYMBOLS
 sinf
