@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   27:../../libDaisy//src/daisy_patch_sm.h ****         CV_8,
   28:../../libDaisy//src/daisy_patch_sm.h ****         ADC_9,
   29:../../libDaisy//src/daisy_patch_sm.h ****         ADC_10,
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 2
 
 
   30:../../libDaisy//src/daisy_patch_sm.h ****         ADC_11,
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   11:../../libDaisy//src/hid/gatein.h ****    @date    March 2020
   12:../../libDaisy//src/hid/gatein.h ****    @ingroup controls
   13:../../libDaisy//src/hid/gatein.h **** */
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 3
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 3
 
 
   14:../../libDaisy//src/hid/gatein.h **** class GateIn
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   52              	.LBB210:
   53              	.LBI210:
   54              		.file 4 "../../libDaisy//src/hid/usb.h"
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 4
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 4
 
 
    1:../../libDaisy//src/hid/usb.h **** #pragma once
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
    7:../../libDaisy//src/per/adc.h **** #include "per/gpio.h"
    8:../../libDaisy//src/per/adc.h **** 
    9:../../libDaisy//src/per/adc.h **** #define DSY_ADC_MAX_CHANNELS 16 /**< Maximum number of ADC channels */
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 5
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 5
 
 
   10:../../libDaisy//src/per/adc.h **** 
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   64:../../libDaisy//src/per/adc.h **** 
   65:../../libDaisy//src/per/adc.h ****     dsy_gpio pin_;                   /**< & */
   66:../../libDaisy//src/per/adc.h ****     dsy_gpio mux_pin_[MUX_SEL_LAST]; /**< & */
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 6
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 6
 
 
   67:../../libDaisy//src/per/adc.h ****     uint8_t  mux_channels_;          /**< & */
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   22:../../libDaisy//src/hid/audio.h **** class AudioHandle
   23:../../libDaisy//src/hid/audio.h **** {
   24:../../libDaisy//src/hid/audio.h ****   public:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 7
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 7
 
 
   25:../../libDaisy//src/hid/audio.h ****     /** Manually configurable details about the Audio Engine */
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   79:../../libDaisy//src/hid/audio.h ****      ** this is const, as the user shouldn't modify it
   80:../../libDaisy//src/hid/audio.h ****     */
   81:../../libDaisy//src/hid/audio.h ****     typedef const float* InterleavingInputBuffer;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 8
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 8
 
 
   82:../../libDaisy//src/hid/audio.h **** 
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   34:../../libDaisy//src/sys/system.h ****          ** */
   35:../../libDaisy//src/sys/system.h ****         void Defaults()
   36:../../libDaisy//src/sys/system.h ****         {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 9
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 9
 
 
   37:../../libDaisy//src/sys/system.h ****             cpu_freq    = SysClkFreq::FREQ_400MHZ;
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   86              		.global	_Z13AudioCallbackPKPKfPPfj
   87              		.syntax unified
   88              		.thumb
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 10
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 10
 
 
   89              		.thumb_func
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   90:../../libDaisy//src/daisy_patch_sm.h ****          *  This will only take effect on the next invocation of `StartAudio`
   91:../../libDaisy//src/daisy_patch_sm.h ****          */
   92:../../libDaisy//src/daisy_patch_sm.h ****         void SetAudioBlockSize(size_t size);
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 11
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 11
 
 
   93:../../libDaisy//src/daisy_patch_sm.h **** 
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   16:TFT_TEST.cpp  **** 	hw.ProcessAllControls();
  117              		.loc 8 16 1 view .LVU21
  118 0002 1546     		mov	r5, r2
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 12
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 12
 
 
  119 0004 0746     		mov	r7, r0
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   18:TFT_TEST.cpp  **** 	for (size_t i = 0; i < size; i++)
  166              		.loc 8 18 2 is_stmt 1 discriminator 2 view .LVU38
   18:TFT_TEST.cpp  **** 	for (size_t i = 0; i < size; i++)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 13
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 13
 
 
  167              		.loc 8 18 23 discriminator 2 view .LVU39
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   27:ili9341_ui_driver.hpp **** enum TFT_COLOR
   28:ili9341_ui_driver.hpp **** {
   29:ili9341_ui_driver.hpp ****     COLOR_BLACK = 0,
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 14
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 14
 
 
   30:ili9341_ui_driver.hpp ****     COLOR_WHITE,
@@ -814,7 +814,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   60:ili9341_ui_driver.hpp ****     void Init()
  195              		.loc 9 60 10 is_stmt 1 view -0
  196              		.cfi_startproc
- 197              		@ args = 0, pretend = 0, frame = 48
+ 197              		@ args = 0, pretend = 0, frame = 40
  198              		@ frame_needed = 0, uses_anonymous_args = 0
   61:ili9341_ui_driver.hpp ****     {
   62:ili9341_ui_driver.hpp ****         // Initialize SPI
@@ -838,16 +838,16 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   69:ili9341_ui_driver.hpp ****         spi_config.clock_phase     = SpiHandle::Config::ClockPhase::ONE_EDGE;
   70:ili9341_ui_driver.hpp ****         spi_config.nss             = SpiHandle::Config::NSS::HARD_OUTPUT;
   71:ili9341_ui_driver.hpp ****         spi_config.datasize        = 8;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 15
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 15
 
 
   72:ili9341_ui_driver.hpp ****         spi_config.pin_config.sclk = psm.GetPin(DaisyPatchSM::PinBank::D, 10);;
  209              		.loc 9 72 77 view .LVU45
- 210 0004 2B4E     		ldr	r6, .L15
+ 210 0004 264F     		ldr	r7, .L15
   60:ili9341_ui_driver.hpp ****     {
  211              		.loc 9 60 10 view .LVU46
- 212 0006 8CB0     		sub	sp, sp, #48
- 213              		.cfi_def_cfa_offset 72
+ 212 0006 8AB0     		sub	sp, sp, #40
+ 213              		.cfi_def_cfa_offset 64
  214              	.LVL8:
  215              	.LBB221:
  216              	.LBI221:
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   44:../../libDaisy//src/per/spi.h ****             TWO_LINES_RX_ONLY,
   45:../../libDaisy//src/per/spi.h ****             ONE_LINE,
   46:../../libDaisy//src/per/spi.h ****         };
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 16
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 16
 
 
   47:../../libDaisy//src/per/spi.h **** 
@@ -949,266 +949,258 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   89:../../libDaisy//src/per/spi.h ****             // user must specify periph, mode, direction, nss, and pin_config
   90:../../libDaisy//src/per/spi.h ****             datasize       = 8;
  221              		.loc 10 90 13 view .LVU48
+ 222              	.LBE223:
+ 223              	.LBE222:
+ 224              	.LBE221:
+  64:ili9341_ui_driver.hpp ****         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
+ 225              		.loc 9 64 30 is_stmt 0 view .LVU49
+ 226 0008 0125     		movs	r5, #1
+ 227              	.LBB230:
+ 228              	.LBB227:
+ 229              	.LBB224:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 17
+
+
   91:../../libDaisy//src/per/spi.h ****             clock_polarity = ClockPolarity::LOW;
- 222              		.loc 10 91 28 is_stmt 0 view .LVU49
- 223 0008 0025     		movs	r5, #0
+ 230              		.loc 10 91 28 view .LVU50
+ 231 000a 0026     		movs	r6, #0
   90:../../libDaisy//src/per/spi.h ****             clock_polarity = ClockPolarity::LOW;
- 224              		.loc 10 90 28 view .LVU50
- 225 000a 0823     		movs	r3, #8
- 226              	.LBE223:
- 227              	.LBE222:
- 228              	.LBE221:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 17
-
-
-  64:ili9341_ui_driver.hpp ****         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
- 229              		.loc 9 64 30 view .LVU51
- 230 000c 0127     		movs	r7, #1
+ 232              		.loc 10 90 28 view .LVU51
+ 233 000c 0823     		movs	r3, #8
+ 234              	.LBE224:
+ 235              	.LBE227:
+ 236              	.LBE230:
   70:ili9341_ui_driver.hpp ****         spi_config.datasize        = 8;
- 231              		.loc 9 70 36 view .LVU52
- 232 000e 4FF00208 		mov	r8, #2
+ 237              		.loc 9 70 36 view .LVU52
+ 238 000e 4FF00208 		mov	r8, #2
   60:ili9341_ui_driver.hpp ****     {
- 233              		.loc 9 60 10 view .LVU53
- 234 0012 0446     		mov	r4, r0
- 235              		.loc 9 72 77 view .LVU54
- 236 0014 0A22     		movs	r2, #10
- 237 0016 0321     		movs	r1, #3
- 238 0018 3046     		mov	r0, r6
- 239              	.LVL9:
- 240              	.LBB228:
- 241              	.LBB226:
- 242              	.LBB224:
+ 239              		.loc 9 60 10 view .LVU53
+ 240 0012 0446     		mov	r4, r0
+ 241              		.loc 9 72 77 view .LVU54
+ 242 0014 0A22     		movs	r2, #10
+ 243 0016 0321     		movs	r1, #3
+ 244 0018 3846     		mov	r0, r7
+ 245              	.LVL9:
+ 246              	.LBB231:
+ 247              	.LBB228:
+ 248              	.LBB225:
   90:../../libDaisy//src/per/spi.h ****             clock_polarity = ClockPolarity::LOW;
- 243              		.loc 10 90 28 view .LVU55
- 244 001a 0793     		str	r3, [sp, #28]
- 245              		.loc 10 91 13 is_stmt 1 view .LVU56
- 246              	.LBE224:
- 247              	.LBE226:
- 248              	.LBE228:
+ 249              		.loc 10 90 28 view .LVU55
+ 250 001a 0593     		str	r3, [sp, #20]
+ 251              		.loc 10 91 13 is_stmt 1 view .LVU56
+ 252              	.LBE225:
+ 253              	.LBE228:
+ 254              	.LBE231:
   66:ili9341_ui_driver.hpp ****         spi_config.clock_polarity  = SpiHandle::Config::ClockPolarity::LOW;
- 249              		.loc 9 66 30 is_stmt 0 view .LVU57
- 250 001c 0697     		str	r7, [sp, #24]
- 251              	.LBB229:
- 252              	.LBB227:
- 253              	.LBB225:
+ 255              		.loc 9 66 30 is_stmt 0 view .LVU57
+ 256 001c 0495     		str	r5, [sp, #16]
+ 257              	.LBB232:
+ 258              	.LBB229:
+ 259              	.LBB226:
   92:../../libDaisy//src/per/spi.h ****             clock_phase    = ClockPhase::ONE_EDGE;
- 254              		.loc 10 92 28 view .LVU58
- 255 001e CDE90855 		strd	r5, r5, [sp, #32]
+ 260              		.loc 10 92 28 view .LVU58
+ 261 001e CDE90666 		strd	r6, r6, [sp, #24]
   93:../../libDaisy//src/per/spi.h ****             baud_prescaler = BaudPrescaler::PS_8;
- 256              		.loc 10 93 13 is_stmt 1 view .LVU59
- 257              	.LVL10:
- 258              		.loc 10 93 13 is_stmt 0 view .LVU60
- 259              	.LBE225:
- 260              	.LBE227:
- 261              	.LBE229:
+ 262              		.loc 10 93 13 is_stmt 1 view .LVU59
+ 263              	.LVL10:
+ 264              		.loc 10 93 13 is_stmt 0 view .LVU60
+ 265              	.LBE226:
+ 266              	.LBE229:
+ 267              	.LBE232:
   64:ili9341_ui_driver.hpp ****         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
- 262              		.loc 9 64 9 is_stmt 1 view .LVU61
+ 268              		.loc 9 64 9 is_stmt 1 view .LVU61
   65:ili9341_ui_driver.hpp ****         spi_config.direction = SpiHandle::Config::Direction::TWO_LINES_TX_ONLY;
- 263              		.loc 9 65 30 is_stmt 0 view .LVU62
- 264 0022 CDE90475 		strd	r7, r5, [sp, #16]
+ 269              		.loc 9 65 30 is_stmt 0 view .LVU62
+ 270 0022 CDE90256 		strd	r5, r6, [sp, #8]
   66:ili9341_ui_driver.hpp ****         spi_config.clock_polarity  = SpiHandle::Config::ClockPolarity::LOW;
- 265              		.loc 9 66 9 is_stmt 1 view .LVU63
+ 271              		.loc 9 66 9 is_stmt 1 view .LVU63
   67:ili9341_ui_driver.hpp ****         spi_config.baud_prescaler  = SpiHandle::Config::BaudPrescaler::PS_2;
- 266              		.loc 9 67 9 view .LVU64
+ 272              		.loc 9 67 9 view .LVU64
   68:ili9341_ui_driver.hpp ****         spi_config.clock_phase     = SpiHandle::Config::ClockPhase::ONE_EDGE;
- 267              		.loc 9 68 9 view .LVU65
+ 273              		.loc 9 68 9 view .LVU65
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 18
+
+
   70:ili9341_ui_driver.hpp ****         spi_config.datasize        = 8;
- 268              		.loc 9 70 36 is_stmt 0 view .LVU66
- 269 0026 CDE90A85 		strd	r8, r5, [sp, #40]
+ 274              		.loc 9 70 36 is_stmt 0 view .LVU66
+ 275 0026 CDE90886 		strd	r8, r6, [sp, #32]
   71:ili9341_ui_driver.hpp ****         spi_config.pin_config.sclk = psm.GetPin(DaisyPatchSM::PinBank::D, 10);;
- 270              		.loc 9 71 9 is_stmt 1 view .LVU67
- 271              		.loc 9 72 9 view .LVU68
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 18
-
-
- 272              		.loc 9 72 77 is_stmt 0 view .LVU69
- 273 002a FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
- 274              	.LVL11:
+ 276              		.loc 9 71 9 is_stmt 1 view .LVU67
+ 277              		.loc 9 72 9 view .LVU68
+ 278              		.loc 9 72 77 is_stmt 0 view .LVU69
+ 279 002a FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
+ 280              	.LVL11:
   73:ili9341_ui_driver.hpp ****         spi_config.pin_config.mosi = psm.GetPin(DaisyPatchSM::PinBank::D, 9);
- 275              		.loc 9 73 76 view .LVU70
- 276 002e 0922     		movs	r2, #9
+ 281              		.loc 9 73 76 view .LVU70
+ 282 002e 0922     		movs	r2, #9
   72:ili9341_ui_driver.hpp ****         spi_config.pin_config.mosi = psm.GetPin(DaisyPatchSM::PinBank::D, 9);
- 277              		.loc 9 72 77 view .LVU71
- 278 0030 ADF80800 		strh	r0, [sp, #8]	@ movhi
+ 283              		.loc 9 72 77 view .LVU71
+ 284 0030 ADF80000 		strh	r0, [sp]	@ movhi
   72:ili9341_ui_driver.hpp ****         spi_config.pin_config.mosi = psm.GetPin(DaisyPatchSM::PinBank::D, 9);
- 279              		.loc 9 72 79 is_stmt 1 view .LVU72
- 280              		.loc 9 73 9 view .LVU73
- 281              		.loc 9 73 76 is_stmt 0 view .LVU74
- 282 0034 0321     		movs	r1, #3
- 283 0036 3046     		mov	r0, r6
- 284 0038 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
- 285              	.LVL12:
+ 285              		.loc 9 72 79 is_stmt 1 view .LVU72
+ 286              		.loc 9 73 9 view .LVU73
+ 287              		.loc 9 73 76 is_stmt 0 view .LVU74
+ 288 0034 0321     		movs	r1, #3
+ 289 0036 3846     		mov	r0, r7
+ 290 0038 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
+ 291              	.LVL12:
   74:ili9341_ui_driver.hpp ****         spi_config.pin_config.nss  = psm.GetPin(DaisyPatchSM::PinBank::D, 1);
- 286              		.loc 9 74 76 view .LVU75
- 287 003c 3A46     		mov	r2, r7
+ 292              		.loc 9 74 76 view .LVU75
+ 293 003c 2A46     		mov	r2, r5
   73:ili9341_ui_driver.hpp ****         spi_config.pin_config.mosi = psm.GetPin(DaisyPatchSM::PinBank::D, 9);
- 288              		.loc 9 73 76 view .LVU76
- 289 003e ADF80C00 		strh	r0, [sp, #12]	@ movhi
- 290              		.loc 9 74 9 is_stmt 1 view .LVU77
- 291              		.loc 9 74 76 is_stmt 0 view .LVU78
- 292 0042 0321     		movs	r1, #3
- 293 0044 3046     		mov	r0, r6
- 294 0046 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
- 295              	.LVL13:
+ 294              		.loc 9 73 76 view .LVU76
+ 295 003e ADF80400 		strh	r0, [sp, #4]	@ movhi
+ 296              		.loc 9 74 9 is_stmt 1 view .LVU77
+ 297              		.loc 9 74 76 is_stmt 0 view .LVU78
+ 298 0042 0321     		movs	r1, #3
+ 299 0044 3846     		mov	r0, r7
+ 300 0046 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
+ 301              	.LVL13:
   75:ili9341_ui_driver.hpp ****         // spi_config.pin_config.miso = {DSY_GPIOX, 0}; // not used
   76:ili9341_ui_driver.hpp **** 
   77:ili9341_ui_driver.hpp **** 
   78:ili9341_ui_driver.hpp ****         // v0.1 mix up
-  79:ili9341_ui_driver.hpp ****         auto dc_pin    = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
- 296              		.loc 9 79 64 view .LVU79
- 297 004a 4246     		mov	r2, r8
- 298 004c 2946     		mov	r1, r5
-  74:ili9341_ui_driver.hpp ****         spi_config.pin_config.nss  = psm.GetPin(DaisyPatchSM::PinBank::D, 1);
- 299              		.loc 9 74 76 view .LVU80
- 300 004e ADF80E00 		strh	r0, [sp, #14]	@ movhi
- 301              		.loc 9 79 9 is_stmt 1 view .LVU81
- 302              		.loc 9 79 64 is_stmt 0 view .LVU82
- 303 0052 3046     		mov	r0, r6
- 304 0054 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
- 305              	.LVL14:
-  80:ili9341_ui_driver.hpp ****         auto reset_pin = psm.GetPin(DaisyPatchSM::PinBank::A, 3);
- 306              		.loc 9 80 9 is_stmt 1 view .LVU83
- 307              		.loc 9 80 64 is_stmt 0 view .LVU84
- 308 0058 2946     		mov	r1, r5
- 309 005a 0322     		movs	r2, #3
- 310 005c 3046     		mov	r0, r6
- 311 005e FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
- 312              	.LVL15:
+  79:ili9341_ui_driver.hpp ****         //auto dc_pin    = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
+  80:ili9341_ui_driver.hpp ****         //auto reset_pin = psm.GetPin(DaisyPatchSM::PinBank::A, 3);
   81:ili9341_ui_driver.hpp ****         // auto dc_pin    = 22;
   82:ili9341_ui_driver.hpp ****         // auto reset_pin = 16;
   83:ili9341_ui_driver.hpp **** 
   84:ili9341_ui_driver.hpp **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 19
-
-
   85:ili9341_ui_driver.hpp ****         // DC pin
   86:ili9341_ui_driver.hpp ****         pin_dc_.mode = DSY_GPIO_MODE_OUTPUT_PP;
- 313              		.loc 9 86 9 is_stmt 1 view .LVU85
   87:ili9341_ui_driver.hpp ****         pin_dc_.pin  = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
- 314              		.loc 9 87 62 is_stmt 0 view .LVU86
- 315 0062 4246     		mov	r2, r8
- 316 0064 2946     		mov	r1, r5
- 317 0066 3046     		mov	r0, r6
+ 302              		.loc 9 87 62 view .LVU79
+ 303 004a 4246     		mov	r2, r8
+ 304 004c 3146     		mov	r1, r6
+  74:ili9341_ui_driver.hpp ****         spi_config.pin_config.nss  = psm.GetPin(DaisyPatchSM::PinBank::D, 1);
+ 305              		.loc 9 74 76 view .LVU80
+ 306 004e ADF80600 		strh	r0, [sp, #6]	@ movhi
   86:ili9341_ui_driver.hpp ****         pin_dc_.pin  = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
- 318              		.loc 9 86 22 view .LVU87
- 319 0068 A775     		strb	r7, [r4, #22]
- 320              		.loc 9 87 9 is_stmt 1 view .LVU88
- 321              		.loc 9 87 62 is_stmt 0 view .LVU89
- 322 006a FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
- 323              	.LVL16:
- 324 006e 2346     		mov	r3, r4
- 325 0070 23F8140F 		strh	r0, [r3, #20]!	@ movhi
+ 307              		.loc 9 86 9 is_stmt 1 view .LVU81
+  86:ili9341_ui_driver.hpp ****         pin_dc_.pin  = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 19
+
+
+ 308              		.loc 9 86 22 is_stmt 0 view .LVU82
+ 309 0052 A575     		strb	r5, [r4, #22]
+ 310              		.loc 9 87 9 is_stmt 1 view .LVU83
+ 311              		.loc 9 87 62 is_stmt 0 view .LVU84
+ 312 0054 3846     		mov	r0, r7
+ 313 0056 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
+ 314              	.LVL14:
+ 315 005a 2346     		mov	r3, r4
+ 316 005c 23F8140F 		strh	r0, [r3, #20]!	@ movhi
   88:ili9341_ui_driver.hpp ****         dsy_gpio_init(&pin_dc_);
- 326              		.loc 9 88 9 is_stmt 1 view .LVU90
- 327              		.loc 9 88 22 is_stmt 0 view .LVU91
- 328 0074 1846     		mov	r0, r3
- 329 0076 FFF7FEFF 		bl	dsy_gpio_init
- 330              	.LVL17:
+ 317              		.loc 9 88 9 is_stmt 1 view .LVU85
+ 318              		.loc 9 88 22 is_stmt 0 view .LVU86
+ 319 0060 1846     		mov	r0, r3
+ 320 0062 FFF7FEFF 		bl	dsy_gpio_init
+ 321              	.LVL15:
   89:ili9341_ui_driver.hpp ****         // Reset pin
   90:ili9341_ui_driver.hpp ****         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
- 331              		.loc 9 90 9 is_stmt 1 view .LVU92
+ 322              		.loc 9 90 9 is_stmt 1 view .LVU87
   91:ili9341_ui_driver.hpp ****         pin_reset_.pin  = psm.GetPin(DaisyPatchSM::PinBank::A, 3);
- 332              		.loc 9 91 65 is_stmt 0 view .LVU93
- 333 007a 2946     		mov	r1, r5
- 334 007c 0322     		movs	r2, #3
- 335 007e 3046     		mov	r0, r6
+ 323              		.loc 9 91 65 is_stmt 0 view .LVU88
+ 324 0066 3146     		mov	r1, r6
+ 325 0068 0322     		movs	r2, #3
+ 326 006a 3846     		mov	r0, r7
   90:ili9341_ui_driver.hpp ****         pin_reset_.pin  = psm.GetPin(DaisyPatchSM::PinBank::A, 3);
- 336              		.loc 9 90 25 view .LVU94
- 337 0080 A774     		strb	r7, [r4, #18]
- 338              		.loc 9 91 9 is_stmt 1 view .LVU95
- 339              		.loc 9 91 65 is_stmt 0 view .LVU96
- 340 0082 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
- 341              	.LVL18:
- 342 0086 2346     		mov	r3, r4
- 343 0088 23F8100F 		strh	r0, [r3, #16]!	@ movhi
+ 327              		.loc 9 90 25 view .LVU89
+ 328 006c A574     		strb	r5, [r4, #18]
+ 329              		.loc 9 91 9 is_stmt 1 view .LVU90
+ 330              		.loc 9 91 65 is_stmt 0 view .LVU91
+ 331 006e FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM6GetPinENS1_7PinBankEi
+ 332              	.LVL16:
+ 333 0072 2346     		mov	r3, r4
+ 334 0074 23F8100F 		strh	r0, [r3, #16]!	@ movhi
   92:ili9341_ui_driver.hpp ****         dsy_gpio_init(&pin_reset_);
- 344              		.loc 9 92 9 is_stmt 1 view .LVU97
- 345              		.loc 9 92 22 is_stmt 0 view .LVU98
- 346 008c 1846     		mov	r0, r3
- 347 008e FFF7FEFF 		bl	dsy_gpio_init
- 348              	.LVL19:
+ 335              		.loc 9 92 9 is_stmt 1 view .LVU92
+ 336              		.loc 9 92 22 is_stmt 0 view .LVU93
+ 337 0078 1846     		mov	r0, r3
+ 338 007a FFF7FEFF 		bl	dsy_gpio_init
+ 339              	.LVL17:
   93:ili9341_ui_driver.hpp ****         // CS pin
   94:ili9341_ui_driver.hpp ****         pin_cs_.mode = DSY_GPIO_MODE_OUTPUT_PP;
- 349              		.loc 9 94 9 is_stmt 1 view .LVU99
+ 340              		.loc 9 94 9 is_stmt 1 view .LVU94
   95:ili9341_ui_driver.hpp ****         pin_cs_.pin  = spi_config.pin_config.nss;
- 350              		.loc 9 95 22 is_stmt 0 view .LVU100
- 351 0092 BDF80E30 		ldrh	r3, [sp, #14]
- 352 0096 2046     		mov	r0, r4
+ 341              		.loc 9 95 22 is_stmt 0 view .LVU95
+ 342 007e BDF80630 		ldrh	r3, [sp, #6]
+ 343 0082 2046     		mov	r0, r4
   94:ili9341_ui_driver.hpp ****         pin_cs_.pin  = spi_config.pin_config.nss;
- 353              		.loc 9 94 22 view .LVU101
- 354 0098 A776     		strb	r7, [r4, #26]
- 355              		.loc 9 95 9 is_stmt 1 view .LVU102
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 20
-
-
- 356              		.loc 9 95 22 is_stmt 0 view .LVU103
- 357 009a 20F8183F 		strh	r3, [r0, #24]!	@ movhi
+ 344              		.loc 9 94 22 view .LVU96
+ 345 0084 A576     		strb	r5, [r4, #26]
+ 346              		.loc 9 95 9 is_stmt 1 view .LVU97
+ 347              		.loc 9 95 22 is_stmt 0 view .LVU98
+ 348 0086 20F8183F 		strh	r3, [r0, #24]!	@ movhi
   96:ili9341_ui_driver.hpp ****         dsy_gpio_init(&pin_cs_);
- 358              		.loc 9 96 9 is_stmt 1 view .LVU104
- 359              		.loc 9 96 22 is_stmt 0 view .LVU105
- 360 009e FFF7FEFF 		bl	dsy_gpio_init
- 361              	.LVL20:
+ 349              		.loc 9 96 9 is_stmt 1 view .LVU99
+ 350              		.loc 9 96 22 is_stmt 0 view .LVU100
+ 351 008a FFF7FEFF 		bl	dsy_gpio_init
+ 352              	.LVL18:
   97:ili9341_ui_driver.hpp **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 20
+
+
   98:ili9341_ui_driver.hpp ****         spi_.Init(spi_config);
- 362              		.loc 9 98 9 is_stmt 1 view .LVU106
- 363              		.loc 9 98 18 is_stmt 0 view .LVU107
- 364 00a2 02A9     		add	r1, sp, #8
- 365 00a4 04F10C00 		add	r0, r4, #12
- 366 00a8 FFF7FEFF 		bl	_ZN5daisy9SpiHandle4InitERKNS0_6ConfigE
- 367              	.LVL21:
+ 353              		.loc 9 98 9 is_stmt 1 view .LVU101
+ 354              		.loc 9 98 18 is_stmt 0 view .LVU102
+ 355 008e 6946     		mov	r1, sp
+ 356 0090 04F10C00 		add	r0, r4, #12
+ 357 0094 FFF7FEFF 		bl	_ZN5daisy9SpiHandle4InitERKNS0_6ConfigE
+ 358              	.LVL19:
   99:ili9341_ui_driver.hpp ****     };
- 368              		.loc 9 99 5 view .LVU108
- 369 00ac 0CB0     		add	sp, sp, #48
- 370              		.cfi_def_cfa_offset 24
- 371              		@ sp needed
- 372 00ae BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 373              	.LVL22:
- 374              	.L16:
- 375              		.loc 9 99 5 view .LVU109
- 376 00b2 00BF     		.align	2
- 377              	.L15:
- 378 00b4 00000000 		.word	.LANCHOR1
- 379              		.cfi_endproc
- 380              	.LFE4793:
- 382              		.section	.text.startup.main,"ax",%progbits
- 383              		.align	1
- 384              		.p2align 2,,3
- 385              		.global	main
- 386              		.syntax unified
- 387              		.thumb
- 388              		.thumb_func
- 389              		.fpu fpv5-d16
- 391              	main:
- 392              	.LFB4839:
+ 359              		.loc 9 99 5 view .LVU103
+ 360 0098 0AB0     		add	sp, sp, #40
+ 361              		.cfi_def_cfa_offset 24
+ 362              		@ sp needed
+ 363 009a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 364              	.LVL20:
+ 365              	.L16:
+ 366              		.loc 9 99 5 view .LVU104
+ 367 009e 00BF     		.align	2
+ 368              	.L15:
+ 369 00a0 00000000 		.word	.LANCHOR1
+ 370              		.cfi_endproc
+ 371              	.LFE4793:
+ 373              		.section	.text.startup.main,"ax",%progbits
+ 374              		.align	1
+ 375              		.p2align 2,,3
+ 376              		.global	main
+ 377              		.syntax unified
+ 378              		.thumb
+ 379              		.thumb_func
+ 380              		.fpu fpv5-d16
+ 382              	main:
+ 383              	.LFB4839:
   24:TFT_TEST.cpp  **** 
   25:TFT_TEST.cpp  **** int main(void)
   26:TFT_TEST.cpp  **** {
- 393              		.loc 8 26 1 is_stmt 1 view -0
- 394              		.cfi_startproc
- 395              		@ Volatile: function does not return.
- 396              		@ args = 0, pretend = 0, frame = 0
- 397              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		.loc 8 26 1 is_stmt 1 view -0
+ 385              		.cfi_startproc
+ 386              		@ Volatile: function does not return.
+ 387              		@ args = 0, pretend = 0, frame = 0
+ 388              		@ frame_needed = 0, uses_anonymous_args = 0
   27:TFT_TEST.cpp  **** 	di.Init();
- 398              		.loc 8 27 2 view .LVU111
- 399              		.loc 8 27 9 is_stmt 0 view .LVU112
- 400 0000 4A48     		ldr	r0, .L41
+ 389              		.loc 8 27 2 view .LVU106
+ 390              		.loc 8 27 9 is_stmt 0 view .LVU107
+ 391 0000 4A48     		ldr	r0, .L41
   26:TFT_TEST.cpp  **** 	di.Init();
- 401              		.loc 8 26 1 view .LVU113
- 402 0002 80B5     		push	{r7, lr}
- 403              		.cfi_def_cfa_offset 8
- 404              		.cfi_offset 7, -8
- 405              		.cfi_offset 14, -4
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 21
-
-
- 406              		.loc 8 27 9 view .LVU114
- 407 0004 FFF7FEFF 		bl	_ZN19ILI9341SpiTransport4InitEv
- 408              	.LVL23:
+ 392              		.loc 8 26 1 view .LVU108
+ 393 0002 80B5     		push	{r7, lr}
+ 394              		.cfi_def_cfa_offset 8
+ 395              		.cfi_offset 7, -8
+ 396              		.cfi_offset 14, -4
+ 397              		.loc 8 27 9 view .LVU109
+ 398 0004 FFF7FEFF 		bl	_ZN19ILI9341SpiTransport4InitEv
+ 399              	.LVL21:
   28:TFT_TEST.cpp  **** 	du.DrawRect(4,4,100,100,COLOR_RED);
- 409              		.loc 8 28 2 is_stmt 1 view .LVU115
- 410              	.LBB276:
- 411              	.LBI276:
+ 400              		.loc 8 28 2 is_stmt 1 view .LVU110
+ 401              	.LBB279:
+ 402              	.LBI279:
  100:ili9341_ui_driver.hpp **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 21
+
+
  101:ili9341_ui_driver.hpp ****     void Reset()
  102:ili9341_ui_driver.hpp ****     {
  103:ili9341_ui_driver.hpp ****         dsy_gpio_write(&pin_reset_, 0);
@@ -1258,9 +1250,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  147:ili9341_ui_driver.hpp ****     };
  148:ili9341_ui_driver.hpp **** 
  149:ili9341_ui_driver.hpp ****     SpiHandle::Result SendDataDMA(uint8_t* buff, size_t size)
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 22
-
-
  150:ili9341_ui_driver.hpp ****     {
  151:ili9341_ui_driver.hpp ****         dsy_gpio_write(&pin_dc_, 1);
  152:ili9341_ui_driver.hpp ****         return spi_.DmaTransmit(buff, size, nullptr, &TxCompleteCallback, this);
@@ -1269,6 +1258,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  155:ili9341_ui_driver.hpp **** 
  156:ili9341_ui_driver.hpp ****     SpiHandle::Result SendDataDMA()
  157:ili9341_ui_driver.hpp ****     {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 22
+
+
  158:ili9341_ui_driver.hpp ****         dsy_gpio_write(&pin_dc_, 1);
  159:ili9341_ui_driver.hpp ****         remaining_buff = full_screen_buf;
  160:ili9341_ui_driver.hpp ****         dma_busy       = true;
@@ -1318,9 +1310,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  204:ili9341_ui_driver.hpp ****   private:
  205:ili9341_ui_driver.hpp ****     SpiHandle spi_;
  206:ili9341_ui_driver.hpp ****     dsy_gpio  pin_reset_;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 23
-
-
  207:ili9341_ui_driver.hpp ****     dsy_gpio  pin_dc_;
  208:ili9341_ui_driver.hpp ****     dsy_gpio  pin_cs_;
  209:ili9341_ui_driver.hpp **** };
@@ -1329,6 +1318,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  212:ili9341_ui_driver.hpp **** /**
  213:ili9341_ui_driver.hpp ****  * A driver implementation for the ILI9341
  214:ili9341_ui_driver.hpp ****  */
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 23
+
+
  215:ili9341_ui_driver.hpp **** // class ILI9341Driver
  216:ili9341_ui_driver.hpp **** class UiDriver
  217:ili9341_ui_driver.hpp **** {
@@ -1378,9 +1370,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  261:ili9341_ui_driver.hpp ****             transport_.SendData(data, 3);
  262:ili9341_ui_driver.hpp ****         }
  263:ili9341_ui_driver.hpp **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 24
-
-
  264:ili9341_ui_driver.hpp ****         // DRIVER TIMING CONTROL A
  265:ili9341_ui_driver.hpp ****         transport_.SendCommand(0xE8);
  266:ili9341_ui_driver.hpp ****         {
@@ -1389,6 +1378,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  269:ili9341_ui_driver.hpp ****         }
  270:ili9341_ui_driver.hpp **** 
  271:ili9341_ui_driver.hpp ****         // DRIVER TIMING CONTROL B
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 24
+
+
  272:ili9341_ui_driver.hpp ****         transport_.SendCommand(0xEA);
  273:ili9341_ui_driver.hpp ****         {
  274:ili9341_ui_driver.hpp ****             uint8_t data[2] = {0x00, 0x00};
@@ -1438,9 +1430,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  318:ili9341_ui_driver.hpp ****         }
  319:ili9341_ui_driver.hpp **** 
  320:ili9341_ui_driver.hpp ****         // MEMORY ACCESS CONTROL
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 25
-
-
  321:ili9341_ui_driver.hpp ****         transport_.SendCommand(0x36);
  322:ili9341_ui_driver.hpp ****         {
  323:ili9341_ui_driver.hpp ****             uint8_t data[1] = {0x48};
@@ -1449,6 +1438,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  326:ili9341_ui_driver.hpp **** 
  327:ili9341_ui_driver.hpp ****         // PIXEL FORMAT
  328:ili9341_ui_driver.hpp ****         transport_.SendCommand(0x3A);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 25
+
+
  329:ili9341_ui_driver.hpp ****         {
  330:ili9341_ui_driver.hpp ****             uint8_t data[1] = {0x55};
  331:ili9341_ui_driver.hpp ****             transport_.SendData(data, 1);
@@ -1498,9 +1490,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  375:ili9341_ui_driver.hpp ****                                 0x10,
  376:ili9341_ui_driver.hpp ****                                 0x03,
  377:ili9341_ui_driver.hpp ****                                 0x0E,
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 26
-
-
  378:ili9341_ui_driver.hpp ****                                 0x09,
  379:ili9341_ui_driver.hpp ****                                 0x00};
  380:ili9341_ui_driver.hpp ****             transport_.SendData(data, 15);
@@ -1509,6 +1498,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  383:ili9341_ui_driver.hpp ****         // NEGATIVE GAMMA CORRECTION
  384:ili9341_ui_driver.hpp ****         transport_.SendCommand(0xE1);
  385:ili9341_ui_driver.hpp ****         {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 26
+
+
  386:ili9341_ui_driver.hpp ****             uint8_t data[15] = {0x00,
  387:ili9341_ui_driver.hpp ****                                 0x0E,
  388:ili9341_ui_driver.hpp ****                                 0x14,
@@ -1558,9 +1550,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  432:ili9341_ui_driver.hpp ****                 height   = 240;
  433:ili9341_ui_driver.hpp ****                 rotation = ili_mx | ili_my | ili_mv | ili_bgr;
  434:ili9341_ui_driver.hpp ****                 return;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 27
-
-
  435:ili9341_ui_driver.hpp ****             }
  436:ili9341_ui_driver.hpp ****             case Orientation::RLeft:
  437:ili9341_ui_driver.hpp ****             {
@@ -1569,6 +1558,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  440:ili9341_ui_driver.hpp ****                 rotation = ili_mv | ili_bgr;
  441:ili9341_ui_driver.hpp ****                 return;
  442:ili9341_ui_driver.hpp ****             }
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 27
+
+
  443:ili9341_ui_driver.hpp ****             case Orientation::UpsideDown:
  444:ili9341_ui_driver.hpp ****             {
  445:ili9341_ui_driver.hpp ****                 width    = 240;
@@ -1618,9 +1610,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  489:ili9341_ui_driver.hpp ****     void FillRect(const Rectangle& rect, uint8_t color)
  490:ili9341_ui_driver.hpp ****     {
  491:ili9341_ui_driver.hpp ****         FillArea(
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 28
-
-
  492:ili9341_ui_driver.hpp ****             rect.GetX(), rect.GetY(), rect.GetWidth(), rect.GetHeight(), color);
  493:ili9341_ui_driver.hpp ****     };
  494:ili9341_ui_driver.hpp **** 
@@ -1629,6 +1618,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  497:ili9341_ui_driver.hpp ****                   uint_fast16_t x2,
  498:ili9341_ui_driver.hpp ****                   uint_fast16_t y2,
  499:ili9341_ui_driver.hpp ****                   uint8_t       color)
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 28
+
+
  500:ili9341_ui_driver.hpp ****     {
  501:ili9341_ui_driver.hpp ****         auto deltaX = abs((int_fast16_t)x2 - (int_fast16_t)x1);
  502:ili9341_ui_driver.hpp ****         auto deltaY = abs((int_fast16_t)y2 - (int_fast16_t)y1);
@@ -1662,37 +1654,37 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  530:ili9341_ui_driver.hpp ****     }
  531:ili9341_ui_driver.hpp **** 
  532:ili9341_ui_driver.hpp ****     void DrawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t color)
- 412              		.loc 9 532 10 view .LVU116
- 413              	.LBB277:
+ 403              		.loc 9 532 10 view .LVU111
+ 404              	.LBB280:
  533:ili9341_ui_driver.hpp ****     {
  534:ili9341_ui_driver.hpp ****         auto x2 = x + w;
- 414              		.loc 9 534 9 view .LVU117
+ 405              		.loc 9 534 9 view .LVU112
  535:ili9341_ui_driver.hpp ****         auto y2 = y + h;
- 415              		.loc 9 535 9 view .LVU118
+ 406              		.loc 9 535 9 view .LVU113
  536:ili9341_ui_driver.hpp ****         DrawLine(x, y, x, y2, color);
- 416              		.loc 9 536 9 view .LVU119
- 417              	.LBB278:
- 418              	.LBI278:
+ 407              		.loc 9 536 9 view .LVU114
+ 408              	.LBB281:
+ 409              	.LBI281:
  495:ili9341_ui_driver.hpp ****                   uint_fast16_t y1,
- 419              		.loc 9 495 10 view .LVU120
- 420              	.LBB279:
+ 410              		.loc 9 495 10 view .LVU115
+ 411              	.LBB282:
  501:ili9341_ui_driver.hpp ****         auto deltaY = abs((int_fast16_t)y2 - (int_fast16_t)y1);
- 421              		.loc 9 501 9 view .LVU121
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 29
-
-
+ 412              		.loc 9 501 9 view .LVU116
  502:ili9341_ui_driver.hpp ****         auto signX  = ((x1 < x2) ? 1 : -1);
- 422              		.loc 9 502 9 view .LVU122
+ 413              		.loc 9 502 9 view .LVU117
  503:ili9341_ui_driver.hpp ****         auto signY  = ((y1 < y2) ? 1 : -1);
- 423              		.loc 9 503 9 view .LVU123
+ 414              		.loc 9 503 9 view .LVU118
  504:ili9341_ui_driver.hpp ****         auto error  = deltaX - deltaY;
- 424              		.loc 9 504 9 view .LVU124
+ 415              		.loc 9 504 9 view .LVU119
  505:ili9341_ui_driver.hpp **** 
- 425              		.loc 9 505 9 view .LVU125
+ 416              		.loc 9 505 9 view .LVU120
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 29
+
+
  510:ili9341_ui_driver.hpp **** 
- 426              		.loc 9 510 9 view .LVU126
- 427              	.LBB280:
- 428              	.LBI280:
+ 417              		.loc 9 510 9 view .LVU121
+ 418              	.LBB283:
+ 419              	.LBI283:
  537:ili9341_ui_driver.hpp ****         DrawLine(x, y, x2, y, color);
  538:ili9341_ui_driver.hpp ****         DrawLine(x, y2, x2, y2, color);
  539:ili9341_ui_driver.hpp ****         DrawLine(x2, y, x2, y2, color);
@@ -1738,9 +1730,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  579:ili9341_ui_driver.hpp ****            || height < (currentY_ + font.FontHeight))
  580:ili9341_ui_driver.hpp ****         {
  581:ili9341_ui_driver.hpp ****             // Not enough space on current line
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 30
-
-
  582:ili9341_ui_driver.hpp ****             return 0;
  583:ili9341_ui_driver.hpp ****         }
  584:ili9341_ui_driver.hpp **** 
@@ -1749,6 +1738,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  587:ili9341_ui_driver.hpp ****         {
  588:ili9341_ui_driver.hpp ****             auto b = font.data[(ch - 32) * font.FontHeight + i];
  589:ili9341_ui_driver.hpp ****             for(auto j = 0; j < font.FontWidth; j++)
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 30
+
+
  590:ili9341_ui_driver.hpp ****             {
  591:ili9341_ui_driver.hpp ****                 if((b << j) & 0x8000)
  592:ili9341_ui_driver.hpp ****                 {
@@ -1798,9 +1790,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  636:ili9341_ui_driver.hpp ****     uint16_t GetStringWidth(const char* str, FontDef font)
  637:ili9341_ui_driver.hpp ****     {
  638:ili9341_ui_driver.hpp ****         uint16_t font_width = 0;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 31
-
-
  639:ili9341_ui_driver.hpp ****         // Loop until null-byte
  640:ili9341_ui_driver.hpp ****         while(*str)
  641:ili9341_ui_driver.hpp ****         {
@@ -1809,6 +1798,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  644:ili9341_ui_driver.hpp ****         }
  645:ili9341_ui_driver.hpp **** 
  646:ili9341_ui_driver.hpp ****         return font_width;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 31
+
+
  647:ili9341_ui_driver.hpp ****     }
  648:ili9341_ui_driver.hpp **** 
  649:ili9341_ui_driver.hpp ****     void DrawCircle(int16_t x0, int16_t y0, int16_t r, uint8_t color)
@@ -1858,9 +1850,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  693:ili9341_ui_driver.hpp ****     void FillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)
  694:ili9341_ui_driver.hpp ****     {
  695:ili9341_ui_driver.hpp ****         // DriteFastVLine(x0, y0 - r, 2 * r + 1, color);
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 32
-
-
  696:ili9341_ui_driver.hpp ****         DrawLine(x0, y0, x0, y0 + 2 * r + 1, color);
  697:ili9341_ui_driver.hpp ****         FillCircleHelper(x0, y0, r, 3, 0, color);
  698:ili9341_ui_driver.hpp ****     }
@@ -1869,6 +1858,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  701:ili9341_ui_driver.hpp ****                           int16_t  y0,
  702:ili9341_ui_driver.hpp ****                           int16_t  r,
  703:ili9341_ui_driver.hpp ****                           uint8_t  cornername,
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 32
+
+
  704:ili9341_ui_driver.hpp ****                           int16_t  delta,
  705:ili9341_ui_driver.hpp ****                           uint16_t color)
  706:ili9341_ui_driver.hpp ****     {
@@ -1918,9 +1910,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  750:ili9341_ui_driver.hpp ****     \param x x pos
  751:ili9341_ui_driver.hpp ****     \param y y pos
  752:ili9341_ui_driver.hpp ****     */
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 33
-
-
  753:ili9341_ui_driver.hpp ****     void SetCursor(uint16_t x, uint16_t y)
  754:ili9341_ui_driver.hpp ****     {
  755:ili9341_ui_driver.hpp ****         currentX_ = (x >= width) ? width - 1 : x;
@@ -1929,6 +1918,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  758:ili9341_ui_driver.hpp **** 
  759:ili9341_ui_driver.hpp ****     void Update()
  760:ili9341_ui_driver.hpp ****     {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 33
+
+
  761:ili9341_ui_driver.hpp ****         Start();
  762:ili9341_ui_driver.hpp ****         transport_.SendDataDMA();
  763:ili9341_ui_driver.hpp ****     }
@@ -1967,846 +1959,846 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  796:ili9341_ui_driver.hpp ****     void Start() { transport_.SetAddressWindow(0, 0, width - 1, height - 1); }
  797:ili9341_ui_driver.hpp **** 
  798:ili9341_ui_driver.hpp ****     void DrawPixel(uint_fast16_t x, uint_fast16_t y, uint8_t color)
- 429              		.loc 9 798 10 view .LVU127
- 430              	.LBB281:
+ 420              		.loc 9 798 10 view .LVU122
+ 421              	.LBB284:
  799:ili9341_ui_driver.hpp ****     {
  800:ili9341_ui_driver.hpp ****         if(x >= width || y >= height)
- 431              		.loc 9 800 9 view .LVU128
- 432              		.loc 9 800 17 is_stmt 0 view .LVU129
- 433 0008 494A     		ldr	r2, .L41+4
- 434 000a B2F88430 		ldrh	r3, [r2, #132]
- 435              		.loc 9 800 9 view .LVU130
- 436 000e 042B     		cmp	r3, #4
- 437 0010 10D9     		bls	.L40
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 34
-
-
- 438              		.loc 9 800 23 view .LVU131
- 439 0012 B2F88610 		ldrh	r1, [r2, #134]
- 440 0016 6829     		cmp	r1, #104
- 441 0018 0CD9     		bls	.L40
+ 422              		.loc 9 800 9 view .LVU123
+ 423              		.loc 9 800 17 is_stmt 0 view .LVU124
+ 424 0008 494A     		ldr	r2, .L41+4
+ 425 000a B2F88430 		ldrh	r3, [r2, #132]
+ 426              		.loc 9 800 9 view .LVU125
+ 427 000e 042B     		cmp	r3, #4
+ 428 0010 10D9     		bls	.L40
+ 429              		.loc 9 800 23 view .LVU126
+ 430 0012 B2F88610 		ldrh	r1, [r2, #134]
+ 431 0016 6829     		cmp	r1, #104
+ 432 0018 0CD9     		bls	.L40
  801:ili9341_ui_driver.hpp ****             return;
  802:ili9341_ui_driver.hpp **** 
  803:ili9341_ui_driver.hpp ****         auto id = 2 * (x + y * width);
- 442              		.loc 9 803 9 is_stmt 1 view .LVU132
- 443              		.loc 9 803 30 is_stmt 0 view .LVU133
- 444 001a 6821     		movs	r1, #104
+ 433              		.loc 9 803 9 is_stmt 1 view .LVU127
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 34
+
+
+ 434              		.loc 9 803 30 is_stmt 0 view .LVU128
+ 435 001a 6821     		movs	r1, #104
  804:ili9341_ui_driver.hpp **** 
  805:ili9341_ui_driver.hpp ****         // NOTE: Probably we should check the color id before accessing the array
  806:ili9341_ui_driver.hpp ****         transport_.PaintPixel(id, tftPalette[color]);
- 445              		.loc 9 806 30 view .LVU134
- 446 001c D06C     		ldr	r0, [r2, #76]
- 447              	.LBB282:
- 448              	.LBB283:
+ 436              		.loc 9 806 30 view .LVU129
+ 437 001c D06C     		ldr	r0, [r2, #76]
+ 438              	.LBB285:
+ 439              	.LBB286:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 449              		.loc 9 193 25 view .LVU135
- 450 001e 454F     		ldr	r7, .L41+8
- 451              	.LBE283:
- 452              	.LBE282:
+ 440              		.loc 9 193 25 view .LVU130
+ 441 001e 454F     		ldr	r7, .L41+8
+ 442              	.LBE286:
+ 443              	.LBE285:
  803:ili9341_ui_driver.hpp **** 
- 453              		.loc 9 803 30 view .LVU136
- 454 0020 03FB01F1 		mul	r1, r3, r1
- 455              	.LBB286:
- 456              	.LBB284:
+ 444              		.loc 9 803 30 view .LVU131
+ 445 0020 03FB01F1 		mul	r1, r3, r1
+ 446              	.LBB289:
+ 447              	.LBB287:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 457              		.loc 9 193 33 view .LVU137
- 458 0024 040A     		lsrs	r4, r0, #8
- 459              	.LBE284:
- 460              	.LBE286:
+ 448              		.loc 9 193 33 view .LVU132
+ 449 0024 040A     		lsrs	r4, r0, #8
+ 450              	.LBE287:
+ 451              	.LBE289:
  803:ili9341_ui_driver.hpp **** 
- 461              		.loc 9 803 26 view .LVU138
- 462 0026 0431     		adds	r1, r1, #4
- 463              	.LVL24:
- 464              		.loc 9 806 9 is_stmt 1 view .LVU139
- 465              	.LBB287:
- 466              	.LBI282:
+ 452              		.loc 9 803 26 view .LVU133
+ 453 0026 0431     		adds	r1, r1, #4
+ 454              	.LVL22:
+ 455              		.loc 9 806 9 is_stmt 1 view .LVU134
+ 456              	.LBB290:
+ 457              	.LBI285:
  191:ili9341_ui_driver.hpp ****     {
- 467              		.loc 9 191 10 view .LVU140
- 468              	.LBB285:
+ 458              		.loc 9 191 10 view .LVU135
+ 459              	.LBB288:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 469              		.loc 9 193 9 view .LVU141
+ 460              		.loc 9 193 9 view .LVU136
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 470              		.loc 9 193 25 is_stmt 0 view .LVU142
- 471 0028 07F81140 		strb	r4, [r7, r1, lsl #1]
+ 461              		.loc 9 193 25 is_stmt 0 view .LVU137
+ 462 0028 07F81140 		strb	r4, [r7, r1, lsl #1]
  194:ili9341_ui_driver.hpp ****     }
- 472              		.loc 9 194 9 is_stmt 1 view .LVU143
+ 463              		.loc 9 194 9 is_stmt 1 view .LVU138
  194:ili9341_ui_driver.hpp ****     }
- 473              		.loc 9 194 25 is_stmt 0 view .LVU144
- 474 002c 07EB4101 		add	r1, r7, r1, lsl #1
- 475              	.LVL25:
+ 464              		.loc 9 194 25 is_stmt 0 view .LVU139
+ 465 002c 07EB4101 		add	r1, r7, r1, lsl #1
+ 466              	.LVL23:
  194:ili9341_ui_driver.hpp ****     }
- 476              		.loc 9 194 25 view .LVU145
- 477 0030 4870     		strb	r0, [r1, #1]
- 478              	.LVL26:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 35
+ 467              		.loc 9 194 25 view .LVU140
+ 468 0030 4870     		strb	r0, [r1, #1]
+ 469              	.LVL24:
+ 194:ili9341_ui_driver.hpp ****     }
+ 470              		.loc 9 194 25 view .LVU141
+ 471              	.LBE288:
+ 472              	.LBE290:
+ 473              	.LBE284:
+ 474              	.LBE283:
+ 514:ili9341_ui_driver.hpp ****         {
+ 475              		.loc 9 514 9 is_stmt 1 view .LVU142
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 35
 
 
- 194:ili9341_ui_driver.hpp ****     }
- 479              		.loc 9 194 25 view .LVU146
- 480              	.LBE285:
- 481              	.LBE287:
- 482              	.LBE281:
- 483              	.LBE280:
  514:ili9341_ui_driver.hpp ****         {
- 484              		.loc 9 514 9 is_stmt 1 view .LVU147
+ 476              		.loc 9 514 26 view .LVU143
+ 477 0032 00E0     		b	.L18
+ 478              	.LVL25:
+ 479              	.L40:
  514:ili9341_ui_driver.hpp ****         {
- 485              		.loc 9 514 26 view .LVU148
- 486 0032 00E0     		b	.L18
- 487              	.LVL27:
- 488              	.L40:
- 514:ili9341_ui_driver.hpp ****         {
- 489              		.loc 9 514 26 is_stmt 0 view .LVU149
- 490 0034 3F4F     		ldr	r7, .L41+8
- 491              	.LVL28:
- 492              	.L18:
- 493              	.LBB288:
- 494              	.LBB289:
- 495              	.LBB290:
- 496              		.loc 9 806 30 view .LVU150
- 497 0036 D16C     		ldr	r1, [r2, #76]
- 498 0038 07EBC306 		add	r6, r7, r3, lsl #3
+ 480              		.loc 9 514 26 is_stmt 0 view .LVU144
+ 481 0034 3F4F     		ldr	r7, .L41+8
+ 482              	.LVL26:
+ 483              	.L18:
+ 484              	.LBB291:
+ 485              	.LBB292:
+ 486              	.LBB293:
+ 487              		.loc 9 806 30 view .LVU145
+ 488 0036 D16C     		ldr	r1, [r2, #76]
+ 489 0038 07EBC306 		add	r6, r7, r3, lsl #3
  800:ili9341_ui_driver.hpp ****             return;
- 499              		.loc 9 800 31 view .LVU151
- 500 003c B2F886C0 		ldrh	ip, [r2, #134]
- 501 0040 5C00     		lsls	r4, r3, #1
- 502              	.LBB291:
- 503              	.LBB292:
+ 490              		.loc 9 800 31 view .LVU146
+ 491 003c B2F886C0 		ldrh	ip, [r2, #134]
+ 492 0040 5C00     		lsls	r4, r3, #1
+ 493              	.LBB294:
+ 494              	.LBB295:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 504              		.loc 9 193 25 view .LVU152
- 505 0042 C1F30725 		ubfx	r5, r1, #8, #8
+ 495              		.loc 9 193 25 view .LVU147
+ 496 0042 C1F30725 		ubfx	r5, r1, #8, #8
  194:ili9341_ui_driver.hpp ****     }
- 506              		.loc 9 194 25 view .LVU153
- 507 0046 5FFA81FE 		uxtb	lr, r1
- 508 004a 4FEAC308 		lsl	r8, r3, #3
- 509 004e 0422     		movs	r2, #4
- 510 0050 3146     		mov	r1, r6
- 511 0052 3046     		mov	r0, r6
- 512              	.L20:
- 513              	.LVL29:
+ 497              		.loc 9 194 25 view .LVU148
+ 498 0046 5FFA81FE 		uxtb	lr, r1
+ 499 004a 4FEAC308 		lsl	r8, r3, #3
+ 500 004e 0422     		movs	r2, #4
+ 501 0050 3146     		mov	r1, r6
+ 502 0052 3046     		mov	r0, r6
+ 503              	.L20:
+ 504              	.LVL27:
  194:ili9341_ui_driver.hpp ****     }
- 514              		.loc 9 194 25 view .LVU154
- 515              	.LBE292:
- 516              	.LBE291:
- 517              	.LBE290:
- 518              	.LBE289:
+ 505              		.loc 9 194 25 view .LVU149
+ 506              	.LBE295:
+ 507              	.LBE294:
+ 508              	.LBE293:
+ 509              	.LBE292:
  516:ili9341_ui_driver.hpp ****             auto error2 = error * 2;
- 519              		.loc 9 516 13 is_stmt 1 view .LVU155
- 520              	.LBB308:
- 521              	.LBI289:
+ 510              		.loc 9 516 13 is_stmt 1 view .LVU150
+ 511              	.LBB311:
+ 512              	.LBI292:
  798:ili9341_ui_driver.hpp ****     {
- 522              		.loc 9 798 10 view .LVU156
- 523              	.LBB303:
+ 513              		.loc 9 798 10 view .LVU151
+ 514              	.LBB306:
  800:ili9341_ui_driver.hpp ****             return;
- 524              		.loc 9 800 9 view .LVU157
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 36
-
-
+ 515              		.loc 9 800 9 view .LVU152
  803:ili9341_ui_driver.hpp **** 
- 525              		.loc 9 803 9 view .LVU158
- 526              		.loc 9 806 9 view .LVU159
- 527              	.LBB298:
- 528              	.LBI291:
+ 516              		.loc 9 803 9 view .LVU153
+ 517              		.loc 9 806 9 view .LVU154
+ 518              	.LBB301:
+ 519              	.LBI294:
  191:ili9341_ui_driver.hpp ****     {
- 529              		.loc 9 191 10 view .LVU160
- 530              	.LBB293:
+ 520              		.loc 9 191 10 view .LVU155
+ 521              	.LBB296:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 36
+
+
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 531              		.loc 9 193 9 view .LVU161
+ 522              		.loc 9 193 9 view .LVU156
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 532              		.loc 9 193 9 is_stmt 0 view .LVU162
- 533              	.LBE293:
- 534              	.LBE298:
- 535              	.LBE303:
- 536              	.LBE308:
+ 523              		.loc 9 193 9 is_stmt 0 view .LVU157
+ 524              	.LBE296:
+ 525              	.LBE301:
+ 526              	.LBE306:
+ 527              	.LBE311:
  517:ili9341_ui_driver.hpp ****             if(error2 > -deltaY)
- 537              		.loc 9 517 13 is_stmt 1 view .LVU163
+ 528              		.loc 9 517 13 is_stmt 1 view .LVU158
  518:ili9341_ui_driver.hpp ****             {
- 538              		.loc 9 518 13 view .LVU164
+ 529              		.loc 9 518 13 view .LVU159
  524:ili9341_ui_driver.hpp ****             {
- 539              		.loc 9 524 13 view .LVU165
+ 530              		.loc 9 524 13 view .LVU160
  526:ili9341_ui_driver.hpp ****                 y1 += signY;
- 540              		.loc 9 526 17 view .LVU166
+ 531              		.loc 9 526 17 view .LVU161
  527:ili9341_ui_driver.hpp ****             }
- 541              		.loc 9 527 17 view .LVU167
- 542              	.LBB309:
- 543              	.LBB304:
+ 532              		.loc 9 527 17 view .LVU162
+ 533              	.LBB312:
+ 534              	.LBB307:
  800:ili9341_ui_driver.hpp ****             return;
- 544              		.loc 9 800 9 is_stmt 0 view .LVU168
- 545 0054 042B     		cmp	r3, #4
- 546 0056 04D9     		bls	.L19
+ 535              		.loc 9 800 9 is_stmt 0 view .LVU163
+ 536 0054 042B     		cmp	r3, #4
+ 537 0056 04D9     		bls	.L19
  800:ili9341_ui_driver.hpp ****             return;
- 547              		.loc 9 800 23 view .LVU169
- 548 0058 9445     		cmp	ip, r2
- 549 005a 02D9     		bls	.L19
- 550              	.LBB299:
- 551              	.LBB294:
+ 538              		.loc 9 800 23 view .LVU164
+ 539 0058 9445     		cmp	ip, r2
+ 540 005a 02D9     		bls	.L19
+ 541              	.LBB302:
+ 542              	.LBB297:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 552              		.loc 9 193 25 view .LVU170
- 553 005c 0572     		strb	r5, [r0, #8]
+ 543              		.loc 9 193 25 view .LVU165
+ 544 005c 0572     		strb	r5, [r0, #8]
  194:ili9341_ui_driver.hpp ****     }
- 554              		.loc 9 194 9 is_stmt 1 view .LVU171
+ 545              		.loc 9 194 9 is_stmt 1 view .LVU166
  194:ili9341_ui_driver.hpp ****     }
- 555              		.loc 9 194 25 is_stmt 0 view .LVU172
- 556 005e 80F809E0 		strb	lr, [r0, #9]
- 557              	.L19:
- 558              	.LBE294:
- 559              	.LBE299:
- 560              	.LBE304:
- 561              	.LBE309:
+ 546              		.loc 9 194 25 is_stmt 0 view .LVU167
+ 547 005e 80F809E0 		strb	lr, [r0, #9]
+ 548              	.L19:
+ 549              	.LBE297:
+ 550              	.LBE302:
+ 551              	.LBE307:
+ 552              	.LBE312:
  527:ili9341_ui_driver.hpp ****             }
- 562              		.loc 9 527 20 view .LVU173
- 563 0062 0132     		adds	r2, r2, #1
- 564              	.LVL30:
+ 553              		.loc 9 527 20 view .LVU168
+ 554 0062 0132     		adds	r2, r2, #1
+ 555              	.LVL28:
  527:ili9341_ui_driver.hpp ****             }
- 565              		.loc 9 527 20 view .LVU174
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 37
+ 556              		.loc 9 527 20 view .LVU169
+ 557              	.LBE291:
+ 514:ili9341_ui_driver.hpp ****         {
+ 558              		.loc 9 514 9 is_stmt 1 view .LVU170
+ 514:ili9341_ui_driver.hpp ****         {
+ 559              		.loc 9 514 26 view .LVU171
+ 560 0064 2044     		add	r0, r0, r4
+ 561 0066 682A     		cmp	r2, #104
+ 562 0068 F4D1     		bne	.L20
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 37
 
 
- 566              	.LBE288:
+ 563              	.LVL29:
  514:ili9341_ui_driver.hpp ****         {
- 567              		.loc 9 514 9 is_stmt 1 view .LVU175
- 514:ili9341_ui_driver.hpp ****         {
- 568              		.loc 9 514 26 view .LVU176
- 569 0064 2044     		add	r0, r0, r4
- 570 0066 682A     		cmp	r2, #104
- 571 0068 F4D1     		bne	.L20
- 572              	.LVL31:
- 514:ili9341_ui_driver.hpp ****         {
- 573              		.loc 9 514 26 is_stmt 0 view .LVU177
- 574              	.LBE279:
- 575              	.LBE278:
+ 564              		.loc 9 514 26 is_stmt 0 view .LVU172
+ 565              	.LBE282:
+ 566              	.LBE281:
  537:ili9341_ui_driver.hpp ****         DrawLine(x, y2, x2, y2, color);
- 576              		.loc 9 537 9 is_stmt 1 view .LVU178
- 577              	.LBB319:
- 578              	.LBI319:
+ 567              		.loc 9 537 9 is_stmt 1 view .LVU173
+ 568              	.LBB322:
+ 569              	.LBI322:
  495:ili9341_ui_driver.hpp ****                   uint_fast16_t y1,
- 579              		.loc 9 495 10 view .LVU179
- 580              	.LBB320:
+ 570              		.loc 9 495 10 view .LVU174
+ 571              	.LBB323:
  501:ili9341_ui_driver.hpp ****         auto deltaY = abs((int_fast16_t)y2 - (int_fast16_t)y1);
- 581              		.loc 9 501 9 view .LVU180
+ 572              		.loc 9 501 9 view .LVU175
  502:ili9341_ui_driver.hpp ****         auto signX  = ((x1 < x2) ? 1 : -1);
- 582              		.loc 9 502 9 view .LVU181
+ 573              		.loc 9 502 9 view .LVU176
  503:ili9341_ui_driver.hpp ****         auto signY  = ((y1 < y2) ? 1 : -1);
- 583              		.loc 9 503 9 view .LVU182
+ 574              		.loc 9 503 9 view .LVU177
  504:ili9341_ui_driver.hpp ****         auto error  = deltaX - deltaY;
- 584              		.loc 9 504 9 view .LVU183
+ 575              		.loc 9 504 9 view .LVU178
  505:ili9341_ui_driver.hpp **** 
- 585              		.loc 9 505 9 view .LVU184
+ 576              		.loc 9 505 9 view .LVU179
  510:ili9341_ui_driver.hpp **** 
- 586              		.loc 9 510 9 view .LVU185
- 587              	.LBB321:
- 588              	.LBI321:
+ 577              		.loc 9 510 9 view .LVU180
+ 578              	.LBB324:
+ 579              	.LBI324:
  798:ili9341_ui_driver.hpp ****     {
- 589              		.loc 9 798 10 view .LVU186
- 590              	.LBB322:
+ 580              		.loc 9 798 10 view .LVU181
+ 581              	.LBB325:
  800:ili9341_ui_driver.hpp ****             return;
- 591              		.loc 9 800 9 view .LVU187
- 592 006a 682B     		cmp	r3, #104
- 593 006c 08D9     		bls	.L21
+ 582              		.loc 9 800 9 view .LVU182
+ 583 006a 682B     		cmp	r3, #104
+ 584 006c 08D9     		bls	.L21
  800:ili9341_ui_driver.hpp ****             return;
- 594              		.loc 9 800 23 is_stmt 0 view .LVU188
- 595 006e BCF1040F 		cmp	ip, #4
- 596 0072 05D9     		bls	.L21
+ 585              		.loc 9 800 23 is_stmt 0 view .LVU183
+ 586 006e BCF1040F 		cmp	ip, #4
+ 587 0072 05D9     		bls	.L21
  803:ili9341_ui_driver.hpp **** 
- 597              		.loc 9 803 9 is_stmt 1 view .LVU189
- 598              	.LVL32:
- 599              		.loc 9 806 9 view .LVU190
- 600              	.LBB323:
- 601              	.LBI323:
+ 588              		.loc 9 803 9 is_stmt 1 view .LVU184
+ 589              	.LVL30:
+ 590              		.loc 9 806 9 view .LVU185
+ 591              	.LBB326:
+ 592              	.LBI326:
  191:ili9341_ui_driver.hpp ****     {
- 602              		.loc 9 191 10 view .LVU191
- 603              	.LBB324:
+ 593              		.loc 9 191 10 view .LVU186
+ 594              	.LBB327:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 604              		.loc 9 193 9 view .LVU192
+ 595              		.loc 9 193 9 view .LVU187
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 38
+ 596              		.loc 9 193 25 is_stmt 0 view .LVU188
+ 597 0074 07EB0802 		add	r2, r7, r8
+ 598 0078 82F8D050 		strb	r5, [r2, #208]
+ 194:ili9341_ui_driver.hpp ****     }
+ 599              		.loc 9 194 9 is_stmt 1 view .LVU189
+ 194:ili9341_ui_driver.hpp ****     }
+ 600              		.loc 9 194 25 is_stmt 0 view .LVU190
+ 601 007c 82F8D1E0 		strb	lr, [r2, #209]
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 38
 
 
- 605              		.loc 9 193 25 is_stmt 0 view .LVU193
- 606 0074 07EB0802 		add	r2, r7, r8
- 607 0078 82F8D050 		strb	r5, [r2, #208]
+ 602              	.LVL31:
  194:ili9341_ui_driver.hpp ****     }
- 608              		.loc 9 194 9 is_stmt 1 view .LVU194
- 194:ili9341_ui_driver.hpp ****     }
- 609              		.loc 9 194 25 is_stmt 0 view .LVU195
- 610 007c 82F8D1E0 		strb	lr, [r2, #209]
- 611              	.LVL33:
- 194:ili9341_ui_driver.hpp ****     }
- 612              		.loc 9 194 25 view .LVU196
- 613              	.LBE324:
- 614              	.LBE323:
- 615              	.LBE322:
- 616              	.LBE321:
+ 603              		.loc 9 194 25 view .LVU191
+ 604              	.LBE327:
+ 605              	.LBE326:
+ 606              	.LBE325:
+ 607              	.LBE324:
  514:ili9341_ui_driver.hpp ****         {
- 617              		.loc 9 514 9 is_stmt 1 view .LVU197
+ 608              		.loc 9 514 9 is_stmt 1 view .LVU192
  514:ili9341_ui_driver.hpp ****         {
- 618              		.loc 9 514 26 view .LVU198
- 619              	.L21:
+ 609              		.loc 9 514 26 view .LVU193
+ 610              	.L21:
  514:ili9341_ui_driver.hpp ****         {
- 620              		.loc 9 514 26 is_stmt 0 view .LVU199
- 621 0080 701C     		adds	r0, r6, #1
- 622              	.LBE320:
- 623              	.LBE319:
- 624              	.LBB335:
- 625              	.LBB316:
- 626              	.LBB313:
- 627              	.LBB310:
- 628              	.LBB305:
- 629              	.LBB300:
- 630              	.LBB295:
+ 611              		.loc 9 514 26 is_stmt 0 view .LVU194
+ 612 0080 701C     		adds	r0, r6, #1
+ 613              	.LBE323:
+ 614              	.LBE322:
+ 615              	.LBB338:
+ 616              	.LBB319:
+ 617              	.LBB316:
+ 618              	.LBB313:
+ 619              	.LBB308:
+ 620              	.LBB303:
+ 621              	.LBB298:
  194:ili9341_ui_driver.hpp ****     }
- 631              		.loc 9 194 25 view .LVU200
- 632 0082 0422     		movs	r2, #4
- 633              	.L23:
- 634              	.LVL34:
+ 622              		.loc 9 194 25 view .LVU195
+ 623 0082 0422     		movs	r2, #4
+ 624              	.L23:
+ 625              	.LVL32:
  194:ili9341_ui_driver.hpp ****     }
- 635              		.loc 9 194 25 view .LVU201
- 636              	.LBE295:
- 637              	.LBE300:
- 638              	.LBE305:
- 639              	.LBE310:
- 640              	.LBE313:
- 641              	.LBE316:
- 642              	.LBE335:
- 643              	.LBB336:
- 644              	.LBB334:
- 645              	.LBB325:
+ 626              		.loc 9 194 25 view .LVU196
+ 627              	.LBE298:
+ 628              	.LBE303:
+ 629              	.LBE308:
+ 630              	.LBE313:
+ 631              	.LBE316:
+ 632              	.LBE319:
+ 633              	.LBE338:
+ 634              	.LBB339:
+ 635              	.LBB337:
+ 636              	.LBB328:
  516:ili9341_ui_driver.hpp ****             auto error2 = error * 2;
- 646              		.loc 9 516 13 is_stmt 1 view .LVU202
- 647              	.LBB326:
- 648              	.LBI326:
+ 637              		.loc 9 516 13 is_stmt 1 view .LVU197
+ 638              	.LBB329:
+ 639              	.LBI329:
  798:ili9341_ui_driver.hpp ****     {
- 649              		.loc 9 798 10 view .LVU203
- 650              	.LBB327:
+ 640              		.loc 9 798 10 view .LVU198
+ 641              	.LBB330:
  800:ili9341_ui_driver.hpp ****             return;
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 39
-
-
- 651              		.loc 9 800 9 view .LVU204
+ 642              		.loc 9 800 9 view .LVU199
  803:ili9341_ui_driver.hpp **** 
- 652              		.loc 9 803 9 view .LVU205
- 653              		.loc 9 806 9 view .LVU206
- 654              	.LBB328:
- 655              	.LBI328:
+ 643              		.loc 9 803 9 view .LVU200
+ 644              		.loc 9 806 9 view .LVU201
+ 645              	.LBB331:
+ 646              	.LBI331:
  191:ili9341_ui_driver.hpp ****     {
- 656              		.loc 9 191 10 view .LVU207
- 657              	.LBB329:
+ 647              		.loc 9 191 10 view .LVU202
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 39
+
+
+ 648              	.LBB332:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 658              		.loc 9 193 9 view .LVU208
+ 649              		.loc 9 193 9 view .LVU203
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 659              		.loc 9 193 9 is_stmt 0 view .LVU209
- 660              	.LBE329:
- 661              	.LBE328:
- 662              	.LBE327:
- 663              	.LBE326:
+ 650              		.loc 9 193 9 is_stmt 0 view .LVU204
+ 651              	.LBE332:
+ 652              	.LBE331:
+ 653              	.LBE330:
+ 654              	.LBE329:
  517:ili9341_ui_driver.hpp ****             if(error2 > -deltaY)
- 664              		.loc 9 517 13 is_stmt 1 view .LVU210
+ 655              		.loc 9 517 13 is_stmt 1 view .LVU205
  518:ili9341_ui_driver.hpp ****             {
- 665              		.loc 9 518 13 view .LVU211
+ 656              		.loc 9 518 13 view .LVU206
  520:ili9341_ui_driver.hpp ****                 x1 += signX;
- 666              		.loc 9 520 17 view .LVU212
+ 657              		.loc 9 520 17 view .LVU207
  521:ili9341_ui_driver.hpp ****             }
- 667              		.loc 9 521 17 view .LVU213
+ 658              		.loc 9 521 17 view .LVU208
+ 659              	.LBB336:
+ 660              	.LBB335:
+ 800:ili9341_ui_driver.hpp ****             return;
+ 661              		.loc 9 800 9 is_stmt 0 view .LVU209
+ 662 0084 9342     		cmp	r3, r2
+ 663 0086 06D9     		bls	.L22
+ 800:ili9341_ui_driver.hpp ****             return;
+ 664              		.loc 9 800 23 view .LVU210
+ 665 0088 BCF1040F 		cmp	ip, #4
+ 666 008c 03D9     		bls	.L22
+ 667              	.LBB334:
  668              	.LBB333:
- 669              	.LBB332:
- 800:ili9341_ui_driver.hpp ****             return;
- 670              		.loc 9 800 9 is_stmt 0 view .LVU214
- 671 0084 9342     		cmp	r3, r2
- 672 0086 06D9     		bls	.L22
- 800:ili9341_ui_driver.hpp ****             return;
- 673              		.loc 9 800 23 view .LVU215
- 674 0088 BCF1040F 		cmp	ip, #4
- 675 008c 03D9     		bls	.L22
- 676              	.LBB331:
- 677              	.LBB330:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 678              		.loc 9 193 25 view .LVU216
- 679 008e 06F81250 		strb	r5, [r6, r2, lsl #1]
+ 669              		.loc 9 193 25 view .LVU211
+ 670 008e 06F81250 		strb	r5, [r6, r2, lsl #1]
  194:ili9341_ui_driver.hpp ****     }
- 680              		.loc 9 194 9 is_stmt 1 view .LVU217
+ 671              		.loc 9 194 9 is_stmt 1 view .LVU212
  194:ili9341_ui_driver.hpp ****     }
- 681              		.loc 9 194 25 is_stmt 0 view .LVU218
- 682 0092 00F812E0 		strb	lr, [r0, r2, lsl #1]
- 683              	.L22:
- 684              	.LBE330:
- 685              	.LBE331:
- 686              	.LBE332:
- 687              	.LBE333:
+ 672              		.loc 9 194 25 is_stmt 0 view .LVU213
+ 673 0092 00F812E0 		strb	lr, [r0, r2, lsl #1]
+ 674              	.L22:
+ 675              	.LBE333:
+ 676              	.LBE334:
+ 677              	.LBE335:
+ 678              	.LBE336:
  521:ili9341_ui_driver.hpp ****             }
- 688              		.loc 9 521 20 view .LVU219
- 689 0096 0132     		adds	r2, r2, #1
- 690              	.LVL35:
+ 679              		.loc 9 521 20 view .LVU214
+ 680 0096 0132     		adds	r2, r2, #1
+ 681              	.LVL33:
  524:ili9341_ui_driver.hpp ****             {
- 691              		.loc 9 524 13 is_stmt 1 view .LVU220
+ 682              		.loc 9 524 13 is_stmt 1 view .LVU215
  524:ili9341_ui_driver.hpp ****             {
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 40
+ 683              		.loc 9 524 13 is_stmt 0 view .LVU216
+ 684              	.LBE328:
+ 514:ili9341_ui_driver.hpp ****         {
+ 685              		.loc 9 514 9 is_stmt 1 view .LVU217
+ 514:ili9341_ui_driver.hpp ****         {
+ 686              		.loc 9 514 26 view .LVU218
+ 687 0098 682A     		cmp	r2, #104
+ 688 009a F3D1     		bne	.L23
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 40
 
 
- 692              		.loc 9 524 13 is_stmt 0 view .LVU221
- 693              	.LBE325:
+ 689              	.LVL34:
  514:ili9341_ui_driver.hpp ****         {
- 694              		.loc 9 514 9 is_stmt 1 view .LVU222
- 514:ili9341_ui_driver.hpp ****         {
- 695              		.loc 9 514 26 view .LVU223
- 696 0098 682A     		cmp	r2, #104
- 697 009a F3D1     		bne	.L23
- 698              	.LVL36:
- 514:ili9341_ui_driver.hpp ****         {
- 699              		.loc 9 514 26 is_stmt 0 view .LVU224
- 700              	.LBE334:
- 701              	.LBE336:
+ 690              		.loc 9 514 26 is_stmt 0 view .LVU219
+ 691              	.LBE337:
+ 692              	.LBE339:
  538:ili9341_ui_driver.hpp ****         DrawLine(x2, y, x2, y2, color);
- 702              		.loc 9 538 9 is_stmt 1 view .LVU225
- 703              	.LBB337:
- 704              	.LBI337:
+ 693              		.loc 9 538 9 is_stmt 1 view .LVU220
+ 694              	.LBB340:
+ 695              	.LBI340:
  495:ili9341_ui_driver.hpp ****                   uint_fast16_t y1,
- 705              		.loc 9 495 10 view .LVU226
- 706              	.LBB338:
+ 696              		.loc 9 495 10 view .LVU221
+ 697              	.LBB341:
  501:ili9341_ui_driver.hpp ****         auto deltaY = abs((int_fast16_t)y2 - (int_fast16_t)y1);
- 707              		.loc 9 501 9 view .LVU227
+ 698              		.loc 9 501 9 view .LVU222
  502:ili9341_ui_driver.hpp ****         auto signX  = ((x1 < x2) ? 1 : -1);
- 708              		.loc 9 502 9 view .LVU228
+ 699              		.loc 9 502 9 view .LVU223
  503:ili9341_ui_driver.hpp ****         auto signY  = ((y1 < y2) ? 1 : -1);
- 709              		.loc 9 503 9 view .LVU229
+ 700              		.loc 9 503 9 view .LVU224
  504:ili9341_ui_driver.hpp ****         auto error  = deltaX - deltaY;
- 710              		.loc 9 504 9 view .LVU230
+ 701              		.loc 9 504 9 view .LVU225
  505:ili9341_ui_driver.hpp **** 
- 711              		.loc 9 505 9 view .LVU231
+ 702              		.loc 9 505 9 view .LVU226
  510:ili9341_ui_driver.hpp **** 
- 712              		.loc 9 510 9 view .LVU232
- 713              	.LBB339:
- 714              	.LBI339:
+ 703              		.loc 9 510 9 view .LVU227
+ 704              	.LBB342:
+ 705              	.LBI342:
  798:ili9341_ui_driver.hpp ****     {
- 715              		.loc 9 798 10 view .LVU233
- 716              	.LBB340:
+ 706              		.loc 9 798 10 view .LVU228
+ 707              	.LBB343:
  800:ili9341_ui_driver.hpp ****             return;
- 717              		.loc 9 800 9 view .LVU234
- 718 009c 682B     		cmp	r3, #104
- 719 009e 09D9     		bls	.L24
+ 708              		.loc 9 800 9 view .LVU229
+ 709 009c 682B     		cmp	r3, #104
+ 710 009e 09D9     		bls	.L24
  800:ili9341_ui_driver.hpp ****             return;
- 720              		.loc 9 800 23 is_stmt 0 view .LVU235
- 721 00a0 BCF1680F 		cmp	ip, #104
- 722 00a4 06D9     		bls	.L24
+ 711              		.loc 9 800 23 is_stmt 0 view .LVU230
+ 712 00a0 BCF1680F 		cmp	ip, #104
+ 713 00a4 06D9     		bls	.L24
  803:ili9341_ui_driver.hpp **** 
- 723              		.loc 9 803 9 is_stmt 1 view .LVU236
+ 714              		.loc 9 803 9 is_stmt 1 view .LVU231
  803:ili9341_ui_driver.hpp **** 
- 724              		.loc 9 803 14 is_stmt 0 view .LVU237
- 725 00a6 D022     		movs	r2, #208
- 726 00a8 03FB0222 		mla	r2, r3, r2, r2
- 727              	.LVL37:
- 728              		.loc 9 806 9 is_stmt 1 view .LVU238
- 729              	.LBB341:
- 730              	.LBI341:
+ 715              		.loc 9 803 14 is_stmt 0 view .LVU232
+ 716 00a6 D022     		movs	r2, #208
+ 717 00a8 03FB0222 		mla	r2, r3, r2, r2
+ 718              	.LVL35:
+ 719              		.loc 9 806 9 is_stmt 1 view .LVU233
+ 720              	.LBB344:
+ 721              	.LBI344:
  191:ili9341_ui_driver.hpp ****     {
- 731              		.loc 9 191 10 view .LVU239
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 41
-
-
- 732              	.LBB342:
+ 722              		.loc 9 191 10 view .LVU234
+ 723              	.LBB345:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 733              		.loc 9 193 9 view .LVU240
+ 724              		.loc 9 193 9 view .LVU235
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 734              		.loc 9 193 25 is_stmt 0 view .LVU241
- 735 00ac BD54     		strb	r5, [r7, r2]
+ 725              		.loc 9 193 25 is_stmt 0 view .LVU236
+ 726 00ac BD54     		strb	r5, [r7, r2]
  194:ili9341_ui_driver.hpp ****     }
- 736              		.loc 9 194 9 is_stmt 1 view .LVU242
- 194:ili9341_ui_driver.hpp ****     }
- 737              		.loc 9 194 25 is_stmt 0 view .LVU243
- 738 00ae 3A44     		add	r2, r2, r7
- 739              	.LVL38:
- 194:ili9341_ui_driver.hpp ****     }
- 740              		.loc 9 194 25 view .LVU244
- 741 00b0 82F801E0 		strb	lr, [r2, #1]
- 742              	.LVL39:
- 194:ili9341_ui_driver.hpp ****     }
- 743              		.loc 9 194 25 view .LVU245
- 744              	.LBE342:
- 745              	.LBE341:
- 746              	.LBE340:
- 747              	.LBE339:
- 514:ili9341_ui_driver.hpp ****         {
- 748              		.loc 9 514 9 is_stmt 1 view .LVU246
- 514:ili9341_ui_driver.hpp ****         {
- 749              		.loc 9 514 26 view .LVU247
- 750              	.L24:
- 514:ili9341_ui_driver.hpp ****         {
- 751              		.loc 9 514 26 is_stmt 0 view .LVU248
- 752 00b4 4FF0D008 		mov	r8, #208
- 753              	.LBE338:
- 754              	.LBE337:
- 755              	.LBB353:
- 756              	.LBB317:
- 757              	.LBB314:
- 758              	.LBB311:
- 759              	.LBB306:
- 760              	.LBB301:
- 761              	.LBB296:
- 194:ili9341_ui_driver.hpp ****     }
- 762              		.loc 9 194 25 view .LVU249
- 763 00b8 0422     		movs	r2, #4
- 764 00ba 08FB03F8 		mul	r8, r8, r3
- 765 00be 07EB0800 		add	r0, r7, r8
- 766 00c2 461C     		adds	r6, r0, #1
- 767              	.L26:
- 768              	.LVL40:
- 194:ili9341_ui_driver.hpp ****     }
- 769              		.loc 9 194 25 view .LVU250
- 770              	.LBE296:
- 771              	.LBE301:
- 772              	.LBE306:
- 773              	.LBE311:
- 774              	.LBE314:
- 775              	.LBE317:
- 776              	.LBE353:
- 777              	.LBB354:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 42
+ 727              		.loc 9 194 9 is_stmt 1 view .LVU237
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 41
 
 
- 778              	.LBB352:
- 779              	.LBB343:
+ 194:ili9341_ui_driver.hpp ****     }
+ 728              		.loc 9 194 25 is_stmt 0 view .LVU238
+ 729 00ae 3A44     		add	r2, r2, r7
+ 730              	.LVL36:
+ 194:ili9341_ui_driver.hpp ****     }
+ 731              		.loc 9 194 25 view .LVU239
+ 732 00b0 82F801E0 		strb	lr, [r2, #1]
+ 733              	.LVL37:
+ 194:ili9341_ui_driver.hpp ****     }
+ 734              		.loc 9 194 25 view .LVU240
+ 735              	.LBE345:
+ 736              	.LBE344:
+ 737              	.LBE343:
+ 738              	.LBE342:
+ 514:ili9341_ui_driver.hpp ****         {
+ 739              		.loc 9 514 9 is_stmt 1 view .LVU241
+ 514:ili9341_ui_driver.hpp ****         {
+ 740              		.loc 9 514 26 view .LVU242
+ 741              	.L24:
+ 514:ili9341_ui_driver.hpp ****         {
+ 742              		.loc 9 514 26 is_stmt 0 view .LVU243
+ 743 00b4 4FF0D008 		mov	r8, #208
+ 744              	.LBE341:
+ 745              	.LBE340:
+ 746              	.LBB356:
+ 747              	.LBB320:
+ 748              	.LBB317:
+ 749              	.LBB314:
+ 750              	.LBB309:
+ 751              	.LBB304:
+ 752              	.LBB299:
+ 194:ili9341_ui_driver.hpp ****     }
+ 753              		.loc 9 194 25 view .LVU244
+ 754 00b8 0422     		movs	r2, #4
+ 755 00ba 08FB03F8 		mul	r8, r8, r3
+ 756 00be 07EB0800 		add	r0, r7, r8
+ 757 00c2 461C     		adds	r6, r0, #1
+ 758              	.L26:
+ 759              	.LVL38:
+ 194:ili9341_ui_driver.hpp ****     }
+ 760              		.loc 9 194 25 view .LVU245
+ 761              	.LBE299:
+ 762              	.LBE304:
+ 763              	.LBE309:
+ 764              	.LBE314:
+ 765              	.LBE317:
+ 766              	.LBE320:
+ 767              	.LBE356:
+ 768              	.LBB357:
+ 769              	.LBB355:
+ 770              	.LBB346:
  516:ili9341_ui_driver.hpp ****             auto error2 = error * 2;
- 780              		.loc 9 516 13 is_stmt 1 view .LVU251
- 781              	.LBB344:
- 782              	.LBI344:
+ 771              		.loc 9 516 13 is_stmt 1 view .LVU246
+ 772              	.LBB347:
+ 773              	.LBI347:
  798:ili9341_ui_driver.hpp ****     {
- 783              		.loc 9 798 10 view .LVU252
- 784              	.LBB345:
+ 774              		.loc 9 798 10 view .LVU247
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 42
+
+
+ 775              	.LBB348:
  800:ili9341_ui_driver.hpp ****             return;
- 785              		.loc 9 800 9 view .LVU253
+ 776              		.loc 9 800 9 view .LVU248
  803:ili9341_ui_driver.hpp **** 
- 786              		.loc 9 803 9 view .LVU254
- 787              		.loc 9 806 9 view .LVU255
- 788              	.LBB346:
- 789              	.LBI346:
+ 777              		.loc 9 803 9 view .LVU249
+ 778              		.loc 9 806 9 view .LVU250
+ 779              	.LBB349:
+ 780              	.LBI349:
  191:ili9341_ui_driver.hpp ****     {
- 790              		.loc 9 191 10 view .LVU256
- 791              	.LBB347:
+ 781              		.loc 9 191 10 view .LVU251
+ 782              	.LBB350:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 792              		.loc 9 193 9 view .LVU257
+ 783              		.loc 9 193 9 view .LVU252
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 793              		.loc 9 193 9 is_stmt 0 view .LVU258
- 794              	.LBE347:
- 795              	.LBE346:
- 796              	.LBE345:
- 797              	.LBE344:
+ 784              		.loc 9 193 9 is_stmt 0 view .LVU253
+ 785              	.LBE350:
+ 786              	.LBE349:
+ 787              	.LBE348:
+ 788              	.LBE347:
  517:ili9341_ui_driver.hpp ****             if(error2 > -deltaY)
- 798              		.loc 9 517 13 is_stmt 1 view .LVU259
+ 789              		.loc 9 517 13 is_stmt 1 view .LVU254
  518:ili9341_ui_driver.hpp ****             {
- 799              		.loc 9 518 13 view .LVU260
+ 790              		.loc 9 518 13 view .LVU255
  520:ili9341_ui_driver.hpp ****                 x1 += signX;
- 800              		.loc 9 520 17 view .LVU261
+ 791              		.loc 9 520 17 view .LVU256
  521:ili9341_ui_driver.hpp ****             }
- 801              		.loc 9 521 17 view .LVU262
+ 792              		.loc 9 521 17 view .LVU257
+ 793              	.LBB354:
+ 794              	.LBB353:
+ 800:ili9341_ui_driver.hpp ****             return;
+ 795              		.loc 9 800 9 is_stmt 0 view .LVU258
+ 796 00c4 9342     		cmp	r3, r2
+ 797 00c6 06D9     		bls	.L25
+ 800:ili9341_ui_driver.hpp ****             return;
+ 798              		.loc 9 800 23 view .LVU259
+ 799 00c8 BCF1680F 		cmp	ip, #104
+ 800 00cc 03D9     		bls	.L25
+ 801              	.LBB352:
  802              	.LBB351:
- 803              	.LBB350:
- 800:ili9341_ui_driver.hpp ****             return;
- 804              		.loc 9 800 9 is_stmt 0 view .LVU263
- 805 00c4 9342     		cmp	r3, r2
- 806 00c6 06D9     		bls	.L25
- 800:ili9341_ui_driver.hpp ****             return;
- 807              		.loc 9 800 23 view .LVU264
- 808 00c8 BCF1680F 		cmp	ip, #104
- 809 00cc 03D9     		bls	.L25
- 810              	.LBB349:
- 811              	.LBB348:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 812              		.loc 9 193 25 view .LVU265
- 813 00ce 00F81250 		strb	r5, [r0, r2, lsl #1]
+ 803              		.loc 9 193 25 view .LVU260
+ 804 00ce 00F81250 		strb	r5, [r0, r2, lsl #1]
  194:ili9341_ui_driver.hpp ****     }
- 814              		.loc 9 194 9 is_stmt 1 view .LVU266
+ 805              		.loc 9 194 9 is_stmt 1 view .LVU261
  194:ili9341_ui_driver.hpp ****     }
- 815              		.loc 9 194 25 is_stmt 0 view .LVU267
- 816 00d2 06F812E0 		strb	lr, [r6, r2, lsl #1]
- 817              	.L25:
- 818              	.LBE348:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 43
-
-
- 819              	.LBE349:
- 820              	.LBE350:
- 821              	.LBE351:
+ 806              		.loc 9 194 25 is_stmt 0 view .LVU262
+ 807 00d2 06F812E0 		strb	lr, [r6, r2, lsl #1]
+ 808              	.L25:
+ 809              	.LBE351:
+ 810              	.LBE352:
+ 811              	.LBE353:
+ 812              	.LBE354:
  521:ili9341_ui_driver.hpp ****             }
- 822              		.loc 9 521 20 view .LVU268
- 823 00d6 0132     		adds	r2, r2, #1
- 824              	.LVL41:
+ 813              		.loc 9 521 20 view .LVU263
+ 814 00d6 0132     		adds	r2, r2, #1
+ 815              	.LVL39:
  524:ili9341_ui_driver.hpp ****             {
- 825              		.loc 9 524 13 is_stmt 1 view .LVU269
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 43
+
+
+ 816              		.loc 9 524 13 is_stmt 1 view .LVU264
  524:ili9341_ui_driver.hpp ****             {
- 826              		.loc 9 524 13 is_stmt 0 view .LVU270
- 827              	.LBE343:
+ 817              		.loc 9 524 13 is_stmt 0 view .LVU265
+ 818              	.LBE346:
  514:ili9341_ui_driver.hpp ****         {
- 828              		.loc 9 514 9 is_stmt 1 view .LVU271
+ 819              		.loc 9 514 9 is_stmt 1 view .LVU266
  514:ili9341_ui_driver.hpp ****         {
- 829              		.loc 9 514 26 view .LVU272
- 830 00d8 682A     		cmp	r2, #104
- 831 00da F3D1     		bne	.L26
- 832              	.LVL42:
+ 820              		.loc 9 514 26 view .LVU267
+ 821 00d8 682A     		cmp	r2, #104
+ 822 00da F3D1     		bne	.L26
+ 823              	.LVL40:
  514:ili9341_ui_driver.hpp ****         {
- 833              		.loc 9 514 26 is_stmt 0 view .LVU273
- 834              	.LBE352:
- 835              	.LBE354:
+ 824              		.loc 9 514 26 is_stmt 0 view .LVU268
+ 825              	.LBE355:
+ 826              	.LBE357:
  539:ili9341_ui_driver.hpp ****     }
- 836              		.loc 9 539 9 is_stmt 1 view .LVU274
- 837              	.LBB355:
- 838              	.LBI355:
+ 827              		.loc 9 539 9 is_stmt 1 view .LVU269
+ 828              	.LBB358:
+ 829              	.LBI358:
  495:ili9341_ui_driver.hpp ****                   uint_fast16_t y1,
- 839              		.loc 9 495 10 view .LVU275
- 840              	.LBB356:
+ 830              		.loc 9 495 10 view .LVU270
+ 831              	.LBB359:
  501:ili9341_ui_driver.hpp ****         auto deltaY = abs((int_fast16_t)y2 - (int_fast16_t)y1);
- 841              		.loc 9 501 9 view .LVU276
+ 832              		.loc 9 501 9 view .LVU271
  502:ili9341_ui_driver.hpp ****         auto signX  = ((x1 < x2) ? 1 : -1);
- 842              		.loc 9 502 9 view .LVU277
+ 833              		.loc 9 502 9 view .LVU272
  503:ili9341_ui_driver.hpp ****         auto signY  = ((y1 < y2) ? 1 : -1);
- 843              		.loc 9 503 9 view .LVU278
+ 834              		.loc 9 503 9 view .LVU273
  504:ili9341_ui_driver.hpp ****         auto error  = deltaX - deltaY;
- 844              		.loc 9 504 9 view .LVU279
+ 835              		.loc 9 504 9 view .LVU274
  505:ili9341_ui_driver.hpp **** 
- 845              		.loc 9 505 9 view .LVU280
+ 836              		.loc 9 505 9 view .LVU275
  510:ili9341_ui_driver.hpp **** 
- 846              		.loc 9 510 9 view .LVU281
- 847              	.LBB357:
- 848              	.LBI357:
+ 837              		.loc 9 510 9 view .LVU276
+ 838              	.LBB360:
+ 839              	.LBI360:
  798:ili9341_ui_driver.hpp ****     {
- 849              		.loc 9 798 10 view .LVU282
- 850              	.LBB358:
+ 840              		.loc 9 798 10 view .LVU277
+ 841              	.LBB361:
  800:ili9341_ui_driver.hpp ****             return;
- 851              		.loc 9 800 9 view .LVU283
- 852 00dc 682B     		cmp	r3, #104
- 853 00de 07D9     		bls	.L27
+ 842              		.loc 9 800 9 view .LVU278
+ 843 00dc 682B     		cmp	r3, #104
+ 844 00de 07D9     		bls	.L27
  800:ili9341_ui_driver.hpp ****             return;
- 854              		.loc 9 800 23 is_stmt 0 view .LVU284
- 855 00e0 BCF1680F 		cmp	ip, #104
- 856 00e4 04D9     		bls	.L27
+ 845              		.loc 9 800 23 is_stmt 0 view .LVU279
+ 846 00e0 BCF1680F 		cmp	ip, #104
+ 847 00e4 04D9     		bls	.L27
  803:ili9341_ui_driver.hpp **** 
- 857              		.loc 9 803 9 is_stmt 1 view .LVU285
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 44
-
-
- 858              	.LVL43:
- 859              		.loc 9 806 9 view .LVU286
- 860              	.LBB359:
- 861              	.LBI359:
+ 848              		.loc 9 803 9 is_stmt 1 view .LVU280
+ 849              	.LVL41:
+ 850              		.loc 9 806 9 view .LVU281
+ 851              	.LBB362:
+ 852              	.LBI362:
  191:ili9341_ui_driver.hpp ****     {
- 862              		.loc 9 191 10 view .LVU287
- 863              	.LBB360:
+ 853              		.loc 9 191 10 view .LVU282
+ 854              	.LBB363:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 864              		.loc 9 193 9 view .LVU288
- 193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 865              		.loc 9 193 25 is_stmt 0 view .LVU289
- 866 00e6 4744     		add	r7, r7, r8
- 867 00e8 87F8D050 		strb	r5, [r7, #208]
- 194:ili9341_ui_driver.hpp ****     }
- 868              		.loc 9 194 9 is_stmt 1 view .LVU290
- 194:ili9341_ui_driver.hpp ****     }
- 869              		.loc 9 194 25 is_stmt 0 view .LVU291
- 870 00ec 87F8D1E0 		strb	lr, [r7, #209]
- 871              	.LVL44:
- 194:ili9341_ui_driver.hpp ****     }
- 872              		.loc 9 194 25 view .LVU292
- 873              	.LBE360:
- 874              	.LBE359:
- 875              	.LBE358:
- 876              	.LBE357:
- 514:ili9341_ui_driver.hpp ****         {
- 877              		.loc 9 514 9 is_stmt 1 view .LVU293
- 514:ili9341_ui_driver.hpp ****         {
- 878              		.loc 9 514 26 view .LVU294
- 879              	.L27:
- 514:ili9341_ui_driver.hpp ****         {
- 880              		.loc 9 514 26 is_stmt 0 view .LVU295
- 881              	.LBE356:
- 882              	.LBE355:
- 883              	.LBB371:
- 884              	.LBB318:
- 885              	.LBB315:
- 886              	.LBB312:
- 887              	.LBB307:
- 888              	.LBB302:
- 889              	.LBB297:
- 194:ili9341_ui_driver.hpp ****     }
- 890              		.loc 9 194 25 view .LVU296
- 891 00f0 0422     		movs	r2, #4
- 892              	.L29:
- 893              	.LVL45:
- 194:ili9341_ui_driver.hpp ****     }
- 894              		.loc 9 194 25 view .LVU297
- 895              	.LBE297:
- 896              	.LBE302:
- 897              	.LBE307:
- 898              	.LBE312:
- 899              	.LBE315:
- 900              	.LBE318:
- 901              	.LBE371:
- 902              	.LBB372:
- 903              	.LBB370:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 45
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 44
 
 
- 904              	.LBB361:
+ 855              		.loc 9 193 9 view .LVU283
+ 193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
+ 856              		.loc 9 193 25 is_stmt 0 view .LVU284
+ 857 00e6 4744     		add	r7, r7, r8
+ 858 00e8 87F8D050 		strb	r5, [r7, #208]
+ 194:ili9341_ui_driver.hpp ****     }
+ 859              		.loc 9 194 9 is_stmt 1 view .LVU285
+ 194:ili9341_ui_driver.hpp ****     }
+ 860              		.loc 9 194 25 is_stmt 0 view .LVU286
+ 861 00ec 87F8D1E0 		strb	lr, [r7, #209]
+ 862              	.LVL42:
+ 194:ili9341_ui_driver.hpp ****     }
+ 863              		.loc 9 194 25 view .LVU287
+ 864              	.LBE363:
+ 865              	.LBE362:
+ 866              	.LBE361:
+ 867              	.LBE360:
+ 514:ili9341_ui_driver.hpp ****         {
+ 868              		.loc 9 514 9 is_stmt 1 view .LVU288
+ 514:ili9341_ui_driver.hpp ****         {
+ 869              		.loc 9 514 26 view .LVU289
+ 870              	.L27:
+ 514:ili9341_ui_driver.hpp ****         {
+ 871              		.loc 9 514 26 is_stmt 0 view .LVU290
+ 872              	.LBE359:
+ 873              	.LBE358:
+ 874              	.LBB374:
+ 875              	.LBB321:
+ 876              	.LBB318:
+ 877              	.LBB315:
+ 878              	.LBB310:
+ 879              	.LBB305:
+ 880              	.LBB300:
+ 194:ili9341_ui_driver.hpp ****     }
+ 881              		.loc 9 194 25 view .LVU291
+ 882 00f0 0422     		movs	r2, #4
+ 883              	.L29:
+ 884              	.LVL43:
+ 194:ili9341_ui_driver.hpp ****     }
+ 885              		.loc 9 194 25 view .LVU292
+ 886              	.LBE300:
+ 887              	.LBE305:
+ 888              	.LBE310:
+ 889              	.LBE315:
+ 890              	.LBE318:
+ 891              	.LBE321:
+ 892              	.LBE374:
+ 893              	.LBB375:
+ 894              	.LBB373:
+ 895              	.LBB364:
  516:ili9341_ui_driver.hpp ****             auto error2 = error * 2;
- 905              		.loc 9 516 13 is_stmt 1 view .LVU298
- 906              	.LBB362:
- 907              	.LBI362:
+ 896              		.loc 9 516 13 is_stmt 1 view .LVU293
+ 897              	.LBB365:
+ 898              	.LBI365:
  798:ili9341_ui_driver.hpp ****     {
- 908              		.loc 9 798 10 view .LVU299
- 909              	.LBB363:
+ 899              		.loc 9 798 10 view .LVU294
+ 900              	.LBB366:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 45
+
+
  800:ili9341_ui_driver.hpp ****             return;
- 910              		.loc 9 800 9 view .LVU300
+ 901              		.loc 9 800 9 view .LVU295
  803:ili9341_ui_driver.hpp **** 
- 911              		.loc 9 803 9 view .LVU301
- 912              		.loc 9 806 9 view .LVU302
- 913              	.LBB364:
- 914              	.LBI364:
+ 902              		.loc 9 803 9 view .LVU296
+ 903              		.loc 9 806 9 view .LVU297
+ 904              	.LBB367:
+ 905              	.LBI367:
  191:ili9341_ui_driver.hpp ****     {
- 915              		.loc 9 191 10 view .LVU303
- 916              	.LBB365:
+ 906              		.loc 9 191 10 view .LVU298
+ 907              	.LBB368:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 917              		.loc 9 193 9 view .LVU304
+ 908              		.loc 9 193 9 view .LVU299
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 918              		.loc 9 193 9 is_stmt 0 view .LVU305
- 919              	.LBE365:
- 920              	.LBE364:
- 921              	.LBE363:
- 922              	.LBE362:
+ 909              		.loc 9 193 9 is_stmt 0 view .LVU300
+ 910              	.LBE368:
+ 911              	.LBE367:
+ 912              	.LBE366:
+ 913              	.LBE365:
  517:ili9341_ui_driver.hpp ****             if(error2 > -deltaY)
- 923              		.loc 9 517 13 is_stmt 1 view .LVU306
+ 914              		.loc 9 517 13 is_stmt 1 view .LVU301
  518:ili9341_ui_driver.hpp ****             {
- 924              		.loc 9 518 13 view .LVU307
+ 915              		.loc 9 518 13 view .LVU302
  524:ili9341_ui_driver.hpp ****             {
- 925              		.loc 9 524 13 view .LVU308
+ 916              		.loc 9 524 13 view .LVU303
  526:ili9341_ui_driver.hpp ****                 y1 += signY;
- 926              		.loc 9 526 17 view .LVU309
+ 917              		.loc 9 526 17 view .LVU304
  527:ili9341_ui_driver.hpp ****             }
- 927              		.loc 9 527 17 view .LVU310
+ 918              		.loc 9 527 17 view .LVU305
+ 919              	.LBB372:
+ 920              	.LBB371:
+ 800:ili9341_ui_driver.hpp ****             return;
+ 921              		.loc 9 800 9 is_stmt 0 view .LVU306
+ 922 00f2 682B     		cmp	r3, #104
+ 923 00f4 05D9     		bls	.L28
+ 800:ili9341_ui_driver.hpp ****             return;
+ 924              		.loc 9 800 23 view .LVU307
+ 925 00f6 9445     		cmp	ip, r2
+ 926 00f8 03D9     		bls	.L28
+ 927              	.LBB370:
  928              	.LBB369:
- 929              	.LBB368:
- 800:ili9341_ui_driver.hpp ****             return;
- 930              		.loc 9 800 9 is_stmt 0 view .LVU311
- 931 00f2 682B     		cmp	r3, #104
- 932 00f4 05D9     		bls	.L28
- 800:ili9341_ui_driver.hpp ****             return;
- 933              		.loc 9 800 23 view .LVU312
- 934 00f6 9445     		cmp	ip, r2
- 935 00f8 03D9     		bls	.L28
- 936              	.LBB367:
- 937              	.LBB366:
  193:ili9341_ui_driver.hpp ****         frm_buf[id + 1] = color & 0xFF;
- 938              		.loc 9 193 25 view .LVU313
- 939 00fa 81F8D050 		strb	r5, [r1, #208]
+ 929              		.loc 9 193 25 view .LVU308
+ 930 00fa 81F8D050 		strb	r5, [r1, #208]
  194:ili9341_ui_driver.hpp ****     }
- 940              		.loc 9 194 9 is_stmt 1 view .LVU314
+ 931              		.loc 9 194 9 is_stmt 1 view .LVU309
  194:ili9341_ui_driver.hpp ****     }
- 941              		.loc 9 194 25 is_stmt 0 view .LVU315
- 942 00fe 81F8D1E0 		strb	lr, [r1, #209]
- 943              	.L28:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 46
+ 932              		.loc 9 194 25 is_stmt 0 view .LVU310
+ 933 00fe 81F8D1E0 		strb	lr, [r1, #209]
+ 934              	.L28:
+ 935              	.LBE369:
+ 936              	.LBE370:
+ 937              	.LBE371:
+ 938              	.LBE372:
+ 527:ili9341_ui_driver.hpp ****             }
+ 939              		.loc 9 527 20 view .LVU311
+ 940 0102 0132     		adds	r2, r2, #1
+ 941              	.LVL44:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 46
 
 
- 944              	.LBE366:
- 945              	.LBE367:
- 946              	.LBE368:
- 947              	.LBE369:
  527:ili9341_ui_driver.hpp ****             }
- 948              		.loc 9 527 20 view .LVU316
- 949 0102 0132     		adds	r2, r2, #1
- 950              	.LVL46:
- 527:ili9341_ui_driver.hpp ****             }
- 951              		.loc 9 527 20 view .LVU317
- 952              	.LBE361:
+ 942              		.loc 9 527 20 view .LVU312
+ 943              	.LBE364:
  514:ili9341_ui_driver.hpp ****         {
- 953              		.loc 9 514 9 is_stmt 1 view .LVU318
+ 944              		.loc 9 514 9 is_stmt 1 view .LVU313
  514:ili9341_ui_driver.hpp ****         {
- 954              		.loc 9 514 26 view .LVU319
- 955 0104 2144     		add	r1, r1, r4
- 956 0106 682A     		cmp	r2, #104
- 957 0108 F3D1     		bne	.L29
- 958              	.LVL47:
+ 945              		.loc 9 514 26 view .LVU314
+ 946 0104 2144     		add	r1, r1, r4
+ 947 0106 682A     		cmp	r2, #104
+ 948 0108 F3D1     		bne	.L29
+ 949              	.LVL45:
  514:ili9341_ui_driver.hpp ****         {
- 959              		.loc 9 514 26 is_stmt 0 view .LVU320
- 960              	.LBE370:
- 961              	.LBE372:
- 962              	.LBE277:
- 963              	.LBE276:
+ 950              		.loc 9 514 26 is_stmt 0 view .LVU315
+ 951              	.LBE373:
+ 952              	.LBE375:
+ 953              	.LBE280:
+ 954              	.LBE279:
   29:TFT_TEST.cpp  **** 	hw.Init();
- 964              		.loc 8 29 2 is_stmt 1 view .LVU321
- 965              		.loc 8 29 9 is_stmt 0 view .LVU322
- 966 010a 0B48     		ldr	r0, .L41+12
- 967 010c FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM4InitEv
- 968              	.LVL48:
+ 955              		.loc 8 29 2 is_stmt 1 view .LVU316
+ 956              		.loc 8 29 9 is_stmt 0 view .LVU317
+ 957 010a 0B48     		ldr	r0, .L41+12
+ 958 010c FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM4InitEv
+ 959              	.LVL46:
   30:TFT_TEST.cpp  **** 	hw.SetAudioBlockSize(4); // number of samples handled per callback
- 969              		.loc 8 30 2 is_stmt 1 view .LVU323
- 970              		.loc 8 30 22 is_stmt 0 view .LVU324
- 971 0110 0421     		movs	r1, #4
- 972 0112 0948     		ldr	r0, .L41+12
- 973 0114 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM17SetAudioBlockSizeEj
- 974              	.LVL49:
+ 960              		.loc 8 30 2 is_stmt 1 view .LVU318
+ 961              		.loc 8 30 22 is_stmt 0 view .LVU319
+ 962 0110 0421     		movs	r1, #4
+ 963 0112 0948     		ldr	r0, .L41+12
+ 964 0114 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM17SetAudioBlockSizeEj
+ 965              	.LVL47:
   31:TFT_TEST.cpp  **** 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
- 975              		.loc 8 31 2 is_stmt 1 view .LVU325
- 976              		.loc 8 31 23 is_stmt 0 view .LVU326
- 977 0118 0321     		movs	r1, #3
- 978 011a 0748     		ldr	r0, .L41+12
- 979 011c FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM18SetAudioSampleRateENS_9SaiHandle6Config10SampleRateE
- 980              	.LVL50:
+ 966              		.loc 8 31 2 is_stmt 1 view .LVU320
+ 967              		.loc 8 31 23 is_stmt 0 view .LVU321
+ 968 0118 0321     		movs	r1, #3
+ 969 011a 0748     		ldr	r0, .L41+12
+ 970 011c FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM18SetAudioSampleRateENS_9SaiHandle6Config10SampleRateE
+ 971              	.LVL48:
   32:TFT_TEST.cpp  **** 	hw.StartAudio(AudioCallback);
- 981              		.loc 8 32 2 is_stmt 1 view .LVU327
- 982              		.loc 8 32 15 is_stmt 0 view .LVU328
- 983 0120 0649     		ldr	r1, .L41+16
- 984 0122 0548     		ldr	r0, .L41+12
- 985 0124 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM10StartAudioEPFvPKPKfPPfjE
- 986              	.LVL51:
- 987              	.L30:
+ 972              		.loc 8 32 2 is_stmt 1 view .LVU322
+ 973              		.loc 8 32 15 is_stmt 0 view .LVU323
+ 974 0120 0649     		ldr	r1, .L41+16
+ 975 0122 0548     		ldr	r0, .L41+12
+ 976 0124 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM10StartAudioEPFvPKPKfPPfjE
+ 977              	.LVL49:
+ 978              	.L30:
   33:TFT_TEST.cpp  **** 	while(1) {}
- 988              		.loc 8 33 2 is_stmt 1 discriminator 1 view .LVU329
- 989              		.loc 8 33 2 discriminator 1 view .LVU330
- 990              		.loc 8 33 2 discriminator 1 view .LVU331
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 47
+ 979              		.loc 8 33 2 is_stmt 1 discriminator 1 view .LVU324
+ 980              		.loc 8 33 2 discriminator 1 view .LVU325
+ 981              		.loc 8 33 2 discriminator 1 view .LVU326
+ 982              		.loc 8 33 2 discriminator 1 view .LVU327
+ 983 0128 FEE7     		b	.L30
+ 984              	.L42:
+ 985 012a 00BF     		.align	2
+ 986              	.L41:
+ 987 012c 00000000 		.word	.LANCHOR2
+ 988 0130 00000000 		.word	.LANCHOR3
+ 989 0134 00000000 		.word	_ZN19ILI9341SpiTransport7frm_bufE
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 47
 
 
- 991              		.loc 8 33 2 discriminator 1 view .LVU332
- 992 0128 FEE7     		b	.L30
- 993              	.L42:
- 994 012a 00BF     		.align	2
- 995              	.L41:
- 996 012c 00000000 		.word	.LANCHOR2
- 997 0130 00000000 		.word	.LANCHOR3
- 998 0134 00000000 		.word	_ZN19ILI9341SpiTransport7frm_bufE
- 999 0138 00000000 		.word	.LANCHOR0
- 1000 013c 00000000 		.word	_Z13AudioCallbackPKPKfPPfj
- 1001              		.cfi_endproc
- 1002              	.LFE4839:
- 1004              		.section	.text.startup._GLOBAL__sub_I_psm,"ax",%progbits
- 1005              		.align	1
- 1006              		.p2align 2,,3
- 1007              		.syntax unified
- 1008              		.thumb
- 1009              		.thumb_func
- 1010              		.fpu fpv5-d16
- 1012              	_GLOBAL__sub_I_psm:
- 1013              	.LFB5399:
+ 990 0138 00000000 		.word	.LANCHOR0
+ 991 013c 00000000 		.word	_Z13AudioCallbackPKPKfPPfj
+ 992              		.cfi_endproc
+ 993              	.LFE4839:
+ 995              		.section	.text.startup._GLOBAL__sub_I_psm,"ax",%progbits
+ 996              		.align	1
+ 997              		.p2align 2,,3
+ 998              		.syntax unified
+ 999              		.thumb
+ 1000              		.thumb_func
+ 1001              		.fpu fpv5-d16
+ 1003              	_GLOBAL__sub_I_psm:
+ 1004              	.LFB5399:
   34:TFT_TEST.cpp  **** }
- 1014              		.loc 8 34 1 view -0
- 1015              		.cfi_startproc
- 1016              		@ args = 0, pretend = 0, frame = 0
- 1017              		@ frame_needed = 0, uses_anonymous_args = 0
- 1018              	.LBB440:
- 1019              	.LBI440:
- 1020              		.loc 8 34 1 view .LVU334
- 1021              	.LVL52:
- 1022              	.LBB441:
- 1023              	.LBB442:
- 1024              	.LBI442:
+ 1005              		.loc 8 34 1 view -0
+ 1006              		.cfi_startproc
+ 1007              		@ args = 0, pretend = 0, frame = 0
+ 1008              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1009              	.LBB443:
+ 1010              	.LBI443:
+ 1011              		.loc 8 34 1 view .LVU329
+ 1012              	.LVL50:
+ 1013              	.LBB444:
+ 1014              	.LBB445:
+ 1015              	.LBI445:
   64:../../libDaisy//src/daisy_patch_sm.h ****         ~DaisyPatchSM() {}
- 1025              		.loc 1 64 9 view .LVU335
- 1026              	.LBB443:
- 1027              	.LBB444:
- 1028              	.LBI444:
+ 1016              		.loc 1 64 9 view .LVU330
+ 1017              	.LBB446:
+ 1018              	.LBB447:
+ 1019              	.LBI447:
   77:../../libDaisy//src/sys/system.h ****     ~System() {}
- 1029              		.loc 7 77 5 view .LVU336
+ 1020              		.loc 7 77 5 view .LVU331
   77:../../libDaisy//src/sys/system.h ****     ~System() {}
- 1030              		.loc 7 77 5 is_stmt 0 view .LVU337
- 1031              	.LBE444:
- 1032              	.LBB445:
- 1033              	.LBI445:
- 1034              		.file 11 "../../libDaisy//src/per/qspi.h"
+ 1021              		.loc 7 77 5 is_stmt 0 view .LVU332
+ 1022              	.LBE447:
+ 1023              	.LBB448:
+ 1024              	.LBI448:
+ 1025              		.file 11 "../../libDaisy//src/per/qspi.h"
    1:../../libDaisy//src/per/qspi.h **** #ifndef DSY_QSPI
    2:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI /**< Macro */
    3:../../libDaisy//src/per/qspi.h **** 
@@ -2818,9 +2810,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
    9:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI_TEXT       \
   10:../../libDaisy//src/per/qspi.h ****     __attribute__((section( \
   11:../../libDaisy//src/per/qspi.h ****         ".qspiflash_text"))) /**< used for reading memory in memory_mapped mode. */
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 48
-
-
   12:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI_DATA       \
   13:../../libDaisy//src/per/qspi.h ****     __attribute__((section( \
   14:../../libDaisy//src/per/qspi.h ****         ".qspiflash_data"))) /**< used for reading memory in memory_mapped mode. */
@@ -2829,6 +2818,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   17:../../libDaisy//src/per/qspi.h ****         ".qspiflash_bss"))) /**< used for reading memory in memory_mapped mode. */
   18:../../libDaisy//src/per/qspi.h **** 
   19:../../libDaisy//src/per/qspi.h **** namespace daisy
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 48
+
+
   20:../../libDaisy//src/per/qspi.h **** {
   21:../../libDaisy//src/per/qspi.h **** /** @addtogroup serial
   22:../../libDaisy//src/per/qspi.h **** @{
@@ -2878,9 +2870,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   66:../../libDaisy//src/per/qspi.h **** 
   67:../../libDaisy//src/per/qspi.h ****         /** 
   68:../../libDaisy//src/per/qspi.h ****         Modes of operation.
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 49
-
-
   69:../../libDaisy//src/per/qspi.h ****         Memory Mapped mode: QSPI configured so that the QSPI can be
   70:../../libDaisy//src/per/qspi.h ****         read from starting address 0x90000000. Writing is not
   71:../../libDaisy//src/per/qspi.h ****         possible in this mode. \n 
@@ -2889,6 +2878,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   74:../../libDaisy//src/per/qspi.h ****         enum Mode
   75:../../libDaisy//src/per/qspi.h ****         {
   76:../../libDaisy//src/per/qspi.h ****             MEMORY_MAPPED,    /**< & */
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 49
+
+
   77:../../libDaisy//src/per/qspi.h ****             INDIRECT_POLLING, /**< & */
   78:../../libDaisy//src/per/qspi.h ****             MODE_LAST,
   79:../../libDaisy//src/per/qspi.h ****         };
@@ -2938,9 +2930,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  123:../../libDaisy//src/per/qspi.h ****     Result WritePage(uint32_t address, uint32_t size, uint8_t* buffer);
  124:../../libDaisy//src/per/qspi.h **** 
  125:../../libDaisy//src/per/qspi.h ****     /** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 50
-
-
  126:../../libDaisy//src/per/qspi.h ****         Writes data in buffer to to the QSPI. Starting at address to address+size 
  127:../../libDaisy//src/per/qspi.h ****         \param address Address to write to
  128:../../libDaisy//src/per/qspi.h ****         \param size Buffer size
@@ -2949,6 +2938,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  131:../../libDaisy//src/per/qspi.h ****         */
  132:../../libDaisy//src/per/qspi.h ****     Result Write(uint32_t address, uint32_t size, uint8_t* buffer);
  133:../../libDaisy//src/per/qspi.h **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 50
+
+
  134:../../libDaisy//src/per/qspi.h ****     /** 
  135:../../libDaisy//src/per/qspi.h ****         Erases the area specified on the chip.
  136:../../libDaisy//src/per/qspi.h ****         Erasures will happen by 4K, 32K or 64K increments.
@@ -2982,47 +2974,47 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  164:../../libDaisy//src/per/qspi.h ****     void* GetData(uint32_t offset = 0);
  165:../../libDaisy//src/per/qspi.h **** 
  166:../../libDaisy//src/per/qspi.h ****     QSPIHandle() : pimpl_(nullptr) {}
- 1035              		.loc 11 166 5 is_stmt 1 view .LVU338
- 1036              	.LBE445:
- 1037              	.LBE443:
- 1038              	.LBE442:
- 1039              	.LBE441:
- 1040              	.LBE440:
- 1041              		.loc 8 34 1 is_stmt 0 view .LVU339
- 1042 0000 10B5     		push	{r4, lr}
- 1043              		.cfi_def_cfa_offset 8
- 1044              		.cfi_offset 4, -8
- 1045              		.cfi_offset 14, -4
- 1046              	.LBB522:
- 1047              	.LBB519:
- 1048              	.LBB471:
- 1049              	.LBB468:
- 1050              	.LBB448:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 51
+ 1026              		.loc 11 166 5 is_stmt 1 view .LVU333
+ 1027              	.LBE448:
+ 1028              	.LBE446:
+ 1029              	.LBE445:
+ 1030              	.LBE444:
+ 1031              	.LBE443:
+ 1032              		.loc 8 34 1 is_stmt 0 view .LVU334
+ 1033 0000 10B5     		push	{r4, lr}
+ 1034              		.cfi_def_cfa_offset 8
+ 1035              		.cfi_offset 4, -8
+ 1036              		.cfi_offset 14, -4
+ 1037              	.LBB525:
+ 1038              	.LBB522:
+ 1039              	.LBB474:
+ 1040              	.LBB471:
+ 1041              	.LBB451:
+ 1042              	.LBB449:
+ 1043              	.LBB450:
+ 1044              		.loc 11 166 34 view .LVU335
+ 1045 0002 1448     		ldr	r0, .L45
+ 1046 0004 0024     		movs	r4, #0
+ 1047              	.LBE450:
+ 1048              	.LBE449:
+ 1049              	.LBE451:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 51
 
 
- 1051              	.LBB446:
- 1052              	.LBB447:
- 1053              		.loc 11 166 34 view .LVU340
- 1054 0002 1448     		ldr	r0, .L45
- 1055 0004 0024     		movs	r4, #0
- 1056              	.LBE447:
- 1057              	.LBE446:
- 1058              	.LBE448:
- 1059              	.LBE468:
- 1060              	.LBE471:
+ 1050              	.LBE471:
+ 1051              	.LBE474:
   15:ili9341_ui_driver.hpp **** 
- 1061              		.loc 9 15 20 view .LVU341
- 1062 0006 144A     		ldr	r2, .L45+4
- 1063 0008 1449     		ldr	r1, .L45+8
- 1064              	.LBB472:
- 1065              	.LBB469:
- 1066              	.LBB449:
- 1067              	.LBB450:
- 1068              	.LBB451:
- 1069              	.LBB452:
- 1070              	.LBB453:
- 1071              		.file 12 "../../libDaisy//src/per/i2c.h"
+ 1052              		.loc 9 15 20 view .LVU336
+ 1053 0006 144A     		ldr	r2, .L45+4
+ 1054 0008 1449     		ldr	r1, .L45+8
+ 1055              	.LBB475:
+ 1056              	.LBB472:
+ 1057              	.LBB452:
+ 1058              	.LBB453:
+ 1059              	.LBB454:
+ 1060              	.LBB455:
+ 1061              	.LBB456:
+ 1062              		.file 12 "../../libDaisy//src/per/i2c.h"
    1:../../libDaisy//src/per/i2c.h **** #pragma once
    2:../../libDaisy//src/per/i2c.h **** #include "daisy_core.h"
    3:../../libDaisy//src/per/i2c.h **** 
@@ -3058,9 +3050,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   33:../../libDaisy//src/per/i2c.h ****             I2C_MASTER,
   34:../../libDaisy//src/per/i2c.h ****             I2C_SLAVE,
   35:../../libDaisy//src/per/i2c.h ****         };
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 52
-
-
   36:../../libDaisy//src/per/i2c.h **** 
   37:../../libDaisy//src/per/i2c.h ****         /** Specifices the internal peripheral to use (these are mapped to different pins on the ha
   38:../../libDaisy//src/per/i2c.h ****         enum class Peripheral
@@ -3069,6 +3058,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   41:../../libDaisy//src/per/i2c.h ****             I2C_2,     /**< & */
   42:../../libDaisy//src/per/i2c.h ****             I2C_3,     /**< & */
   43:../../libDaisy//src/per/i2c.h ****             I2C_4,     /**< & */
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 52
+
+
   44:../../libDaisy//src/per/i2c.h ****         };
   45:../../libDaisy//src/per/i2c.h **** 
   46:../../libDaisy//src/per/i2c.h ****         /** Rate at which the clock/data will be sent/received. The device being used will have max
@@ -3108,20 +3100,17 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   80:../../libDaisy//src/per/i2c.h ****     };
   81:../../libDaisy//src/per/i2c.h **** 
   82:../../libDaisy//src/per/i2c.h ****     I2CHandle() : pimpl_(nullptr) {}
- 1072              		.loc 12 82 33 view .LVU342
- 1073 000a 0462     		str	r4, [r0, #32]
- 1074              	.LBE453:
- 1075              	.LBE452:
- 1076              	.LBE451:
- 1077              	.LBE450:
- 1078              	.LBE449:
- 1079              	.LBB456:
- 1080              	.LBB457:
- 1081              	.LBB458:
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 53
-
-
- 1082              		.file 13 "../../libDaisy//src/per/dac.h"
+ 1063              		.loc 12 82 33 view .LVU337
+ 1064 000a 0462     		str	r4, [r0, #32]
+ 1065              	.LBE456:
+ 1066              	.LBE455:
+ 1067              	.LBE454:
+ 1068              	.LBE453:
+ 1069              	.LBE452:
+ 1070              	.LBB459:
+ 1071              	.LBB460:
+ 1072              	.LBB461:
+ 1073              		.file 13 "../../libDaisy//src/per/dac.h"
    1:../../libDaisy//src/per/dac.h **** #pragma once
    2:../../libDaisy//src/per/dac.h **** #ifndef DSY_DAC_H
    3:../../libDaisy//src/per/dac.h **** #define DSY_DAC_H
@@ -3129,6 +3118,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
    5:../../libDaisy//src/per/dac.h **** #include "daisy_core.h"
    6:../../libDaisy//src/per/dac.h **** 
    7:../../libDaisy//src/per/dac.h **** namespace daisy
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 53
+
+
    8:../../libDaisy//src/per/dac.h **** {
    9:../../libDaisy//src/per/dac.h **** /** @brief DAC handle for Built-in DAC Peripheral 
   10:../../libDaisy//src/per/dac.h ****  *  @ingroup per_analog
@@ -3178,9 +3170,6 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   54:../../libDaisy//src/per/dac.h ****      ** The resolution will be roughly: bitdepth / (VDDA - 0V) 
   55:../../libDaisy//src/per/dac.h ****      ***/
   56:../../libDaisy//src/per/dac.h ****     enum class BitDepth
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 54
-
-
   57:../../libDaisy//src/per/dac.h ****     {
   58:../../libDaisy//src/per/dac.h ****         BITS_8,
   59:../../libDaisy//src/per/dac.h ****         BITS_12
@@ -3189,6 +3178,9 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   62:../../libDaisy//src/per/dac.h ****     /** Sets whether the DAC output is buffered for higher drive ability. */
   63:../../libDaisy//src/per/dac.h ****     enum class BufferState
   64:../../libDaisy//src/per/dac.h ****     {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 54
+
+
   65:../../libDaisy//src/per/dac.h ****         ENABLED,
   66:../../libDaisy//src/per/dac.h ****         DISABLED,
   67:../../libDaisy//src/per/dac.h ****     };
@@ -3209,246 +3201,246 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
   82:../../libDaisy//src/per/dac.h ****     };
   83:../../libDaisy//src/per/dac.h **** 
   84:../../libDaisy//src/per/dac.h ****     DacHandle() : pimpl_(nullptr) {}
- 1083              		.loc 13 84 33 view .LVU343
- 1084 000c 8462     		str	r4, [r0, #40]
- 1085              	.LBE458:
- 1086              	.LBE457:
- 1087              	.LBE456:
- 1088              	.LBB459:
- 1089              	.LBB460:
- 1090              	.LBB461:
+ 1074              		.loc 13 84 33 view .LVU338
+ 1075 000c 8462     		str	r4, [r0, #40]
+ 1076              	.LBE461:
+ 1077              	.LBE460:
+ 1078              	.LBE459:
+ 1079              	.LBB462:
+ 1080              	.LBB463:
+ 1081              	.LBB464:
   95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
- 1091              		.loc 6 95 35 view .LVU344
- 1092 000e C0E90344 		strd	r4, r4, [r0, #12]
- 1093              	.LVL53:
+ 1082              		.loc 6 95 35 view .LVU339
+ 1083 000e C0E90344 		strd	r4, r4, [r0, #12]
+ 1084              	.LVL51:
   95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
- 1094              		.loc 6 95 35 view .LVU345
- 1095              	.LBE461:
- 1096              	.LBE460:
- 1097              	.LBE459:
- 1098              	.LBB462:
- 1099              	.LBI462:
+ 1085              		.loc 6 95 35 view .LVU340
+ 1086              	.LBE464:
+ 1087              	.LBE463:
+ 1088              	.LBE462:
+ 1089              	.LBB465:
+ 1090              	.LBI465:
   92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
- 1100              		.loc 5 92 5 is_stmt 1 view .LVU346
+ 1091              		.loc 5 92 5 is_stmt 1 view .LVU341
   92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
- 1101              		.loc 5 92 5 is_stmt 0 view .LVU347
- 1102              	.LBE462:
- 1103              	.LBB463:
- 1104              	.LBI463:
+ 1092              		.loc 5 92 5 is_stmt 0 view .LVU342
+ 1093              	.LBE465:
+ 1094              	.LBB466:
+ 1095              	.LBI466:
   40:../../libDaisy//src/hid/usb.h **** 
- 1105              		.loc 4 40 5 is_stmt 1 view .LVU348
+ 1096              		.loc 4 40 5 is_stmt 1 view .LVU343
   40:../../libDaisy//src/hid/usb.h **** 
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 55
-
-
- 1106              		.loc 4 40 5 is_stmt 0 view .LVU349
- 1107              	.LBE463:
- 1108              	.LBB464:
- 1109              	.LBI449:
+ 1097              		.loc 4 40 5 is_stmt 0 view .LVU344
+ 1098              	.LBE466:
+ 1099              	.LBB467:
+ 1100              	.LBI452:
   28:../../libDaisy//src/dev/codec_pcm3060.h ****     ~Pcm3060() {}
- 1110              		.loc 3 28 5 is_stmt 1 view .LVU350
- 1111              	.LBB455:
- 1112              	.LBB454:
- 1113              	.LBI451:
- 1114              		.loc 12 82 5 view .LVU351
- 1115              		.loc 12 82 5 is_stmt 0 view .LVU352
- 1116              	.LBE454:
- 1117              	.LBE455:
- 1118              	.LBE464:
- 1119              	.LBB465:
- 1120              	.LBI456:
- 1121              		.loc 13 84 5 is_stmt 1 view .LVU353
- 1122              		.loc 13 84 5 is_stmt 0 view .LVU354
- 1123              	.LBE465:
- 1124              	.LBE469:
- 1125              	.LBE472:
- 1126              	.LBE519:
- 1127              	.LBE522:
+ 1101              		.loc 3 28 5 is_stmt 1 view .LVU345
+ 1102              	.LBB458:
+ 1103              	.LBB457:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 55
+
+
+ 1104              	.LBI454:
+ 1105              		.loc 12 82 5 view .LVU346
+ 1106              		.loc 12 82 5 is_stmt 0 view .LVU347
+ 1107              	.LBE457:
+ 1108              	.LBE458:
+ 1109              	.LBE467:
+ 1110              	.LBB468:
+ 1111              	.LBI459:
+ 1112              		.loc 13 84 5 is_stmt 1 view .LVU348
+ 1113              		.loc 13 84 5 is_stmt 0 view .LVU349
+ 1114              	.LBE468:
+ 1115              	.LBE472:
+ 1116              	.LBE475:
+ 1117              	.LBE522:
+ 1118              	.LBE525:
   64:../../libDaisy//src/daisy_patch_sm.h ****         ~DaisyPatchSM() {}
- 1128              		.loc 1 64 24 is_stmt 1 view .LVU355
- 1129              	.LBB523:
- 1130              	.LBB520:
- 1131              	.LBB473:
- 1132              	.LBB470:
- 1133              	.LBB466:
- 1134              	.LBI466:
+ 1119              		.loc 1 64 24 is_stmt 1 view .LVU350
+ 1120              	.LBB526:
+ 1121              	.LBB523:
+ 1122              	.LBB476:
+ 1123              	.LBB473:
+ 1124              	.LBB469:
+ 1125              	.LBI469:
   20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
- 1135              		.loc 2 20 5 view .LVU356
+ 1126              		.loc 2 20 5 view .LVU351
   20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
- 1136              		.loc 2 20 5 is_stmt 0 view .LVU357
- 1137              	.LBE466:
- 1138              	.LBB467:
- 1139              	.LBI467:
+ 1127              		.loc 2 20 5 is_stmt 0 view .LVU352
+ 1128              	.LBE469:
+ 1129              	.LBB470:
+ 1130              	.LBI470:
   20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
- 1140              		.loc 2 20 5 is_stmt 1 view .LVU358
+ 1131              		.loc 2 20 5 is_stmt 1 view .LVU353
   20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
- 1141              		.loc 2 20 5 is_stmt 0 view .LVU359
- 1142              	.LBE467:
- 1143              	.LBE470:
- 1144              	.LBE473:
+ 1132              		.loc 2 20 5 is_stmt 0 view .LVU354
+ 1133              	.LBE470:
+ 1134              	.LBE473:
+ 1135              	.LBE476:
   15:ili9341_ui_driver.hpp **** 
- 1145              		.loc 9 15 20 view .LVU360
- 1146 0012 FFF7FEFF 		bl	__aeabi_atexit
- 1147              	.LVL54:
- 1148              	.LBB474:
- 1149              	.LBI474:
+ 1136              		.loc 9 15 20 view .LVU355
+ 1137 0012 FFF7FEFF 		bl	__aeabi_atexit
+ 1138              	.LVL52:
+ 1139              	.LBB477:
+ 1140              	.LBI477:
   64:../../libDaisy//src/daisy_patch_sm.h ****         ~DaisyPatchSM() {}
- 1150              		.loc 1 64 9 is_stmt 1 view .LVU361
- 1151              	.LBB475:
- 1152              	.LBB476:
- 1153              	.LBI476:
+ 1141              		.loc 1 64 9 is_stmt 1 view .LVU356
+ 1142              	.LBB478:
+ 1143              	.LBB479:
+ 1144              	.LBI479:
   77:../../libDaisy//src/sys/system.h ****     ~System() {}
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 56
+ 1145              		.loc 7 77 5 view .LVU357
+  77:../../libDaisy//src/sys/system.h ****     ~System() {}
+ 1146              		.loc 7 77 5 is_stmt 0 view .LVU358
+ 1147              	.LBE479:
+ 1148              	.LBB480:
+ 1149              	.LBI480:
+ 1150              		.loc 11 166 5 is_stmt 1 view .LVU359
+ 1151              	.LBB481:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 56
 
 
- 1154              		.loc 7 77 5 view .LVU362
-  77:../../libDaisy//src/sys/system.h ****     ~System() {}
- 1155              		.loc 7 77 5 is_stmt 0 view .LVU363
- 1156              	.LBE476:
- 1157              	.LBB477:
- 1158              	.LBI477:
- 1159              		.loc 11 166 5 is_stmt 1 view .LVU364
- 1160              	.LBB478:
- 1161              	.LBB479:
- 1162              		.loc 11 166 34 is_stmt 0 view .LVU365
- 1163 0016 1248     		ldr	r0, .L45+12
- 1164              	.LBE479:
- 1165              	.LBE478:
- 1166              	.LBE477:
- 1167              	.LBE475:
- 1168              	.LBE474:
+ 1152              	.LBB482:
+ 1153              		.loc 11 166 34 is_stmt 0 view .LVU360
+ 1154 0016 1248     		ldr	r0, .L45+12
+ 1155              	.LBE482:
+ 1156              	.LBE481:
+ 1157              	.LBE480:
+ 1158              	.LBE478:
+ 1159              	.LBE477:
   11:TFT_TEST.cpp  **** DisplayInit		di;
- 1169              		.loc 8 11 14 view .LVU366
- 1170 0018 0F4A     		ldr	r2, .L45+4
- 1171 001a 1049     		ldr	r1, .L45+8
- 1172              	.LBB501:
- 1173              	.LBB499:
- 1174              	.LBB480:
- 1175              	.LBB481:
- 1176              	.LBB482:
- 1177              	.LBB483:
- 1178              	.LBB484:
- 1179              		.loc 12 82 33 view .LVU367
- 1180 001c 0462     		str	r4, [r0, #32]
- 1181              	.LBE484:
- 1182              	.LBE483:
- 1183              	.LBE482:
- 1184              	.LBE481:
- 1185              	.LBE480:
- 1186              	.LBB487:
- 1187              	.LBB488:
- 1188              	.LBB489:
- 1189              		.loc 13 84 33 view .LVU368
- 1190 001e 8462     		str	r4, [r0, #40]
- 1191              	.LBE489:
- 1192              	.LBE488:
- 1193              	.LBE487:
- 1194              	.LBB490:
- 1195              	.LBB491:
- 1196              	.LBB492:
+ 1160              		.loc 8 11 14 view .LVU361
+ 1161 0018 0F4A     		ldr	r2, .L45+4
+ 1162 001a 1049     		ldr	r1, .L45+8
+ 1163              	.LBB504:
+ 1164              	.LBB502:
+ 1165              	.LBB483:
+ 1166              	.LBB484:
+ 1167              	.LBB485:
+ 1168              	.LBB486:
+ 1169              	.LBB487:
+ 1170              		.loc 12 82 33 view .LVU362
+ 1171 001c 0462     		str	r4, [r0, #32]
+ 1172              	.LBE487:
+ 1173              	.LBE486:
+ 1174              	.LBE485:
+ 1175              	.LBE484:
+ 1176              	.LBE483:
+ 1177              	.LBB490:
+ 1178              	.LBB491:
+ 1179              	.LBB492:
+ 1180              		.loc 13 84 33 view .LVU363
+ 1181 001e 8462     		str	r4, [r0, #40]
+ 1182              	.LBE492:
+ 1183              	.LBE491:
+ 1184              	.LBE490:
+ 1185              	.LBB493:
+ 1186              	.LBB494:
+ 1187              	.LBB495:
   95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
- 1197              		.loc 6 95 35 view .LVU369
- 1198 0020 C0E90344 		strd	r4, r4, [r0, #12]
- 1199              	.LVL55:
+ 1188              		.loc 6 95 35 view .LVU364
+ 1189 0020 C0E90344 		strd	r4, r4, [r0, #12]
+ 1190              	.LVL53:
   95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
- 1200              		.loc 6 95 35 view .LVU370
- 1201              	.LBE492:
- 1202              	.LBE491:
- 1203              	.LBE490:
- 1204              	.LBB493:
- 1205              	.LBI493:
+ 1191              		.loc 6 95 35 view .LVU365
+ 1192              	.LBE495:
+ 1193              	.LBE494:
+ 1194              	.LBE493:
+ 1195              	.LBB496:
+ 1196              	.LBI496:
   92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 57
+ 1197              		.loc 5 92 5 is_stmt 1 view .LVU366
+  92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
+ 1198              		.loc 5 92 5 is_stmt 0 view .LVU367
+ 1199              	.LBE496:
+ 1200              	.LBB497:
+ 1201              	.LBI497:
+  40:../../libDaisy//src/hid/usb.h **** 
+ 1202              		.loc 4 40 5 is_stmt 1 view .LVU368
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 57
 
 
- 1206              		.loc 5 92 5 is_stmt 1 view .LVU371
-  92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
- 1207              		.loc 5 92 5 is_stmt 0 view .LVU372
- 1208              	.LBE493:
- 1209              	.LBB494:
- 1210              	.LBI494:
   40:../../libDaisy//src/hid/usb.h **** 
- 1211              		.loc 4 40 5 is_stmt 1 view .LVU373
-  40:../../libDaisy//src/hid/usb.h **** 
- 1212              		.loc 4 40 5 is_stmt 0 view .LVU374
- 1213              	.LBE494:
- 1214              	.LBB495:
- 1215              	.LBI480:
+ 1203              		.loc 4 40 5 is_stmt 0 view .LVU369
+ 1204              	.LBE497:
+ 1205              	.LBB498:
+ 1206              	.LBI483:
   28:../../libDaisy//src/dev/codec_pcm3060.h ****     ~Pcm3060() {}
- 1216              		.loc 3 28 5 is_stmt 1 view .LVU375
- 1217              	.LBB486:
- 1218              	.LBB485:
- 1219              	.LBI482:
- 1220              		.loc 12 82 5 view .LVU376
- 1221              		.loc 12 82 5 is_stmt 0 view .LVU377
- 1222              	.LBE485:
- 1223              	.LBE486:
- 1224              	.LBE495:
- 1225              	.LBB496:
- 1226              	.LBI487:
- 1227              		.loc 13 84 5 is_stmt 1 view .LVU378
- 1228              		.loc 13 84 5 is_stmt 0 view .LVU379
- 1229              	.LBE496:
- 1230              	.LBE499:
- 1231              	.LBE501:
- 1232              	.LBE520:
- 1233              	.LBE523:
+ 1207              		.loc 3 28 5 is_stmt 1 view .LVU370
+ 1208              	.LBB489:
+ 1209              	.LBB488:
+ 1210              	.LBI485:
+ 1211              		.loc 12 82 5 view .LVU371
+ 1212              		.loc 12 82 5 is_stmt 0 view .LVU372
+ 1213              	.LBE488:
+ 1214              	.LBE489:
+ 1215              	.LBE498:
+ 1216              	.LBB499:
+ 1217              	.LBI490:
+ 1218              		.loc 13 84 5 is_stmt 1 view .LVU373
+ 1219              		.loc 13 84 5 is_stmt 0 view .LVU374
+ 1220              	.LBE499:
+ 1221              	.LBE502:
+ 1222              	.LBE504:
+ 1223              	.LBE523:
+ 1224              	.LBE526:
   64:../../libDaisy//src/daisy_patch_sm.h ****         ~DaisyPatchSM() {}
- 1234              		.loc 1 64 24 is_stmt 1 view .LVU380
- 1235              	.LBB524:
- 1236              	.LBB521:
- 1237              	.LBB502:
- 1238              	.LBB500:
- 1239              	.LBB497:
- 1240              	.LBI497:
+ 1225              		.loc 1 64 24 is_stmt 1 view .LVU375
+ 1226              	.LBB527:
+ 1227              	.LBB524:
+ 1228              	.LBB505:
+ 1229              	.LBB503:
+ 1230              	.LBB500:
+ 1231              	.LBI500:
   20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
- 1241              		.loc 2 20 5 view .LVU381
+ 1232              		.loc 2 20 5 view .LVU376
   20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
- 1242              		.loc 2 20 5 is_stmt 0 view .LVU382
- 1243              	.LBE497:
- 1244              	.LBB498:
- 1245              	.LBI498:
+ 1233              		.loc 2 20 5 is_stmt 0 view .LVU377
+ 1234              	.LBE500:
+ 1235              	.LBB501:
+ 1236              	.LBI501:
   20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
- 1246              		.loc 2 20 5 is_stmt 1 view .LVU383
+ 1237              		.loc 2 20 5 is_stmt 1 view .LVU378
   20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
- 1247              		.loc 2 20 5 is_stmt 0 view .LVU384
- 1248              	.LBE498:
- 1249              	.LBE500:
- 1250              	.LBE502:
+ 1238              		.loc 2 20 5 is_stmt 0 view .LVU379
+ 1239              	.LBE501:
+ 1240              	.LBE503:
+ 1241              	.LBE505:
   11:TFT_TEST.cpp  **** DisplayInit		di;
- 1251              		.loc 8 11 14 view .LVU385
- 1252 0024 FFF7FEFF 		bl	__aeabi_atexit
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 58
-
-
- 1253              	.LVL56:
- 1254              	.LBB503:
- 1255              	.LBI503:
+ 1242              		.loc 8 11 14 view .LVU380
+ 1243 0024 FFF7FEFF 		bl	__aeabi_atexit
+ 1244              	.LVL54:
+ 1245              	.LBB506:
+ 1246              	.LBI506:
   57:ili9341_ui_driver.hpp **** {
- 1256              		.loc 9 57 7 is_stmt 1 view .LVU386
- 1257              	.LBB504:
- 1258 0028 0E4A     		ldr	r2, .L45+16
- 1259 002a 4FF44841 		mov	r1, #51200
- 1260              	.LBE504:
- 1261              	.LBE503:
- 1262              	.LBB509:
- 1263              	.LBB510:
+ 1247              		.loc 9 57 7 is_stmt 1 view .LVU381
+ 1248              	.LBB507:
+ 1249 0028 0E4A     		ldr	r2, .L45+16
+ 1250 002a 4FF44841 		mov	r1, #51200
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 58
+
+
+ 1251              	.LBE507:
+ 1252              	.LBE506:
+ 1253              	.LBB512:
+ 1254              	.LBB513:
  216:ili9341_ui_driver.hpp **** {
- 1264              		.loc 9 216 7 is_stmt 0 view .LVU387
- 1265 002e 0E4B     		ldr	r3, .L45+20
- 1266 0030 1420     		movs	r0, #20
- 1267              	.LBE510:
- 1268              	.LBE509:
- 1269              	.LBB517:
- 1270              	.LBB508:
+ 1255              		.loc 9 216 7 is_stmt 0 view .LVU382
+ 1256 002e 0E4B     		ldr	r3, .L45+20
+ 1257 0030 1420     		movs	r0, #20
+ 1258              	.LBE513:
+ 1259              	.LBE512:
+ 1260              	.LBB520:
+ 1261              	.LBB511:
   57:ili9341_ui_driver.hpp **** {
- 1271              		.loc 9 57 7 view .LVU388
- 1272 0032 1470     		strb	r4, [r2]
- 1273 0034 5460     		str	r4, [r2, #4]
- 1274 0036 1181     		strh	r1, [r2, #8]	@ movhi
- 1275              	.LVL57:
- 1276              	.LBB505:
- 1277              	.LBI505:
+ 1262              		.loc 9 57 7 view .LVU383
+ 1263 0032 1470     		strb	r4, [r2]
+ 1264 0034 5460     		str	r4, [r2, #4]
+ 1265 0036 1181     		strh	r1, [r2, #8]	@ movhi
+ 1266              	.LVL55:
+ 1267              	.LBB508:
+ 1268              	.LBI508:
   94:../../libDaisy//src/per/spi.h ****         }
   95:../../libDaisy//src/per/spi.h **** 
   96:../../libDaisy//src/per/spi.h ****         Peripheral    periph;
@@ -3462,217 +3454,217 @@ ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 1
  104:../../libDaisy//src/per/spi.h ****     };
  105:../../libDaisy//src/per/spi.h **** 
  106:../../libDaisy//src/per/spi.h ****     SpiHandle() : pimpl_(nullptr) {}
- 1278              		.loc 10 106 5 is_stmt 1 view .LVU389
- 1279              	.LBB506:
- 1280              	.LBB507:
- 1281              		.loc 10 106 33 is_stmt 0 view .LVU390
- 1282 0038 D460     		str	r4, [r2, #12]
- 1283              	.LVL58:
- 1284              		.loc 10 106 33 view .LVU391
- 1285              	.LBE507:
- 1286              	.LBE506:
- 1287              	.LBE505:
- 1288              	.LBE508:
- 1289              	.LBE517:
- 1290              	.LBB518:
- 1291              	.LBI509:
+ 1269              		.loc 10 106 5 is_stmt 1 view .LVU384
+ 1270              	.LBB509:
+ 1271              	.LBB510:
+ 1272              		.loc 10 106 33 is_stmt 0 view .LVU385
+ 1273 0038 D460     		str	r4, [r2, #12]
+ 1274              	.LVL56:
+ 1275              		.loc 10 106 33 view .LVU386
+ 1276              	.LBE510:
+ 1277              	.LBE509:
+ 1278              	.LBE508:
+ 1279              	.LBE511:
+ 1280              	.LBE520:
+ 1281              	.LBB521:
+ 1282              	.LBI512:
  216:ili9341_ui_driver.hpp **** {
- 1292              		.loc 9 216 7 is_stmt 1 view .LVU392
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 59
-
-
- 1293              	.LBB516:
- 1294 003a 0F22     		movs	r2, #15
- 1295 003c 1C80     		strh	r4, [r3]	@ movhi
- 1296              	.LVL59:
- 1297              	.LBB511:
- 1298              	.LBI511:
+ 1283              		.loc 9 216 7 is_stmt 1 view .LVU387
+ 1284              	.LBB519:
+ 1285 003a 0F22     		movs	r2, #15
+ 1286 003c 1C80     		strh	r4, [r3]	@ movhi
+ 1287              	.LVL57:
+ 1288              	.LBB514:
+ 1289              	.LBI514:
   57:ili9341_ui_driver.hpp **** {
- 1299              		.loc 9 57 7 view .LVU393
- 1300              	.LBB512:
- 1301 003e 1C74     		strb	r4, [r3, #16]
- 1302 0040 5C61     		str	r4, [r3, #20]
- 1303 0042 1983     		strh	r1, [r3, #24]	@ movhi
- 1304              	.LVL60:
- 1305              	.LBB513:
- 1306              	.LBI513:
- 1307              		.loc 10 106 5 view .LVU394
- 1308              	.LBB514:
- 1309              	.LBB515:
- 1310              		.loc 10 106 33 is_stmt 0 view .LVU395
- 1311 0044 DC61     		str	r4, [r3, #28]
- 1312              	.LVL61:
- 1313              		.loc 10 106 33 view .LVU396
- 1314              	.LBE515:
- 1315              	.LBE514:
- 1316              	.LBE513:
- 1317              	.LBE512:
- 1318              	.LBE511:
+ 1290              		.loc 9 57 7 view .LVU388
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 59
+
+
+ 1291              	.LBB515:
+ 1292 003e 1C74     		strb	r4, [r3, #16]
+ 1293 0040 5C61     		str	r4, [r3, #20]
+ 1294 0042 1983     		strh	r1, [r3, #24]	@ movhi
+ 1295              	.LVL58:
+ 1296              	.LBB516:
+ 1297              	.LBI516:
+ 1298              		.loc 10 106 5 view .LVU389
+ 1299              	.LBB517:
+ 1300              	.LBB518:
+ 1301              		.loc 10 106 33 is_stmt 0 view .LVU390
+ 1302 0044 DC61     		str	r4, [r3, #28]
+ 1303              	.LVL59:
+ 1304              		.loc 10 106 33 view .LVU391
+ 1305              	.LBE518:
+ 1306              	.LBE517:
+ 1307              	.LBE516:
+ 1308              	.LBE515:
+ 1309              	.LBE514:
  216:ili9341_ui_driver.hpp **** {
- 1319              		.loc 9 216 7 view .LVU397
- 1320 0046 83F88900 		strb	r0, [r3, #137]
- 1321 004a A3F88E40 		strh	r4, [r3, #142]	@ movhi
- 1322              	.LVL62:
+ 1310              		.loc 9 216 7 view .LVU392
+ 1311 0046 83F88900 		strb	r0, [r3, #137]
+ 1312 004a A3F88E40 		strh	r4, [r3, #142]	@ movhi
+ 1313              	.LVL60:
  216:ili9341_ui_driver.hpp **** {
- 1323              		.loc 9 216 7 view .LVU398
- 1324 004e 83F88A20 		strb	r2, [r3, #138]
- 1325              	.LBE516:
- 1326              	.LBE518:
- 1327              	.LBE521:
- 1328              	.LBE524:
- 1329              		.loc 8 34 1 view .LVU399
- 1330 0052 10BD     		pop	{r4, pc}
- 1331              	.L46:
- 1332              		.align	2
- 1333              	.L45:
- 1334 0054 00000000 		.word	.LANCHOR1
- 1335 0058 00000000 		.word	__dso_handle
- 1336 005c 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSMD1Ev
- 1337 0060 00000000 		.word	.LANCHOR0
- 1338 0064 00000000 		.word	.LANCHOR2
- 1339 0068 00000000 		.word	.LANCHOR3
- 1340              		.cfi_endproc
- 1341              	.LFE5399:
- 1343              		.section	.init_array,"aw",%init_array
- 1344              		.align	2
- 1345 0000 00000000 		.word	_GLOBAL__sub_I_psm(target1)
- 1346              		.global	du
- 1347              		.global	di
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 60
+ 1314              		.loc 9 216 7 view .LVU393
+ 1315 004e 83F88A20 		strb	r2, [r3, #138]
+ 1316              	.LBE519:
+ 1317              	.LBE521:
+ 1318              	.LBE524:
+ 1319              	.LBE527:
+ 1320              		.loc 8 34 1 view .LVU394
+ 1321 0052 10BD     		pop	{r4, pc}
+ 1322              	.L46:
+ 1323              		.align	2
+ 1324              	.L45:
+ 1325 0054 00000000 		.word	.LANCHOR1
+ 1326 0058 00000000 		.word	__dso_handle
+ 1327 005c 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSMD1Ev
+ 1328 0060 00000000 		.word	.LANCHOR0
+ 1329 0064 00000000 		.word	.LANCHOR2
+ 1330 0068 00000000 		.word	.LANCHOR3
+ 1331              		.cfi_endproc
+ 1332              	.LFE5399:
+ 1334              		.section	.init_array,"aw",%init_array
+ 1335              		.align	2
+ 1336 0000 00000000 		.word	_GLOBAL__sub_I_psm(target1)
+ 1337              		.global	du
+ 1338              		.global	di
+ 1339              		.global	hw
+ 1340              		.global	_ZN19ILI9341SpiTransport7frm_bufE
+ 1341              		.global	psm
+ 1342              		.section	.bss.di,"aw",%nobits
+ 1343              		.align	2
+ 1344              		.set	.LANCHOR2,. + 0
+ 1347              	di:
+ 1348 0000 00000000 		.space	28
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 60
 
 
- 1348              		.global	hw
- 1349              		.global	_ZN19ILI9341SpiTransport7frm_bufE
- 1350              		.global	psm
- 1351              		.section	.bss.di,"aw",%nobits
- 1352              		.align	2
- 1353              		.set	.LANCHOR2,. + 0
- 1356              	di:
- 1357 0000 00000000 		.space	28
- 1357      00000000 
- 1357      00000000 
- 1357      00000000 
- 1357      00000000 
- 1358              		.section	.bss.du,"aw",%nobits
- 1359              		.align	2
- 1360              		.set	.LANCHOR3,. + 0
- 1363              	du:
- 1364 0000 00000000 		.space	148
- 1364      00000000 
- 1364      00000000 
- 1364      00000000 
- 1364      00000000 
- 1365              		.section	.bss.hw,"aw",%nobits
- 1366              		.align	2
- 1367              		.set	.LANCHOR0,. + 0
- 1370              	hw:
- 1371 0000 00000000 		.space	464
- 1371      00000000 
- 1371      00000000 
- 1371      00000000 
- 1371      00000000 
- 1372              		.section	.bss.psm,"aw",%nobits
- 1373              		.align	2
- 1374              		.set	.LANCHOR1,. + 0
- 1377              	psm:
- 1378 0000 00000000 		.space	464
- 1378      00000000 
- 1378      00000000 
- 1378      00000000 
- 1378      00000000 
- 1379              		.section	.sram1_bss,"aw"
- 1380              		.align	2
- 1383              	_ZN19ILI9341SpiTransport7frm_bufE:
- 1384 0000 00000000 		.space	153600
- 1384      00000000 
- 1384      00000000 
- 1384      00000000 
- 1384      00000000 
- 1385              		.text
- 1386              	.Letext0:
- 1387              		.file 14 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_d
- 1388              		.file 15 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdin
- 1389              		.file 16 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h"
- 1390              		.file 17 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
- 1391              		.file 18 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1392              		.file 19 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1393              		.file 20 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1394              		.file 21 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 61
+ 1348      00000000 
+ 1348      00000000 
+ 1348      00000000 
+ 1348      00000000 
+ 1349              		.section	.bss.du,"aw",%nobits
+ 1350              		.align	2
+ 1351              		.set	.LANCHOR3,. + 0
+ 1354              	du:
+ 1355 0000 00000000 		.space	148
+ 1355      00000000 
+ 1355      00000000 
+ 1355      00000000 
+ 1355      00000000 
+ 1356              		.section	.bss.hw,"aw",%nobits
+ 1357              		.align	2
+ 1358              		.set	.LANCHOR0,. + 0
+ 1361              	hw:
+ 1362 0000 00000000 		.space	464
+ 1362      00000000 
+ 1362      00000000 
+ 1362      00000000 
+ 1362      00000000 
+ 1363              		.section	.bss.psm,"aw",%nobits
+ 1364              		.align	2
+ 1365              		.set	.LANCHOR1,. + 0
+ 1368              	psm:
+ 1369 0000 00000000 		.space	464
+ 1369      00000000 
+ 1369      00000000 
+ 1369      00000000 
+ 1369      00000000 
+ 1370              		.section	.sram1_bss,"aw"
+ 1371              		.align	2
+ 1374              	_ZN19ILI9341SpiTransport7frm_bufE:
+ 1375 0000 00000000 		.space	153600
+ 1375      00000000 
+ 1375      00000000 
+ 1375      00000000 
+ 1375      00000000 
+ 1376              		.text
+ 1377              	.Letext0:
+ 1378              		.file 14 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_d
+ 1379              		.file 15 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdin
+ 1380              		.file 16 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h"
+ 1381              		.file 17 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
+ 1382              		.file 18 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1383              		.file 19 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1384              		.file 20 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1385              		.file 21 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1386              		.file 22 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1387              		.file 23 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1388              		.file 24 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1389              		.file 25 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1390              		.file 26 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1391              		.file 27 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1392              		.file 28 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1393              		.file 29 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 61
 
 
- 1395              		.file 22 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1396              		.file 23 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1397              		.file 24 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1398              		.file 25 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1399              		.file 26 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1400              		.file 27 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1401              		.file 28 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1402              		.file 29 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1403              		.file 30 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1404              		.file 31 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1405              		.file 32 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1406              		.file 33 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1407              		.file 34 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1408              		.file 35 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1409              		.file 36 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_types
- 1410              		.file 37 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/reent.
- 1411              		.file 38 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/lock.h
- 1412              		.file 39 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
- 1413              		.file 40 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h"
- 1414              		.file 41 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1415              		.file 42 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
- 1416              		.file 43 "../../libDaisy//src/daisy_core.h"
- 1417              		.file 44 "../../libDaisy//src/per/tim.h"
- 1418              		.file 45 "../../libDaisy//src/per/sai.h"
- 1419              		.file 46 "../../libDaisy//src/hid/ctrl.h"
- 1420              		.file 47 "../../libDaisy//src/hid/disp/graphics_common.h"
- 1421              		.file 48 "../../libDaisy//src/util/wav_format.h"
- 1422              		.file 49 "../../libDaisy//src/dev/max11300.h"
- 1423              		.file 50 "../../libDaisy//src/daisy_seed.h"
- 1424              		.file 51 "../../libDaisy//src/per/gpio.h"
- 1425              		.file 52 "../../libDaisy//src/dev/sdram.h"
- 1426              		.file 53 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
- 1427              		.file 54 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdio.h"
- 1428              		.file 55 "../../libDaisy//src/util/oled_fonts.h"
- 1429              		.file 56 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/string.h"
- 1430              		.file 57 "../../DaisySP//Source/Control/adenv.h"
- 1431              		.file 58 "../../DaisySP//Source/Utility/dsp.h"
- 1432              		.file 59 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/wchar.h"
- 1433              		.file 60 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/locale.h"
- 1434              		.file 61 "../../libDaisy//src/dev/sr_595.h"
- 1435              		.file 62 "<built-in>"
-ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s 			page 62
+ 1394              		.file 30 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1395              		.file 31 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1396              		.file 32 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1397              		.file 33 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1398              		.file 34 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1399              		.file 35 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1400              		.file 36 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_types
+ 1401              		.file 37 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/reent.
+ 1402              		.file 38 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/lock.h
+ 1403              		.file 39 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+ 1404              		.file 40 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h"
+ 1405              		.file 41 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1406              		.file 42 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1407              		.file 43 "../../libDaisy//src/daisy_core.h"
+ 1408              		.file 44 "../../libDaisy//src/per/tim.h"
+ 1409              		.file 45 "../../libDaisy//src/per/sai.h"
+ 1410              		.file 46 "../../libDaisy//src/hid/ctrl.h"
+ 1411              		.file 47 "../../libDaisy//src/hid/disp/graphics_common.h"
+ 1412              		.file 48 "../../libDaisy//src/util/wav_format.h"
+ 1413              		.file 49 "../../libDaisy//src/dev/max11300.h"
+ 1414              		.file 50 "../../libDaisy//src/daisy_seed.h"
+ 1415              		.file 51 "../../libDaisy//src/per/gpio.h"
+ 1416              		.file 52 "../../libDaisy//src/dev/sdram.h"
+ 1417              		.file 53 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
+ 1418              		.file 54 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdio.h"
+ 1419              		.file 55 "../../libDaisy//src/util/oled_fonts.h"
+ 1420              		.file 56 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/string.h"
+ 1421              		.file 57 "../../DaisySP//Source/Control/adenv.h"
+ 1422              		.file 58 "../../DaisySP//Source/Utility/dsp.h"
+ 1423              		.file 59 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/wchar.h"
+ 1424              		.file 60 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/locale.h"
+ 1425              		.file 61 "../../libDaisy//src/dev/sr_595.h"
+ 1426              		.file 62 "<built-in>"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s 			page 62
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 TFT_TEST.cpp
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:17     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:26     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:0000000000000000 _ZN5daisy8patch_sm12DaisyPatchSMD2Ev
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:26     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:0000000000000000 _ZN5daisy8patch_sm12DaisyPatchSMD1Ev
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:84     .text._Z13AudioCallbackPKPKfPPfj:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:92     .text._Z13AudioCallbackPKPKfPPfj:0000000000000000 _Z13AudioCallbackPKPKfPPfj
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:178    .text._Z13AudioCallbackPKPKfPPfj:0000000000000038 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:183    .text._ZN19ILI9341SpiTransport4InitEv:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:191    .text._ZN19ILI9341SpiTransport4InitEv:0000000000000000 _ZN19ILI9341SpiTransport4InitEv
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:378    .text._ZN19ILI9341SpiTransport4InitEv:00000000000000b4 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:383    .text.startup.main:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:391    .text.startup.main:0000000000000000 main
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:996    .text.startup.main:000000000000012c $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1383   .sram1_bss:0000000000000000 _ZN19ILI9341SpiTransport7frm_bufE
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1005   .text.startup._GLOBAL__sub_I_psm:0000000000000000 $t
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1012   .text.startup._GLOBAL__sub_I_psm:0000000000000000 _GLOBAL__sub_I_psm
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1334   .text.startup._GLOBAL__sub_I_psm:0000000000000054 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1344   .init_array:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1363   .bss.du:0000000000000000 du
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1356   .bss.di:0000000000000000 di
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1370   .bss.hw:0000000000000000 hw
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1377   .bss.psm:0000000000000000 psm
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1352   .bss.di:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1359   .bss.du:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1366   .bss.hw:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1373   .bss.psm:0000000000000000 $d
-/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cctozDlr.s:1380   .sram1_bss:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:17     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:26     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:0000000000000000 _ZN5daisy8patch_sm12DaisyPatchSMD2Ev
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:26     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:0000000000000000 _ZN5daisy8patch_sm12DaisyPatchSMD1Ev
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:84     .text._Z13AudioCallbackPKPKfPPfj:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:92     .text._Z13AudioCallbackPKPKfPPfj:0000000000000000 _Z13AudioCallbackPKPKfPPfj
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:178    .text._Z13AudioCallbackPKPKfPPfj:0000000000000038 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:183    .text._ZN19ILI9341SpiTransport4InitEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:191    .text._ZN19ILI9341SpiTransport4InitEv:0000000000000000 _ZN19ILI9341SpiTransport4InitEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:369    .text._ZN19ILI9341SpiTransport4InitEv:00000000000000a0 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:374    .text.startup.main:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:382    .text.startup.main:0000000000000000 main
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:987    .text.startup.main:000000000000012c $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1374   .sram1_bss:0000000000000000 _ZN19ILI9341SpiTransport7frm_bufE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:996    .text.startup._GLOBAL__sub_I_psm:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1003   .text.startup._GLOBAL__sub_I_psm:0000000000000000 _GLOBAL__sub_I_psm
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1325   .text.startup._GLOBAL__sub_I_psm:0000000000000054 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1335   .init_array:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1354   .bss.du:0000000000000000 du
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1347   .bss.di:0000000000000000 di
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1361   .bss.hw:0000000000000000 hw
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1368   .bss.psm:0000000000000000 psm
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1343   .bss.di:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1350   .bss.du:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1357   .bss.hw:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1364   .bss.psm:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccG2lBvw.s:1371   .sram1_bss:0000000000000000 $d
                            .group:0000000000000000 _ZN5daisy8patch_sm12DaisyPatchSMD5Ev
 
 UNDEFINED SYMBOLS

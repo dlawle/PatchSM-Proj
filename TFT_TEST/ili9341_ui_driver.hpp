@@ -76,8 +76,8 @@ class ILI9341SpiTransport
 
 
         // v0.1 mix up
-        auto dc_pin    = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
-        auto reset_pin = psm.GetPin(DaisyPatchSM::PinBank::A, 3);
+        //auto dc_pin    = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
+        //auto reset_pin = psm.GetPin(DaisyPatchSM::PinBank::A, 3);
         // auto dc_pin    = 22;
         // auto reset_pin = 16;
 
