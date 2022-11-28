@@ -10,6 +10,9 @@
 #include "hid/disp/graphics_common.h"
 
 using namespace daisy;
+using namespace patch_sm;
+
+DaisyPatchSM       psm;
 
 // #define SPI1_NSS 7    // LCD CS 3
 // #define SPI1_SCK 8    // LCD SCK 7
@@ -58,7 +61,7 @@ class ILI9341SpiTransport
     {
         // Initialize SPI
         SpiHandle::Config spi_config;
-        spi_config.periph    = SpiHandle::Config::Peripheral::SPI_1;
+        spi_config.periph    = SpiHandle::Config::Peripheral::SPI_2;
         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
         spi_config.direction = SpiHandle::Config::Direction::TWO_LINES_TX_ONLY;
         spi_config.clock_polarity  = SpiHandle::Config::ClockPolarity::LOW;
@@ -66,26 +69,26 @@ class ILI9341SpiTransport
         spi_config.clock_phase     = SpiHandle::Config::ClockPhase::ONE_EDGE;
         spi_config.nss             = SpiHandle::Config::NSS::HARD_OUTPUT;
         spi_config.datasize        = 8;
-        spi_config.pin_config.sclk = hw.GetPin(DaisyPatchSM::PinBank::D, 10);;
-        spi_config.pin_config.mosi = hw.GetPin(DaisyPatchSM::PinBank::D, 9);
-        spi_config.pin_config.nss  = hw.GetPin(DaisyPatchSM::PinBank::D, 1);
+        spi_config.pin_config.sclk = psm.GetPin(DaisyPatchSM::PinBank::D, 10);;
+        spi_config.pin_config.mosi = psm.GetPin(DaisyPatchSM::PinBank::D, 9);
+        spi_config.pin_config.nss  = psm.GetPin(DaisyPatchSM::PinBank::D, 1);
         // spi_config.pin_config.miso = {DSY_GPIOX, 0}; // not used
 
 
         // v0.1 mix up
-        auto dc_pin    = hw.GetPin(DaisyPatchSM::PinBank::A, 2);
-        auto reset_pin = hw.GetPin(DaisyPatchSM::PinBank::A, 3);
+        auto dc_pin    = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
+        auto reset_pin = psm.GetPin(DaisyPatchSM::PinBank::A, 3);
         // auto dc_pin    = 22;
         // auto reset_pin = 16;
 
 
         // DC pin
         pin_dc_.mode = DSY_GPIO_MODE_OUTPUT_PP;
-        pin_dc_.pin  = hw.GetPin(DaisyPatchSM::PinBank::A, 2);
+        pin_dc_.pin  = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
         dsy_gpio_init(&pin_dc_);
         // Reset pin
         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
-        pin_reset_.pin  = hw.GetPin(DaisyPatchSM::PinBank::A, 3);
+        pin_reset_.pin  = psm.GetPin(DaisyPatchSM::PinBank::A, 3);
         dsy_gpio_init(&pin_reset_);
         // CS pin
         pin_cs_.mode = DSY_GPIO_MODE_OUTPUT_PP;

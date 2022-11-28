@@ -9,8 +9,7 @@ LIBDAISY_DIR = ../../libDaisy/
 DAISYSP_DIR = ../../DaisySP/
 
 C_INCLUDES += \
--I. \
--Iili9341_ui_driver \ 
+-Iili9341_ui_driver 
 
 # Core location, and generic Makefile.
 SYSTEM_FILES_DIR = $(LIBDAISY_DIR)/core
