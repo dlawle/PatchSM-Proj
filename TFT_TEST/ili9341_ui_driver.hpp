@@ -5,7 +5,7 @@
 #include <cstring>
 
 #include "daisy_seed.h"
-#include "daisy_pod.h"
+#include "daisy_patch_sm.h"
 #include "util/oled_fonts.h"
 #include "hid/disp/graphics_common.h"
 
@@ -66,26 +66,26 @@ class ILI9341SpiTransport
         spi_config.clock_phase     = SpiHandle::Config::ClockPhase::ONE_EDGE;
         spi_config.nss             = SpiHandle::Config::NSS::HARD_OUTPUT;
         spi_config.datasize        = 8;
-        spi_config.pin_config.sclk = {DSY_GPIOG, 11};
-        spi_config.pin_config.mosi = {DSY_GPIOB, 5};
-        spi_config.pin_config.nss  = {DSY_GPIOG, 10};
+        spi_config.pin_config.sclk = hw.GetPin(DaisyPatchSM::PinBank::D, 10);;
+        spi_config.pin_config.mosi = hw.GetPin(DaisyPatchSM::PinBank::D, 9);
+        spi_config.pin_config.nss  = hw.GetPin(DaisyPatchSM::PinBank::D, 1);
         // spi_config.pin_config.miso = {DSY_GPIOX, 0}; // not used
 
 
         // v0.1 mix up
-        auto dc_pin    = 16;
-        auto reset_pin = 22;
+        auto dc_pin    = hw.GetPin(DaisyPatchSM::PinBank::A, 2);
+        auto reset_pin = hw.GetPin(DaisyPatchSM::PinBank::A, 3);
         // auto dc_pin    = 22;
         // auto reset_pin = 16;
 
 
         // DC pin
         pin_dc_.mode = DSY_GPIO_MODE_OUTPUT_PP;
-        pin_dc_.pin  = DaisySeed::GetPin(dc_pin);
+        pin_dc_.pin  = hw.GetPin(DaisyPatchSM::PinBank::A, 2);
         dsy_gpio_init(&pin_dc_);
         // Reset pin
         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
-        pin_reset_.pin  = DaisySeed::GetPin(reset_pin);
+        pin_reset_.pin  = hw.GetPin(DaisyPatchSM::PinBank::A, 3);
         dsy_gpio_init(&pin_reset_);
         // CS pin
         pin_cs_.mode = DSY_GPIO_MODE_OUTPUT_PP;
@@ -146,7 +146,7 @@ class ILI9341SpiTransport
     SpiHandle::Result SendDataDMA(uint8_t* buff, size_t size)
     {
         dsy_gpio_write(&pin_dc_, 1);
-        return spi_.DmaTransmit(buff, size, &TxCompleteCallback, this);
+        return spi_.DmaTransmit(buff, size, nullptr, &TxCompleteCallback, this);
     };
 
 
@@ -156,7 +156,7 @@ class ILI9341SpiTransport
         remaining_buff = full_screen_buf;
         dma_busy       = true;
         return spi_.DmaTransmit(
-            frm_buf, buf_chunk_size, &TxCompleteCallback, this);
+            frm_buf, buf_chunk_size, nullptr, &TxCompleteCallback, this);
     };
 
     void SetAddressWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
