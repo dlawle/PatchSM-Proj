@@ -1,6 +1,4 @@
 #pragma once
-#ifndef ILI_UI_HPP
-#define ILI_UI_HPP
 
 #include <cstring>
 
@@ -12,7 +10,7 @@
 using namespace daisy;
 using namespace patch_sm;
 
-DaisyPatchSM       psm;
+DaisyPatchSM    psm;
 
 // #define SPI1_NSS 7    // LCD CS 3
 // #define SPI1_SCK 8    // LCD SCK 7
@@ -69,11 +67,10 @@ class ILI9341SpiTransport
         spi_config.clock_phase     = SpiHandle::Config::ClockPhase::ONE_EDGE;
         spi_config.nss             = SpiHandle::Config::NSS::HARD_OUTPUT;
         spi_config.datasize        = 8;
-        spi_config.pin_config.sclk = psm.GetPin(DaisyPatchSM::PinBank::D, 10);;
+        spi_config.pin_config.sclk = psm.GetPin(DaisyPatchSM::PinBank::D, 10);
         spi_config.pin_config.mosi = psm.GetPin(DaisyPatchSM::PinBank::D, 9);
         spi_config.pin_config.nss  = psm.GetPin(DaisyPatchSM::PinBank::D, 1);
         // spi_config.pin_config.miso = {DSY_GPIOX, 0}; // not used
-
 
         // v0.1 mix up
         //auto dc_pin    = psm.GetPin(DaisyPatchSM::PinBank::A, 2);
@@ -118,32 +115,38 @@ class ILI9341SpiTransport
             if(transport->remaining_buff > 0)
             {
                 transport->SendDataDMA(
-                    &frm_buf[full_screen_buf - transport->remaining_buff],
+                    &frame_buffer[buffer_size - transport->remaining_buff],
                     transfer_size);
+
+                // 16bit transfer
+                // transport->SendDataDMA(
+                //     &frame_buffer[2 * transport->buf_chunk_size],
+                //     transport->buf_chunk_size);
             }
             else
             {
                 transport->dma_busy = false;
+
+                // 8 bit transfer
+                // auto* spi_h = transport->spi_.GetHandle();
+                // spi_h->Instance->CFG1 &= ~SPI_CFG1_DSIZE_3;
+                // spi_h->Instance->CFG2 &= ~SPI_CFG2_LSBFRST;
+                // spi_h->Init.DataSize = SPI_DATASIZE_8BIT;
             }
         }
     }
 
-    uint32_t GetTransferSize()
+    SpiHandle::Result SendDataDMA()
     {
-        return remaining_buff < buf_chunk_size ? remaining_buff
-                                               : buf_chunk_size;
-    }
+        remaining_buff = buffer_size;
+        dma_busy       = true;
 
-    void SendCommand(uint8_t cmd)
-    {
-        dsy_gpio_write(&pin_dc_, 0);
-        spi_.BlockingTransmit(&cmd, 1);
-    };
+        // auto* spi_h = spi_.GetHandle();
+        // spi_h->Instance->CFG1 |= SPI_CFG1_DSIZE_3;
+        // spi_h->Instance->CFG2 |= SPI_CFG2_LSBFRST;
+        // spi_h->Init.DataSize = SPI_DATASIZE_16BIT; // 15;
 
-    SpiHandle::Result SendData(uint8_t* buff, size_t size)
-    {
-        dsy_gpio_write(&pin_dc_, 1);
-        return spi_.BlockingTransmit(buff, size);
+        return SendDataDMA(frame_buffer, buf_chunk_size);
     };
 
     SpiHandle::Result SendDataDMA(uint8_t* buff, size_t size)
@@ -152,14 +155,24 @@ class ILI9341SpiTransport
         return spi_.DmaTransmit(buff, size, nullptr, &TxCompleteCallback, this);
     };
 
+    uint32_t GetTransferSize() const
+    {
+        return remaining_buff < buf_chunk_size ? remaining_buff
+                                               : buf_chunk_size;
+        // return remaining_buff < 2 * buf_chunk_size ? remaining_buff
+        //                                            : 2 * buf_chunk_size;
+    }
 
-    SpiHandle::Result SendDataDMA()
+    SpiHandle::Result SendCommand(uint8_t cmd)
+    {
+        dsy_gpio_write(&pin_dc_, 0);
+        return spi_.BlockingTransmit(&cmd, 1);
+    };
+
+    SpiHandle::Result SendData(uint8_t* buff, size_t size)
     {
         dsy_gpio_write(&pin_dc_, 1);
-        remaining_buff = full_screen_buf;
-        dma_busy       = true;
-        return spi_.DmaTransmit(
-            frm_buf, buf_chunk_size, nullptr, &TxCompleteCallback, this);
+        return spi_.BlockingTransmit(buff, size);
     };
 
     void SetAddressWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
@@ -188,24 +201,110 @@ class ILI9341SpiTransport
         SendCommand(0x2C); // RAMWR
     }
 
-    void PaintPixel(uint32_t id, uint32_t color)
+    void PaintPixel(uint32_t id, uint8_t color_id, uint8_t alpha = 255) const
     {
-        frm_buf[id]     = color >> 8;
-        frm_buf[id + 1] = color & 0xFF;
+        auto color = tftPalette[color_id];
+
+        if(alpha != 255)
+        {
+            auto bg_color = tftPalette[color_mem[id]];
+            color         = Blend565(color, bg_color, alpha);
+        }
+
+        color_mem[id] = color_id;
+
+        frame_buffer[id]     = color >> 8;
+        frame_buffer[id + 1] = color & 0xFF;
     }
 
-    bool           dma_busy       = false;
-    uint32_t       remaining_buff = 0;
-    const uint16_t buf_chunk_size = 51200; // UINT16_MAX
+    uint16_t GetPixel(uint32_t id) { return color_mem[id]; }
 
-    static uint32_t const full_screen_buf = 153600; // 320 * 240 * 2
-    static uint8_t DMA_BUFFER_MEM_SECTION frm_buf[full_screen_buf];
+    bool     dma_busy       = false;
+    uint32_t remaining_buff = 0;
+
+    static uint32_t const buffer_size    = 153600;          // 320 * 240 * 2
+    const uint16_t        buf_chunk_size = buffer_size / 3; // 8bit data
+    // const uint16_t buf_chunk_size = buffer_size / 4; // 16bit data
+
+    static uint8_t DMA_BUFFER_MEM_SECTION frame_buffer[buffer_size];
+    static uint8_t DSY_SDRAM_BSS          color_mem[buffer_size / 2];
+    SpiHandle                             spi_;
+
+    uint16_t tftPalette[NUMBER_OF_TFT_COLORS];
 
   private:
-    SpiHandle spi_;
-    dsy_gpio  pin_reset_;
-    dsy_gpio  pin_dc_;
-    dsy_gpio  pin_cs_;
+    dsy_gpio pin_reset_;
+    dsy_gpio pin_dc_;
+    dsy_gpio pin_cs_;
+
+
+    //   rrrrrggggggbbbbb
+#define MASK_RB 63519       // 0b1111100000011111
+#define MASK_G 2016         // 0b0000011111100000
+#define MASK_MUL_RB 4065216 // 0b1111100000011111000000
+#define MASK_MUL_G 129024   // 0b0000011111100000000000
+#define MAX_ALPHA 64        // 6bits+1 with rounding
+
+    uint16_t Blend565(uint16_t fg, uint16_t bg, uint8_t alpha) const
+    {
+        // alpha for foreground multiplication
+        // convert from 8bit to (6bit+1) with rounding
+        // will be in [0..64] inclusive
+        alpha = (alpha + 2) >> 2;
+        // "beta" for background multiplication; (6bit+1);
+        // will be in [0..64] inclusive
+        uint8_t beta = MAX_ALPHA - alpha;
+        // so (0..64)*alpha + (0..64)*beta always in 0..64
+
+        return (uint16_t)((((alpha * (uint32_t)(fg & MASK_RB)
+                             + beta * (uint32_t)(bg & MASK_RB))
+                            & MASK_MUL_RB)
+                           | ((alpha * (fg & MASK_G) + beta * (bg & MASK_G))
+                              & MASK_MUL_G))
+                          >> 6);
+    }
+
+    /*
+  result masks of multiplications
+  uppercase: usable bits of multiplications
+  RRRRRrrrrrrBBBBBbbbbbb // 5-5 bits of red+blue
+        1111100000011111 // from MASK_RB * 1
+  1111100000011111000000 //   to MASK_RB * MAX_ALPHA // 22 bits!
+
+
+  -----GGGGGGgggggg----- // 6 bits of green
+        0000011111100000 // from MASK_G * 1
+  0000011111100000000000 //   to MASK_G * MAX_ALPHA
+*/
+
+
+    void InitPalette()
+    {
+        // HEX to RBG565 converter: https://trolsoft.ru/en/articles/rgb565-color-picker
+        tftPalette[COLOR_BLACK]       = 0x0000;
+        tftPalette[COLOR_WHITE]       = 0xffff;
+        tftPalette[COLOR_BLUE]        = 0x5AFF;
+        tftPalette[COLOR_DARK_BLUE]   = 0x18EB;
+        tftPalette[COLOR_YELLOW]      = 0xFFE0;
+        tftPalette[COLOR_DARK_YELLOW] = 0x49E1;
+        tftPalette[COLOR_RED]         = 0xF9E1; // 0xff4010
+        tftPalette[COLOR_DARK_RED]    = 0x4880; // 0x401000
+        tftPalette[COLOR_GREEN]       = 0x3FE7; // 0x40ff40
+        tftPalette[COLOR_DARK_GREEN]  = 0x01E0; // 0x004000
+        tftPalette[COLOR_LIGHT_GRAY]  = 0xAD75; // 0xb0b0b0
+        tftPalette[COLOR_MEDIUM_GRAY] = 0x8C71; // 0x909090
+        tftPalette[COLOR_GRAY]        = 0x5AEB; // 0x606060
+        tftPalette[COLOR_DARK_GRAY]   = 0x2965; // 0x303030
+        tftPalette[COLOR_CYAN]        = 0x76FD; // 0x76dfef
+        tftPalette[COLOR_ORANGE]      = 0xFBE0; // 0xff7f00
+        tftPalette[COLOR_LIGHT_GREEN] = 0x6FED; // 0x70ff70
+        // tftPalette[COLOR_ABL_BG]      = (0x2104); // 0x212121
+        tftPalette[COLOR_ABL_BG]     = 0x4A69; // #4D4D4D
+        tftPalette[COLOR_ABL_LINE]   = 0x39E7; // 0x3d3d3d
+        tftPalette[COLOR_ABL_D_LINE] = 0x31A6; // 0x363636
+        tftPalette[COLOR_ABL_L_GRAY] = 0x52AA; // 0x555555
+        tftPalette[COLOR_ABL_M_GRAY] = 0x4228; // 0x454545
+    }
 };
 
 
@@ -228,7 +327,6 @@ class UiDriver
     {
         screen_update_period_ = 17; // 17 is roughly 60Hz
         screen_update_last_   = System::GetNow();
-        InitPalette();
 
         InitDriver();
     }
@@ -458,62 +556,51 @@ class UiDriver
 
     Rectangle GetDrawableFrame() const
     {
-        return Rectangle(int16_t(width), int16_t(height - header - footer))
-            .Translated(0, header + 1);
+        return Rectangle(int16_t(width), int16_t(height))
+            .WithTrimmedTop(header)
+            .WithTrimmedBottom(footer);
+    }
+
+    Rectangle GetBounds() const
+    {
+        return Rectangle(int16_t(width), int16_t(height));
     }
 
     void Fill(uint8_t color)
     {
-        for(size_t i = 0; i < transport_.full_screen_buf / 2; i++)
+        for(size_t i = 0; i < transport_.buffer_size / 2; i++)
         {
-            transport_.PaintPixel(i * 2, tftPalette[color]);
+            transport_.PaintPixel(i * 2, color);
         }
-    };
-
-    void FillArea(uint_fast16_t x,
-                  uint_fast16_t y,
-                  uint_fast16_t w,
-                  uint_fast16_t h,
-                  uint8_t       color)
-    {
-        // Loop through every Y sector
-        for(size_t i = 0; i < h; i++)
-        {
-            for(size_t j = 0; j < w; j++)
-            {
-                DrawPixel(x + j, y + i, color);
-            }
-        }
-    };
-
-    void FillRect(const Rectangle& rect, uint8_t color)
-    {
-        FillArea(
-            rect.GetX(), rect.GetY(), rect.GetWidth(), rect.GetHeight(), color);
     };
 
     void DrawLine(uint_fast16_t x1,
                   uint_fast16_t y1,
                   uint_fast16_t x2,
                   uint_fast16_t y2,
-                  uint8_t       color)
+                  uint8_t       color,
+                  uint8_t       alpha = 255)
     {
+        if(x1 == x2)
+        {
+            return DrawVLine(x1, y1, y2 - y1 + 1, color, alpha);
+        }
+        else if(y1 == y2)
+        {
+            return DrawHLine(x1, y1, x2 - x1 + 1, color, alpha);
+        }
+
         auto deltaX = abs((int_fast16_t)x2 - (int_fast16_t)x1);
         auto deltaY = abs((int_fast16_t)y2 - (int_fast16_t)y1);
         auto signX  = ((x1 < x2) ? 1 : -1);
         auto signY  = ((y1 < y2) ? 1 : -1);
         auto error  = deltaX - deltaY;
 
-        // If we write "ChildType::DrawPixel(x2, y2, on);", we end up with
-        // all sorts of weird compiler errors when the Child class is a template
-        // class. The only way around this is to use this very verbose syntax:
-        DrawPixel(x2, y2, color);
-
-        // NOTE: Possible optimization: draw horizontal and vertical lines via FillArea
+        DrawPixel(x2, y2, color, alpha);
 
         while((x1 != x2) || (y1 != y2))
         {
-            DrawPixel(x1, y1, color);
+            DrawPixel(x1, y1, color, alpha);
             auto error2 = error * 2;
             if(error2 > -deltaY)
             {
@@ -529,26 +616,173 @@ class UiDriver
         }
     }
 
-    void DrawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t color)
+    void FillArea(uint_fast16_t x,
+                  uint_fast16_t y,
+                  uint_fast16_t w,
+                  uint_fast16_t h,
+                  uint8_t       color,
+                  uint8_t       alpha = 255)
+    {
+        // Loop through every Y sector
+        for(size_t i = 0; i < h; i++)
+        {
+            for(size_t j = 0; j < w; j++)
+            {
+                DrawPixel(x + j, y + i, color, alpha);
+            }
+        }
+    };
+
+    void DrawRect(uint16_t x,
+                  uint16_t y,
+                  uint16_t w,
+                  uint16_t h,
+                  uint8_t  color,
+                  uint8_t  alpha = 255)
     {
         auto x2 = x + w;
         auto y2 = y + h;
-        DrawLine(x, y, x, y2, color);
-        DrawLine(x, y, x2, y, color);
-        DrawLine(x, y2, x2, y2, color);
-        DrawLine(x2, y, x2, y2, color);
+        DrawLine(x, y, x, y2, color, alpha);
+        DrawLine(x, y, x2, y, color, alpha);
+        DrawLine(x, y2, x2, y2, color, alpha);
+        DrawLine(x2, y, x2, y2, color, alpha);
     }
 
-    Rectangle GetBounds() const
+    void DrawRect(const Rectangle& rect, uint8_t color, uint8_t alpha = 255)
     {
-        return Rectangle(int16_t(width), int16_t(height));
+        DrawRect(rect.GetX(),
+                 rect.GetY(),
+                 rect.GetWidth(),
+                 rect.GetHeight(),
+                 color,
+                 alpha);
     }
 
-    void DrawRect(const Rectangle& rect, uint8_t color)
+    void FillRect(const Rectangle& rect, uint8_t color, uint8_t alpha = 255)
     {
-        DrawRect(
-            rect.GetX(), rect.GetY(), rect.GetWidth(), rect.GetHeight(), color);
+        FillArea(rect.GetX(),
+                 rect.GetY(),
+                 rect.GetWidth(),
+                 rect.GetHeight(),
+                 color,
+                 alpha);
+    };
+
+    void DrawTriangle(int16_t x0,
+                      int16_t y0,
+                      int16_t x1,
+                      int16_t y1,
+                      int16_t x2,
+                      int16_t y2,
+                      uint8_t color,
+                      uint8_t alpha = 255)
+    {
+        DrawLine(x0, y0, x1, y1, color, alpha);
+        DrawLine(x1, y1, x2, y2, color, alpha);
+        DrawLine(x2, y2, x0, y0, color, alpha);
     }
+
+    void FillTriangle(int16_t x0,
+                      int16_t y0,
+                      int16_t x1,
+                      int16_t y1,
+                      int16_t x2,
+                      int16_t y2,
+                      uint8_t color,
+                      uint8_t alpha = 255)
+    {
+        int16_t a, b, y, last;
+
+        // Sort coordinates by Y order (y2 >= y1 >= y0)
+        if(y0 > y1)
+        {
+            std::swap(y0, y1);
+            std::swap(x0, x1);
+        }
+        if(y1 > y2)
+        {
+            std::swap(y2, y1);
+            std::swap(x2, x1);
+        }
+        if(y0 > y1)
+        {
+            std::swap(y0, y1);
+            std::swap(x0, x1);
+        }
+
+        if(y0 == y2)
+        { // Handle awkward all-on-same-line case as its own thing
+            a = b = x0;
+            if(x1 < a)
+                a = x1;
+            else if(x1 > b)
+                b = x1;
+            if(x2 < a)
+                a = x2;
+            else if(x2 > b)
+                b = x2;
+            DrawHLine(a, y0, b - a + 1, color, alpha);
+            return;
+        }
+
+        int16_t dx01 = x1 - x0, dy01 = y1 - y0, dx02 = x2 - x0, dy02 = y2 - y0,
+                dx12 = x2 - x1, dy12 = y2 - y1;
+        int32_t sa = 0, sb = 0;
+
+        // For upper part of triangle, find scanline crossings for segments
+        // 0-1 and 0-2.  If y1=y2 (flat-bottomed triangle), the scanline y1
+        // is included here (and second loop will be skipped, avoiding a /0
+        // error there), otherwise scanline y1 is skipped here and handled
+        // in the second loop...which also avoids a /0 error here if y0=y1
+        // (flat-topped triangle).
+        if(y1 == y2)
+        {
+            last = y1; // Include y1 scanline
+        }
+        else
+        {
+            last = y1 - 1; // Skip it
+        }
+
+        for(y = y0; y <= last; y++)
+        {
+            a = x0 + sa / dy01;
+            b = x0 + sb / dy02;
+            sa += dx01;
+            sb += dx02;
+            /* longhand:
+            a = x0 + (x1 - x0) * (y - y0) / (y1 - y0);
+            b = x0 + (x2 - x0) * (y - y0) / (y2 - y0);
+            */
+            if(a > b)
+            {
+                std::swap(a, b);
+            }
+            DrawHLine(a, y, b - a + 1, color, alpha);
+        }
+
+        // For lower part of triangle, find scanline crossings for segments
+        // 0-2 and 1-2.  This loop is skipped if y1=y2.
+        sa = (int32_t)dx12 * (y - y1);
+        sb = (int32_t)dx02 * (y - y0);
+        for(; y <= y2; y++)
+        {
+            a = x1 + sa / dy12;
+            b = x0 + sb / dy02;
+            sa += dx12;
+            sb += dx02;
+            /* longhand:
+                a = x1 + (x2 - x1) * (y - y1) / (y2 - y1);
+                b = x0 + (x2 - x0) * (y - y0) / (y2 - y0);
+            */
+            if(a > b)
+            {
+                std::swap(a, b);
+            }
+            DrawHLine(a, y, b - a + 1, color, alpha);
+        }
+    }
+
 
     Rectangle WriteStringAligned(const char*    str,
                                  const FontDef& font,
@@ -558,12 +792,11 @@ class UiDriver
     {
         const auto alignedRect
             = GetTextRect(str, font).AlignedWithin(boundingBox, alignment);
-        // SetCursor(alignedRect.GetX(), alignedRect.GetY());
         WriteString(str, alignedRect.GetX(), alignedRect.GetY(), font, color);
         return alignedRect;
     }
 
-    Rectangle GetTextRect(const char* text, const FontDef& font)
+    Rectangle GetTextRect(const char* text, const FontDef& font) const
     {
         return {int16_t(strlen(text) * font.FontWidth), font.FontHeight};
     }
@@ -578,7 +811,6 @@ class UiDriver
         if(width < (currentX_ + font.FontWidth)
            || height < (currentY_ + font.FontHeight))
         {
-            // Not enough space on current line
             return 0;
         }
 
@@ -592,18 +824,12 @@ class UiDriver
                 {
                     DrawPixel(currentX_ + j, (currentY_ + i), color);
                 }
-                // else
-                // {
-                // background color
-                // DrawPixel(currentX_ + j, (currentY_ + i), COLOR_BLACK);
-                // }
             }
         }
 
         // The current space is now taken
         SetCursor(currentX_ + font.FontWidth, currentY_);
 
-        // Return written char for validation
         return ch;
     }
 
@@ -619,21 +845,17 @@ class UiDriver
                      uint8_t     color)
     {
         SetCursor(x, y);
-        // Write until null-byte
-        while(*str)
+        while(*str) // Write until null-byte
         {
             if(WriteChar(*str, font, color) != *str)
             {
-                // Char could not be written
-                return;
+                return; // Char could not be written
             }
-
-            // Next char
-            str++;
+            str++; // Next char
         }
     }
 
-    uint16_t GetStringWidth(const char* str, FontDef font)
+    uint16_t GetStringWidth(const char* str, FontDef font) const
     {
         uint16_t font_width = 0;
         // Loop until null-byte
@@ -682,27 +904,18 @@ class UiDriver
         }
     }
 
-    void DriteFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color)
+    void FillCircle(int16_t x0, int16_t y0, int16_t r, uint8_t color)
     {
-        // Overwrite in subclasses if startWrite is defined!
-        // Can be just writeLine(x, y, x, y+h-1, color);
-        // or writeFillRect(x, y, 1, h, color);
-        DrawLine(x, y, x, y + h - 1, color);
-    }
-
-    void FillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)
-    {
-        // DriteFastVLine(x0, y0 - r, 2 * r + 1, color);
         DrawLine(x0, y0, x0, y0 + 2 * r + 1, color);
         FillCircleHelper(x0, y0, r, 3, 0, color);
     }
 
-    void FillCircleHelper(int16_t  x0,
-                          int16_t  y0,
-                          int16_t  r,
-                          uint8_t  cornername,
-                          int16_t  delta,
-                          uint16_t color)
+    void FillCircleHelper(int16_t x0,
+                          int16_t y0,
+                          int16_t r,
+                          uint8_t cornername,
+                          int16_t delta,
+                          uint8_t color)
     {
         int16_t f     = 1 - r;
         int16_t ddF_x = 1;
@@ -730,8 +943,6 @@ class UiDriver
                     x0 + x, y0 - y, x0 + x, y0 - y + 2 * y + delta - 1, color);
                 DrawLine(
                     x0 + y, y0 - x, x0 + y, y0 - x + 2 * x + delta - 1, color);
-
-                // DrawLine(x, y, x, y + h - 1, color);
             }
             if(cornername & 0x2)
             {
@@ -739,17 +950,17 @@ class UiDriver
                     x0 - x, y0 - y, x0 - x, y0 - y + 2 * y + delta - 1, color);
                 DrawLine(
                     x0 - y, y0 - x, x0 - y, y0 - x + 2 * x + delta - 1, color);
-                // DriteFastVLine(x0 - x, y0 - y, 2 * y + delta, color);
-                // DriteFastVLine(x0 - y, y0 - x, 2 * x + delta, color);
             }
         }
     }
 
-    /** 
-    Moves the 'Cursor' position used for WriteChar, and WriteStr to the specified coordinate.
-    \param x x pos
-    \param y y pos
-    */
+    /**
+     * @brief Moves the 'Cursor' position used for WriteChar, and WriteStr to the specified coordinate.
+     * 
+     * 
+     * @param x x pos
+     * @param y y pos
+     */
     void SetCursor(uint16_t x, uint16_t y)
     {
         currentX_ = (x >= width) ? width - 1 : x;
@@ -789,13 +1000,31 @@ class UiDriver
         }
     }
 
-    uint16_t fps = 0;
+    uint16_t Fps() const { return fps; }
 
+    void TrimString(char*    str,
+                    char*    str_trimmed,
+                    uint16_t str_len,
+                    uint16_t str_width,
+                    FontDef  font) const
+    {
+        if(str_len <= str_width)
+        {
+            return;
+        }
+
+        uint16_t max_chars = str_width / font.FontWidth;
+        strncpy(str_trimmed, str, max_chars);
+        str_trimmed[max_chars] = '\0';
+    }
 
   private:
     void Start() { transport_.SetAddressWindow(0, 0, width - 1, height - 1); }
 
-    void DrawPixel(uint_fast16_t x, uint_fast16_t y, uint8_t color)
+    void DrawPixel(uint_fast16_t x,
+                   uint_fast16_t y,
+                   uint8_t       color,
+                   uint8_t       alpha = 255)
     {
         if(x >= width || y >= height)
             return;
@@ -803,12 +1032,37 @@ class UiDriver
         auto id = 2 * (x + y * width);
 
         // NOTE: Probably we should check the color id before accessing the array
-        transport_.PaintPixel(id, tftPalette[color]);
+        transport_.PaintPixel(id, color, alpha);
 
         // Lets divide the whole screen in 10 sectors, 32 pixel high each
         // uint8_t screen_sector     = y / 32;
         // dirty_buff[screen_sector] = 1;
     }
+
+    void DrawVLine(int16_t x,
+                   int16_t y,
+                   int16_t h,
+                   uint8_t color,
+                   uint8_t alpha = 255)
+    {
+        for(int16_t i = y; i < y + h; i++)
+        {
+            DrawPixel(x, i, color, alpha);
+        }
+    }
+
+    void DrawHLine(int16_t x,
+                   int16_t y,
+                   int16_t w,
+                   uint8_t color,
+                   uint8_t alpha = 255)
+    {
+        for(int16_t i = x; i < x + w; i++)
+        {
+            DrawPixel(i, y, color, alpha);
+        }
+    }
+
 
     /*!
     @brief   Given 8-bit red, green and blue values, return a 'packed'
@@ -819,76 +1073,31 @@ class UiDriver
     @param   green  8-bit green brightnesss (0 = off, 255 = max).
     @param   blue   8-bit blue brightnesss (0 = off, 255 = max).
     @return  'Packed' 16-bit color value (565 format).
-*/
-    uint16_t Color565(uint8_t red, uint8_t green, uint8_t blue)
+    */
+    uint16_t Color565(uint8_t red, uint8_t green, uint8_t blue) const
     {
         return ((red & 0xF8) << 8) | ((green & 0xFC) << 3) | (blue >> 3);
     }
 
-    void InitPalette()
-    {
-        // HEX to RBG565 converter: https://trolsoft.ru/en/articles/rgb565-color-picker
-        tftPalette[COLOR_BLACK]       = (0x0000);
-        tftPalette[COLOR_WHITE]       = (0xffff);
-        tftPalette[COLOR_BLUE]        = (0x5AFF);
-        tftPalette[COLOR_DARK_BLUE]   = (0x18EB);
-        tftPalette[COLOR_YELLOW]      = (0xFFE0);
-        tftPalette[COLOR_DARK_YELLOW] = (0x49E1);
-        tftPalette[COLOR_RED]         = (0xF9E1); // 0xff4010
-        tftPalette[COLOR_DARK_RED]    = (0x4880); // 0x401000
-        tftPalette[COLOR_GREEN]       = (0x3FE7); // 0x40ff40
-        tftPalette[COLOR_DARK_GREEN]  = (0x01E0); // 0x004000
-        tftPalette[COLOR_LIGHT_GRAY]  = (0xAD75); // 0xb0b0b0
-        tftPalette[COLOR_MEDIUM_GRAY] = (0x8C71); // 0x909090
-        tftPalette[COLOR_GRAY]        = (0x5AEB); // 0x606060
-        tftPalette[COLOR_DARK_GRAY]   = (0x2965); // 0x303030
-        tftPalette[COLOR_CYAN]        = (0x76FD); // 0x76dfef
-        tftPalette[COLOR_ORANGE]      = (0xFBE0); // 0xff7f00
-        tftPalette[COLOR_LIGHT_GREEN] = (0x6FED); // 0x70ff70
-        // tftPalette[COLOR_ABL_BG]      = (0x2104); // 0x212121
-        tftPalette[COLOR_ABL_BG]     = (0x4A69); // #4D4D4D
-        tftPalette[COLOR_ABL_LINE]   = (0x39E7); // 0x3d3d3d
-        tftPalette[COLOR_ABL_D_LINE] = (0x31A6); // 0x363636
-        tftPalette[COLOR_ABL_L_GRAY] = (0x52AA); // 0x555555
-        tftPalette[COLOR_ABL_M_GRAY] = (0x4228); // 0x454545
-    }
-
     uint32_t screen_update_last_, screen_update_period_, fps_update_last_;
 
-
     ILI9341SpiTransport transport_;
-    uint32_t            tftPalette[NUMBER_OF_TFT_COLORS];
 
     uint16_t      width;
     uint16_t      height;
     uint8_t       rotation;
     const uint8_t header = 20;
-    const uint8_t footer = 15;
-    uint16_t      diff;
+    const uint8_t footer = 13;
+    uint32_t      diff;
     uint16_t      frames = 0;
 
     uint16_t currentX_;
     uint16_t currentY_;
     // 2 * width * 32; // 2 bits per pixel, 32 rows
     // static uint16_t const num_sectors     = 10;
-    // static uint16_t const sector_size     = full_screen_buf / num_sectors;
+    // static uint16_t const sector_size     = buffer_size / num_sectors;
     // static uint16_t       dirty_buff[num_sectors]; // = {0};
     // = {0}; // DMA max (?) 65536 // full screen - 153600
+
+    uint16_t fps = 0;
 };
-
-#endif
-
-
-///////////////
-// .CPP
-///////////////
-
-#ifndef ILI_UI_CPP
-#define ILI_UI_CPP
-
-#include "ili9341_ui_driver.hpp"
-
-uint8_t DMA_BUFFER_MEM_SECTION
-    ILI9341SpiTransport::frm_buf[ILI9341SpiTransport::full_screen_buf]
-    = {0}; // DMA max (?) 65536 // full screen - 153600
-#endif
