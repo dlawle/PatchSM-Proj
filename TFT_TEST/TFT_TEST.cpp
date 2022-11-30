@@ -25,10 +25,15 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 int main(void)
 {
 	di.Init();
-	du.DrawRect(4,4,100,100,COLOR_RED);
+	du.Init();
 	hw.Init();
 	hw.SetAudioBlockSize(4); // number of samples handled per callback
 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
 	hw.StartAudio(AudioCallback);
-	while(1) {}
+	while(1) {
+		di.Reset();
+		du.Fill(COLOR_BLACK);
+		du.DrawRect(4,4,100,100,COLOR_RED);
+
+	}
 }
