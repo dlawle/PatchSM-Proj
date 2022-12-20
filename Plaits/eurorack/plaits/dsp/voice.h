@@ -36,16 +36,16 @@
 #include "stmlib/utils/buffer_allocator.h"
 
 #include "plaits/dsp/engine/additive_engine.h"
-#include "plaits/dsp/engine/bass_drum_engine.h"
+//#include "plaits/dsp/engine/bass_drum_engine.h"
 #include "plaits/dsp/engine/chord_engine.h"
 #include "plaits/dsp/engine/engine.h"
 #include "plaits/dsp/engine/fm_engine.h"
 #include "plaits/dsp/engine/grain_engine.h"
-#include "plaits/dsp/engine/hi_hat_engine.h"
+//#include "plaits/dsp/engine/hi_hat_engine.h"
 #include "plaits/dsp/engine/modal_engine.h"
-#include "plaits/dsp/engine/noise_engine.h"
+//#include "plaits/dsp/engine/noise_engine.h"
 #include "plaits/dsp/engine/particle_engine.h"
-#include "plaits/dsp/engine/snare_drum_engine.h"
+//#include "plaits/dsp/engine/snare_drum_engine.h"
 #include "plaits/dsp/engine/speech_engine.h"
 #include "plaits/dsp/engine/string_engine.h"
 #include "plaits/dsp/engine/swarm_engine.h"
@@ -194,21 +194,21 @@ class Voice {
 
   
   AdditiveEngine additive_engine_;
-  BassDrumEngine bass_drum_engine_;
-  // ChordEngine chord_engine_;
+  //BassDrumEngine bass_drum_engine_;
+  ChordEngine chord_engine_;
   FMEngine fm_engine_;
   GrainEngine grain_engine_;
-  HiHatEngine hi_hat_engine_;
+  //HiHatEngine hi_hat_engine_;
   ModalEngine modal_engine_;
-  NoiseEngine noise_engine_;
+  //NoiseEngine noise_engine_;
   ParticleEngine particle_engine_;
-  SnareDrumEngine snare_drum_engine_;
+  //SnareDrumEngine snare_drum_engine_;
   SpeechEngine speech_engine_;
   StringEngine string_engine_;
   SwarmEngine swarm_engine_;
   VirtualAnalogEngine virtual_analog_engine_;
   WaveshapingEngine waveshaping_engine_;
-  // WavetableEngine wavetable_engine_;
+  WavetableEngine wavetable_engine_;
 
   stmlib::HysteresisQuantizer engine_quantizer_;
   

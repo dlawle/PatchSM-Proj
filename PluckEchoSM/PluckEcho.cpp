@@ -51,18 +51,19 @@ void AudioCallback(AudioHandle::InputBuffer  in,
         trig = 1.0f;
 
     // Set MIDI Note for new Pluck notes.
-    // nn = 24.0f + hw.GetAdcValue(CV_1) * 60.0f;
-    // nn = static_cast<int32_t>(nn); // Quantize to semitones
+    //nn = 24.0f + hw.GetAdcValue(CV_5) * 60.0f;
+    //nn = static_cast<int32_t>(nn); // Quantize to semitones
 
-    float coarse_knob = hw.GetAdcValue(CV_1);
-    float coarse      = fmap(coarse_knob, 36.f, 96.f);
+    // adding course tune and cv in 
+    float knob_coarse = hw.GetAdcValue(CV_1);
+    float coarse_tune = fmap(knob_coarse, 12, 84);
 
-    float voct_cv = hw.GetAdcValue(CV_5);
-    float voct    = fmap(voct_cv, 0.f, 60.f);
+    float cv_voct = hw.GetAdcValue(CV_5);
+    float voct    = fmap(cv_voct, 0, 60);
 
-    float midi_nn = fclamp(coarse + voct, 0.f, 127.f);
-    nn = mtof(midi_nn);
-    nn = static_cast<int32_t>(nn);
+    /** Convert from MIDI note number to frequency */
+    nn = fclamp(coarse_tune + voct, 0.f, 127.f);
+    nn = static_cast<int32_t>(nn); // Quantize to semitones
 
     // Read knobs for decay;
     decay = 0.5f + (hw.GetAdcValue(CV_2) * 0.5f);
