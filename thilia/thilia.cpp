@@ -10,12 +10,6 @@ ReverbSc     reverb;
 DaisyPatchSM patch;
 Switch       button;
 Switch       toggle;
-uint32_t global_time_started;
-uint32_t global_time_ended;
-uint32_t global_time_diff;
-// Set initial button check to 0
-int button_state = 0; 
-int total_button_presses = 0;
 
 #define kBuffSize 48000 * 60 // 60 seconds at 48kHz
 
@@ -25,20 +19,6 @@ Looper              looper_l;
 Looper              looper_r;
 float DSY_SDRAM_BSS buffer_l[kBuffSize];
 float DSY_SDRAM_BSS buffer_r[kBuffSize];
-
-void buttonHandling() {
-    if(button.RisingEdge()){
-        ++total_button_presses;
-        if(button_state == 0){
-            button_state = 1;
-            global_time_started = System::GetNow();
-        } else if(button_state == 1){
-            button_state = 0;
-            global_time_ended = System::GetNow();
-        }
-    }
-    global_time_diff = global_time_ended - global_time_started;
-}
 
 void AudioCallback(AudioHandle::InputBuffer  in,
                    AudioHandle::OutputBuffer out,
@@ -62,11 +42,10 @@ void AudioCallback(AudioHandle::InputBuffer  in,
     reverb.SetLpFreq(damp);
 
     //if you press the button, toggle the record state
-    if(button.RisingEdge())
+    if(patch.gate_in_1.Trig())
     {
         looper_l.TrigRecord();
         looper_r.TrigRecord();
-        buttonHandling();
     }
 
     // testing reverse on toggle flip
@@ -121,12 +100,5 @@ int main(void)
     patch.StartAudio(AudioCallback);
 
     // loop forever
-    while(1) {
-        if(total_button_presses > 1){
-            dsy_gpio_write(&patch.gate_out_1, true);
-            patch.Delay(250);
-            dsy_gpio_write(&patch.gate_out_1, false);
-            patch.Delay(global_time_diff);
-        }
-    }
+    while(1) {}
 }
