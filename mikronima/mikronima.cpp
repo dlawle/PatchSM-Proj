@@ -5,15 +5,11 @@ using namespace daisy;
 using namespace patch_sm;
 using namespace daisysp;
 
-String 		 string;
 DaisyPatchSM hw;
-Switch button;
+StringVoice str;
 
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {
-	hw.ProcessAllControls();
-	float nn, trig; 
-
     // set CV inputs and Coarse knob
     float coarse_knob = hw.GetAdcValue(CV_1);
     float coarse      = fmap(coarse_knob, 36.f, 96.f);
@@ -24,16 +20,27 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
     float midi_nn = fclamp(coarse + voct, 0.f, 127.f);
     float freq    = mtof(midi_nn);
 
-    for(size_t i = 0; i < size; i += 2)
+	// set dampening and sustain (testing)
+	float damp = fmap(hw.GetAdcValue(CV_2), 0.0f, .99f);
+	float sustain = fmap(hw.GetAdcValue(CV_3), 0.0f, .99f);
+
+
+	hw.ProcessAllControls();
+    for(size_t i = 0; i < size; i++)
     {
-        bool trig = hw.gate_in_1.Trig();
-        if(trig)
+        bool t = hw.gate_in_1.Trig();
+        if(t)
         {
-            string.SetFreq(freq);
+            str.SetFreq(freq);
+			str.SetDamping(damp);
+            str.SetSustain(sustain);
         }
-        // Output
-        OUT_L[i] = string.Process(trig);
-        OUT_R[i] = string.Process(trig);
+
+		float sig = hw.GetAdcValue(CV_6);
+        str.SetStructure(sig);
+        str.SetBrightness(.1f + sig * .2f);
+
+        out[0][i] = out[1][i] = str.Process(t);
     }
 }
 
@@ -42,14 +49,11 @@ int main(void)
 	hw.Init();
 	hw.SetAudioBlockSize(4); // number of samples handled per callback
 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
-
-    // Set up Pluck algo
-    string.Init(hw.AudioSampleRate());
-    string.SetDamping(.8f);
-    string.SetNonLinearity(.1f);
-    string.SetBrightness(.5f);
-    
-	hw.StartAdc();
 	hw.StartAudio(AudioCallback);
+
+	float sample_rate = hw.AudioSampleRate();
+	str.Init(sample_rate);
+    str.SetAccent(1.f);
+	
 	while(1) {}
 }
