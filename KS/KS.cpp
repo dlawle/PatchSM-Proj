@@ -11,41 +11,30 @@ DaisyPatchSM hw;
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {
 	hw.ProcessAllControls();
-	float nn, trig, sig_out; 
+	float nn, trig; 
 
-	// set up v/oct tracking
-	float coarse_tune = 24.0f + hw.GetAdcValue(CV_4) * 60.0f;
-    float cv_voct = hw.GetAdcValue(CV_5);
-    float voct    = fmap(cv_voct, 0.f, 60.f);
+    // set CV inputs and Coarse knob
+    float coarse_knob = hw.GetAdcValue(CV_1);
+    float coarse      = fmap(coarse_knob, 36.f, 96.f);
 
-    /** Convert from MIDI note number to frequency */
-    nn = fclamp(coarse_tune + voct, 0.f, 127.f);
-    nn = static_cast<int32_t>(nn); // Quantize to semitones
+    float voct_cv = hw.GetAdcValue(CV_5);
+    float voct    = fmap(voct_cv, 0.f, 60.f);
 
-    // Set brightness, dampening and nonlinearity knobs respectively 
-    float bright_knob 			= hw.GetAdcValue(CV_1);
-    float bright      			= fmap(bright_knob, 0.3f, 0.99f);
-	float damp_knob	  			= hw.GetAdcValue(CV_2);
-	float dampening   		  	= fmap(damp_knob, 0.3f, 0.99f);
-	float nonlinear_knob	  	= hw.GetAdcValue(CV_3);
-	float nonlinear   			= fmap(nonlinear_knob, -0.99f, 0.99f);
+    float midi_nn = fclamp(coarse + voct, 0.f, 127.f);
+    float freq    = mtof(midi_nn);
 
-	string.SetBrightness(bright); 
-	string.SetDamping(dampening);
-	string.SetNonLinearity(nonlinear);
+    
 
     for(size_t i = 0; i < size; i += 2)
     {
-        trig = 0.0f;
-        if(hw.gate_in_1.Trig())
+        bool trig = hw.gate_in_1.Trig();
+        if(trig)
         {
-            string.SetFreq(nn);
-            trig = 1.0f;
+            string.SetFreq(freq);
         }
-        sig_out = string.Process(trig);
         // Output
-        OUT_L[i] = sig_out;
-        OUT_R[i] = sig_out;
+        OUT_L[i] = string.Process(trig);
+        OUT_R[i] = string.Process(trig);
     }
 }
 
