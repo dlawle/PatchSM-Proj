@@ -1,0 +1,2799 @@
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"Proliferation.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN5daisy6SwitchD2Ev,"axG",%progbits,_ZN5daisy6SwitchD5Ev,comdat
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.weak	_ZN5daisy6SwitchD2Ev
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN5daisy6SwitchD2Ev:
+  27              	.LVL0:
+  28              	.LFB1605:
+  29              		.file 1 "../../libDaisy//src/hid/switch.h"
+   1:../../libDaisy//src/hid/switch.h **** #pragma once
+   2:../../libDaisy//src/hid/switch.h **** #ifndef DSY_SWITCH_H
+   3:../../libDaisy//src/hid/switch.h **** #define DSY_SWITCH_H
+   4:../../libDaisy//src/hid/switch.h **** #include "daisy_core.h"
+   5:../../libDaisy//src/hid/switch.h **** #include "per/gpio.h"
+   6:../../libDaisy//src/hid/switch.h **** #include "sys/system.h"
+   7:../../libDaisy//src/hid/switch.h **** 
+   8:../../libDaisy//src/hid/switch.h **** namespace daisy
+   9:../../libDaisy//src/hid/switch.h **** {
+  10:../../libDaisy//src/hid/switch.h **** /** 
+  11:../../libDaisy//src/hid/switch.h ****     Generic Class for handling momentary/latching switches \n 
+  12:../../libDaisy//src/hid/switch.h ****     Inspired/influenced by Mutable Instruments (pichenettes) Switch classes
+  13:../../libDaisy//src/hid/switch.h ****     @author Stephen Hensley
+  14:../../libDaisy//src/hid/switch.h ****     @date December 2019
+  15:../../libDaisy//src/hid/switch.h ****     @ingroup controls
+  16:../../libDaisy//src/hid/switch.h **** */
+  17:../../libDaisy//src/hid/switch.h **** class Switch
+  18:../../libDaisy//src/hid/switch.h **** {
+  19:../../libDaisy//src/hid/switch.h ****   public:
+  20:../../libDaisy//src/hid/switch.h ****     /** Specifies the expected behavior of the switch */
+  21:../../libDaisy//src/hid/switch.h ****     enum Type
+  22:../../libDaisy//src/hid/switch.h ****     {
+  23:../../libDaisy//src/hid/switch.h ****         TYPE_TOGGLE,    /**< & */
+  24:../../libDaisy//src/hid/switch.h ****         TYPE_MOMENTARY, /**< & */
+  25:../../libDaisy//src/hid/switch.h ****     };
+  26:../../libDaisy//src/hid/switch.h ****     /** Specifies whether the pressed is HIGH or LOW. */
+  27:../../libDaisy//src/hid/switch.h ****     enum Polarity
+  28:../../libDaisy//src/hid/switch.h ****     {
+  29:../../libDaisy//src/hid/switch.h ****         POLARITY_NORMAL,   /**< & */
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 2
+
+
+  30:../../libDaisy//src/hid/switch.h ****         POLARITY_INVERTED, /**< & */
+  31:../../libDaisy//src/hid/switch.h ****     };
+  32:../../libDaisy//src/hid/switch.h **** 
+  33:../../libDaisy//src/hid/switch.h ****     /** Specifies whether to use built-in Pull Up/Down resistors to hold button at a given state wh
+  34:../../libDaisy//src/hid/switch.h ****     enum Pull
+  35:../../libDaisy//src/hid/switch.h ****     {
+  36:../../libDaisy//src/hid/switch.h ****         PULL_UP,   /**< & */
+  37:../../libDaisy//src/hid/switch.h ****         PULL_DOWN, /**< & */
+  38:../../libDaisy//src/hid/switch.h ****         PULL_NONE, /**< & */
+  39:../../libDaisy//src/hid/switch.h ****     };
+  40:../../libDaisy//src/hid/switch.h **** 
+  41:../../libDaisy//src/hid/switch.h ****     Switch() {}
+  42:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
+  30              		.loc 1 42 5 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35              		.loc 1 42 16 is_stmt 0 view .LVU1
+  36 0000 7047     		bx	lr
+  37              		.cfi_endproc
+  38              	.LFE1605:
+  40              		.weak	_ZN5daisy6SwitchD1Ev
+  41              		.thumb_set _ZN5daisy6SwitchD1Ev,_ZN5daisy6SwitchD2Ev
+  42 0002 00BF     		.section	.text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev,"axG",%progbits,_ZN5daisy8patch_sm12DaisyPatch
+  43              		.align	1
+  44              		.p2align 2,,3
+  45              		.weak	_ZN5daisy8patch_sm12DaisyPatchSMD2Ev
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  49              		.fpu fpv5-d16
+  51              	_ZN5daisy8patch_sm12DaisyPatchSMD2Ev:
+  52              	.LVL1:
+  53              	.LFB2528:
+  54              		.file 2 "../../libDaisy//src/daisy_patch_sm.h"
+   1:../../libDaisy//src/daisy_patch_sm.h **** #pragma once
+   2:../../libDaisy//src/daisy_patch_sm.h **** 
+   3:../../libDaisy//src/daisy_patch_sm.h **** #include "daisy.h"
+   4:../../libDaisy//src/daisy_patch_sm.h **** 
+   5:../../libDaisy//src/daisy_patch_sm.h **** namespace daisy
+   6:../../libDaisy//src/daisy_patch_sm.h **** {
+   7:../../libDaisy//src/daisy_patch_sm.h **** namespace patch_sm
+   8:../../libDaisy//src/daisy_patch_sm.h **** {
+   9:../../libDaisy//src/daisy_patch_sm.h ****     /** Accessors for the Analog Controls. 
+  10:../../libDaisy//src/daisy_patch_sm.h ****      *  These cover the 8x Bipolar CV inputs
+  11:../../libDaisy//src/daisy_patch_sm.h ****      *  as well as the 4x 0-3V3 ADC inputs on
+  12:../../libDaisy//src/daisy_patch_sm.h ****      *  the hardware 
+  13:../../libDaisy//src/daisy_patch_sm.h ****      * 
+  14:../../libDaisy//src/daisy_patch_sm.h ****      *  When reading a value with DaisyPatchSM::GetAdcValue()
+  15:../../libDaisy//src/daisy_patch_sm.h ****      * 
+  16:../../libDaisy//src/daisy_patch_sm.h ****      *  patch.GetAdcValue(patch_sm::CV_1);
+  17:../../libDaisy//src/daisy_patch_sm.h ****      */
+  18:../../libDaisy//src/daisy_patch_sm.h ****     enum
+  19:../../libDaisy//src/daisy_patch_sm.h ****     {
+  20:../../libDaisy//src/daisy_patch_sm.h ****         CV_1 = 0,
+  21:../../libDaisy//src/daisy_patch_sm.h ****         CV_2,
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 3
+
+
+  22:../../libDaisy//src/daisy_patch_sm.h ****         CV_3,
+  23:../../libDaisy//src/daisy_patch_sm.h ****         CV_4,
+  24:../../libDaisy//src/daisy_patch_sm.h ****         CV_5,
+  25:../../libDaisy//src/daisy_patch_sm.h ****         CV_6,
+  26:../../libDaisy//src/daisy_patch_sm.h ****         CV_7,
+  27:../../libDaisy//src/daisy_patch_sm.h ****         CV_8,
+  28:../../libDaisy//src/daisy_patch_sm.h ****         ADC_9,
+  29:../../libDaisy//src/daisy_patch_sm.h ****         ADC_10,
+  30:../../libDaisy//src/daisy_patch_sm.h ****         ADC_11,
+  31:../../libDaisy//src/daisy_patch_sm.h ****         ADC_12,
+  32:../../libDaisy//src/daisy_patch_sm.h ****         ADC_LAST,
+  33:../../libDaisy//src/daisy_patch_sm.h ****     };
+  34:../../libDaisy//src/daisy_patch_sm.h **** 
+  35:../../libDaisy//src/daisy_patch_sm.h ****     /** Enum for addressing the CV Outputs via the WriteCvOut function. */
+  36:../../libDaisy//src/daisy_patch_sm.h ****     enum
+  37:../../libDaisy//src/daisy_patch_sm.h ****     {
+  38:../../libDaisy//src/daisy_patch_sm.h ****         CV_OUT_BOTH = 0,
+  39:../../libDaisy//src/daisy_patch_sm.h ****         CV_OUT_1,
+  40:../../libDaisy//src/daisy_patch_sm.h ****         CV_OUT_2,
+  41:../../libDaisy//src/daisy_patch_sm.h ****     };
+  42:../../libDaisy//src/daisy_patch_sm.h **** 
+  43:../../libDaisy//src/daisy_patch_sm.h **** 
+  44:../../libDaisy//src/daisy_patch_sm.h ****     /** @brief Board support file for DaisyPatchSM hardware
+  45:../../libDaisy//src/daisy_patch_sm.h ****      *  @author shensley
+  46:../../libDaisy//src/daisy_patch_sm.h ****      *  @ingroup boards
+  47:../../libDaisy//src/daisy_patch_sm.h ****      * 
+  48:../../libDaisy//src/daisy_patch_sm.h ****      *  Daisy Patch SM is a complete Eurorack module DSP engine.
+  49:../../libDaisy//src/daisy_patch_sm.h ****      *  Based on the Daisy Seed, with circuits added for 
+  50:../../libDaisy//src/daisy_patch_sm.h ****      *  interfacing directly with eurorack modular synthesizers.
+  51:../../libDaisy//src/daisy_patch_sm.h ****      */
+  52:../../libDaisy//src/daisy_patch_sm.h ****     class DaisyPatchSM
+  53:../../libDaisy//src/daisy_patch_sm.h ****     {
+  54:../../libDaisy//src/daisy_patch_sm.h ****       public:
+  55:../../libDaisy//src/daisy_patch_sm.h ****         /** Helper for mapping pins, and accessing them using the `GetPin` function */
+  56:../../libDaisy//src/daisy_patch_sm.h ****         enum class PinBank
+  57:../../libDaisy//src/daisy_patch_sm.h ****         {
+  58:../../libDaisy//src/daisy_patch_sm.h ****             A,
+  59:../../libDaisy//src/daisy_patch_sm.h ****             B,
+  60:../../libDaisy//src/daisy_patch_sm.h ****             C,
+  61:../../libDaisy//src/daisy_patch_sm.h ****             D
+  62:../../libDaisy//src/daisy_patch_sm.h ****         };
+  63:../../libDaisy//src/daisy_patch_sm.h **** 
+  64:../../libDaisy//src/daisy_patch_sm.h ****         DaisyPatchSM() {}
+  65:../../libDaisy//src/daisy_patch_sm.h ****         ~DaisyPatchSM() {}
+  55              		.loc 2 65 9 is_stmt 1 view -0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+  60              	.LBB218:
+  61              	.LBI218:
+  62              		.file 3 "../../libDaisy//src/hid/gatein.h"
+   1:../../libDaisy//src/hid/gatein.h **** #pragma once
+   2:../../libDaisy//src/hid/gatein.h **** #ifndef DSY_GATEIN_H
+   3:../../libDaisy//src/hid/gatein.h **** #define DSY_GATEIN_H
+   4:../../libDaisy//src/hid/gatein.h **** #include "per/gpio.h"
+   5:../../libDaisy//src/hid/gatein.h **** 
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 4
+
+
+   6:../../libDaisy//src/hid/gatein.h **** namespace daisy
+   7:../../libDaisy//src/hid/gatein.h **** {
+   8:../../libDaisy//src/hid/gatein.h **** /**
+   9:../../libDaisy//src/hid/gatein.h ****    @brief Generic Class for handling gate inputs through GPIO.
+  10:../../libDaisy//src/hid/gatein.h ****    @author Stephen Hensley
+  11:../../libDaisy//src/hid/gatein.h ****    @date    March 2020
+  12:../../libDaisy//src/hid/gatein.h ****    @ingroup controls
+  13:../../libDaisy//src/hid/gatein.h **** */
+  14:../../libDaisy//src/hid/gatein.h **** class GateIn
+  15:../../libDaisy//src/hid/gatein.h **** {
+  16:../../libDaisy//src/hid/gatein.h ****   public:
+  17:../../libDaisy//src/hid/gatein.h ****     /** GateIn 
+  18:../../libDaisy//src/hid/gatein.h ****     Constructor 
+  19:../../libDaisy//src/hid/gatein.h ****     */
+  20:../../libDaisy//src/hid/gatein.h ****     GateIn() {}
+  21:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
+  22:../../libDaisy//src/hid/gatein.h ****     Destructor 
+  23:../../libDaisy//src/hid/gatein.h ****     */
+  24:../../libDaisy//src/hid/gatein.h ****     ~GateIn() {}
+  63              		.loc 3 24 5 view .LVU3
+  64              		.loc 3 24 5 is_stmt 0 view .LVU4
+  65              	.LBE218:
+  66              	.LBB219:
+  67              	.LBI219:
+  68              		.loc 3 24 5 is_stmt 1 view .LVU5
+  69              		.loc 3 24 5 is_stmt 0 view .LVU6
+  70              	.LBE219:
+  71              	.LBB220:
+  72              	.LBI220:
+  73              		.file 4 "../../libDaisy//src/dev/codec_pcm3060.h"
+   1:../../libDaisy//src/dev/codec_pcm3060.h **** #pragma once
+   2:../../libDaisy//src/dev/codec_pcm3060.h **** #ifndef DSY_CODEC_PCM3060_H
+   3:../../libDaisy//src/dev/codec_pcm3060.h **** #define DSY_CODEC_PCM3060_H
+   4:../../libDaisy//src/dev/codec_pcm3060.h **** #include "per/i2c.h"
+   5:../../libDaisy//src/dev/codec_pcm3060.h **** namespace daisy
+   6:../../libDaisy//src/dev/codec_pcm3060.h **** {
+   7:../../libDaisy//src/dev/codec_pcm3060.h **** /**
+   8:../../libDaisy//src/dev/codec_pcm3060.h ****  * @brief Driver for the TI PCM3060 Audio Codec.
+   9:../../libDaisy//src/dev/codec_pcm3060.h ****  * @addtogroup codec
+  10:../../libDaisy//src/dev/codec_pcm3060.h ****  * 
+  11:../../libDaisy//src/dev/codec_pcm3060.h ****  * For now this is a limited interface that uses I2C to communicate with the PCM3060
+  12:../../libDaisy//src/dev/codec_pcm3060.h ****  * The device can also be accessed with SPI, which is not yet supported.
+  13:../../libDaisy//src/dev/codec_pcm3060.h ****  * 
+  14:../../libDaisy//src/dev/codec_pcm3060.h ****  * For now all registers are set to their defaults, and the Init function will 
+  15:../../libDaisy//src/dev/codec_pcm3060.h ****  * perform a MRST and SRST before setting the format to 24bit LJ, and disabling 
+  16:../../libDaisy//src/dev/codec_pcm3060.h ****  * power save for both the ADC and DAC.
+  17:../../libDaisy//src/dev/codec_pcm3060.h ****  *
+  18:../../libDaisy//src/dev/codec_pcm3060.h ****  */
+  19:../../libDaisy//src/dev/codec_pcm3060.h **** class Pcm3060
+  20:../../libDaisy//src/dev/codec_pcm3060.h **** {
+  21:../../libDaisy//src/dev/codec_pcm3060.h ****   public:
+  22:../../libDaisy//src/dev/codec_pcm3060.h ****     enum class Result
+  23:../../libDaisy//src/dev/codec_pcm3060.h ****     {
+  24:../../libDaisy//src/dev/codec_pcm3060.h ****         OK,
+  25:../../libDaisy//src/dev/codec_pcm3060.h ****         ERR,
+  26:../../libDaisy//src/dev/codec_pcm3060.h ****     };
+  27:../../libDaisy//src/dev/codec_pcm3060.h **** 
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 5
+
+
+  28:../../libDaisy//src/dev/codec_pcm3060.h ****     Pcm3060() {}
+  29:../../libDaisy//src/dev/codec_pcm3060.h ****     ~Pcm3060() {}
+  74              		.loc 4 29 5 is_stmt 1 view .LVU7
+  75              		.loc 4 29 5 is_stmt 0 view .LVU8
+  76              	.LBE220:
+  77              	.LBB221:
+  78              	.LBI221:
+  79              		.file 5 "../../libDaisy//src/hid/usb.h"
+   1:../../libDaisy//src/hid/usb.h **** #pragma once
+   2:../../libDaisy//src/hid/usb.h **** #ifndef DSY_HID_USB_H
+   3:../../libDaisy//src/hid/usb.h **** #define DSY_HID_USB_H
+   4:../../libDaisy//src/hid/usb.h **** #include <stdint.h>
+   5:../../libDaisy//src/hid/usb.h **** #include <stdlib.h>
+   6:../../libDaisy//src/hid/usb.h **** 
+   7:../../libDaisy//src/hid/usb.h **** namespace daisy
+   8:../../libDaisy//src/hid/usb.h **** /** @addtogroup human_interface
+   9:../../libDaisy//src/hid/usb.h ****     @{
+  10:../../libDaisy//src/hid/usb.h **** */
+  11:../../libDaisy//src/hid/usb.h **** 
+  12:../../libDaisy//src/hid/usb.h **** {
+  13:../../libDaisy//src/hid/usb.h **** /** 
+  14:../../libDaisy//src/hid/usb.h ****     @brief Interface for initializing and using the USB Peripherals on the daisy
+  15:../../libDaisy//src/hid/usb.h ****     @author Stephen Hensley
+  16:../../libDaisy//src/hid/usb.h ****     @date December 2019
+  17:../../libDaisy//src/hid/usb.h **** */
+  18:../../libDaisy//src/hid/usb.h **** class UsbHandle
+  19:../../libDaisy//src/hid/usb.h **** {
+  20:../../libDaisy//src/hid/usb.h ****   public:
+  21:../../libDaisy//src/hid/usb.h ****     /** Return values for USBHandle Functions */
+  22:../../libDaisy//src/hid/usb.h ****     enum class Result
+  23:../../libDaisy//src/hid/usb.h ****     {
+  24:../../libDaisy//src/hid/usb.h ****         OK,
+  25:../../libDaisy//src/hid/usb.h ****         ERR,
+  26:../../libDaisy//src/hid/usb.h ****     };
+  27:../../libDaisy//src/hid/usb.h **** 
+  28:../../libDaisy//src/hid/usb.h ****     /** Specified which of the two USB Peripherals to initialize. */
+  29:../../libDaisy//src/hid/usb.h ****     enum UsbPeriph
+  30:../../libDaisy//src/hid/usb.h ****     {
+  31:../../libDaisy//src/hid/usb.h ****         FS_INTERNAL, /**< Internal pin */
+  32:../../libDaisy//src/hid/usb.h ****         FS_EXTERNAL, /**< FS External D+ pin is Pin 38 (GPIO32). FS External D- pin is Pin 37 (GPIO
+  33:../../libDaisy//src/hid/usb.h ****         FS_BOTH,     /**< Both */
+  34:../../libDaisy//src/hid/usb.h ****     };
+  35:../../libDaisy//src/hid/usb.h **** 
+  36:../../libDaisy//src/hid/usb.h **** 
+  37:../../libDaisy//src/hid/usb.h ****     /** Function called upon reception of a buffer */
+  38:../../libDaisy//src/hid/usb.h ****     typedef void (*ReceiveCallback)(uint8_t* buff, uint32_t* len);
+  39:../../libDaisy//src/hid/usb.h **** 
+  40:../../libDaisy//src/hid/usb.h ****     UsbHandle() {}
+  41:../../libDaisy//src/hid/usb.h **** 
+  42:../../libDaisy//src/hid/usb.h ****     ~UsbHandle() {}
+  80              		.loc 5 42 5 is_stmt 1 view .LVU9
+  81              		.loc 5 42 5 is_stmt 0 view .LVU10
+  82              	.LBE221:
+  83              	.LBB222:
+  84              	.LBI222:
+  85              		.file 6 "../../libDaisy//src/per/adc.h"
+   1:../../libDaisy//src/per/adc.h **** #pragma once
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 6
+
+
+   2:../../libDaisy//src/per/adc.h **** #ifndef DSY_ADC_H
+   3:../../libDaisy//src/per/adc.h **** #define DSY_ADC_H /**< Macro */
+   4:../../libDaisy//src/per/adc.h **** #include <stdint.h>
+   5:../../libDaisy//src/per/adc.h **** #include <stdlib.h>
+   6:../../libDaisy//src/per/adc.h **** #include "daisy_core.h"
+   7:../../libDaisy//src/per/adc.h **** #include "per/gpio.h"
+   8:../../libDaisy//src/per/adc.h **** 
+   9:../../libDaisy//src/per/adc.h **** #define DSY_ADC_MAX_CHANNELS 16 /**< Maximum number of ADC channels */
+  10:../../libDaisy//src/per/adc.h **** 
+  11:../../libDaisy//src/per/adc.h **** namespace daisy
+  12:../../libDaisy//src/per/adc.h **** {
+  13:../../libDaisy//src/per/adc.h **** /** @addtogroup per_analog
+  14:../../libDaisy//src/per/adc.h ****     @{
+  15:../../libDaisy//src/per/adc.h **** */
+  16:../../libDaisy//src/per/adc.h **** 
+  17:../../libDaisy//src/per/adc.h **** /* While there may not be many configuration options here,
+  18:../../libDaisy//src/per/adc.h **** using a struct like this allows us to add more configuration
+  19:../../libDaisy//src/per/adc.h **** later without breaking existing functionality.
+  20:../../libDaisy//src/per/adc.h **** */
+  21:../../libDaisy//src/per/adc.h **** 
+  22:../../libDaisy//src/per/adc.h **** /** @brief   Configuration Structure for an ADC Channel 
+  23:../../libDaisy//src/per/adc.h ****  *  @details This can be used to configure a a single input, 
+  24:../../libDaisy//src/per/adc.h ****  *           or a multiplexed input, allowing up to 8 inputs on 
+  25:../../libDaisy//src/per/adc.h ****  *           one channel.
+  26:../../libDaisy//src/per/adc.h ****  *  @note    Sharing data lines to multiple muxes _is_ possible, but
+  27:../../libDaisy//src/per/adc.h ****  *           each channel sharing data lines must be set to the maximum
+  28:../../libDaisy//src/per/adc.h ****  *           number of channels, even if some multiplexers have fewer
+  29:../../libDaisy//src/per/adc.h ****  *           inputs connected.
+  30:../../libDaisy//src/per/adc.h **** */
+  31:../../libDaisy//src/per/adc.h **** struct AdcChannelConfig
+  32:../../libDaisy//src/per/adc.h **** {
+  33:../../libDaisy//src/per/adc.h ****     /** Which pin to use for multiplexing */
+  34:../../libDaisy//src/per/adc.h ****     enum MuxPin
+  35:../../libDaisy//src/per/adc.h ****     {
+  36:../../libDaisy//src/per/adc.h ****         MUX_SEL_0,    /**< & */
+  37:../../libDaisy//src/per/adc.h ****         MUX_SEL_1,    /**< & */
+  38:../../libDaisy//src/per/adc.h ****         MUX_SEL_2,    /**< & */
+  39:../../libDaisy//src/per/adc.h ****         MUX_SEL_LAST, /**< & */
+  40:../../libDaisy//src/per/adc.h ****     };
+  41:../../libDaisy//src/per/adc.h **** 
+  42:../../libDaisy//src/per/adc.h ****     /** Initializes a single ADC pin as an ADC. 
+  43:../../libDaisy//src/per/adc.h ****     \param pin Pin to init.
+  44:../../libDaisy//src/per/adc.h ****      */
+  45:../../libDaisy//src/per/adc.h ****     void InitSingle(dsy_gpio_pin pin);
+  46:../../libDaisy//src/per/adc.h **** 
+  47:../../libDaisy//src/per/adc.h ****     /** 
+  48:../../libDaisy//src/per/adc.h ****     Initializes a single ADC pin as a Multiplexed ADC.
+  49:../../libDaisy//src/per/adc.h ****     Requires a CD405X Multiplexer connected to the pin.
+  50:../../libDaisy//src/per/adc.h ****     You only need to supply the mux pins that are required,
+  51:../../libDaisy//src/per/adc.h ****     e.g. a 4052 mux would only require mux_0 and mux_1.
+  52:../../libDaisy//src/per/adc.h ****     Internal Callbacks handle the pin addressing.
+  53:../../libDaisy//src/per/adc.h ****     \param mux_channels must be 1-8
+  54:../../libDaisy//src/per/adc.h ****     \param mux_0 First mux pin
+  55:../../libDaisy//src/per/adc.h ****     \param mux_1 Second mux pin
+  56:../../libDaisy//src/per/adc.h ****     \param mux_2 Third mux pin
+  57:../../libDaisy//src/per/adc.h ****     \param adc_pin &
+  58:../../libDaisy//src/per/adc.h ****     */
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 7
+
+
+  59:../../libDaisy//src/per/adc.h ****     void InitMux(dsy_gpio_pin adc_pin,
+  60:../../libDaisy//src/per/adc.h ****                  size_t       mux_channels,
+  61:../../libDaisy//src/per/adc.h ****                  dsy_gpio_pin mux_0,
+  62:../../libDaisy//src/per/adc.h ****                  dsy_gpio_pin mux_1 = {DSY_GPIOX, 0},
+  63:../../libDaisy//src/per/adc.h ****                  dsy_gpio_pin mux_2 = {DSY_GPIOX, 0});
+  64:../../libDaisy//src/per/adc.h **** 
+  65:../../libDaisy//src/per/adc.h ****     dsy_gpio pin_;                   /**< & */
+  66:../../libDaisy//src/per/adc.h ****     dsy_gpio mux_pin_[MUX_SEL_LAST]; /**< & */
+  67:../../libDaisy//src/per/adc.h ****     uint8_t  mux_channels_;          /**< & */
+  68:../../libDaisy//src/per/adc.h **** };
+  69:../../libDaisy//src/per/adc.h **** 
+  70:../../libDaisy//src/per/adc.h **** /**
+  71:../../libDaisy//src/per/adc.h ****    @brief Handler for analog to digital conversion
+  72:../../libDaisy//src/per/adc.h **** */
+  73:../../libDaisy//src/per/adc.h **** class AdcHandle
+  74:../../libDaisy//src/per/adc.h **** {
+  75:../../libDaisy//src/per/adc.h ****   public:
+  76:../../libDaisy//src/per/adc.h ****     /** Supported oversampling amounts */
+  77:../../libDaisy//src/per/adc.h ****     enum OverSampling
+  78:../../libDaisy//src/per/adc.h ****     {
+  79:../../libDaisy//src/per/adc.h ****         OVS_NONE, /**< & */
+  80:../../libDaisy//src/per/adc.h ****         OVS_4,    /**< & */
+  81:../../libDaisy//src/per/adc.h ****         OVS_8,    /**< & */
+  82:../../libDaisy//src/per/adc.h ****         OVS_16,   /**< & */
+  83:../../libDaisy//src/per/adc.h ****         OVS_32,   /**< & */
+  84:../../libDaisy//src/per/adc.h ****         OVS_64,   /**< & */
+  85:../../libDaisy//src/per/adc.h ****         OVS_128,  /**< & */
+  86:../../libDaisy//src/per/adc.h ****         OVS_256,  /**< & */
+  87:../../libDaisy//src/per/adc.h ****         OVS_512,  /**< & */
+  88:../../libDaisy//src/per/adc.h ****         OVS_1024, /**< & */
+  89:../../libDaisy//src/per/adc.h ****         OVS_LAST, /**< & */
+  90:../../libDaisy//src/per/adc.h ****     };
+  91:../../libDaisy//src/per/adc.h **** 
+  92:../../libDaisy//src/per/adc.h ****     AdcHandle() {}
+  93:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
+  86              		.loc 6 93 5 is_stmt 1 view .LVU11
+  87              		.loc 6 93 5 is_stmt 0 view .LVU12
+  88              	.LBE222:
+  89              	.LBB223:
+  90              	.LBI223:
+  91              		.file 7 "../../libDaisy//src/hid/audio.h"
+   1:../../libDaisy//src/hid/audio.h **** #ifndef DSY_AUDIO_H
+   2:../../libDaisy//src/hid/audio.h **** #define DSY_AUDIO_H /**< & */
+   3:../../libDaisy//src/hid/audio.h **** 
+   4:../../libDaisy//src/hid/audio.h **** #include "per/sai.h"
+   5:../../libDaisy//src/hid/audio.h **** 
+   6:../../libDaisy//src/hid/audio.h **** namespace daisy
+   7:../../libDaisy//src/hid/audio.h **** {
+   8:../../libDaisy//src/hid/audio.h **** /** @brief Audio Engine Handle
+   9:../../libDaisy//src/hid/audio.h ****  *  @ingroup audio 
+  10:../../libDaisy//src/hid/audio.h ****  *  @details This class allows for higher level access to an audio engine.
+  11:../../libDaisy//src/hid/audio.h ****  *           If you're using a SOM like the DaisySeed or DaisyPatchSM (or any 
+  12:../../libDaisy//src/hid/audio.h ****  *            board that includes one of those objects) then the intialization
+  13:../../libDaisy//src/hid/audio.h ****  *            is already taken  care of.
+  14:../../libDaisy//src/hid/audio.h ****  *           If you're setting up your own custom hardware, or need to make changes
+  15:../../libDaisy//src/hid/audio.h ****  *           you will have to take the following steps:
+  16:../../libDaisy//src/hid/audio.h ****  *             1. Create and Initialize an SaiHandle or two depending on your requirements
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 8
+
+
+  17:../../libDaisy//src/hid/audio.h ****  *             2. Initialize the Audio Handle with the desired settings and the Initialized SaiHand
+  18:../../libDaisy//src/hid/audio.h ****  *             3. If the connected codec requires special configuration or initialization, do so
+  19:../../libDaisy//src/hid/audio.h ****  *             4. Write a callback method using either the AudioCallback or the InterleavingAudioCa
+  20:../../libDaisy//src/hid/audio.h ****  *             5. Start the Audio using one of the StartAudio function
+  21:../../libDaisy//src/hid/audio.h ****  */
+  22:../../libDaisy//src/hid/audio.h **** class AudioHandle
+  23:../../libDaisy//src/hid/audio.h **** {
+  24:../../libDaisy//src/hid/audio.h ****   public:
+  25:../../libDaisy//src/hid/audio.h ****     /** Manually configurable details about the Audio Engine */
+  26:../../libDaisy//src/hid/audio.h ****     /** TODO: Figure out how to get samplerate in here. */
+  27:../../libDaisy//src/hid/audio.h ****     struct Config
+  28:../../libDaisy//src/hid/audio.h ****     {
+  29:../../libDaisy//src/hid/audio.h ****         /** number of samples to process per callback */
+  30:../../libDaisy//src/hid/audio.h ****         size_t blocksize;
+  31:../../libDaisy//src/hid/audio.h **** 
+  32:../../libDaisy//src/hid/audio.h ****         /**< Sample rate of audio */
+  33:../../libDaisy//src/hid/audio.h ****         SaiHandle::Config::SampleRate samplerate;
+  34:../../libDaisy//src/hid/audio.h **** 
+  35:../../libDaisy//src/hid/audio.h ****         /** factor for adjustment before and after callback for hardware that may have extra headro
+  36:../../libDaisy//src/hid/audio.h ****         float postgain;
+  37:../../libDaisy//src/hid/audio.h **** 
+  38:../../libDaisy//src/hid/audio.h ****         /** factor for additional one-sided compensation to audio path for hardware that may
+  39:../../libDaisy//src/hid/audio.h ****          *  have unequal input/output ranges
+  40:../../libDaisy//src/hid/audio.h ****          */
+  41:../../libDaisy//src/hid/audio.h ****         float output_compensation;
+  42:../../libDaisy//src/hid/audio.h **** 
+  43:../../libDaisy//src/hid/audio.h ****         /** Sets default values for config struct */
+  44:../../libDaisy//src/hid/audio.h ****         Config()
+  45:../../libDaisy//src/hid/audio.h ****         : blocksize(48),
+  46:../../libDaisy//src/hid/audio.h ****           samplerate(SaiHandle::Config::SampleRate::SAI_48KHZ),
+  47:../../libDaisy//src/hid/audio.h ****           postgain(1.f),
+  48:../../libDaisy//src/hid/audio.h ****           output_compensation(1.f)
+  49:../../libDaisy//src/hid/audio.h ****         {
+  50:../../libDaisy//src/hid/audio.h ****         }
+  51:../../libDaisy//src/hid/audio.h ****     };
+  52:../../libDaisy//src/hid/audio.h **** 
+  53:../../libDaisy//src/hid/audio.h ****     enum class Result
+  54:../../libDaisy//src/hid/audio.h ****     {
+  55:../../libDaisy//src/hid/audio.h ****         OK,
+  56:../../libDaisy//src/hid/audio.h ****         ERR,
+  57:../../libDaisy//src/hid/audio.h ****     };
+  58:../../libDaisy//src/hid/audio.h **** 
+  59:../../libDaisy//src/hid/audio.h ****     /** Non-Interleaving input buffer
+  60:../../libDaisy//src/hid/audio.h ****      * Buffer arranged by float[chn][sample] 
+  61:../../libDaisy//src/hid/audio.h ****      * const so that the user can't modify the input
+  62:../../libDaisy//src/hid/audio.h ****      */
+  63:../../libDaisy//src/hid/audio.h ****     typedef const float* const* InputBuffer;
+  64:../../libDaisy//src/hid/audio.h **** 
+  65:../../libDaisy//src/hid/audio.h ****     /** Non-Interleaving output buffer
+  66:../../libDaisy//src/hid/audio.h ****      * Arranged by float[chn][sample] 
+  67:../../libDaisy//src/hid/audio.h ****      */
+  68:../../libDaisy//src/hid/audio.h ****     typedef float** OutputBuffer;
+  69:../../libDaisy//src/hid/audio.h **** 
+  70:../../libDaisy//src/hid/audio.h ****     /** Type for a Non-Interleaving audio callback 
+  71:../../libDaisy//src/hid/audio.h ****      * Non-Interleaving audio callbacks in daisy will be of this type
+  72:../../libDaisy//src/hid/audio.h ****      */
+  73:../../libDaisy//src/hid/audio.h ****     typedef void (*AudioCallback)(InputBuffer  in,
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 9
+
+
+  74:../../libDaisy//src/hid/audio.h ****                                   OutputBuffer out,
+  75:../../libDaisy//src/hid/audio.h ****                                   size_t       size);
+  76:../../libDaisy//src/hid/audio.h **** 
+  77:../../libDaisy//src/hid/audio.h ****     /** Interleaving Input buffer
+  78:../../libDaisy//src/hid/audio.h ****      ** audio is prepared as { L0, R0, L1, R1, . . . LN, RN }]
+  79:../../libDaisy//src/hid/audio.h ****      ** this is const, as the user shouldn't modify it
+  80:../../libDaisy//src/hid/audio.h ****     */
+  81:../../libDaisy//src/hid/audio.h ****     typedef const float* InterleavingInputBuffer;
+  82:../../libDaisy//src/hid/audio.h **** 
+  83:../../libDaisy//src/hid/audio.h ****     /** Interleaving Output buffer 
+  84:../../libDaisy//src/hid/audio.h ****      ** audio is prepared as { L0, R0, L1, R1, . . . LN, RN }
+  85:../../libDaisy//src/hid/audio.h ****     */
+  86:../../libDaisy//src/hid/audio.h ****     typedef float* InterleavingOutputBuffer;
+  87:../../libDaisy//src/hid/audio.h **** 
+  88:../../libDaisy//src/hid/audio.h ****     /** Interleaving Audio Callback 
+  89:../../libDaisy//src/hid/audio.h ****      * Interleaving audio callbacks in daisy must be of this type
+  90:../../libDaisy//src/hid/audio.h ****      */
+  91:../../libDaisy//src/hid/audio.h ****     typedef void (*InterleavingAudioCallback)(InterleavingInputBuffer  in,
+  92:../../libDaisy//src/hid/audio.h ****                                               InterleavingOutputBuffer out,
+  93:../../libDaisy//src/hid/audio.h ****                                               size_t                   size);
+  94:../../libDaisy//src/hid/audio.h **** 
+  95:../../libDaisy//src/hid/audio.h ****     AudioHandle() : pimpl_(nullptr) {}
+  96:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
+  92              		.loc 7 96 5 is_stmt 1 view .LVU13
+  93              		.loc 7 96 5 is_stmt 0 view .LVU14
+  94              	.LBE223:
+  95              	.LBB224:
+  96              	.LBI224:
+  97              		.file 8 "../../libDaisy//src/sys/system.h"
+   1:../../libDaisy//src/sys/system.h **** #ifndef DSY_SYSTEM_H
+   2:../../libDaisy//src/sys/system.h **** #define DSY_SYSTEM_H
+   3:../../libDaisy//src/sys/system.h **** 
+   4:../../libDaisy//src/sys/system.h **** #ifndef UNIT_TEST // for unit tests, a dummy implementation is provided below
+   5:../../libDaisy//src/sys/system.h **** 
+   6:../../libDaisy//src/sys/system.h **** #include <cstdint>
+   7:../../libDaisy//src/sys/system.h **** #include "per/tim.h"
+   8:../../libDaisy//src/sys/system.h **** 
+   9:../../libDaisy//src/sys/system.h **** namespace daisy
+  10:../../libDaisy//src/sys/system.h **** {
+  11:../../libDaisy//src/sys/system.h **** /** A handle for interacting with the Core System. 
+  12:../../libDaisy//src/sys/system.h ****  ** This includes the Clock tree, MPU, global DMA initialization,
+  13:../../libDaisy//src/sys/system.h ****  ** cache handling, and any other necessary global initiailzation
+  14:../../libDaisy//src/sys/system.h ****  **
+  15:../../libDaisy//src/sys/system.h ****  ** @author shensley
+  16:../../libDaisy//src/sys/system.h ****  ** @ingroup system
+  17:../../libDaisy//src/sys/system.h ****  */
+  18:../../libDaisy//src/sys/system.h **** class System
+  19:../../libDaisy//src/sys/system.h **** {
+  20:../../libDaisy//src/sys/system.h ****   public:
+  21:../../libDaisy//src/sys/system.h ****     /** Contains settings for initializing the System */
+  22:../../libDaisy//src/sys/system.h ****     struct Config
+  23:../../libDaisy//src/sys/system.h ****     {
+  24:../../libDaisy//src/sys/system.h ****         /** Specifies the system clock frequency that feeds APB/AHB clocks, etc. */
+  25:../../libDaisy//src/sys/system.h ****         enum class SysClkFreq
+  26:../../libDaisy//src/sys/system.h ****         {
+  27:../../libDaisy//src/sys/system.h ****             FREQ_400MHZ,
+  28:../../libDaisy//src/sys/system.h ****             FREQ_480MHZ,
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 10
+
+
+  29:../../libDaisy//src/sys/system.h ****         };
+  30:../../libDaisy//src/sys/system.h **** 
+  31:../../libDaisy//src/sys/system.h ****         /** Method to call on the struct to set to defaults
+  32:../../libDaisy//src/sys/system.h ****          ** CPU Freq set to 400MHz
+  33:../../libDaisy//src/sys/system.h ****          ** Cache Enabled 
+  34:../../libDaisy//src/sys/system.h ****          ** */
+  35:../../libDaisy//src/sys/system.h ****         void Defaults()
+  36:../../libDaisy//src/sys/system.h ****         {
+  37:../../libDaisy//src/sys/system.h ****             cpu_freq    = SysClkFreq::FREQ_400MHZ;
+  38:../../libDaisy//src/sys/system.h ****             use_dcache  = true;
+  39:../../libDaisy//src/sys/system.h ****             use_icache  = true;
+  40:../../libDaisy//src/sys/system.h ****             skip_clocks = false;
+  41:../../libDaisy//src/sys/system.h ****         }
+  42:../../libDaisy//src/sys/system.h **** 
+  43:../../libDaisy//src/sys/system.h ****         /** Method to call on the struct to set to boost mode:
+  44:../../libDaisy//src/sys/system.h ****          ** CPU Freq set to 480MHz
+  45:../../libDaisy//src/sys/system.h ****          ** Cache Enabled 
+  46:../../libDaisy//src/sys/system.h ****          ** */
+  47:../../libDaisy//src/sys/system.h ****         void Boost()
+  48:../../libDaisy//src/sys/system.h ****         {
+  49:../../libDaisy//src/sys/system.h ****             cpu_freq    = SysClkFreq::FREQ_480MHZ;
+  50:../../libDaisy//src/sys/system.h ****             use_dcache  = true;
+  51:../../libDaisy//src/sys/system.h ****             use_icache  = true;
+  52:../../libDaisy//src/sys/system.h ****             skip_clocks = false;
+  53:../../libDaisy//src/sys/system.h ****         }
+  54:../../libDaisy//src/sys/system.h **** 
+  55:../../libDaisy//src/sys/system.h ****         SysClkFreq cpu_freq;
+  56:../../libDaisy//src/sys/system.h ****         bool       use_dcache;
+  57:../../libDaisy//src/sys/system.h ****         bool       use_icache;
+  58:../../libDaisy//src/sys/system.h ****         bool       skip_clocks;
+  59:../../libDaisy//src/sys/system.h ****     };
+  60:../../libDaisy//src/sys/system.h **** 
+  61:../../libDaisy//src/sys/system.h ****     /** Describes the different regions of memory available to the Daisy
+  62:../../libDaisy//src/sys/system.h ****      * 
+  63:../../libDaisy//src/sys/system.h ****      */
+  64:../../libDaisy//src/sys/system.h ****     enum MemoryRegion
+  65:../../libDaisy//src/sys/system.h ****     {
+  66:../../libDaisy//src/sys/system.h ****         INTERNAL_FLASH = 0,
+  67:../../libDaisy//src/sys/system.h ****         ITCMRAM,
+  68:../../libDaisy//src/sys/system.h ****         DTCMRAM,
+  69:../../libDaisy//src/sys/system.h ****         SRAM_D1,
+  70:../../libDaisy//src/sys/system.h ****         SRAM_D2,
+  71:../../libDaisy//src/sys/system.h ****         SRAM_D3,
+  72:../../libDaisy//src/sys/system.h ****         SDRAM,
+  73:../../libDaisy//src/sys/system.h ****         QSPI,
+  74:../../libDaisy//src/sys/system.h ****         INVALID_ADDRESS,
+  75:../../libDaisy//src/sys/system.h ****     };
+  76:../../libDaisy//src/sys/system.h **** 
+  77:../../libDaisy//src/sys/system.h ****     System() {}
+  78:../../libDaisy//src/sys/system.h ****     ~System() {}
+  98              		.loc 8 78 5 is_stmt 1 view .LVU15
+  99              		.loc 8 78 5 is_stmt 0 view .LVU16
+ 100              	.LBE224:
+ 101              		.loc 2 65 26 view .LVU17
+ 102 0000 7047     		bx	lr
+ 103              		.cfi_endproc
+ 104              	.LFE2528:
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 11
+
+
+ 106              		.weak	_ZN5daisy8patch_sm12DaisyPatchSMD1Ev
+ 107              		.thumb_set _ZN5daisy8patch_sm12DaisyPatchSMD1Ev,_ZN5daisy8patch_sm12DaisyPatchSMD2Ev
+ 108 0002 00BF     		.section	.text._ZNSt5arrayI12SampleBufferILj240000EELj8EED2Ev,"axG",%progbits,_ZNSt5arrayI12Sample
+ 109              		.align	1
+ 110              		.p2align 2,,3
+ 111              		.weak	_ZNSt5arrayI12SampleBufferILj240000EELj8EED2Ev
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.fpu fpv5-d16
+ 117              	_ZNSt5arrayI12SampleBufferILj240000EELj8EED2Ev:
+ 118              	.LVL2:
+ 119              	.LFB5424:
+ 120              		.file 9 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+   1:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // <array> -*- C++ -*-
+   2:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+   3:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // Copyright (C) 2007-2020 Free Software Foundation, Inc.
+   4:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** //
+   5:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // software; you can redistribute it and/or modify it under the
+   7:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // terms of the GNU General Public License as published by the
+   8:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // Free Software Foundation; either version 3, or (at your option)
+   9:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // any later version.
+  10:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  11:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // This library is distributed in the hope that it will be useful,
+  12:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // GNU General Public License for more details.
+  15:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  16:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // Under Section 7 of GPL version 3, you are granted additional
+  17:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // permissions described in the GCC Runtime Library Exception, version
+  18:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // 3.1, as published by the Free Software Foundation.
+  19:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  20:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // You should have received a copy of the GNU General Public License and
+  21:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** // <http://www.gnu.org/licenses/>.
+  24:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  25:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** /** @file include/array
+  26:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****  *  This is a Standard C++ Library header.
+  27:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****  */
+  28:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  29:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #ifndef _GLIBCXX_ARRAY
+  30:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #define _GLIBCXX_ARRAY 1
+  31:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  32:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #pragma GCC system_header
+  33:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  34:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #if __cplusplus < 201103L
+  35:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** # include <bits/c++0x_warning.h>
+  36:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #else
+  37:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  38:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #include <utility>
+  39:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #include <bits/functexcept.h>
+  40:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #include <bits/stl_algobase.h>
+  41:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** #include <bits/range_access.h>
+  42:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  43:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** namespace std _GLIBCXX_VISIBILITY(default)
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 12
+
+
+  44:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** {
+  45:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
+  46:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  47:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****   template<typename _Tp, std::size_t _Nm>
+  48:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****     struct __array_traits
+  49:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****     {
+  50:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef _Tp _Type[_Nm];
+  51:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef __is_swappable<_Tp> _Is_swappable;
+  52:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef __is_nothrow_swappable<_Tp> _Is_nothrow_swappable;
+  53:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  54:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       static constexpr _Tp&
+  55:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _S_ref(const _Type& __t, std::size_t __n) noexcept
+  56:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_cast<_Tp&>(__t[__n]); }
+  57:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  58:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       static constexpr _Tp*
+  59:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _S_ptr(const _Type& __t) noexcept
+  60:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_cast<_Tp*>(__t); }
+  61:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****     };
+  62:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  63:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****  template<typename _Tp>
+  64:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    struct __array_traits<_Tp, 0>
+  65:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    {
+  66:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      struct _Type { };
+  67:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      typedef true_type _Is_swappable;
+  68:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      typedef true_type _Is_nothrow_swappable;
+  69:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  70:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      static constexpr _Tp&
+  71:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      _S_ref(const _Type&, std::size_t) noexcept
+  72:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      { return *static_cast<_Tp*>(nullptr); }
+  73:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  74:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      static constexpr _Tp*
+  75:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      _S_ptr(const _Type&) noexcept
+  76:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****      { return nullptr; }
+  77:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    };
+  78:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+  79:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****   /**
+  80:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *  @brief A standard container for storing a fixed size sequence of elements.
+  81:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *
+  82:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *  @ingroup sequences
+  83:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *
+  84:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *  Meets the requirements of a <a href="tables.html#65">container</a>, a
+  85:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *  <a href="tables.html#66">reversible container</a>, and a
+  86:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *  <a href="tables.html#67">sequence</a>.
+  87:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *
+  88:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *  Sets support random access iterators.
+  89:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *
+  90:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *  @tparam  Tp  Type of element. Required to be a complete type.
+  91:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****    *  @tparam  Nm  Number of elements.
+  92:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****   */
+  93:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****   template<typename _Tp, std::size_t _Nm>
+  94:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****     struct array
+ 121              		.loc 9 94 12 is_stmt 1 view -0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125              		@ link register save eliminated.
+ 126              		.loc 9 94 12 is_stmt 0 view .LVU19
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 13
+
+
+ 127 0000 7047     		bx	lr
+ 128              		.cfi_endproc
+ 129              	.LFE5424:
+ 131              		.weak	_ZNSt5arrayI12SampleBufferILj240000EELj8EED1Ev
+ 132              		.thumb_set _ZNSt5arrayI12SampleBufferILj240000EELj8EED1Ev,_ZNSt5arrayI12SampleBufferILj240000EELj8
+ 133              		.section	.text._Z10getSamplesv,"ax",%progbits
+ 134              		.align	1
+ 135              		.p2align 2,,3
+ 136              		.global	_Z10getSamplesv
+ 137              		.syntax unified
+ 138              		.thumb
+ 139              		.thumb_func
+ 140              		.fpu fpv5-d16
+ 142              	_Z10getSamplesv:
+ 143              	.LFB4839:
+ 144              		.file 10 "Proliferation.cpp"
+   1:Proliferation.cpp **** #include "daisy_patch_sm.h"
+   2:Proliferation.cpp **** #include "daisysp.h"
+   3:Proliferation.cpp **** #include "samplebuffer.h"
+   4:Proliferation.cpp **** #include <array>
+   5:Proliferation.cpp **** 
+   6:Proliferation.cpp **** using namespace daisy;
+   7:Proliferation.cpp **** using namespace patch_sm;
+   8:Proliferation.cpp **** using namespace daisysp;
+   9:Proliferation.cpp **** 
+  10:Proliferation.cpp **** DaisyPatchSM hw;
+  11:Proliferation.cpp **** Switch toggle;
+  12:Proliferation.cpp **** Switch button;
+  13:Proliferation.cpp **** 
+  14:Proliferation.cpp **** #define NUM_BUFFERS 8
+  15:Proliferation.cpp **** // 5 second sample buffers at 48kHz
+  16:Proliferation.cpp **** #define BUFFER_SIZE (48000 * 5)
+  17:Proliferation.cpp **** std::array<SampleBuffer<BUFFER_SIZE>, NUM_BUFFERS> DSY_SDRAM_BSS buffers;
+  18:Proliferation.cpp **** 
+  19:Proliferation.cpp **** void getSamples(){
+ 145              		.loc 10 19 18 is_stmt 1 view -0
+ 146              		.cfi_startproc
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+  20:Proliferation.cpp **** 	hw.ProcessAllControls();
+ 149              		.loc 10 20 2 view .LVU21
+ 150              	.LVL3:
+ 151              	.LBB225:
+ 152              	.LBI225:
+  66:../../libDaisy//src/daisy_patch_sm.h **** 
+  67:../../libDaisy//src/daisy_patch_sm.h ****         /** Initializes the memories, and core peripherals for the Daisy Patch SM */
+  68:../../libDaisy//src/daisy_patch_sm.h ****         void Init();
+  69:../../libDaisy//src/daisy_patch_sm.h **** 
+  70:../../libDaisy//src/daisy_patch_sm.h ****         /** Starts a non-interleaving audio callback */
+  71:../../libDaisy//src/daisy_patch_sm.h ****         void StartAudio(AudioHandle::AudioCallback cb);
+  72:../../libDaisy//src/daisy_patch_sm.h **** 
+  73:../../libDaisy//src/daisy_patch_sm.h ****         /** Starts an interleaving audio callback */
+  74:../../libDaisy//src/daisy_patch_sm.h ****         void StartAudio(AudioHandle::InterleavingAudioCallback cb);
+  75:../../libDaisy//src/daisy_patch_sm.h **** 
+  76:../../libDaisy//src/daisy_patch_sm.h ****         /** Changes the callback that is executing.
+  77:../../libDaisy//src/daisy_patch_sm.h ****          *  This may cause clicks if done while audio is processing.
+  78:../../libDaisy//src/daisy_patch_sm.h ****          */
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 14
+
+
+  79:../../libDaisy//src/daisy_patch_sm.h ****         void ChangeAudioCallback(AudioHandle::AudioCallback cb);
+  80:../../libDaisy//src/daisy_patch_sm.h **** 
+  81:../../libDaisy//src/daisy_patch_sm.h ****         /** Changes the callback that is executing.
+  82:../../libDaisy//src/daisy_patch_sm.h ****          *  This may cause clicks if done while audio is processing.
+  83:../../libDaisy//src/daisy_patch_sm.h ****          */
+  84:../../libDaisy//src/daisy_patch_sm.h ****         void ChangeAudioCallback(AudioHandle::InterleavingAudioCallback cb);
+  85:../../libDaisy//src/daisy_patch_sm.h **** 
+  86:../../libDaisy//src/daisy_patch_sm.h ****         /** Stops the transmission of audio. */
+  87:../../libDaisy//src/daisy_patch_sm.h ****         void StopAudio();
+  88:../../libDaisy//src/daisy_patch_sm.h **** 
+  89:../../libDaisy//src/daisy_patch_sm.h ****         /** Sets the number of samples processed in an audio callback. 
+  90:../../libDaisy//src/daisy_patch_sm.h ****          *  This will only take effect on the next invocation of `StartAudio`
+  91:../../libDaisy//src/daisy_patch_sm.h ****          */
+  92:../../libDaisy//src/daisy_patch_sm.h ****         void SetAudioBlockSize(size_t size);
+  93:../../libDaisy//src/daisy_patch_sm.h **** 
+  94:../../libDaisy//src/daisy_patch_sm.h ****         /** Sets the samplerate for the audio engine 
+  95:../../libDaisy//src/daisy_patch_sm.h ****          *  This will set it to the closest valid samplerate. Options being:
+  96:../../libDaisy//src/daisy_patch_sm.h ****          *  8kHz, 16kHz, 32kHz, 48kHz, and 96kHz
+  97:../../libDaisy//src/daisy_patch_sm.h ****          */
+  98:../../libDaisy//src/daisy_patch_sm.h ****         void SetAudioSampleRate(float sr);
+  99:../../libDaisy//src/daisy_patch_sm.h **** 
+ 100:../../libDaisy//src/daisy_patch_sm.h ****         void SetAudioSampleRate(SaiHandle::Config::SampleRate sample_rate);
+ 101:../../libDaisy//src/daisy_patch_sm.h **** 
+ 102:../../libDaisy//src/daisy_patch_sm.h ****         /** Returns the number of samples processed in an audio callback */
+ 103:../../libDaisy//src/daisy_patch_sm.h ****         size_t AudioBlockSize();
+ 104:../../libDaisy//src/daisy_patch_sm.h **** 
+ 105:../../libDaisy//src/daisy_patch_sm.h ****         /** Returns the audio engine's samplerate in Hz */
+ 106:../../libDaisy//src/daisy_patch_sm.h ****         float AudioSampleRate();
+ 107:../../libDaisy//src/daisy_patch_sm.h **** 
+ 108:../../libDaisy//src/daisy_patch_sm.h ****         /** Returns the rate at which the audio callback will be called in Hz */
+ 109:../../libDaisy//src/daisy_patch_sm.h ****         float AudioCallbackRate();
+ 110:../../libDaisy//src/daisy_patch_sm.h **** 
+ 111:../../libDaisy//src/daisy_patch_sm.h ****         /** Starts the Control ADCs 
+ 112:../../libDaisy//src/daisy_patch_sm.h ****          * 
+ 113:../../libDaisy//src/daisy_patch_sm.h ****          *  This is started automatically when Init() is called.
+ 114:../../libDaisy//src/daisy_patch_sm.h ****          */
+ 115:../../libDaisy//src/daisy_patch_sm.h ****         void StartAdc();
+ 116:../../libDaisy//src/daisy_patch_sm.h **** 
+ 117:../../libDaisy//src/daisy_patch_sm.h ****         /** Stops the Control ADCs */
+ 118:../../libDaisy//src/daisy_patch_sm.h ****         void StopAdc();
+ 119:../../libDaisy//src/daisy_patch_sm.h **** 
+ 120:../../libDaisy//src/daisy_patch_sm.h ****         /** Reads and filters all of the analog control inputs */
+ 121:../../libDaisy//src/daisy_patch_sm.h ****         void ProcessAnalogControls();
+ 122:../../libDaisy//src/daisy_patch_sm.h **** 
+ 123:../../libDaisy//src/daisy_patch_sm.h ****         /** Reads and debounces any of the digital control inputs 
+ 124:../../libDaisy//src/daisy_patch_sm.h ****          *  This does nothing on this board at this time.
+ 125:../../libDaisy//src/daisy_patch_sm.h ****          */
+ 126:../../libDaisy//src/daisy_patch_sm.h ****         void ProcessDigitalControls();
+ 127:../../libDaisy//src/daisy_patch_sm.h **** 
+ 128:../../libDaisy//src/daisy_patch_sm.h ****         /** Does both of the above */
+ 129:../../libDaisy//src/daisy_patch_sm.h ****         void ProcessAllControls()
+ 153              		.loc 2 129 14 view .LVU22
+ 154              	.LBB226:
+ 130:../../libDaisy//src/daisy_patch_sm.h ****         {
+ 131:../../libDaisy//src/daisy_patch_sm.h ****             ProcessAnalogControls();
+ 155              		.loc 2 131 13 view .LVU23
+ 156              	.LBE226:
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 15
+
+
+ 157              	.LBE225:
+  19:Proliferation.cpp **** 	hw.ProcessAllControls();
+ 158              		.loc 10 19 18 is_stmt 0 view .LVU24
+ 159 0000 38B5     		push	{r3, r4, r5, lr}
+ 160              		.cfi_def_cfa_offset 16
+ 161              		.cfi_offset 3, -16
+ 162              		.cfi_offset 4, -12
+ 163              		.cfi_offset 5, -8
+ 164              		.cfi_offset 14, -4
+ 165              	.LBB229:
+ 166              	.LBB227:
+ 167              		.loc 2 131 34 view .LVU25
+ 168 0002 2C48     		ldr	r0, .L24
+ 169              	.LBE227:
+ 170              	.LBE229:
+  21:Proliferation.cpp **** 	button.Debounce();
+  22:Proliferation.cpp **** 
+  23:Proliferation.cpp **** 	int randSamp = rand() % 8;
+ 171              		.loc 10 23 26 view .LVU26
+ 172 0004 0824     		movs	r4, #8
+ 173              	.LBB230:
+ 174              	.LBB228:
+ 175              		.loc 2 131 34 view .LVU27
+ 176 0006 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM21ProcessAnalogControlsEv
+ 177              	.LVL4:
+ 132:../../libDaisy//src/daisy_patch_sm.h ****             ProcessDigitalControls();
+ 178              		.loc 2 132 13 is_stmt 1 view .LVU28
+ 179              		.loc 2 132 35 is_stmt 0 view .LVU29
+ 180 000a 2A48     		ldr	r0, .L24
+ 181 000c FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM22ProcessDigitalControlsEv
+ 182              	.LVL5:
+ 183              		.loc 2 132 35 view .LVU30
+ 184              	.LBE228:
+ 185              	.LBE230:
+  21:Proliferation.cpp **** 	button.Debounce();
+ 186              		.loc 10 21 2 is_stmt 1 view .LVU31
+  21:Proliferation.cpp **** 	button.Debounce();
+ 187              		.loc 10 21 17 is_stmt 0 view .LVU32
+ 188 0010 2948     		ldr	r0, .L24+4
+ 189 0012 FFF7FEFF 		bl	_ZN5daisy6Switch8DebounceEv
+ 190              	.LVL6:
+ 191              		.loc 10 23 2 is_stmt 1 view .LVU33
+ 192              		.loc 10 23 21 is_stmt 0 view .LVU34
+ 193 0016 FFF7FEFF 		bl	rand
+ 194              	.LVL7:
+ 195              		.loc 10 23 26 view .LVU35
+ 196 001a 4342     		rsbs	r3, r0, #0
+ 197 001c 00F00705 		and	r5, r0, #7
+ 198 0020 03F00703 		and	r3, r3, #7
+ 199 0024 58BF     		it	pl
+ 200 0026 5D42     		rsbpl	r5, r3, #0
+ 201              	.LVL8:
+  24:Proliferation.cpp **** 	float s = 0;
+ 202              		.loc 10 24 2 is_stmt 1 view .LVU36
+  25:Proliferation.cpp **** 
+  26:Proliferation.cpp ****     for(size_t i = 0; i < buffers.size(); i++)
+ 203              		.loc 10 26 5 view .LVU37
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 16
+
+
+ 204              	.LBB231:
+ 205              		.loc 10 26 25 view .LVU38
+ 206 0028 04E0     		b	.L10
+ 207              	.LVL9:
+ 208              	.L22:
+ 209              		.loc 10 26 5 view .LVU39
+ 210              		.loc 10 26 25 view .LVU40
+ 211 002a 013C     		subs	r4, r4, #1
+ 212              	.LVL10:
+ 213              	.LBB232:
+ 214              	.LBB233:
+ 215              		.file 11 "samplebuffer.h"
+   1:samplebuffer.h **** #pragma once
+   2:samplebuffer.h **** #ifndef SAMPLEBUFFER_H
+   3:samplebuffer.h **** #define SAMPLEBUFFER_H
+   4:samplebuffer.h **** 
+   5:samplebuffer.h **** #include <stddef.h>
+   6:samplebuffer.h **** 
+   7:samplebuffer.h **** /** Sample buffer with record and playback.
+   8:samplebuffer.h **** 
+   9:samplebuffer.h **** By: Alex Virgona
+  10:samplebuffer.h **** */
+  11:samplebuffer.h **** template <size_t kBufferSize>
+  12:samplebuffer.h **** class SampleBuffer
+  13:samplebuffer.h **** {
+  14:samplebuffer.h ****   public:
+  15:samplebuffer.h ****     SampleBuffer() {}
+  16:samplebuffer.h ****     ~SampleBuffer() {}
+  17:samplebuffer.h **** 
+  18:samplebuffer.h ****     void Init()
+  19:samplebuffer.h ****     {
+  20:samplebuffer.h ****         Clear();
+  21:samplebuffer.h ****         recording_ = false;
+  22:samplebuffer.h ****         write_ptr_ = 0;
+  23:samplebuffer.h ****         playing_   = false;
+  24:samplebuffer.h ****         read_ptr_  = 0;
+  25:samplebuffer.h ****     }
+  26:samplebuffer.h **** 
+  27:samplebuffer.h ****     void Clear()
+  28:samplebuffer.h ****     {
+  29:samplebuffer.h ****         for(size_t i = 0; i < kBufferSize; i++)
+  30:samplebuffer.h ****         {
+  31:samplebuffer.h ****             buffer_[i] = 0.f;
+  32:samplebuffer.h ****         }
+  33:samplebuffer.h ****     }
+  34:samplebuffer.h **** 
+  35:samplebuffer.h ****     void Record(bool start = true)
+  36:samplebuffer.h ****     {
+  37:samplebuffer.h ****         if(start)
+  38:samplebuffer.h ****         {
+  39:samplebuffer.h ****             Clear();
+  40:samplebuffer.h ****         }
+  41:samplebuffer.h ****         recording_ = start;
+  42:samplebuffer.h ****         write_ptr_ = 0;
+  43:samplebuffer.h ****     }
+  44:samplebuffer.h **** 
+  45:samplebuffer.h ****     void Play(bool start = true)
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 17
+
+
+  46:samplebuffer.h ****     {
+  47:samplebuffer.h ****         playing_  = start;
+ 216              		.loc 11 47 19 is_stmt 0 view .LVU41
+ 217 002c 83F808C0 		strb	ip, [r3, #8]
+  48:samplebuffer.h ****         read_ptr_ = 0;
+ 218              		.loc 11 48 19 view .LVU42
+ 219 0030 5960     		str	r1, [r3, #4]
+ 220              	.LBE233:
+ 221              	.LBE232:
+ 222              		.loc 10 26 25 view .LVU43
+ 223 0032 1ED0     		beq	.L21
+ 224              	.LVL11:
+ 225              	.L10:
+  27:Proliferation.cpp ****     {
+  28:Proliferation.cpp ****         if(hw.gate_in_1.Trig()) {
+ 226              		.loc 10 28 9 is_stmt 1 view .LVU44
+ 227              		.loc 10 28 29 is_stmt 0 view .LVU45
+ 228 0034 2148     		ldr	r0, .L24+8
+ 229 0036 FFF7FEFF 		bl	_ZN5daisy6GateIn4TrigEv
+ 230              	.LVL12:
+  29:Proliferation.cpp ****             buffers[randSamp].Play();
+ 231              		.loc 10 29 13 is_stmt 1 view .LVU46
+ 232              	.LBB235:
+ 233              	.LBI235:
+  95:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****     {
+  96:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef _Tp 	    			      value_type;
+  97:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef value_type*			      pointer;
+  98:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef const value_type*                       const_pointer;
+  99:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef value_type&                   	      reference;
+ 100:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef const value_type&             	      const_reference;
+ 101:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef value_type*          		      iterator;
+ 102:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef const value_type*			      const_iterator;
+ 103:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef std::size_t                    	      size_type;
+ 104:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef std::ptrdiff_t                   	      difference_type;
+ 105:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef std::reverse_iterator<iterator>	      reverse_iterator;
+ 106:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef std::reverse_iterator<const_iterator>   const_reverse_iterator;
+ 107:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 108:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       // Support for zero-sized arrays mandatory.
+ 109:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typedef _GLIBCXX_STD_C::__array_traits<_Tp, _Nm> _AT_Type;
+ 110:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       typename _AT_Type::_Type                         _M_elems;
+ 111:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 112:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       // No explicit construct/copy/destroy for aggregate type.
+ 113:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 114:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       // DR 776.
+ 115:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX20_CONSTEXPR void
+ 116:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       fill(const value_type& __u)
+ 117:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { std::fill_n(begin(), size(), __u); }
+ 118:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 119:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX20_CONSTEXPR void
+ 120:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       swap(array& __other)
+ 121:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       noexcept(_AT_Type::_Is_nothrow_swappable::value)
+ 122:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { std::swap_ranges(begin(), end(), __other.begin()); }
+ 123:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 124:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       // Iterators.
+ 125:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR iterator
+ 126:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       begin() noexcept
+ 127:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return iterator(data()); }
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 18
+
+
+ 128:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 129:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR const_iterator
+ 130:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       begin() const noexcept
+ 131:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_iterator(data()); }
+ 132:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 133:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR iterator
+ 134:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       end() noexcept
+ 135:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return iterator(data() + _Nm); }
+ 136:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 137:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR const_iterator
+ 138:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       end() const noexcept
+ 139:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_iterator(data() + _Nm); }
+ 140:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 141:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR reverse_iterator
+ 142:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       rbegin() noexcept
+ 143:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return reverse_iterator(end()); }
+ 144:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 145:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ 146:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       rbegin() const noexcept
+ 147:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_reverse_iterator(end()); }
+ 148:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 149:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR reverse_iterator
+ 150:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       rend() noexcept
+ 151:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return reverse_iterator(begin()); }
+ 152:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 153:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ 154:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       rend() const noexcept
+ 155:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_reverse_iterator(begin()); }
+ 156:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 157:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR const_iterator
+ 158:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       cbegin() const noexcept
+ 159:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_iterator(data()); }
+ 160:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 161:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR const_iterator
+ 162:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       cend() const noexcept
+ 163:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_iterator(data() + _Nm); }
+ 164:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 165:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ 166:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       crbegin() const noexcept
+ 167:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_reverse_iterator(end()); }
+ 168:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 169:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ 170:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       crend() const noexcept
+ 171:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_reverse_iterator(begin()); }
+ 172:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 173:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       // Capacity.
+ 174:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       constexpr size_type
+ 175:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       size() const noexcept { return _Nm; }
+ 176:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 177:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       constexpr size_type
+ 178:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       max_size() const noexcept { return _Nm; }
+ 179:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 180:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX_NODISCARD constexpr bool
+ 181:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       empty() const noexcept { return size() == 0; }
+ 182:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array **** 
+ 183:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       // Element access.
+ 184:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       _GLIBCXX17_CONSTEXPR reference
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 19
+
+
+ 185:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       operator[](size_type __n) noexcept
+ 234              		.loc 9 185 7 view .LVU47
+ 235              	.LBB236:
+ 236              	.LBI236:
+  55:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_cast<_Tp&>(__t[__n]); }
+ 237              		.loc 9 55 7 view .LVU48
+  55:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_cast<_Tp&>(__t[__n]); }
+ 238              		.loc 9 55 7 is_stmt 0 view .LVU49
+ 239              	.LBE236:
+ 240              	.LBE235:
+ 241              	.LBB237:
+ 242              	.LBI237:
+  45:samplebuffer.h ****     {
+ 243              		.loc 11 45 10 is_stmt 1 view .LVU50
+ 244              	.LBB238:
+  47:samplebuffer.h ****         read_ptr_ = 0;
+ 245              		.loc 11 47 19 is_stmt 0 view .LVU51
+ 246 003a 214B     		ldr	r3, .L24+12
+ 247 003c 214A     		ldr	r2, .L24+16
+ 248 003e 4FF0010C 		mov	ip, #1
+ 249              		.loc 11 48 19 view .LVU52
+ 250 0042 0021     		movs	r1, #0
+  47:samplebuffer.h ****         read_ptr_ = 0;
+ 251              		.loc 11 47 19 view .LVU53
+ 252 0044 02FB0533 		mla	r3, r2, r5, r3
+ 253              	.LVL13:
+  47:samplebuffer.h ****         read_ptr_ = 0;
+ 254              		.loc 11 47 19 view .LVU54
+ 255              	.LBE238:
+ 256              	.LBE237:
+  28:Proliferation.cpp ****             buffers[randSamp].Play();
+ 257              		.loc 10 28 9 view .LVU55
+ 258 0048 08B3     		cbz	r0, .L6
+ 259              	.LBB240:
+ 260              	.LBB239:
+  47:samplebuffer.h ****         read_ptr_ = 0;
+ 261              		.loc 11 47 19 view .LVU56
+ 262 004a 83F808C0 		strb	ip, [r3, #8]
+ 263              		.loc 11 48 19 view .LVU57
+ 264 004e 5960     		str	r1, [r3, #4]
+ 265              	.LVL14:
+ 266              	.L7:
+ 267              		.loc 11 48 19 view .LVU58
+ 268              	.LBE239:
+ 269              	.LBE240:
+  30:Proliferation.cpp ****         } else if(hw.gate_in_1.Trig()) {
+  31:Proliferation.cpp ****             //buffers[i].Play(false);
+  32:Proliferation.cpp ****         }
+  33:Proliferation.cpp **** 
+  34:Proliferation.cpp **** 		if(hw.gate_in_2.Trig()) {
+ 270              		.loc 10 34 3 is_stmt 1 view .LVU59
+ 271              		.loc 10 34 23 is_stmt 0 view .LVU60
+ 272 0050 1D48     		ldr	r0, .L24+20
+ 273 0052 FFF7FEFF 		bl	_ZN5daisy6GateIn4TrigEv
+ 274              	.LVL15:
+  35:Proliferation.cpp ****             buffers[randSamp].Play();
+ 275              		.loc 10 35 13 is_stmt 1 view .LVU61
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 20
+
+
+ 276              	.LBB241:
+ 277              	.LBI241:
+ 278              		.loc 9 185 7 view .LVU62
+ 279              	.LBB242:
+ 280              	.LBI242:
+  55:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_cast<_Tp&>(__t[__n]); }
+ 281              		.loc 9 55 7 view .LVU63
+  55:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****       { return const_cast<_Tp&>(__t[__n]); }
+ 282              		.loc 9 55 7 is_stmt 0 view .LVU64
+ 283              	.LBE242:
+ 284              	.LBE241:
+ 285              	.LBB243:
+ 286              	.LBI232:
+  45:samplebuffer.h ****     {
+ 287              		.loc 11 45 10 is_stmt 1 view .LVU65
+ 288              	.LBB234:
+  47:samplebuffer.h ****         read_ptr_ = 0;
+ 289              		.loc 11 47 19 is_stmt 0 view .LVU66
+ 290 0056 1A4B     		ldr	r3, .L24+12
+ 291 0058 1A4A     		ldr	r2, .L24+16
+ 292 005a 4FF0010C 		mov	ip, #1
+ 293              		.loc 11 48 19 view .LVU67
+ 294 005e 0021     		movs	r1, #0
+  47:samplebuffer.h ****         read_ptr_ = 0;
+ 295              		.loc 11 47 19 view .LVU68
+ 296 0060 02FB0533 		mla	r3, r2, r5, r3
+ 297              	.LVL16:
+  47:samplebuffer.h ****         read_ptr_ = 0;
+ 298              		.loc 11 47 19 view .LVU69
+ 299              	.LBE234:
+ 300              	.LBE243:
+  34:Proliferation.cpp ****             buffers[randSamp].Play();
+ 301              		.loc 10 34 3 view .LVU70
+ 302 0064 0028     		cmp	r0, #0
+ 303 0066 E0D1     		bne	.L22
+  36:Proliferation.cpp ****         } else if(hw.gate_in_2.Trig()) {
+ 304              		.loc 10 36 16 is_stmt 1 view .LVU71
+ 305              		.loc 10 36 36 is_stmt 0 view .LVU72
+ 306 0068 1748     		ldr	r0, .L24+20
+ 307 006a FFF7FEFF 		bl	_ZN5daisy6GateIn4TrigEv
+ 308              	.LVL17:
+  26:Proliferation.cpp ****     {
+ 309              		.loc 10 26 5 is_stmt 1 view .LVU73
+  26:Proliferation.cpp ****     {
+ 310              		.loc 10 26 25 view .LVU74
+ 311 006e 013C     		subs	r4, r4, #1
+ 312              	.LVL18:
+  26:Proliferation.cpp ****     {
+ 313              		.loc 10 26 25 is_stmt 0 view .LVU75
+ 314 0070 E0D1     		bne	.L10
+ 315              	.LVL19:
+ 316              	.L21:
+  26:Proliferation.cpp ****     {
+ 317              		.loc 10 26 25 view .LVU76
+ 318              	.LBE231:
+  37:Proliferation.cpp ****             //buffers[i].Play(false);
+  38:Proliferation.cpp ****         }
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 21
+
+
+  39:Proliferation.cpp ****     }
+  40:Proliferation.cpp **** 
+  41:Proliferation.cpp **** 	if(button.RisingEdge() && !buffers[s].IsRecording()) {
+ 319              		.loc 10 41 2 is_stmt 1 view .LVU77
+ 320              	.LBB244:
+ 321              	.LBI244:
+  43:../../libDaisy//src/hid/switch.h **** 
+  44:../../libDaisy//src/hid/switch.h ****     /** 
+  45:../../libDaisy//src/hid/switch.h ****     Initializes the switch object with a given port/pin combo.
+  46:../../libDaisy//src/hid/switch.h ****     \param pin port/pin object to tell the switch which hardware pin to use.
+  47:../../libDaisy//src/hid/switch.h ****     \param update_rate Does nothing. Backwards compatibility until next breaking update.
+  48:../../libDaisy//src/hid/switch.h ****     \param t switch type -- Default: TYPE_MOMENTARY
+  49:../../libDaisy//src/hid/switch.h ****     \param pol switch polarity -- Default: POLARITY_INVERTED
+  50:../../libDaisy//src/hid/switch.h ****     \param pu switch pull up/down -- Default: PULL_UP
+  51:../../libDaisy//src/hid/switch.h ****     */
+  52:../../libDaisy//src/hid/switch.h ****     void
+  53:../../libDaisy//src/hid/switch.h ****     Init(dsy_gpio_pin pin, float update_rate, Type t, Polarity pol, Pull pu);
+  54:../../libDaisy//src/hid/switch.h **** 
+  55:../../libDaisy//src/hid/switch.h ****     /**
+  56:../../libDaisy//src/hid/switch.h ****        Simplified Init.
+  57:../../libDaisy//src/hid/switch.h ****        \param pin port/pin object to tell the switch which hardware pin to use.
+  58:../../libDaisy//src/hid/switch.h ****        \param update_rate Left for backwards compatibility until next breaking change.
+  59:../../libDaisy//src/hid/switch.h ****     */
+  60:../../libDaisy//src/hid/switch.h ****     void Init(dsy_gpio_pin pin, float update_rate = 0.f);
+  61:../../libDaisy//src/hid/switch.h **** 
+  62:../../libDaisy//src/hid/switch.h ****     /** 
+  63:../../libDaisy//src/hid/switch.h ****     Called at update_rate to debounce and handle timing for the switch.
+  64:../../libDaisy//src/hid/switch.h ****     In order for events not to be missed, its important that the Edge/Pressed checks
+  65:../../libDaisy//src/hid/switch.h ****     be made at the same rate as the debounce function is being called.
+  66:../../libDaisy//src/hid/switch.h ****     */
+  67:../../libDaisy//src/hid/switch.h ****     void Debounce();
+  68:../../libDaisy//src/hid/switch.h **** 
+  69:../../libDaisy//src/hid/switch.h ****     /** \return true if a button was just pressed. */
+  70:../../libDaisy//src/hid/switch.h ****     inline bool RisingEdge() const { return updated_ ? state_ == 0x7f : false; }
+ 322              		.loc 1 70 17 view .LVU78
+ 323              	.LBB245:
+ 324              		.loc 1 70 38 view .LVU79
+ 325              		.loc 1 70 45 is_stmt 0 view .LVU80
+ 326 0072 114B     		ldr	r3, .L24+4
+ 327              		.loc 1 70 54 view .LVU81
+ 328 0074 1A79     		ldrb	r2, [r3, #4]	@ zero_extendqisi2
+ 329 0076 4AB1     		cbz	r2, .L5
+ 330              		.loc 1 70 56 view .LVU82
+ 331 0078 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
+ 332              	.LVL20:
+ 333              		.loc 1 70 56 view .LVU83
+ 334              	.LBE245:
+ 335              	.LBE244:
+ 336              		.loc 10 41 25 view .LVU84
+ 337 007a 7F2B     		cmp	r3, #127
+ 338 007c 0BD0     		beq	.L23
+  42:Proliferation.cpp **** 		buffers[s].Record();
+  43:Proliferation.cpp **** 	} else if(button.FallingEdge() && buffers[s].IsRecording()) {
+ 339              		.loc 10 43 9 is_stmt 1 view .LVU85
+ 340              	.LVL21:
+  71:../../libDaisy//src/hid/switch.h **** 
+  72:../../libDaisy//src/hid/switch.h ****     /** \return true if the button was just released */
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 22
+
+
+  73:../../libDaisy//src/hid/switch.h ****     inline bool FallingEdge() const
+  74:../../libDaisy//src/hid/switch.h ****     {
+  75:../../libDaisy//src/hid/switch.h ****         return updated_ ? state_ == 0x80 : false;
+ 341              		.loc 1 75 9 view .LVU86
+ 342              		.loc 10 43 33 is_stmt 0 view .LVU87
+ 343 007e 802B     		cmp	r3, #128
+ 344 0080 04D1     		bne	.L5
+ 345              	.LVL22:
+ 346              	.LBB246:
+ 347              	.LBI246:
+  49:samplebuffer.h ****     }
+  50:samplebuffer.h **** 
+  51:samplebuffer.h ****     float Process(const float sample)
+  52:samplebuffer.h ****     {
+  53:samplebuffer.h ****         Write(sample);
+  54:samplebuffer.h ****         return Read();
+  55:samplebuffer.h ****     }
+  56:samplebuffer.h **** 
+  57:samplebuffer.h ****     void Write(const float sample)
+  58:samplebuffer.h ****     {
+  59:samplebuffer.h ****         if(recording_)
+  60:samplebuffer.h ****         {
+  61:samplebuffer.h ****             buffer_[write_ptr_] = sample;
+  62:samplebuffer.h ****             write_ptr_++;
+  63:samplebuffer.h ****             if(write_ptr_ >= kBufferSize)
+  64:samplebuffer.h ****             {
+  65:samplebuffer.h ****                 recording_ = false;
+  66:samplebuffer.h ****                 write_ptr_ = 0;
+  67:samplebuffer.h ****             }
+  68:samplebuffer.h ****         }
+  69:samplebuffer.h ****     }
+  70:samplebuffer.h **** 
+  71:samplebuffer.h ****     float Read()
+  72:samplebuffer.h ****     {
+  73:samplebuffer.h ****         if(playing_)
+  74:samplebuffer.h ****         {
+  75:samplebuffer.h ****             float out = buffer_[read_ptr_];
+  76:samplebuffer.h ****             read_ptr_++;
+  77:samplebuffer.h ****             if(read_ptr_ >= kBufferSize)
+  78:samplebuffer.h ****             {
+  79:samplebuffer.h ****                 playing_  = false;
+  80:samplebuffer.h ****                 read_ptr_ = 0;
+  81:samplebuffer.h ****             }
+  82:samplebuffer.h ****             return out;
+  83:samplebuffer.h ****         }
+  84:samplebuffer.h ****         else
+  85:samplebuffer.h ****         {
+  86:samplebuffer.h ****             return 0.f;
+  87:samplebuffer.h ****         }
+  88:samplebuffer.h ****     }
+  89:samplebuffer.h **** 
+  90:samplebuffer.h ****     bool IsPlaying() const { return playing_; }
+  91:samplebuffer.h ****     bool IsRecording() const { return recording_; }
+ 348              		.loc 11 91 10 is_stmt 1 discriminator 1 view .LVU88
+ 349              	.LBB247:
+ 350              		.loc 11 91 39 is_stmt 0 discriminator 1 view .LVU89
+ 351 0082 0F4B     		ldr	r3, .L24+12
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 23
+
+
+ 352              	.LBE247:
+ 353              	.LBE246:
+ 354              		.loc 10 43 33 discriminator 1 view .LVU90
+ 355 0084 5A7A     		ldrb	r2, [r3, #9]	@ zero_extendqisi2
+ 356 0086 0AB1     		cbz	r2, .L5
+  44:Proliferation.cpp **** 		buffers[s].Record(false);
+ 357              		.loc 10 44 3 is_stmt 1 view .LVU91
+ 358              	.LVL23:
+ 359              	.LBB248:
+ 360              	.LBI248:
+  35:samplebuffer.h ****     {
+ 361              		.loc 11 35 10 view .LVU92
+ 362              	.LBB249:
+  41:samplebuffer.h ****         write_ptr_ = 0;
+ 363              		.loc 11 41 20 is_stmt 0 view .LVU93
+ 364 0088 5C72     		strb	r4, [r3, #9]
+  42:samplebuffer.h ****     }
+ 365              		.loc 11 42 20 view .LVU94
+ 366 008a 1C60     		str	r4, [r3]
+ 367              	.LVL24:
+  42:samplebuffer.h ****     }
+ 368              		.loc 11 42 20 view .LVU95
+ 369              	.LBE249:
+ 370              	.LBE248:
+  45:Proliferation.cpp **** 		s++;
+ 371              		.loc 10 45 3 is_stmt 1 view .LVU96
+  46:Proliferation.cpp **** 	}
+  47:Proliferation.cpp **** 
+  48:Proliferation.cpp **** 	if (s >= 8) {
+ 372              		.loc 10 48 2 view .LVU97
+ 373              	.L5:
+  49:Proliferation.cpp **** 		s = 0;
+  50:Proliferation.cpp **** 	}
+  51:Proliferation.cpp **** 
+  52:Proliferation.cpp **** }
+ 374              		.loc 10 52 1 is_stmt 0 view .LVU98
+ 375 008c 38BD     		pop	{r3, r4, r5, pc}
+ 376              	.LVL25:
+ 377              	.L6:
+ 378              	.LBB250:
+  30:Proliferation.cpp ****             //buffers[i].Play(false);
+ 379              		.loc 10 30 16 is_stmt 1 view .LVU99
+  30:Proliferation.cpp ****             //buffers[i].Play(false);
+ 380              		.loc 10 30 36 is_stmt 0 view .LVU100
+ 381 008e 0B48     		ldr	r0, .L24+8
+ 382 0090 FFF7FEFF 		bl	_ZN5daisy6GateIn4TrigEv
+ 383              	.LVL26:
+  30:Proliferation.cpp ****             //buffers[i].Play(false);
+ 384              		.loc 10 30 36 view .LVU101
+ 385 0094 DCE7     		b	.L7
+ 386              	.LVL27:
+ 387              	.L23:
+  30:Proliferation.cpp ****             //buffers[i].Play(false);
+ 388              		.loc 10 30 36 view .LVU102
+ 389              	.LBE250:
+ 390              	.LBB251:
+ 391              	.LBI251:
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 24
+
+
+ 392              		.loc 11 91 10 is_stmt 1 discriminator 1 view .LVU103
+ 393              	.LBB252:
+ 394              		.loc 11 91 39 is_stmt 0 discriminator 1 view .LVU104
+ 395 0096 0A4D     		ldr	r5, .L24+12
+ 396              	.LVL28:
+ 397              		.loc 11 91 39 discriminator 1 view .LVU105
+ 398              	.LBE252:
+ 399              	.LBE251:
+  41:Proliferation.cpp **** 		buffers[s].Record();
+ 400              		.loc 10 41 25 discriminator 1 view .LVU106
+ 401 0098 6B7A     		ldrb	r3, [r5, #9]	@ zero_extendqisi2
+ 402 009a 002B     		cmp	r3, #0
+ 403 009c F6D1     		bne	.L5
+ 404              	.LBB253:
+ 405              	.LBB254:
+ 406              	.LBB255:
+ 407              	.LBB256:
+  31:samplebuffer.h ****         }
+ 408              		.loc 11 31 24 view .LVU107
+ 409 009e 0B4A     		ldr	r2, .L24+24
+ 410 00a0 2146     		mov	r1, r4
+ 411 00a2 05F10C00 		add	r0, r5, #12
+ 412 00a6 FFF7FEFF 		bl	memset
+ 413              	.LVL29:
+ 414              	.LBE256:
+ 415              	.LBE255:
+  41:samplebuffer.h ****         write_ptr_ = 0;
+ 416              		.loc 11 41 20 view .LVU108
+ 417 00aa 0123     		movs	r3, #1
+  42:samplebuffer.h ****     }
+ 418              		.loc 11 42 20 view .LVU109
+ 419 00ac 2C60     		str	r4, [r5]
+  41:samplebuffer.h ****         write_ptr_ = 0;
+ 420              		.loc 11 41 20 view .LVU110
+ 421 00ae 6B72     		strb	r3, [r5, #9]
+ 422              	.LBE254:
+ 423              	.LBE253:
+ 424              		.loc 10 52 1 view .LVU111
+ 425 00b0 38BD     		pop	{r3, r4, r5, pc}
+ 426              	.L25:
+ 427 00b2 00BF     		.align	2
+ 428              	.L24:
+ 429 00b4 00000000 		.word	.LANCHOR0
+ 430 00b8 00000000 		.word	.LANCHOR1
+ 431 00bc B0010000 		.word	.LANCHOR0+432
+ 432 00c0 00000000 		.word	buffers
+ 433 00c4 0CA60E00 		.word	960012
+ 434 00c8 B7010000 		.word	.LANCHOR0+439
+ 435 00cc 00A60E00 		.word	960000
+ 436              		.cfi_endproc
+ 437              	.LFE4839:
+ 439              		.section	.text._Z13AudioCallbackPKPKfPPfj,"ax",%progbits
+ 440              		.align	1
+ 441              		.p2align 2,,3
+ 442              		.global	_Z13AudioCallbackPKPKfPPfj
+ 443              		.syntax unified
+ 444              		.thumb
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 25
+
+
+ 445              		.thumb_func
+ 446              		.fpu fpv5-d16
+ 448              	_Z13AudioCallbackPKPKfPPfj:
+ 449              	.LVL30:
+ 450              	.LFB4841:
+  53:Proliferation.cpp **** 
+  54:Proliferation.cpp **** void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
+  55:Proliferation.cpp **** {
+ 451              		.loc 10 55 1 is_stmt 1 view -0
+ 452              		.cfi_startproc
+ 453              		@ args = 0, pretend = 0, frame = 0
+ 454              		@ frame_needed = 0, uses_anonymous_args = 0
+  56:Proliferation.cpp **** 	getSamples();
+ 455              		.loc 10 56 2 view .LVU113
+  55:Proliferation.cpp **** 	getSamples();
+ 456              		.loc 10 55 1 is_stmt 0 view .LVU114
+ 457 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 458              		.cfi_def_cfa_offset 32
+ 459              		.cfi_offset 3, -32
+ 460              		.cfi_offset 4, -28
+ 461              		.cfi_offset 5, -24
+ 462              		.cfi_offset 6, -20
+ 463              		.cfi_offset 7, -16
+ 464              		.cfi_offset 8, -12
+ 465              		.cfi_offset 9, -8
+ 466              		.cfi_offset 14, -4
+  55:Proliferation.cpp **** 	getSamples();
+ 467              		.loc 10 55 1 view .LVU115
+ 468 0004 1546     		mov	r5, r2
+ 469 0006 0646     		mov	r6, r0
+ 470 0008 0F46     		mov	r7, r1
+ 471              		.loc 10 56 12 view .LVU116
+ 472 000a FFF7FEFF 		bl	_Z10getSamplesv
+ 473              	.LVL31:
+  57:Proliferation.cpp **** 
+  58:Proliferation.cpp **** 	for (size_t i = 0; i < size; i++)
+ 474              		.loc 10 58 2 is_stmt 1 view .LVU117
+ 475              	.LBB274:
+ 476              		.loc 10 58 23 view .LVU118
+ 477 000e 002D     		cmp	r5, #0
+ 478 0010 67D0     		beq	.L26
+ 479 0012 D7E90041 		ldrd	r4, r1, [r7]
+ 480 0016 D6E90076 		ldrd	r7, r6, [r6]
+ 481              	.LVL32:
+ 482              		.loc 10 58 23 is_stmt 0 view .LVU119
+ 483 001a 04EB850C 		add	ip, r4, r5, lsl #2
+ 484 001e 324D     		ldr	r5, .L41
+ 485              	.LVL33:
+ 486              	.L33:
+ 487              	.LBB275:
+  59:Proliferation.cpp **** 	{
+  60:Proliferation.cpp ****         // Zero samples prior to summing
+  61:Proliferation.cpp ****         OUT_L[i] = 0.f;
+ 488              		.loc 10 61 9 is_stmt 1 view .LVU120
+ 489              		.loc 10 61 18 is_stmt 0 view .LVU121
+ 490 0020 0022     		movs	r2, #0
+ 491 0022 324B     		ldr	r3, .L41+4
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 26
+
+
+ 492 0024 44F8042B 		str	r2, [r4], #4	@ float
+  62:Proliferation.cpp ****         OUT_R[i] = 0.f;
+ 493              		.loc 10 62 9 is_stmt 1 view .LVU122
+ 494              		.loc 10 62 18 is_stmt 0 view .LVU123
+ 495 0028 41F8042B 		str	r2, [r1], #4	@ float
+  63:Proliferation.cpp ****         for(auto &buffer : buffers)
+ 496              		.loc 10 63 9 is_stmt 1 view .LVU124
+ 497              	.LVL34:
+ 498              	.LBB276:
+ 499              		.loc 10 63 28 view .LVU125
+ 500              	.L32:
+ 501              	.LBB277:
+  64:Proliferation.cpp ****         {
+  65:Proliferation.cpp ****             // Record in mono
+  66:Proliferation.cpp ****             float sample = buffer.Process((0.5 * IN_L[i] + 0.5 * IN_R[i]));
+ 502              		.loc 10 66 13 discriminator 2 view .LVU126
+ 503              	.LBB278:
+ 504              	.LBI278:
+  51:samplebuffer.h ****     {
+ 505              		.loc 11 51 11 discriminator 2 view .LVU127
+ 506              	.LBB279:
+ 507              	.LBI279:
+  57:samplebuffer.h ****     {
+ 508              		.loc 11 57 10 discriminator 2 view .LVU128
+ 509              	.LBB280:
+ 510              	.LBB281:
+ 511              	.LBI281:
+  57:samplebuffer.h ****     {
+ 512              		.loc 11 57 10 discriminator 2 view .LVU129
+  57:samplebuffer.h ****     {
+ 513              		.loc 11 57 10 is_stmt 0 discriminator 2 view .LVU130
+ 514              	.LBE281:
+ 515              	.LBE280:
+ 516              	.LBE279:
+ 517              	.LBB302:
+ 518              	.LBI302:
+  71:samplebuffer.h ****     {
+ 519              		.loc 11 71 11 is_stmt 1 discriminator 2 view .LVU131
+ 520              	.LBB303:
+ 521              	.LBI303:
+  71:samplebuffer.h ****     {
+ 522              		.loc 11 71 11 discriminator 2 view .LVU132
+ 523              	.LBE303:
+ 524              	.LBE302:
+ 525              	.LBB310:
+ 526              	.LBB294:
+ 527              	.LBB288:
+ 528              	.LBB282:
+  63:samplebuffer.h ****             {
+ 529              		.loc 11 63 13 is_stmt 0 discriminator 2 view .LVU133
+ 530 002c DFF8C4E0 		ldr	lr, .L41+12
+ 531              	.LBE282:
+ 532              	.LBE288:
+ 533              	.LBE294:
+ 534              	.LBE310:
+ 535              	.LBE278:
+ 536              		.loc 10 66 48 discriminator 2 view .LVU134
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 27
+
+
+ 537 0030 B6EE005B 		vmov.f64	d5, #5.0e-1
+ 538              	.LBB320:
+ 539              	.LBB311:
+ 540              	.LBB295:
+  59:samplebuffer.h ****         {
+ 541              		.loc 11 59 9 discriminator 2 view .LVU135
+ 542 0034 5A7A     		ldrb	r2, [r3, #9]	@ zero_extendqisi2
+ 543              	.LBE295:
+ 544              	.LBE311:
+ 545              	.LBB312:
+ 546              	.LBB306:
+ 547              	.LBB304:
+  77:samplebuffer.h ****             {
+ 548              		.loc 11 77 13 discriminator 2 view .LVU136
+ 549 0036 7046     		mov	r0, lr
+ 550              	.LBE304:
+ 551              	.LBE306:
+ 552              	.LBB307:
+  86:samplebuffer.h ****         }
+ 553              		.loc 11 86 20 discriminator 2 view .LVU137
+ 554 0038 DFED2D6A 		vldr.32	s13, .L41+8
+ 555              	.LBE307:
+ 556              	.LBE312:
+ 557              	.LBB313:
+ 558              	.LBB296:
+  59:samplebuffer.h ****         {
+ 559              		.loc 11 59 9 discriminator 2 view .LVU138
+ 560 003c E2B1     		cbz	r2, .L29
+ 561              	.LBE296:
+ 562              	.LBE313:
+ 563              	.LBE320:
+ 564              		.loc 10 66 56 view .LVU139
+ 565 003e 97ED007A 		vldr.32	s14, [r7]
+ 566              	.LBB321:
+ 567              	.LBB314:
+ 568              	.LBB297:
+ 569              	.LBB289:
+ 570              	.LBB283:
+  65:samplebuffer.h ****                 write_ptr_ = 0;
+ 571              		.loc 11 65 28 view .LVU140
+ 572 0042 4FF00008 		mov	r8, #0
+ 573              	.LBE283:
+ 574              	.LBE289:
+ 575              	.LBE297:
+ 576              	.LBE314:
+ 577              	.LBE321:
+ 578              		.loc 10 66 72 view .LVU141
+ 579 0046 96ED004A 		vldr.32	s8, [r6]
+ 580              		.loc 10 66 56 view .LVU142
+ 581 004a B7EEC77A 		vcvt.f64.f32	d7, s14
+ 582              	.LBB322:
+ 583              	.LBB315:
+ 584              	.LBB298:
+ 585              	.LBB290:
+ 586              	.LBB284:
+  61:samplebuffer.h ****             write_ptr_++;
+ 587              		.loc 11 61 21 view .LVU143
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 28
+
+
+ 588 004e 1A68     		ldr	r2, [r3]
+ 589              	.LBE284:
+ 590              	.LBE290:
+ 591              	.LBE298:
+ 592              	.LBE315:
+ 593              	.LBE322:
+ 594              		.loc 10 66 72 view .LVU144
+ 595 0050 B7EEC44A 		vcvt.f64.f32	d4, s8
+ 596              	.LBB323:
+ 597              	.LBB316:
+ 598              	.LBB299:
+ 599              	.LBB291:
+ 600              	.LBB285:
+  61:samplebuffer.h ****             write_ptr_++;
+ 601              		.loc 11 61 33 view .LVU145
+ 602 0054 03EB8209 		add	r9, r3, r2, lsl #2
+  62:samplebuffer.h ****             if(write_ptr_ >= kBufferSize)
+ 603              		.loc 11 62 13 view .LVU146
+ 604 0058 0132     		adds	r2, r2, #1
+ 605              	.LBE285:
+ 606              	.LBE291:
+ 607              	.LBE299:
+ 608              	.LBE316:
+ 609              	.LBE323:
+ 610              		.loc 10 66 48 view .LVU147
+ 611 005a 27EE057B 		vmul.f64	d7, d7, d5
+ 612              	.LBB324:
+ 613              	.LBB317:
+ 614              	.LBB300:
+ 615              	.LBB292:
+ 616              	.LBB286:
+  63:samplebuffer.h ****             {
+ 617              		.loc 11 63 13 view .LVU148
+ 618 005e 7245     		cmp	r2, lr
+ 619              	.LBE286:
+ 620              	.LBE292:
+ 621              	.LBE300:
+ 622              	.LBE317:
+ 623              	.LBE324:
+ 624              		.loc 10 66 58 view .LVU149
+ 625 0060 A4EE057B 		vfma.f64	d7, d4, d5
+ 626              		.loc 10 66 42 view .LVU150
+ 627 0064 B7EEC77B 		vcvt.f32.f64	s14, d7
+ 628 0068 89ED037A 		vstr.32	s14, [r9, #12]
+ 629              	.LBB325:
+ 630              	.LBB318:
+ 631              	.LBB301:
+ 632              	.LBB293:
+ 633              	.LBB287:
+  62:samplebuffer.h ****             if(write_ptr_ >= kBufferSize)
+ 634              		.loc 11 62 13 view .LVU151
+ 635 006c 1A60     		str	r2, [r3]
+  63:samplebuffer.h ****             {
+ 636              		.loc 11 63 13 view .LVU152
+ 637 006e 03D9     		bls	.L29
+  65:samplebuffer.h ****                 write_ptr_ = 0;
+ 638              		.loc 11 65 28 view .LVU153
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 29
+
+
+ 639 0070 83F80980 		strb	r8, [r3, #9]
+  66:samplebuffer.h ****             }
+ 640              		.loc 11 66 28 view .LVU154
+ 641 0074 C3F80080 		str	r8, [r3]
+ 642              	.L29:
+ 643              	.LBE287:
+ 644              	.LBE293:
+ 645              	.LBE301:
+ 646              	.LBE318:
+ 647              	.LBB319:
+ 648              	.LBB308:
+  73:samplebuffer.h ****         {
+ 649              		.loc 11 73 9 view .LVU155
+ 650 0078 1A7A     		ldrb	r2, [r3, #8]	@ zero_extendqisi2
+ 651 007a 72B1     		cbz	r2, .L31
+ 652              	.LBE308:
+ 653              	.LBB309:
+ 654              	.LBB305:
+  75:samplebuffer.h ****             read_ptr_++;
+ 655              		.loc 11 75 33 view .LVU156
+ 656 007c 5A68     		ldr	r2, [r3, #4]
+  79:samplebuffer.h ****                 read_ptr_ = 0;
+ 657              		.loc 11 79 27 view .LVU157
+ 658 007e 4FF0000E 		mov	lr, #0
+  75:samplebuffer.h ****             read_ptr_++;
+ 659              		.loc 11 75 19 view .LVU158
+ 660 0082 03EB8208 		add	r8, r3, r2, lsl #2
+  76:samplebuffer.h ****             if(read_ptr_ >= kBufferSize)
+ 661              		.loc 11 76 13 view .LVU159
+ 662 0086 0132     		adds	r2, r2, #1
+  77:samplebuffer.h ****             {
+ 663              		.loc 11 77 13 view .LVU160
+ 664 0088 8242     		cmp	r2, r0
+  75:samplebuffer.h ****             read_ptr_++;
+ 665              		.loc 11 75 19 view .LVU161
+ 666 008a D8ED036A 		vldr.32	s13, [r8, #12]
+ 667              	.LVL35:
+  76:samplebuffer.h ****             if(read_ptr_ >= kBufferSize)
+ 668              		.loc 11 76 13 view .LVU162
+ 669 008e 5A60     		str	r2, [r3, #4]
+  77:samplebuffer.h ****             {
+ 670              		.loc 11 77 13 view .LVU163
+ 671 0090 03D9     		bls	.L31
+  79:samplebuffer.h ****                 read_ptr_ = 0;
+ 672              		.loc 11 79 27 view .LVU164
+ 673 0092 83F808E0 		strb	lr, [r3, #8]
+  80:samplebuffer.h ****             }
+ 674              		.loc 11 80 27 view .LVU165
+ 675 0096 C3F804E0 		str	lr, [r3, #4]
+ 676              	.LVL36:
+ 677              	.L31:
+  80:samplebuffer.h ****             }
+ 678              		.loc 11 80 27 view .LVU166
+ 679              	.LBE305:
+ 680              	.LBE309:
+ 681              	.LBE319:
+ 682              	.LBE325:
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 30
+
+
+  67:Proliferation.cpp ****             // Sum all playback channels
+  68:Proliferation.cpp ****             OUT_L[i] += sample;
+ 683              		.loc 10 68 13 is_stmt 1 view .LVU167
+ 684              		.loc 10 68 22 is_stmt 0 view .LVU168
+ 685 009a 14ED017A 		vldr.32	s14, [r4, #-4]
+ 686              	.LBE277:
+  63:Proliferation.cpp ****         {
+ 687              		.loc 10 63 28 view .LVU169
+ 688 009e 03F56A23 		add	r3, r3, #958464
+ 689              	.LVL37:
+ 690              	.LBB326:
+ 691              		.loc 10 68 22 view .LVU170
+ 692 00a2 37EE267A 		vadd.f32	s14, s14, s13
+ 693              	.LBE326:
+  63:Proliferation.cpp ****         {
+ 694              		.loc 10 63 28 view .LVU171
+ 695 00a6 03F20C63 		addw	r3, r3, #1548
+ 696              	.LVL38:
+  63:Proliferation.cpp ****         {
+ 697              		.loc 10 63 28 view .LVU172
+ 698 00aa AB42     		cmp	r3, r5
+ 699              	.LBB327:
+ 700              		.loc 10 68 22 view .LVU173
+ 701 00ac 04ED017A 		vstr.32	s14, [r4, #-4]
+  69:Proliferation.cpp ****             OUT_R[i] += sample;
+ 702              		.loc 10 69 13 is_stmt 1 view .LVU174
+ 703              		.loc 10 69 22 is_stmt 0 view .LVU175
+ 704 00b0 51ED017A 		vldr.32	s15, [r1, #-4]
+ 705 00b4 77EEA67A 		vadd.f32	s15, s15, s13
+ 706 00b8 41ED017A 		vstr.32	s15, [r1, #-4]
+ 707              	.LBE327:
+  63:Proliferation.cpp ****         {
+ 708              		.loc 10 63 9 is_stmt 1 view .LVU176
+ 709              	.LVL39:
+  63:Proliferation.cpp ****         {
+ 710              		.loc 10 63 28 view .LVU177
+ 711 00bc B6D1     		bne	.L32
+ 712              	.LBE276:
+  70:Proliferation.cpp ****         }
+  71:Proliferation.cpp ****         // Feed stereo input through to output
+  72:Proliferation.cpp ****         OUT_L[i] += IN_L[i];
+ 713              		.loc 10 72 9 discriminator 2 view .LVU178
+ 714              		.loc 10 72 27 is_stmt 0 discriminator 2 view .LVU179
+ 715 00be B7EC017A 		vldmia.32	r7!, {s14}
+ 716              	.LBE275:
+  58:Proliferation.cpp **** 	{
+ 717              		.loc 10 58 23 discriminator 2 view .LVU180
+ 718 00c2 6445     		cmp	r4, ip
+ 719              	.LBB328:
+ 720              		.loc 10 72 18 discriminator 2 view .LVU181
+ 721 00c4 54ED017A 		vldr.32	s15, [r4, #-4]
+ 722 00c8 77EE877A 		vadd.f32	s15, s15, s14
+ 723 00cc 44ED017A 		vstr.32	s15, [r4, #-4]
+  73:Proliferation.cpp ****         OUT_R[i] += IN_R[i];
+ 724              		.loc 10 73 9 is_stmt 1 discriminator 2 view .LVU182
+ 725              		.loc 10 73 27 is_stmt 0 discriminator 2 view .LVU183
+ 726 00d0 B6EC017A 		vldmia.32	r6!, {s14}
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 31
+
+
+ 727              		.loc 10 73 18 discriminator 2 view .LVU184
+ 728 00d4 51ED017A 		vldr.32	s15, [r1, #-4]
+ 729 00d8 77EE877A 		vadd.f32	s15, s15, s14
+ 730 00dc 41ED017A 		vstr.32	s15, [r1, #-4]
+ 731              	.LBE328:
+  58:Proliferation.cpp **** 	{
+ 732              		.loc 10 58 2 is_stmt 1 discriminator 2 view .LVU185
+  58:Proliferation.cpp **** 	{
+ 733              		.loc 10 58 23 discriminator 2 view .LVU186
+ 734 00e0 9ED1     		bne	.L33
+ 735              	.LVL40:
+ 736              	.L26:
+  58:Proliferation.cpp **** 	{
+ 737              		.loc 10 58 23 is_stmt 0 discriminator 2 view .LVU187
+ 738              	.LBE274:
+  74:Proliferation.cpp **** 	}
+  75:Proliferation.cpp **** }
+ 739              		.loc 10 75 1 view .LVU188
+ 740 00e2 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 741              	.L42:
+ 742 00e6 00BF     		.align	2
+ 743              	.L41:
+ 744 00e8 60307500 		.word	buffers+7680096
+ 745 00ec 00000000 		.word	buffers
+ 746 00f0 00000000 		.word	0
+ 747 00f4 7FA90300 		.word	239999
+ 748              		.cfi_endproc
+ 749              	.LFE4841:
+ 751              		.section	.text._Z12InitSamplersv,"ax",%progbits
+ 752              		.align	1
+ 753              		.p2align 2,,3
+ 754              		.global	_Z12InitSamplersv
+ 755              		.syntax unified
+ 756              		.thumb
+ 757              		.thumb_func
+ 758              		.fpu fpv5-d16
+ 760              	_Z12InitSamplersv:
+ 761              	.LFB4842:
+  76:Proliferation.cpp **** 
+  77:Proliferation.cpp **** void InitSamplers(){
+ 762              		.loc 10 77 20 is_stmt 1 view -0
+ 763              		.cfi_startproc
+ 764              		@ args = 0, pretend = 0, frame = 0
+ 765              		@ frame_needed = 0, uses_anonymous_args = 0
+  78:Proliferation.cpp ****     for(auto &buffer : buffers)
+ 766              		.loc 10 78 5 view .LVU190
+ 767              	.LVL41:
+ 768              	.LBB329:
+ 769              		.loc 10 78 24 view .LVU191
+ 770              	.LBE329:
+  77:Proliferation.cpp ****     for(auto &buffer : buffers)
+ 771              		.loc 10 77 20 is_stmt 0 view .LVU192
+ 772 0000 10B5     		push	{r4, lr}
+ 773              		.cfi_def_cfa_offset 8
+ 774              		.cfi_offset 4, -8
+ 775              		.cfi_offset 14, -4
+ 776 0002 0B4B     		ldr	r3, .L47
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 32
+
+
+ 777 0004 0B4C     		ldr	r4, .L47+4
+ 778              	.LVL42:
+ 779              	.L44:
+ 780              	.LBB340:
+ 781              	.LBB330:
+ 782              	.LBB331:
+ 783              	.LBB332:
+ 784              	.LBB333:
+  29:samplebuffer.h ****         {
+ 785              		.loc 11 29 29 is_stmt 1 view .LVU193
+  31:samplebuffer.h ****         }
+ 786              		.loc 11 31 24 is_stmt 0 view .LVU194
+ 787 0006 1846     		mov	r0, r3
+ 788 0008 0B4A     		ldr	r2, .L47+8
+ 789 000a 0021     		movs	r1, #0
+ 790 000c FFF7FEFF 		bl	memset
+ 791              	.LVL43:
+  31:samplebuffer.h ****         }
+ 792              		.loc 11 31 24 view .LVU195
+ 793              	.LBE333:
+ 794              	.LBE332:
+ 795              	.LBE331:
+ 796              	.LBE330:
+ 797              		.loc 10 78 24 view .LVU196
+ 798 0010 00F56A23 		add	r3, r0, #958464
+ 799              	.LBB337:
+ 800              	.LBB334:
+  21:samplebuffer.h ****         write_ptr_ = 0;
+ 801              		.loc 11 21 20 view .LVU197
+ 802 0014 0022     		movs	r2, #0
+ 803              	.LBE334:
+ 804              	.LBE337:
+ 805              		.loc 10 78 24 view .LVU198
+ 806 0016 03F20C63 		addw	r3, r3, #1548
+ 807              	.LBB338:
+ 808              	.LBB335:
+  21:samplebuffer.h ****         write_ptr_ = 0;
+ 809              		.loc 11 21 20 view .LVU199
+ 810 001a 00F8032C 		strb	r2, [r0, #-3]
+ 811              	.LBE335:
+ 812              	.LBE338:
+ 813              		.loc 10 78 24 view .LVU200
+ 814 001e 9C42     		cmp	r4, r3
+ 815              	.LBB339:
+ 816              	.LBB336:
+  22:samplebuffer.h ****         playing_   = false;
+ 817              		.loc 11 22 20 view .LVU201
+ 818 0020 40F80C2C 		str	r2, [r0, #-12]
+  23:samplebuffer.h ****         read_ptr_  = 0;
+ 819              		.loc 11 23 20 view .LVU202
+ 820 0024 00F8042C 		strb	r2, [r0, #-4]
+  24:samplebuffer.h ****     }
+ 821              		.loc 11 24 20 view .LVU203
+ 822 0028 40F8082C 		str	r2, [r0, #-8]
+ 823              	.LBE336:
+ 824              	.LBE339:
+ 825              		.loc 10 78 5 is_stmt 1 view .LVU204
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 33
+
+
+ 826              	.LVL44:
+ 827              		.loc 10 78 24 view .LVU205
+ 828 002c EBD1     		bne	.L44
+ 829              	.LBE340:
+  79:Proliferation.cpp ****     {
+  80:Proliferation.cpp ****         buffer.Init();
+  81:Proliferation.cpp ****     }
+  82:Proliferation.cpp **** }
+ 830              		.loc 10 82 1 is_stmt 0 view .LVU206
+ 831 002e 10BD     		pop	{r4, pc}
+ 832              	.L48:
+ 833              		.align	2
+ 834              	.L47:
+ 835 0030 0C000000 		.word	buffers+12
+ 836 0034 6C307500 		.word	buffers+7680108
+ 837 0038 00A60E00 		.word	960000
+ 838              		.cfi_endproc
+ 839              	.LFE4842:
+ 841              		.section	.text.startup.main,"ax",%progbits
+ 842              		.align	1
+ 843              		.p2align 2,,3
+ 844              		.global	main
+ 845              		.syntax unified
+ 846              		.thumb
+ 847              		.thumb_func
+ 848              		.fpu fpv5-d16
+ 850              	main:
+ 851              	.LFB4843:
+  83:Proliferation.cpp **** 
+  84:Proliferation.cpp **** 
+  85:Proliferation.cpp **** int main(void)
+  86:Proliferation.cpp **** {
+ 852              		.loc 10 86 1 is_stmt 1 view -0
+ 853              		.cfi_startproc
+ 854              		@ Volatile: function does not return.
+ 855              		@ args = 0, pretend = 0, frame = 0
+ 856              		@ frame_needed = 0, uses_anonymous_args = 0
+  87:Proliferation.cpp **** 	hw.Init();
+ 857              		.loc 10 87 2 view .LVU208
+  86:Proliferation.cpp **** 	hw.Init();
+ 858              		.loc 10 86 1 is_stmt 0 view .LVU209
+ 859 0000 08B5     		push	{r3, lr}
+ 860              		.cfi_def_cfa_offset 8
+ 861              		.cfi_offset 3, -8
+ 862              		.cfi_offset 14, -4
+ 863              		.loc 10 87 9 view .LVU210
+ 864 0002 1348     		ldr	r0, .L52
+ 865 0004 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM4InitEv
+ 866              	.LVL45:
+  88:Proliferation.cpp **** 
+  89:Proliferation.cpp **** 	toggle.Init(hw.B8);
+ 867              		.loc 10 89 2 is_stmt 1 view .LVU211
+ 868              		.loc 10 89 13 is_stmt 0 view .LVU212
+ 869 0008 124B     		ldr	r3, .L52+4
+ 870 000a 9FED130A 		vldr.32	s0, .L52+8
+ 871 000e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 872 0010 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 34
+
+
+ 873 0012 1248     		ldr	r0, .L52+12
+ 874 0014 42EA0121 		orr	r1, r2, r1, lsl #8
+ 875 0018 FFF7FEFF 		bl	_ZN5daisy6Switch4InitE12dsy_gpio_pinf
+ 876              	.LVL46:
+  90:Proliferation.cpp **** 	button.Init(hw.B7);
+ 877              		.loc 10 90 2 is_stmt 1 view .LVU213
+ 878              		.loc 10 90 13 is_stmt 0 view .LVU214
+ 879 001c 104B     		ldr	r3, .L52+16
+ 880 001e 9FED0E0A 		vldr.32	s0, .L52+8
+ 881 0022 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 882 0024 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 883 0026 0F48     		ldr	r0, .L52+20
+ 884 0028 42EA0121 		orr	r1, r2, r1, lsl #8
+ 885 002c FFF7FEFF 		bl	_ZN5daisy6Switch4InitE12dsy_gpio_pinf
+ 886              	.LVL47:
+  91:Proliferation.cpp **** 	InitSamplers();
+ 887              		.loc 10 91 2 is_stmt 1 view .LVU215
+ 888              		.loc 10 91 14 is_stmt 0 view .LVU216
+ 889 0030 FFF7FEFF 		bl	_Z12InitSamplersv
+ 890              	.LVL48:
+  92:Proliferation.cpp **** 
+  93:Proliferation.cpp **** 	hw.SetAudioBlockSize(4); // number of samples handled per callback
+ 891              		.loc 10 93 2 is_stmt 1 view .LVU217
+ 892              		.loc 10 93 22 is_stmt 0 view .LVU218
+ 893 0034 0421     		movs	r1, #4
+ 894 0036 0648     		ldr	r0, .L52
+ 895 0038 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM17SetAudioBlockSizeEj
+ 896              	.LVL49:
+  94:Proliferation.cpp **** 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
+ 897              		.loc 10 94 2 is_stmt 1 view .LVU219
+ 898              		.loc 10 94 23 is_stmt 0 view .LVU220
+ 899 003c 0321     		movs	r1, #3
+ 900 003e 0448     		ldr	r0, .L52
+ 901 0040 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM18SetAudioSampleRateENS_9SaiHandle6Config10SampleRateE
+ 902              	.LVL50:
+  95:Proliferation.cpp **** 	hw.StartAudio(AudioCallback);
+ 903              		.loc 10 95 2 is_stmt 1 view .LVU221
+ 904              		.loc 10 95 15 is_stmt 0 view .LVU222
+ 905 0044 0849     		ldr	r1, .L52+24
+ 906 0046 0248     		ldr	r0, .L52
+ 907 0048 FFF7FEFF 		bl	_ZN5daisy8patch_sm12DaisyPatchSM10StartAudioEPFvPKPKfPPfjE
+ 908              	.LVL51:
+ 909              	.L50:
+  96:Proliferation.cpp **** 
+  97:Proliferation.cpp **** 	while(1) {
+ 910              		.loc 10 97 2 is_stmt 1 discriminator 1 view .LVU223
+ 911              		.loc 10 97 2 discriminator 1 view .LVU224
+ 912              		.loc 10 97 2 discriminator 1 view .LVU225
+ 913              		.loc 10 97 2 discriminator 1 view .LVU226
+ 914 004c FEE7     		b	.L50
+ 915              	.L53:
+ 916 004e 00BF     		.align	2
+ 917              	.L52:
+ 918 0050 00000000 		.word	.LANCHOR0
+ 919 0054 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2B8E
+ 920 0058 00000000 		.word	0
+ 921 005c 00000000 		.word	.LANCHOR2
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 35
+
+
+ 922 0060 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2B7E
+ 923 0064 00000000 		.word	.LANCHOR1
+ 924 0068 00000000 		.word	_Z13AudioCallbackPKPKfPPfj
+ 925              		.cfi_endproc
+ 926              	.LFE4843:
+ 928              		.section	.text.startup._GLOBAL__sub_I_hw,"ax",%progbits
+ 929              		.align	1
+ 930              		.p2align 2,,3
+ 931              		.syntax unified
+ 932              		.thumb
+ 933              		.thumb_func
+ 934              		.fpu fpv5-d16
+ 936              	_GLOBAL__sub_I_hw:
+ 937              	.LFB5426:
+  98:Proliferation.cpp **** 	}
+  99:Proliferation.cpp **** }
+ 938              		.loc 10 99 1 view -0
+ 939              		.cfi_startproc
+ 940              		@ args = 0, pretend = 0, frame = 0
+ 941              		@ frame_needed = 0, uses_anonymous_args = 0
+ 942              	.LBB375:
+ 943              	.LBI375:
+ 944              		.loc 10 99 1 view .LVU228
+ 945              	.LVL52:
+ 946              	.LBB376:
+ 947              	.LBB377:
+ 948              	.LBI377:
+  64:../../libDaisy//src/daisy_patch_sm.h ****         ~DaisyPatchSM() {}
+ 949              		.loc 2 64 9 view .LVU229
+ 950              	.LBB378:
+ 951              	.LBB379:
+ 952              	.LBI379:
+  77:../../libDaisy//src/sys/system.h ****     ~System() {}
+ 953              		.loc 8 77 5 view .LVU230
+  77:../../libDaisy//src/sys/system.h ****     ~System() {}
+ 954              		.loc 8 77 5 is_stmt 0 view .LVU231
+ 955              	.LBE379:
+ 956              	.LBB380:
+ 957              	.LBI380:
+ 958              		.file 12 "../../libDaisy//src/per/qspi.h"
+   1:../../libDaisy//src/per/qspi.h **** #ifndef DSY_QSPI
+   2:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI /**< Macro */
+   3:../../libDaisy//src/per/qspi.h **** 
+   4:../../libDaisy//src/per/qspi.h **** #ifndef UNIT_TEST // for unit tests, a dummy implementation
+   5:../../libDaisy//src/per/qspi.h **** 
+   6:../../libDaisy//src/per/qspi.h **** #include <cstdint>
+   7:../../libDaisy//src/per/qspi.h **** #include "daisy_core.h" // Added for dsy_gpio_pin typedef
+   8:../../libDaisy//src/per/qspi.h **** 
+   9:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI_TEXT       \
+  10:../../libDaisy//src/per/qspi.h ****     __attribute__((section( \
+  11:../../libDaisy//src/per/qspi.h ****         ".qspiflash_text"))) /**< used for reading memory in memory_mapped mode. */
+  12:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI_DATA       \
+  13:../../libDaisy//src/per/qspi.h ****     __attribute__((section( \
+  14:../../libDaisy//src/per/qspi.h ****         ".qspiflash_data"))) /**< used for reading memory in memory_mapped mode. */
+  15:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI_BSS        \
+  16:../../libDaisy//src/per/qspi.h ****     __attribute__((section( \
+  17:../../libDaisy//src/per/qspi.h ****         ".qspiflash_bss"))) /**< used for reading memory in memory_mapped mode. */
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 36
+
+
+  18:../../libDaisy//src/per/qspi.h **** 
+  19:../../libDaisy//src/per/qspi.h **** namespace daisy
+  20:../../libDaisy//src/per/qspi.h **** {
+  21:../../libDaisy//src/per/qspi.h **** /** @addtogroup serial
+  22:../../libDaisy//src/per/qspi.h **** @{
+  23:../../libDaisy//src/per/qspi.h **** */
+  24:../../libDaisy//src/per/qspi.h **** 
+  25:../../libDaisy//src/per/qspi.h **** /** 
+  26:../../libDaisy//src/per/qspi.h ****  Driver for QSPI peripheral to interface with external flash memory. \n 
+  27:../../libDaisy//src/per/qspi.h ****     Currently supported QSPI Devices: \n 
+  28:../../libDaisy//src/per/qspi.h ****     * IS25LP080D
+  29:../../libDaisy//src/per/qspi.h **** */
+  30:../../libDaisy//src/per/qspi.h **** class QSPIHandle
+  31:../../libDaisy//src/per/qspi.h **** {
+  32:../../libDaisy//src/per/qspi.h ****   public:
+  33:../../libDaisy//src/per/qspi.h ****     enum Result
+  34:../../libDaisy//src/per/qspi.h ****     {
+  35:../../libDaisy//src/per/qspi.h ****         OK = 0,
+  36:../../libDaisy//src/per/qspi.h ****         ERR
+  37:../../libDaisy//src/per/qspi.h ****     };
+  38:../../libDaisy//src/per/qspi.h **** 
+  39:../../libDaisy//src/per/qspi.h ****     /** Indicates the current status of the module. 
+  40:../../libDaisy//src/per/qspi.h ****          *  Warnings are indicated by a leading W.
+  41:../../libDaisy//src/per/qspi.h ****          *  Errors are indicated by a leading E and cause an immediate exit.
+  42:../../libDaisy//src/per/qspi.h ****          * 
+  43:../../libDaisy//src/per/qspi.h ****          *  \param GOOD - No errors have been reported.
+  44:../../libDaisy//src/per/qspi.h ****          *  \param E_HAL_ERROR - HAL code did not return HAL_OK.
+  45:../../libDaisy//src/per/qspi.h ****          *  \param E_SWITCHING_MODES - An error was encountered while switching QSPI peripheral mod
+  46:../../libDaisy//src/per/qspi.h ****          *  \param E_INVALID_MODE - QSPI should not be written to while the program is executing fr
+  47:../../libDaisy//src/per/qspi.h ****          */
+  48:../../libDaisy//src/per/qspi.h ****     enum Status
+  49:../../libDaisy//src/per/qspi.h ****     {
+  50:../../libDaisy//src/per/qspi.h ****         GOOD = 0,
+  51:../../libDaisy//src/per/qspi.h ****         E_HAL_ERROR,
+  52:../../libDaisy//src/per/qspi.h ****         E_SWITCHING_MODES,
+  53:../../libDaisy//src/per/qspi.h ****         E_INVALID_MODE,
+  54:../../libDaisy//src/per/qspi.h ****     };
+  55:../../libDaisy//src/per/qspi.h **** 
+  56:../../libDaisy//src/per/qspi.h ****     /** Configuration structure for interfacing with QSPI Driver */
+  57:../../libDaisy//src/per/qspi.h ****     struct Config
+  58:../../libDaisy//src/per/qspi.h ****     {
+  59:../../libDaisy//src/per/qspi.h ****         /** Flash Devices supported. (Both of these are more-or-less the same, just different sizes
+  60:../../libDaisy//src/per/qspi.h ****         enum Device
+  61:../../libDaisy//src/per/qspi.h ****         {
+  62:../../libDaisy//src/per/qspi.h ****             IS25LP080D,  /**< & */
+  63:../../libDaisy//src/per/qspi.h ****             IS25LP064A,  /**< & */
+  64:../../libDaisy//src/per/qspi.h ****             DEVICE_LAST, /**< & */
+  65:../../libDaisy//src/per/qspi.h ****         };
+  66:../../libDaisy//src/per/qspi.h **** 
+  67:../../libDaisy//src/per/qspi.h ****         /** 
+  68:../../libDaisy//src/per/qspi.h ****         Modes of operation.
+  69:../../libDaisy//src/per/qspi.h ****         Memory Mapped mode: QSPI configured so that the QSPI can be
+  70:../../libDaisy//src/per/qspi.h ****         read from starting address 0x90000000. Writing is not
+  71:../../libDaisy//src/per/qspi.h ****         possible in this mode. \n 
+  72:../../libDaisy//src/per/qspi.h ****         Indirect Polling mode: Device driver enabled. 
+  73:../../libDaisy//src/per/qspi.h ****         */
+  74:../../libDaisy//src/per/qspi.h ****         enum Mode
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 37
+
+
+  75:../../libDaisy//src/per/qspi.h ****         {
+  76:../../libDaisy//src/per/qspi.h ****             MEMORY_MAPPED,    /**< & */
+  77:../../libDaisy//src/per/qspi.h ****             INDIRECT_POLLING, /**< & */
+  78:../../libDaisy//src/per/qspi.h ****             MODE_LAST,
+  79:../../libDaisy//src/per/qspi.h ****         };
+  80:../../libDaisy//src/per/qspi.h **** 
+  81:../../libDaisy//src/per/qspi.h ****         //SCK,  CE# (active low)
+  82:../../libDaisy//src/per/qspi.h ****         struct
+  83:../../libDaisy//src/per/qspi.h ****         {
+  84:../../libDaisy//src/per/qspi.h ****             dsy_gpio_pin io0; /**< & */
+  85:../../libDaisy//src/per/qspi.h ****             dsy_gpio_pin io1; /**< & */
+  86:../../libDaisy//src/per/qspi.h ****             dsy_gpio_pin io2; /**< & */
+  87:../../libDaisy//src/per/qspi.h ****             dsy_gpio_pin io3; /**< & */
+  88:../../libDaisy//src/per/qspi.h ****             dsy_gpio_pin clk; /**< & */
+  89:../../libDaisy//src/per/qspi.h ****             dsy_gpio_pin ncs; /**< & */
+  90:../../libDaisy//src/per/qspi.h ****         } pin_config;
+  91:../../libDaisy//src/per/qspi.h **** 
+  92:../../libDaisy//src/per/qspi.h ****         Device device;
+  93:../../libDaisy//src/per/qspi.h ****         Mode   mode;
+  94:../../libDaisy//src/per/qspi.h ****     };
+  95:../../libDaisy//src/per/qspi.h **** 
+  96:../../libDaisy//src/per/qspi.h ****     /** 
+  97:../../libDaisy//src/per/qspi.h ****         Initializes QSPI peripheral, and Resets, and prepares memory for access.
+  98:../../libDaisy//src/per/qspi.h ****         \param config should be populated with the mode, device and pin_config before calling this 
+  99:../../libDaisy//src/per/qspi.h ****         \return Result::OK or Result::ERR
+ 100:../../libDaisy//src/per/qspi.h ****         */
+ 101:../../libDaisy//src/per/qspi.h ****     Result Init(const Config& config);
+ 102:../../libDaisy//src/per/qspi.h **** 
+ 103:../../libDaisy//src/per/qspi.h ****     /** Returns the current config. */
+ 104:../../libDaisy//src/per/qspi.h ****     const Config& GetConfig() const;
+ 105:../../libDaisy//src/per/qspi.h **** 
+ 106:../../libDaisy//src/per/qspi.h ****     // Couldn't this just be called before anything else in init? That
+ 107:../../libDaisy//src/per/qspi.h ****     // would make manually calling it unnecessary.
+ 108:../../libDaisy//src/per/qspi.h ****     /** 
+ 109:../../libDaisy//src/per/qspi.h ****         Deinitializes the peripheral
+ 110:../../libDaisy//src/per/qspi.h ****         This should be called before reinitializing QSPI in a different mode.
+ 111:../../libDaisy//src/per/qspi.h ****         \return Result::OK or Result::ERR
+ 112:../../libDaisy//src/per/qspi.h ****         */
+ 113:../../libDaisy//src/per/qspi.h ****     Result DeInit();
+ 114:../../libDaisy//src/per/qspi.h **** 
+ 115:../../libDaisy//src/per/qspi.h ****     /** 
+ 116:../../libDaisy//src/per/qspi.h ****         Writes a single page to to the specified address on the QSPI chip.
+ 117:../../libDaisy//src/per/qspi.h ****         For IS25LP*, page size is 256 bytes.
+ 118:../../libDaisy//src/per/qspi.h ****         \param address Address to write to
+ 119:../../libDaisy//src/per/qspi.h ****         \param size Buffer size
+ 120:../../libDaisy//src/per/qspi.h ****         \param buffer Buffer to write
+ 121:../../libDaisy//src/per/qspi.h ****         \return Result::OK or Result::ERR
+ 122:../../libDaisy//src/per/qspi.h ****         */
+ 123:../../libDaisy//src/per/qspi.h ****     Result WritePage(uint32_t address, uint32_t size, uint8_t* buffer);
+ 124:../../libDaisy//src/per/qspi.h **** 
+ 125:../../libDaisy//src/per/qspi.h ****     /** 
+ 126:../../libDaisy//src/per/qspi.h ****         Writes data in buffer to to the QSPI. Starting at address to address+size 
+ 127:../../libDaisy//src/per/qspi.h ****         \param address Address to write to
+ 128:../../libDaisy//src/per/qspi.h ****         \param size Buffer size
+ 129:../../libDaisy//src/per/qspi.h ****         \param buffer Buffer to write
+ 130:../../libDaisy//src/per/qspi.h ****         \return Result::OK or Result::ERR
+ 131:../../libDaisy//src/per/qspi.h ****         */
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 38
+
+
+ 132:../../libDaisy//src/per/qspi.h ****     Result Write(uint32_t address, uint32_t size, uint8_t* buffer);
+ 133:../../libDaisy//src/per/qspi.h **** 
+ 134:../../libDaisy//src/per/qspi.h ****     /** 
+ 135:../../libDaisy//src/per/qspi.h ****         Erases the area specified on the chip.
+ 136:../../libDaisy//src/per/qspi.h ****         Erasures will happen by 4K, 32K or 64K increments.
+ 137:../../libDaisy//src/per/qspi.h ****         Smallest erase possible is 4kB at a time. (on IS25LP*)
+ 138:../../libDaisy//src/per/qspi.h ****         \param start_addr Address to begin erasing from
+ 139:../../libDaisy//src/per/qspi.h ****         \param end_addr  Address to stop erasing at
+ 140:../../libDaisy//src/per/qspi.h ****         \return Result::OK or Result::ERR
+ 141:../../libDaisy//src/per/qspi.h ****         */
+ 142:../../libDaisy//src/per/qspi.h ****     Result Erase(uint32_t start_addr, uint32_t end_addr);
+ 143:../../libDaisy//src/per/qspi.h **** 
+ 144:../../libDaisy//src/per/qspi.h ****     /**  
+ 145:../../libDaisy//src/per/qspi.h ****          Erases a single sector of the chip.  
+ 146:../../libDaisy//src/per/qspi.h ****         TODO: Document the size of this function. 
+ 147:../../libDaisy//src/per/qspi.h ****         \param address Address of sector to erase
+ 148:../../libDaisy//src/per/qspi.h ****         \return Result::OK or Result::ERR
+ 149:../../libDaisy//src/per/qspi.h ****         */
+ 150:../../libDaisy//src/per/qspi.h ****     Result EraseSector(uint32_t address);
+ 151:../../libDaisy//src/per/qspi.h **** 
+ 152:../../libDaisy//src/per/qspi.h ****     /** Returns the current class status. Useful for debugging.
+ 153:../../libDaisy//src/per/qspi.h ****      *  \returns Status
+ 154:../../libDaisy//src/per/qspi.h ****      */
+ 155:../../libDaisy//src/per/qspi.h ****     Status GetStatus();
+ 156:../../libDaisy//src/per/qspi.h **** 
+ 157:../../libDaisy//src/per/qspi.h ****     /** Returns a pointer to the actual memory used 
+ 158:../../libDaisy//src/per/qspi.h ****      *  The memory at this address is read-only
+ 159:../../libDaisy//src/per/qspi.h ****      *  to write to it use the Write function.
+ 160:../../libDaisy//src/per/qspi.h ****      * 
+ 161:../../libDaisy//src/per/qspi.h ****      *  \param offset returns the pointer starting this 
+ 162:../../libDaisy//src/per/qspi.h ****      *                many bytes into the memory
+ 163:../../libDaisy//src/per/qspi.h ****     */
+ 164:../../libDaisy//src/per/qspi.h ****     void* GetData(uint32_t offset = 0);
+ 165:../../libDaisy//src/per/qspi.h **** 
+ 166:../../libDaisy//src/per/qspi.h ****     QSPIHandle() : pimpl_(nullptr) {}
+ 959              		.loc 12 166 5 is_stmt 1 view .LVU232
+ 960              	.LBE380:
+ 961              	.LBE378:
+ 962              	.LBE377:
+ 963              	.LBE376:
+ 964              	.LBE375:
+ 965              		.loc 10 99 1 is_stmt 0 view .LVU233
+ 966 0000 08B5     		push	{r3, lr}
+ 967              		.cfi_def_cfa_offset 8
+ 968              		.cfi_offset 3, -8
+ 969              		.cfi_offset 14, -4
+ 970              	.LBB418:
+ 971              	.LBB414:
+ 972              	.LBB407:
+ 973              	.LBB403:
+ 974              	.LBB383:
+ 975              	.LBB381:
+ 976              	.LBB382:
+ 977              		.loc 12 166 34 view .LVU234
+ 978 0002 0D48     		ldr	r0, .L56
+ 979 0004 0023     		movs	r3, #0
+ 980              	.LBE382:
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 39
+
+
+ 981              	.LBE381:
+ 982              	.LBE383:
+ 983              	.LBE403:
+ 984              	.LBE407:
+  10:Proliferation.cpp **** Switch toggle;
+ 985              		.loc 10 10 14 view .LVU235
+ 986 0006 0D4A     		ldr	r2, .L56+4
+ 987              	.LBB408:
+ 988              	.LBB404:
+ 989              	.LBB384:
+ 990              	.LBB385:
+ 991              	.LBB386:
+ 992              	.LBB387:
+ 993              	.LBB388:
+ 994              		.file 13 "../../libDaisy//src/per/i2c.h"
+   1:../../libDaisy//src/per/i2c.h **** #pragma once
+   2:../../libDaisy//src/per/i2c.h **** #include "daisy_core.h"
+   3:../../libDaisy//src/per/i2c.h **** 
+   4:../../libDaisy//src/per/i2c.h **** namespace daisy
+   5:../../libDaisy//src/per/i2c.h **** {
+   6:../../libDaisy//src/per/i2c.h **** /** A handle for interacting with an I2C peripheral. This is a dumb
+   7:../../libDaisy//src/per/i2c.h ****  *  gateway that internally points to one of the four I2C peripherals
+   8:../../libDaisy//src/per/i2c.h ****  *  after it was initialised. It can then be copied and passed around.
+   9:../../libDaisy//src/per/i2c.h ****  *  Use an I2CHandle like this:
+  10:../../libDaisy//src/per/i2c.h ****  *  
+  11:../../libDaisy//src/per/i2c.h ****  *      // setup the configuration
+  12:../../libDaisy//src/per/i2c.h ****  *      I2CHandle::Config i2c_conf;
+  13:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.periph = I2CHandle::Config::Peripheral::I2C_1;
+  14:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.speed  = I2CHandle::Config::Speed::I2C_400KHZ;
+  15:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.mode   = I2CHandle::Config::Mode::Master;
+  16:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.pin_config.scl  = {DSY_GPIOB, 8};
+  17:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.pin_config.sda  = {DSY_GPIOB, 9};
+  18:../../libDaisy//src/per/i2c.h ****  *      // initialise the peripheral
+  19:../../libDaisy//src/per/i2c.h ****  *      I2CHandle i2c;
+  20:../../libDaisy//src/per/i2c.h ****  *      i2c.Init(i2c_conf);
+  21:../../libDaisy//src/per/i2c.h ****  *      // now i2c points to the corresponding peripheral and can be used.
+  22:../../libDaisy//src/per/i2c.h ****  *      i2c.TransmitBlocking( ... );
+  23:../../libDaisy//src/per/i2c.h ****  */
+  24:../../libDaisy//src/per/i2c.h **** class I2CHandle
+  25:../../libDaisy//src/per/i2c.h **** {
+  26:../../libDaisy//src/per/i2c.h ****   public:
+  27:../../libDaisy//src/per/i2c.h ****     /** Contains settings for initialising an I2C interface. */
+  28:../../libDaisy//src/per/i2c.h ****     struct Config
+  29:../../libDaisy//src/per/i2c.h ****     {
+  30:../../libDaisy//src/per/i2c.h ****         /** Specifies whether the interface will operate in master or slave mode. */
+  31:../../libDaisy//src/per/i2c.h ****         enum class Mode
+  32:../../libDaisy//src/per/i2c.h ****         {
+  33:../../libDaisy//src/per/i2c.h ****             I2C_MASTER,
+  34:../../libDaisy//src/per/i2c.h ****             I2C_SLAVE,
+  35:../../libDaisy//src/per/i2c.h ****         };
+  36:../../libDaisy//src/per/i2c.h **** 
+  37:../../libDaisy//src/per/i2c.h ****         /** Specifices the internal peripheral to use (these are mapped to different pins on the ha
+  38:../../libDaisy//src/per/i2c.h ****         enum class Peripheral
+  39:../../libDaisy//src/per/i2c.h ****         {
+  40:../../libDaisy//src/per/i2c.h ****             I2C_1 = 0, /**< & */
+  41:../../libDaisy//src/per/i2c.h ****             I2C_2,     /**< & */
+  42:../../libDaisy//src/per/i2c.h ****             I2C_3,     /**< & */
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 40
+
+
+  43:../../libDaisy//src/per/i2c.h ****             I2C_4,     /**< & */
+  44:../../libDaisy//src/per/i2c.h ****         };
+  45:../../libDaisy//src/per/i2c.h **** 
+  46:../../libDaisy//src/per/i2c.h ****         /** Rate at which the clock/data will be sent/received. The device being used will have max
+  47:../../libDaisy//src/per/i2c.h ****          *  1MHZ Mode is currently 886kHz
+  48:../../libDaisy//src/per/i2c.h ****          */
+  49:../../libDaisy//src/per/i2c.h ****         enum class Speed
+  50:../../libDaisy//src/per/i2c.h ****         {
+  51:../../libDaisy//src/per/i2c.h ****             I2C_100KHZ, /**< & */
+  52:../../libDaisy//src/per/i2c.h ****             I2C_400KHZ, /**< & */
+  53:../../libDaisy//src/per/i2c.h ****             I2C_1MHZ,   /**< & */
+  54:../../libDaisy//src/per/i2c.h ****         };
+  55:../../libDaisy//src/per/i2c.h **** 
+  56:../../libDaisy//src/per/i2c.h ****         Peripheral periph; /**< & */
+  57:../../libDaisy//src/per/i2c.h ****         struct
+  58:../../libDaisy//src/per/i2c.h ****         {
+  59:../../libDaisy//src/per/i2c.h ****             dsy_gpio_pin scl; /**< & */
+  60:../../libDaisy//src/per/i2c.h ****             dsy_gpio_pin sda; /**< & */
+  61:../../libDaisy//src/per/i2c.h ****         } pin_config;         /**< & */
+  62:../../libDaisy//src/per/i2c.h **** 
+  63:../../libDaisy//src/per/i2c.h ****         Speed speed; /**< & */
+  64:../../libDaisy//src/per/i2c.h ****         Mode  mode;  /**< & */
+  65:../../libDaisy//src/per/i2c.h ****         // 0x10 is chosen as a default to avoid conflicts with reserved addresses
+  66:../../libDaisy//src/per/i2c.h ****         uint8_t address = 0x10; /**< & */
+  67:../../libDaisy//src/per/i2c.h ****     };
+  68:../../libDaisy//src/per/i2c.h **** 
+  69:../../libDaisy//src/per/i2c.h ****     /** Return values for I2C functions. */
+  70:../../libDaisy//src/per/i2c.h ****     enum class Result
+  71:../../libDaisy//src/per/i2c.h ****     {
+  72:../../libDaisy//src/per/i2c.h ****         OK, /**< & */
+  73:../../libDaisy//src/per/i2c.h ****         ERR /**< & */
+  74:../../libDaisy//src/per/i2c.h ****     };
+  75:../../libDaisy//src/per/i2c.h **** 
+  76:../../libDaisy//src/per/i2c.h ****     enum class Direction
+  77:../../libDaisy//src/per/i2c.h ****     {
+  78:../../libDaisy//src/per/i2c.h ****         TRANSMIT, /**< & */
+  79:../../libDaisy//src/per/i2c.h ****         RECEIVE,  /**< & */
+  80:../../libDaisy//src/per/i2c.h ****     };
+  81:../../libDaisy//src/per/i2c.h **** 
+  82:../../libDaisy//src/per/i2c.h ****     I2CHandle() : pimpl_(nullptr) {}
+ 995              		.loc 13 82 33 view .LVU236
+ 996 0008 0362     		str	r3, [r0, #32]
+ 997              	.LBE388:
+ 998              	.LBE387:
+ 999              	.LBE386:
+ 1000              	.LBE385:
+ 1001              	.LBE384:
+ 1002              	.LBB391:
+ 1003              	.LBB392:
+ 1004              	.LBB393:
+ 1005              		.file 14 "../../libDaisy//src/per/dac.h"
+   1:../../libDaisy//src/per/dac.h **** #pragma once
+   2:../../libDaisy//src/per/dac.h **** #ifndef DSY_DAC_H
+   3:../../libDaisy//src/per/dac.h **** #define DSY_DAC_H
+   4:../../libDaisy//src/per/dac.h **** 
+   5:../../libDaisy//src/per/dac.h **** #include "daisy_core.h"
+   6:../../libDaisy//src/per/dac.h **** 
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 41
+
+
+   7:../../libDaisy//src/per/dac.h **** namespace daisy
+   8:../../libDaisy//src/per/dac.h **** {
+   9:../../libDaisy//src/per/dac.h **** /** @brief DAC handle for Built-in DAC Peripheral 
+  10:../../libDaisy//src/per/dac.h ****  *  @ingroup per_analog
+  11:../../libDaisy//src/per/dac.h ****  ** 
+  12:../../libDaisy//src/per/dac.h ****  ** For now only Normal Mode is supported,
+  13:../../libDaisy//src/per/dac.h ****  ** Sample and hold mode provides reduced power consumption, but requires a bit more setup.
+  14:../../libDaisy//src/per/dac.h ****  **
+  15:../../libDaisy//src/per/dac.h ****  ** For now connecting the DAC through other internal peripherals is also not supported.
+  16:../../libDaisy//src/per/dac.h ****  **
+  17:../../libDaisy//src/per/dac.h ****  ** Since the DAC channels have dedicated pins we don't need to pass in a pin config like with
+  18:../../libDaisy//src/per/dac.h ****  ** other modules. However, it is still important to not try to use the DAC pins for anything else.
+  19:../../libDaisy//src/per/dac.h ****  ** DAC Channel 1 is on PA4, and DAC Channel 2 is on PA5
+  20:../../libDaisy//src/per/dac.h ****  ***/
+  21:../../libDaisy//src/per/dac.h **** class DacHandle
+  22:../../libDaisy//src/per/dac.h **** {
+  23:../../libDaisy//src/per/dac.h ****   public:
+  24:../../libDaisy//src/per/dac.h ****     /** Return Values for the DacHandle class */
+  25:../../libDaisy//src/per/dac.h ****     enum class Result
+  26:../../libDaisy//src/per/dac.h ****     {
+  27:../../libDaisy//src/per/dac.h ****         OK,
+  28:../../libDaisy//src/per/dac.h ****         ERR,
+  29:../../libDaisy//src/per/dac.h ****     };
+  30:../../libDaisy//src/per/dac.h **** 
+  31:../../libDaisy//src/per/dac.h ****     /** Selects which channel(s) will be configured for use. */
+  32:../../libDaisy//src/per/dac.h ****     enum class Channel
+  33:../../libDaisy//src/per/dac.h ****     {
+  34:../../libDaisy//src/per/dac.h ****         ONE,
+  35:../../libDaisy//src/per/dac.h ****         TWO,
+  36:../../libDaisy//src/per/dac.h ****         BOTH,
+  37:../../libDaisy//src/per/dac.h ****     };
+  38:../../libDaisy//src/per/dac.h **** 
+  39:../../libDaisy//src/per/dac.h ****     /** Sets the Mode for the DAC channels.
+  40:../../libDaisy//src/per/dac.h ****      **
+  41:../../libDaisy//src/per/dac.h ****      ** Polling mode uses the blocking mode to transmit a single value at a time.
+  42:../../libDaisy//src/per/dac.h ****      **
+  43:../../libDaisy//src/per/dac.h ****      ** DMA mode uses a buffer, and periodically transmits it triggering a 
+  44:../../libDaisy//src/per/dac.h ****      ** callback to fill the buffer when it is ready for more samples.
+  45:../../libDaisy//src/per/dac.h ****      ***/
+  46:../../libDaisy//src/per/dac.h ****     enum class Mode
+  47:../../libDaisy//src/per/dac.h ****     {
+  48:../../libDaisy//src/per/dac.h ****         POLLING,
+  49:../../libDaisy//src/per/dac.h ****         DMA,
+  50:../../libDaisy//src/per/dac.h ****     };
+  51:../../libDaisy//src/per/dac.h **** 
+  52:../../libDaisy//src/per/dac.h ****     /** Sets the number of bits per sample transmitted out of the DAC.
+  53:../../libDaisy//src/per/dac.h ****      ** The output range will be: 0V - VDDA
+  54:../../libDaisy//src/per/dac.h ****      ** The resolution will be roughly: bitdepth / (VDDA - 0V) 
+  55:../../libDaisy//src/per/dac.h ****      ***/
+  56:../../libDaisy//src/per/dac.h ****     enum class BitDepth
+  57:../../libDaisy//src/per/dac.h ****     {
+  58:../../libDaisy//src/per/dac.h ****         BITS_8,
+  59:../../libDaisy//src/per/dac.h ****         BITS_12
+  60:../../libDaisy//src/per/dac.h ****     };
+  61:../../libDaisy//src/per/dac.h **** 
+  62:../../libDaisy//src/per/dac.h ****     /** Sets whether the DAC output is buffered for higher drive ability. */
+  63:../../libDaisy//src/per/dac.h ****     enum class BufferState
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 42
+
+
+  64:../../libDaisy//src/per/dac.h ****     {
+  65:../../libDaisy//src/per/dac.h ****         ENABLED,
+  66:../../libDaisy//src/per/dac.h ****         DISABLED,
+  67:../../libDaisy//src/per/dac.h ****     };
+  68:../../libDaisy//src/per/dac.h **** 
+  69:../../libDaisy//src/per/dac.h ****     /** Configuration structure for initializing the DAC structure. */
+  70:../../libDaisy//src/per/dac.h ****     struct Config
+  71:../../libDaisy//src/per/dac.h ****     {
+  72:../../libDaisy//src/per/dac.h ****         /** Target Samplerate in Hz used to configure the internal 
+  73:../../libDaisy//src/per/dac.h ****          ** timebase for DMA mode. Does nothing in POLLING mode.
+  74:../../libDaisy//src/per/dac.h ****          ** If the value is 0 at Init time this will default to 48000Hz 
+  75:../../libDaisy//src/per/dac.h ****          ** otherwise the driver will attempt meet the target.*/
+  76:../../libDaisy//src/per/dac.h ****         uint32_t target_samplerate;
+  77:../../libDaisy//src/per/dac.h **** 
+  78:../../libDaisy//src/per/dac.h ****         Channel     chn;
+  79:../../libDaisy//src/per/dac.h ****         Mode        mode;
+  80:../../libDaisy//src/per/dac.h ****         BitDepth    bitdepth;
+  81:../../libDaisy//src/per/dac.h ****         BufferState buff_state;
+  82:../../libDaisy//src/per/dac.h ****     };
+  83:../../libDaisy//src/per/dac.h **** 
+  84:../../libDaisy//src/per/dac.h ****     DacHandle() : pimpl_(nullptr) {}
+ 1006              		.loc 14 84 33 view .LVU237
+ 1007 000a 8362     		str	r3, [r0, #40]
+ 1008              	.LBE393:
+ 1009              	.LBE392:
+ 1010              	.LBE391:
+ 1011              	.LBE404:
+ 1012              	.LBE408:
+  10:Proliferation.cpp **** Switch toggle;
+ 1013              		.loc 10 10 14 view .LVU238
+ 1014 000c 0C49     		ldr	r1, .L56+8
+ 1015              	.LBB409:
+ 1016              	.LBB405:
+ 1017              	.LBB394:
+ 1018              	.LBB395:
+ 1019              	.LBB396:
+  95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
+ 1020              		.loc 7 95 35 view .LVU239
+ 1021 000e C0E90333 		strd	r3, r3, [r0, #12]
+ 1022              	.LVL53:
+  95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
+ 1023              		.loc 7 95 35 view .LVU240
+ 1024              	.LBE396:
+ 1025              	.LBE395:
+ 1026              	.LBE394:
+ 1027              	.LBB397:
+ 1028              	.LBI397:
+  92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
+ 1029              		.loc 6 92 5 is_stmt 1 view .LVU241
+  92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
+ 1030              		.loc 6 92 5 is_stmt 0 view .LVU242
+ 1031              	.LBE397:
+ 1032              	.LBB398:
+ 1033              	.LBI398:
+  40:../../libDaisy//src/hid/usb.h **** 
+ 1034              		.loc 5 40 5 is_stmt 1 view .LVU243
+  40:../../libDaisy//src/hid/usb.h **** 
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 43
+
+
+ 1035              		.loc 5 40 5 is_stmt 0 view .LVU244
+ 1036              	.LBE398:
+ 1037              	.LBB399:
+ 1038              	.LBI384:
+  28:../../libDaisy//src/dev/codec_pcm3060.h ****     ~Pcm3060() {}
+ 1039              		.loc 4 28 5 is_stmt 1 view .LVU245
+ 1040              	.LBB390:
+ 1041              	.LBB389:
+ 1042              	.LBI386:
+ 1043              		.loc 13 82 5 view .LVU246
+ 1044              		.loc 13 82 5 is_stmt 0 view .LVU247
+ 1045              	.LBE389:
+ 1046              	.LBE390:
+ 1047              	.LBE399:
+ 1048              	.LBB400:
+ 1049              	.LBI391:
+ 1050              		.loc 14 84 5 is_stmt 1 view .LVU248
+ 1051              		.loc 14 84 5 is_stmt 0 view .LVU249
+ 1052              	.LBE400:
+ 1053              	.LBE405:
+ 1054              	.LBE409:
+ 1055              	.LBE414:
+ 1056              	.LBE418:
+  64:../../libDaisy//src/daisy_patch_sm.h ****         ~DaisyPatchSM() {}
+ 1057              		.loc 2 64 24 is_stmt 1 view .LVU250
+ 1058              	.LBB419:
+ 1059              	.LBB415:
+ 1060              	.LBB410:
+ 1061              	.LBB406:
+ 1062              	.LBB401:
+ 1063              	.LBI401:
+  20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
+ 1064              		.loc 3 20 5 view .LVU251
+  20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
+ 1065              		.loc 3 20 5 is_stmt 0 view .LVU252
+ 1066              	.LBE401:
+ 1067              	.LBB402:
+ 1068              	.LBI402:
+  20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
+ 1069              		.loc 3 20 5 is_stmt 1 view .LVU253
+  20:../../libDaisy//src/hid/gatein.h ****     /** GateIn~
+ 1070              		.loc 3 20 5 is_stmt 0 view .LVU254
+ 1071              	.LBE402:
+ 1072              	.LBE406:
+ 1073              	.LBE410:
+  10:Proliferation.cpp **** Switch toggle;
+ 1074              		.loc 10 10 14 view .LVU255
+ 1075 0012 FFF7FEFF 		bl	__aeabi_atexit
+ 1076              	.LVL54:
+ 1077              	.LBB411:
+ 1078              	.LBI411:
+  41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
+ 1079              		.loc 1 41 5 is_stmt 1 view .LVU256
+  41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
+ 1080              		.loc 1 41 5 is_stmt 0 view .LVU257
+ 1081              	.LBE411:
+  11:Proliferation.cpp **** Switch button;
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 44
+
+
+ 1082              		.loc 10 11 8 view .LVU258
+ 1083 0016 0B49     		ldr	r1, .L56+12
+ 1084 0018 084A     		ldr	r2, .L56+4
+ 1085 001a 0B48     		ldr	r0, .L56+16
+ 1086 001c FFF7FEFF 		bl	__aeabi_atexit
+ 1087              	.LVL55:
+ 1088              	.LBB412:
+ 1089              	.LBI412:
+  41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
+ 1090              		.loc 1 41 5 is_stmt 1 view .LVU259
+  41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
+ 1091              		.loc 1 41 5 is_stmt 0 view .LVU260
+ 1092              	.LBE412:
+  12:Proliferation.cpp **** 
+ 1093              		.loc 10 12 8 view .LVU261
+ 1094 0020 064A     		ldr	r2, .L56+4
+ 1095 0022 0849     		ldr	r1, .L56+12
+ 1096 0024 0948     		ldr	r0, .L56+20
+ 1097 0026 FFF7FEFF 		bl	__aeabi_atexit
+ 1098              	.LVL56:
+ 1099              	.LBB413:
+ 1100              	.LBI413:
+  94:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****     {
+ 1101              		.loc 9 94 12 is_stmt 1 view .LVU262
+ 1102              	.LBE413:
+ 1103              	.LBE415:
+ 1104              	.LBE419:
+  94:c:\programdata\chocolatey\lib\gcc-arm-embedded\tools\gcc-arm-none-eabi-10-2020-q4-major\arm-none-eabi\include\c++\10.2.1\array ****     {
+ 1105              		.loc 9 94 12 view .LVU263
+ 1106              	.LBB420:
+ 1107              	.LBB416:
+  17:Proliferation.cpp **** 
+ 1108              		.loc 10 17 66 is_stmt 0 view .LVU264
+ 1109 002a 044A     		ldr	r2, .L56+4
+ 1110 002c 0849     		ldr	r1, .L56+24
+ 1111 002e 0948     		ldr	r0, .L56+28
+ 1112              	.LBE416:
+ 1113              	.LBE420:
+ 1114              		.loc 10 99 1 view .LVU265
+ 1115 0030 BDE80840 		pop	{r3, lr}
+ 1116              		.cfi_restore 14
+ 1117              		.cfi_restore 3
+ 1118              		.cfi_def_cfa_offset 0
+ 1119              	.LBB421:
+ 1120              	.LBB417:
+  17:Proliferation.cpp **** 
+ 1121              		.loc 10 17 66 view .LVU266
+ 1122 0034 FFF7FEBF 		b	__aeabi_atexit
+ 1123              	.LVL57:
+ 1124              	.L57:
+ 1125              		.align	2
+ 1126              	.L56:
+ 1127 0038 00000000 		.word	.LANCHOR0
+ 1128 003c 00000000 		.word	__dso_handle
+ 1129 0040 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSMD1Ev
+ 1130 0044 00000000 		.word	_ZN5daisy6SwitchD1Ev
+ 1131 0048 00000000 		.word	.LANCHOR2
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 45
+
+
+ 1132 004c 00000000 		.word	.LANCHOR1
+ 1133 0050 00000000 		.word	_ZNSt5arrayI12SampleBufferILj240000EELj8EED1Ev
+ 1134 0054 00000000 		.word	buffers
+ 1135              	.LBE417:
+ 1136              	.LBE421:
+ 1137              		.cfi_endproc
+ 1138              	.LFE5426:
+ 1140              		.section	.init_array,"aw",%init_array
+ 1141              		.align	2
+ 1142 0000 00000000 		.word	_GLOBAL__sub_I_hw(target1)
+ 1143              		.global	buffers
+ 1144              		.global	button
+ 1145              		.global	toggle
+ 1146              		.global	hw
+ 1147              		.section	.bss.button,"aw",%nobits
+ 1148              		.align	2
+ 1149              		.set	.LANCHOR1,. + 0
+ 1152              	button:
+ 1153 0000 00000000 		.space	16
+ 1153      00000000 
+ 1153      00000000 
+ 1153      00000000 
+ 1154              		.section	.bss.hw,"aw",%nobits
+ 1155              		.align	2
+ 1156              		.set	.LANCHOR0,. + 0
+ 1159              	hw:
+ 1160 0000 00000000 		.space	464
+ 1160      00000000 
+ 1160      00000000 
+ 1160      00000000 
+ 1160      00000000 
+ 1161              		.section	.bss.toggle,"aw",%nobits
+ 1162              		.align	2
+ 1163              		.set	.LANCHOR2,. + 0
+ 1166              	toggle:
+ 1167 0000 00000000 		.space	16
+ 1167      00000000 
+ 1167      00000000 
+ 1167      00000000 
+ 1168              		.section	.sdram_bss,"aw"
+ 1169              		.align	2
+ 1172              	buffers:
+ 1173 0000 00000000 		.space	7680096
+ 1173      00000000 
+ 1173      00000000 
+ 1173      00000000 
+ 1173      00000000 
+ 1174              		.text
+ 1175              	.Letext0:
+ 1176              		.file 15 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1177              		.file 16 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1178              		.file 17 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1179              		.file 18 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1180              		.file 19 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1181              		.file 20 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1182              		.file 21 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1183              		.file 22 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 46
+
+
+ 1184              		.file 23 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1185              		.file 24 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1186              		.file 25 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1187              		.file 26 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1188              		.file 27 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1189              		.file 28 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1190              		.file 29 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1191              		.file 30 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1192              		.file 31 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1193              		.file 32 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1194              		.file 33 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1195              		.file 34 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1196              		.file 35 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1197              		.file 36 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1198              		.file 37 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1199              		.file 38 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1200              		.file 39 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1201              		.file 40 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1202              		.file 41 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1203              		.file 42 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1204              		.file 43 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1205              		.file 44 "../../libDaisy//src/daisy_core.h"
+ 1206              		.file 45 "../../libDaisy//src/per/tim.h"
+ 1207              		.file 46 "../../libDaisy//src/per/sai.h"
+ 1208              		.file 47 "../../libDaisy//src/hid/ctrl.h"
+ 1209              		.file 48 "../../libDaisy//src/util/wav_format.h"
+ 1210              		.file 49 "../../libDaisy//src/dev/max11300.h"
+ 1211              		.file 50 "../../libDaisy//src/per/gpio.h"
+ 1212              		.file 51 "../../libDaisy//src/dev/sdram.h"
+ 1213              		.file 52 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1214              		.file 53 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1215              		.file 54 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1216              		.file 55 "../../DaisySP//Source/Control/adenv.h"
+ 1217              		.file 56 "../../DaisySP//Source/Utility/dsp.h"
+ 1218              		.file 57 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1219              		.file 58 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-
+ 1220              		.file 59 "<built-in>"
+ 1221              		.file 60 "../../libDaisy//src/dev/sr_595.h"
+ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s 			page 47
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Proliferation.cpp
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:17     .text._ZN5daisy6SwitchD2Ev:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:26     .text._ZN5daisy6SwitchD2Ev:00000000 _ZN5daisy6SwitchD2Ev
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:26     .text._ZN5daisy6SwitchD2Ev:00000000 _ZN5daisy6SwitchD1Ev
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:43     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:51     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:00000000 _ZN5daisy8patch_sm12DaisyPatchSMD2Ev
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:51     .text._ZN5daisy8patch_sm12DaisyPatchSMD2Ev:00000000 _ZN5daisy8patch_sm12DaisyPatchSMD1Ev
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:109    .text._ZNSt5arrayI12SampleBufferILj240000EELj8EED2Ev:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:117    .text._ZNSt5arrayI12SampleBufferILj240000EELj8EED2Ev:00000000 _ZNSt5arrayI12SampleBufferILj240000EELj8EED2Ev
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:117    .text._ZNSt5arrayI12SampleBufferILj240000EELj8EED2Ev:00000000 _ZNSt5arrayI12SampleBufferILj240000EELj8EED1Ev
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:134    .text._Z10getSamplesv:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:142    .text._Z10getSamplesv:00000000 _Z10getSamplesv
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:429    .text._Z10getSamplesv:000000b4 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1172   .sdram_bss:00000000 buffers
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:440    .text._Z13AudioCallbackPKPKfPPfj:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:448    .text._Z13AudioCallbackPKPKfPPfj:00000000 _Z13AudioCallbackPKPKfPPfj
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:744    .text._Z13AudioCallbackPKPKfPPfj:000000e8 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:752    .text._Z12InitSamplersv:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:760    .text._Z12InitSamplersv:00000000 _Z12InitSamplersv
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:835    .text._Z12InitSamplersv:00000030 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:842    .text.startup.main:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:850    .text.startup.main:00000000 main
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:918    .text.startup.main:00000050 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:929    .text.startup._GLOBAL__sub_I_hw:00000000 $t
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:936    .text.startup._GLOBAL__sub_I_hw:00000000 _GLOBAL__sub_I_hw
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1127   .text.startup._GLOBAL__sub_I_hw:00000038 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1141   .init_array:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1152   .bss.button:00000000 button
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1166   .bss.toggle:00000000 toggle
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1159   .bss.hw:00000000 hw
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1148   .bss.button:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1155   .bss.hw:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1162   .bss.toggle:00000000 $d
+C:\Users\daniel\AppData\Local\Temp\ccc8Vnt3.s:1169   .sdram_bss:00000000 $d
+                           .group:00000000 _ZN5daisy6SwitchD5Ev
+                           .group:00000000 _ZN5daisy8patch_sm12DaisyPatchSMD5Ev
+                           .group:00000000 _ZNSt5arrayI12SampleBufferILj240000EELj8EED5Ev
+
+UNDEFINED SYMBOLS
+_ZN5daisy8patch_sm12DaisyPatchSM21ProcessAnalogControlsEv
+_ZN5daisy8patch_sm12DaisyPatchSM22ProcessDigitalControlsEv
+_ZN5daisy6Switch8DebounceEv
+rand
+_ZN5daisy6GateIn4TrigEv
+memset
+_ZN5daisy8patch_sm12DaisyPatchSM4InitEv
+_ZN5daisy6Switch4InitE12dsy_gpio_pinf
+_ZN5daisy8patch_sm12DaisyPatchSM17SetAudioBlockSizeEj
+_ZN5daisy8patch_sm12DaisyPatchSM18SetAudioSampleRateENS_9SaiHandle6Config10SampleRateE
+_ZN5daisy8patch_sm12DaisyPatchSM10StartAudioEPFvPKPKfPPfjE
+_ZN5daisy8patch_sm12DaisyPatchSM2B8E
+_ZN5daisy8patch_sm12DaisyPatchSM2B7E
+__aeabi_atexit
+__dso_handle

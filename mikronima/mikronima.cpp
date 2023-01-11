@@ -20,9 +20,9 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
     float midi_nn = fclamp(coarse + voct, 0.f, 127.f);
     float freq    = mtof(midi_nn);
 
-	// set dampening and sustain (testing)
+	// set dampening and brightness (testing)
 	float damp = fmap(hw.GetAdcValue(CV_2), 0.0f, .99f);
-	float sustain = fmap(hw.GetAdcValue(CV_3), 0.0f, .99f);
+	float brightness = fmap(hw.GetAdcValue(CV_3), 0.0f, .99f);
 
 
 	hw.ProcessAllControls();
@@ -33,7 +33,7 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
         {
             str.SetFreq(freq);
 			str.SetDamping(damp);
-            str.SetSustain(sustain);
+            str.SetBrightness(brightness);
         }
 
 		float sig = hw.GetAdcValue(CV_6);

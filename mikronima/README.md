@@ -16,6 +16,6 @@ Knob 3:         Sustain level
 
 CV In 1:        V/Oct (please note, this could probably use some "fine tuning")
 
-CV In 2:        Set Structure and Brightness level (currently tied to same CV)
+CV In 2:        Set Structure and Brightness level (Currently the two are tied to the same CV)
 
 Accent of note is currently hard set to 1.f - May be changed in the future
