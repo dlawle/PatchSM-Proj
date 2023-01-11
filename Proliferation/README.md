@@ -2,8 +2,8 @@
 
 ## Author
 
-<!-- Insert Your Name Here -->
+Daniel Lawler 
 
 ## Description
 
-<!-- Describe your example here -->
+This is built around the samplebuffer.h provided in the Dasiy Field examples.

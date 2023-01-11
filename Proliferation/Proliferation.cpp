@@ -27,18 +27,11 @@ void getSamples(){
 
     for(size_t i = 0; i < buffers.size(); i++)
     {
-        if(hw.gate_in_2.Trig()){
+        if(hw.gate_in_1.Trig()){
             buffers[i].Play();
         }
-        if(hw.gate_in_1.Trig()) {
+        if(hw.gate_in_2.Trig()) {
             buffers[randSamp].Play();
-        }
-
-        // clear buffers - this probably needs placed somewhere else, but will need testing. 
-        if(button.TimeHeldMs() >= 1000.f)
-        {
-            buffers[i].Clear();
-            buffers[i].Clear();
         }
     }
     
@@ -144,13 +137,10 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
             float sendr = sample * send_level;
             float wetl, wetr;
             rev.Process(sendl, sendr, &wetl, &wetr);
-            // testing moving reverb out to sum of all playbacks
-            //OUT_L[i] = dryl + wetl;
-            //OUT_R[i] = dryr + wetr;
 
             // Sum all playback channels
             OUT_L[i] += sample + dryl + wetl;
-            OUT_R[i] += sample + dryl + wetl;
+            OUT_R[i] += sample + dryr + wetr;
         }
         // Feed stereo input through to output
         OUT_L[i] += IN_L[i];
@@ -170,14 +160,14 @@ int main(void)
 {
 	hw.Init();
 
-	toggle.Init(hw.B8);
-	button.Init(hw.B7);
-	InitSamplers();
+    toggle.Init(hw.B8);
+    button.Init(hw.B7);
+    InitSamplers();
     rev.Init(hw.AudioSampleRate());
 
-	hw.SetAudioBlockSize(4); // number of samples handled per callback
-	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
-	hw.StartAudio(AudioCallback);
+    hw.SetAudioBlockSize(4); // number of samples handled per callback
+    hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
+    hw.StartAudio(AudioCallback);
 
 	while(1) {
 	}
