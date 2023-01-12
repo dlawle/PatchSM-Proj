@@ -10,8 +10,8 @@ using namespace daisysp;
 DaisyPatchSM    hw;
 Switch          toggle;
 Switch          button;
-ReverbSc        rev; 
 
+//sample setup 
 #define NUM_BUFFERS 8
 // 5 second sample buffers at 48kHz
 #define BUFFER_SIZE (48000 * 5)
@@ -22,7 +22,7 @@ void getSamples(){
 	hw.ProcessAllControls();
 	button.Debounce();
     toggle.Debounce(); 
-
+    
 	int randSamp = rand() % NUM_BUFFERS;
 
     for(size_t i = 0; i < buffers.size(); i++)
@@ -35,7 +35,6 @@ void getSamples(){
         }
     }
     
-    // testing switch case statement
     switch(s) {
         case 0:
             if(button.RisingEdge() && !buffers[0].IsRecording()) {
@@ -106,20 +105,8 @@ void getSamples(){
 }
 
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
-{
+{   
 	getSamples();
-
-    // get and set reverb values  
-    float time_knob = hw.GetAdcValue(CV_1);
-    float time      = fmap(time_knob, 0.3f, 0.99f);
-
-    float damp_knob = hw.GetAdcValue(CV_2);
-    float damp      = fmap(damp_knob, 1000.f, 19000.f, Mapping::LOG);
-
-    float send_level = hw.GetAdcValue(CV_3);
-
-    rev.SetFeedback(time);
-    rev.SetLpFreq(damp);
 
 	for (size_t i = 0; i < size; i++)
 	{
@@ -131,16 +118,8 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
             // Record in mono
             float sample = buffer.Process((0.5 * IN_L[i] + 0.5 * IN_R[i]));
 
-            float dryl  = sample;
-            float dryr  = sample;
-            float sendl = sample * send_level;
-            float sendr = sample * send_level;
-            float wetl, wetr;
-            rev.Process(sendl, sendr, &wetl, &wetr);
-
-            // Sum all playback channels
-            OUT_L[i] += sample + dryl + wetl;
-            OUT_R[i] += sample + dryr + wetr;
+            OUT_L[i] += sample;
+            OUT_R[i] += sample;
         }
         // Feed stereo input through to output
         OUT_L[i] += IN_L[i];
@@ -163,7 +142,6 @@ int main(void)
     toggle.Init(hw.B8);
     button.Init(hw.B7);
     InitSamplers();
-    rev.Init(hw.AudioSampleRate());
 
     hw.SetAudioBlockSize(4); // number of samples handled per callback
     hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
