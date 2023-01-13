@@ -119,15 +119,12 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
     float damp          = fmap(damp_knob, 1000.f, 19000.f, Mapping::LOG);
 
     float send_level     = hw.GetAdcValue(CV_4);
-
-    float fq_knob       = hw.GetAdcValue(CV_5);
-    float frequency     = fmap(fq_knob,  20.f, 20000.f, Mapping::LOG);
     
     // moving param sets to inside the buffers - may need to move this? also order? Should probably take in the filter before reverb? 
     rv.SetFeedback(time);
     rv.SetLpFreq(damp);
 
-    svf.SetFreq(frequency);
+    svf.SetFreq(24000);
     svf.SetRes(0.5);
     svf.SetDrive(0.8);
 
