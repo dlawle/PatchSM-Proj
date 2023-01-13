@@ -48,25 +48,10 @@ class SampleBuffer
         read_ptr_ = 0;
     }
 
-    // testing reverse play 
-    void PlayBackward(bool start = true)
-    {
-        playing_  = start;
-        read_ptr_back_ = kBufferSize;
-    }
-
-
     float Process(const float sample)
     {
         Write(sample);
         return Read();
-    }
-
-    // testing reverse play
-    float ProcessBack(const float sample)
-    {
-        Write(sample);
-        return ReadBack();
     }
 
     void Write(const float sample)
@@ -102,33 +87,12 @@ class SampleBuffer
         }
     }
 
-    // testing reverse play 
-    float ReadBack()
-    {
-        if(playing_)
-        {
-            float outback = buffer_[read_ptr_back_];
-            read_ptr_back_--;
-            if(read_ptr_back_ <= 0)
-            {
-                playing_  = false;
-                read_ptr_back_ = kBufferSize;
-            }
-            return outback;
-        }
-        else
-        {
-            return 0.f;
-        }
-    }
-
     bool IsPlaying() const { return playing_; }
     bool IsRecording() const { return recording_; }
 
   private:
     size_t write_ptr_;
     size_t read_ptr_;
-    size_t read_ptr_back_;
     bool   playing_;
     bool   recording_;
     float  buffer_[kBufferSize];

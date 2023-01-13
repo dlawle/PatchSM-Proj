@@ -1,6 +1,7 @@
 #include "daisy_patch_sm.h"
 #include "daisysp.h"
-#include "samplebuffer.h"
+//#include "samplebuffer.h"
+#include "reffubelpmas.h"
 #include <array>
 
 using namespace daisy;
@@ -11,19 +12,28 @@ DaisyPatchSM    hw;
 Switch          toggle;
 Switch          button;
 ReverbSc        rv;
-Svf             svf;
 
 //sample setup 
 #define NUM_BUFFERS 8
-// 5 second sample buffers at 48kHz
-#define BUFFER_SIZE (48000 * 5)
+// 1 second sample buffers at 48kHz
+#define BUFFER_SIZE (48000 * 1)
 std::array<SampleBuffer<BUFFER_SIZE>, NUM_BUFFERS> DSY_SDRAM_BSS buffers;
 int s = 0;
 
 void getSamples(){
-	hw.ProcessAllControls();
+    hw.ProcessAllControls();
+
 	button.Debounce();
     toggle.Debounce(); 
+
+    float time_knob = hw.GetAdcValue(CV_1);
+    float time      = fmap(time_knob, 0.3f, 0.99f);
+
+    float damp_knob = hw.GetAdcValue(CV_2);
+    float damp      = fmap(damp_knob, 1000.f, 19000.f, Mapping::LOG);
+
+    rv.SetFeedback(time);
+    rv.SetLpFreq(damp);
     
     // randomizer
 	int randSamp = rand() % NUM_BUFFERS;
@@ -37,7 +47,6 @@ void getSamples(){
             buffers[randSamp].Play();
         }
     }
-    
     switch(s) {
         case 0:
             if(button.RisingEdge() && !buffers[0].IsRecording()) {
@@ -109,24 +118,8 @@ void getSamples(){
 
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {   
+    float wet;
 	getSamples();
-
-    /** Update Params with the four knobs */
-    float time_knob     = hw.GetAdcValue(CV_1);
-    float time          = fmap(time_knob, 0.3f, 0.99f);
-
-    float damp_knob     = hw.GetAdcValue(CV_2);
-    float damp          = fmap(damp_knob, 1000.f, 19000.f, Mapping::LOG);
-
-    float send_level     = hw.GetAdcValue(CV_4);
-    
-    // moving param sets to inside the buffers - may need to move this? also order? Should probably take in the filter before reverb? 
-    rv.SetFeedback(time);
-    rv.SetLpFreq(damp);
-
-    svf.SetFreq(24000);
-    svf.SetRes(0.5);
-    svf.SetDrive(0.8);
 
 	for (size_t i = 0; i < size; i++)
 	{
@@ -138,19 +131,14 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
             // Record in mono
             float sample = buffer.Process((0.5 * IN_L[i] + 0.5 * IN_R[i]));
 
-            float send =  sample * send_level;
-
-            svf.Process(sample);
-
-            float wet;
-
-            rv.Process(send, send, &wet, &wet);
-            OUT_L[i] += svf.Low() + wet;
-            OUT_R[i] += svf.Notch() + wet;
+            OUT_L[i] += sample;
+            OUT_R[i] += sample;
         }
-        // Feed stereo input through to output
-        OUT_L[i] += IN_L[i];
-        OUT_R[i] += IN_R[i];
+
+        // Feed stereo input through to output, as well as process reverb POST buffers
+        rv.Process(OUT_L[i],  OUT_R[i], &wet, &wet);
+        OUT_L[i] += IN_L[i] + wet;
+        OUT_R[i] += IN_R[i] + wet;
 	}
 }
 
@@ -161,17 +149,14 @@ void InitSamplers(){
     }
 }
 
-
 int main(void)
 {
 	hw.Init();
-    float SR = hw.AudioSampleRate();
 
     toggle.Init(hw.B8);
     button.Init(hw.B7);
     InitSamplers();
-    rv.Init(SR);
-    svf.Init(SR);
+    rv.Init(hw.AudioSampleRate());
 
     hw.SetAudioBlockSize(4); // number of samples handled per callback
     hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);

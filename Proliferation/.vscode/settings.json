@@ -6,6 +6,18 @@
         "fstream": "cpp",
         "iosfwd": "cpp",
         "memory_resource": "cpp",
-        "streambuf": "cpp"
+        "streambuf": "cpp",
+        "string": "cpp",
+        "cmath": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "ranges": "cpp",
+        "regex": "cpp"
     }
 }

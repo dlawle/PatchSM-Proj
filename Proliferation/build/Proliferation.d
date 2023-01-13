@@ -213,7 +213,7 @@ build/Proliferation.o: Proliferation.cpp \
  ../../DaisySP//Source/Utility/metro.h \
  ../../DaisySP//Source/Utility/port.h \
  ../../DaisySP//Source/Utility/samplehold.h \
- ../../DaisySP//Source/Utility/smooth_random.h samplebuffer.h
+ ../../DaisySP//Source/Utility/smooth_random.h reffubelpmas.h
 ../../libDaisy//Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
 ../../libDaisy//Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h750xx.h:
 ../../libDaisy//Drivers/CMSIS/Include/core_cm7.h:
@@ -460,4 +460,4 @@ build/Proliferation.o: Proliferation.cpp \
 ../../DaisySP//Source/Utility/port.h:
 ../../DaisySP//Source/Utility/samplehold.h:
 ../../DaisySP//Source/Utility/smooth_random.h:
-samplebuffer.h:
+reffubelpmas.h:
