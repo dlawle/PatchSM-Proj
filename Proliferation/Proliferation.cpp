@@ -10,6 +10,8 @@ using namespace daisysp;
 DaisyPatchSM    hw;
 Switch          toggle;
 Switch          button;
+ReverbSc        rv;
+Svf             svf;
 
 //sample setup 
 #define NUM_BUFFERS 8
@@ -23,13 +25,14 @@ void getSamples(){
 	button.Debounce();
     toggle.Debounce(); 
     
+    // randomizer
 	int randSamp = rand() % NUM_BUFFERS;
+
+    // playState will choose between gate states or otherwise
+    //bool playState = toggle.Pressed();
 
     for(size_t i = 0; i < buffers.size(); i++)
     {
-        if(hw.gate_in_1.Trig()){
-            buffers[i].Play();
-        }
         if(hw.gate_in_2.Trig()) {
             buffers[randSamp].Play();
         }
@@ -108,6 +111,26 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 {   
 	getSamples();
 
+    /** Update Params with the four knobs */
+    float time_knob     = hw.GetAdcValue(CV_1);
+    float time          = fmap(time_knob, 0.3f, 0.99f);
+
+    float damp_knob     = hw.GetAdcValue(CV_2);
+    float damp          = fmap(damp_knob, 1000.f, 19000.f, Mapping::LOG);
+
+    float send_level     = hw.GetAdcValue(CV_4);
+
+    float fq_knob       = hw.GetAdcValue(CV_5);
+    float frequency     = fmap(fq_knob,  20.f, 20000.f, Mapping::LOG);
+    
+    // moving param sets to inside the buffers - may need to move this? also order? Should probably take in the filter before reverb? 
+    rv.SetFeedback(time);
+    rv.SetLpFreq(damp);
+
+    svf.SetFreq(frequency);
+    svf.SetRes(0.5);
+    svf.SetDrive(0.8);
+
 	for (size_t i = 0; i < size; i++)
 	{
         // Zero samples prior to summing
@@ -118,8 +141,15 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
             // Record in mono
             float sample = buffer.Process((0.5 * IN_L[i] + 0.5 * IN_R[i]));
 
-            OUT_L[i] += sample;
-            OUT_R[i] += sample;
+            float send =  sample * send_level;
+
+            svf.Process(sample);
+
+            float wet;
+
+            rv.Process(send, send, &wet, &wet);
+            OUT_L[i] += svf.Low() + wet;
+            OUT_R[i] += svf.Notch() + wet;
         }
         // Feed stereo input through to output
         OUT_L[i] += IN_L[i];
@@ -138,10 +168,13 @@ void InitSamplers(){
 int main(void)
 {
 	hw.Init();
+    float SR = hw.AudioSampleRate();
 
     toggle.Init(hw.B8);
     button.Init(hw.B7);
     InitSamplers();
+    rv.Init(SR);
+    svf.Init(SR);
 
     hw.SetAudioBlockSize(4); // number of samples handled per callback
     hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
