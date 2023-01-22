@@ -1,7 +1,6 @@
 #include "daisy_patch_sm.h"
 #include "daisysp.h"
-//#include "samplebuffer.h"
-#include "reffubelpmas.h"
+#include "samplebuffer.h"
 #include <array>
 
 using namespace daisy;
@@ -12,11 +11,16 @@ DaisyPatchSM    hw;
 Switch          toggle;
 Switch          button;
 ReverbSc        rv;
+AdEnv           env;
+Overdrive       drive;
+
+#define MIN 0
+#define MAX 1
 
 //sample setup 
 #define NUM_BUFFERS 8
 // 1 second sample buffers at 48kHz
-#define BUFFER_SIZE (48000 * 1)
+#define BUFFER_SIZE (48000 * 5)
 std::array<SampleBuffer<BUFFER_SIZE>, NUM_BUFFERS> DSY_SDRAM_BSS buffers;
 int s = 0;
 
@@ -34,7 +38,7 @@ void getSamples(){
 
     rv.SetFeedback(time);
     rv.SetLpFreq(damp);
-    
+        
     // randomizer
 	int randSamp = rand() % NUM_BUFFERS;
 
@@ -47,6 +51,7 @@ void getSamples(){
             buffers[randSamp].Play();
         }
     }
+
     switch(s) {
         case 0:
             if(button.RisingEdge() && !buffers[0].IsRecording()) {
@@ -118,25 +123,51 @@ void getSamples(){
 
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {   
-    float wet;
+    float wet, ratea, rated, attack, decay, damt, amount;
 	getSamples();
+
+    // envelope setup
+    ratea = hw.GetAdcValue(CV_3);
+    rated = hw.GetAdcValue(CV_4);
+
+    attack = fmap(ratea, .01, 2);
+    decay  = fmap(rated, 2, .01);
+
+    env.SetTime(ADENV_SEG_ATTACK, attack);
+    env.SetTime(ADENV_SEG_DECAY, decay);
+
+    // overdrive setup
+    damt = hw.GetAdcValue(CV_5);
+    amount = fmap(damt, 0.0f, 1.f);
+    
+    drive.SetDrive(amount);
+    
 
 	for (size_t i = 0; i < size; i++)
 	{
+        if(hw.gate_in_2.Trig()) {
+            env.Trigger();
+        }
+
+        float env_out = env.Process();
+        
         // Zero samples prior to summing
         OUT_L[i] = 0.f;
         OUT_R[i] = 0.f;
         for(auto &buffer : buffers)
         {
             // Record in mono
-            float sample = buffer.Process((0.5 * IN_L[i] + 0.5 * IN_R[i]));
+            float sample = buffer.Process(0.5 * IN_L[i] + 0.5 * IN_R[i]);
 
-            OUT_L[i] += sample;
-            OUT_R[i] += sample;
+            OUT_L[i] += sample * env_out;
+            OUT_R[i] += sample * env_out;
         }
-
         // Feed stereo input through to output, as well as process reverb POST buffers
-        rv.Process(OUT_L[i],  OUT_R[i], &wet, &wet);
+        float mono = OUT_L[i] + OUT_R[i];
+        rv.Process(mono,  mono, &wet, &wet);
+
+        drive.Process(wet);
+
         OUT_L[i] += IN_L[i] + wet;
         OUT_R[i] += IN_R[i] + wet;
 	}
@@ -157,6 +188,14 @@ int main(void)
     button.Init(hw.B7);
     InitSamplers();
     rv.Init(hw.AudioSampleRate());
+    env.Init(hw.AudioSampleRate());
+    drive.Init();
+
+    env.SetMin(MIN);
+    env.SetMax(MAX);
+    env.SetCurve(0); // linear
+
+
 
     hw.SetAudioBlockSize(4); // number of samples handled per callback
     hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);

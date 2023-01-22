@@ -3,6 +3,7 @@
 #define SAMPLEBUFFER_H
 
 #include <stddef.h>
+#include <stdio.h>
 
 /** Sample buffer with record and playback.
 
@@ -86,13 +87,14 @@ class SampleBuffer
             return 0.f;
         }
     }
-
+    
     bool IsPlaying() const { return playing_; }
     bool IsRecording() const { return recording_; }
 
   private:
     size_t write_ptr_;
     size_t read_ptr_;
+    size_t inc_;
     bool   playing_;
     bool   recording_;
     float  buffer_[kBufferSize];
