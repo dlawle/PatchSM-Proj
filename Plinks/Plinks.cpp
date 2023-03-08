@@ -17,10 +17,41 @@ AdEnv      			env;
 uint8_t     arp_idx;
 uint8_t 	scale_idx;
 
+// select scale, and pass midi note as nn 
+float scaleSelect(float nn){
+	float freq;
+	b1.Debounce();
+	if(b1.FallingEdge()){
+		scale_idx = (scale_idx + 1) % 4; // advance scale +1, else wrap back to 1? 
+	}
+
+	switch (scale_idx)
+	{
+	case 1:
+		freq = nn + noMajFif[arp_idx];
+		break;
+		
+	case 2:
+		freq = nn + noMinFif[arp_idx];
+		break;
+	case 3:
+		freq = nn + noMajTri[arp_idx];
+		break;
+		
+	case 4:
+		freq = nn + noMinTri[arp_idx];
+		break;
+	default:
+		freq = nn + noMajFif[arp_idx];
+		break;
+	}
+	return freq;
+	}
+
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
 {
 	hw.ProcessAllControls();
-	float freq, nn, trig, sig_out;
+	float nn, trig, sig_out;
 	trig = 0.f; 
 
 	float decay = fmap(hw.GetAdcValue(CV_4), 0.f, 1.f);
@@ -55,9 +86,12 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 			env.Trigger();
 		}
 
-		freq = nn + noMajFif[arp_idx];
+		//freq = nn + noMajFif[arp_idx];
+		// testing scale select
 
-		sig_out = pp.Process(trig, freq);
+		float new_freq = scaleSelect(nn);
+
+		sig_out = pp.Process(trig, new_freq);
 		sig_out = ladder.Process(sig_out);
 		sig_out *= env.Process();
 
@@ -65,6 +99,7 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 
 		out[0][i] = OUT_L[i] + (sig_out * .5f);
 		out[1][i] = OUT_R[i];
+		hw.WriteCvOut(CV_OUT_1, env.Process());
 	}
 }
 
