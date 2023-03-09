@@ -5,11 +5,20 @@ a plucked string arpeggiator with modifiable speed for rich tone creation
 Daniel Lawler
 
 ## Description
+Plinks is a combination pluck engine and rich texturized "background noise generator". 
+
+Plinks takes a 1v/oct CV in and Quantizes it to a midi note, which then creates an arpeggio scale and applies it to a PolyPluck instance with 32 separate voices. These voices are passed through a filter and reverb to create lush walls of sound.
+
 Most if not all of this code was adapted from DaisyExamples repo with a few other things mixed in. 
 The code itself is built to work on a custom board (to be realeased) called the Daisy Bed, 
 utilizing the Patch SM. Below is 
 an outline of the mapped parameters. It should work on just about any board, with a few tweaks! 
 
+The 4 LEDs on the front panel indicate which arpeggio is selected. There are 4 modes:
+Major Pentad
+Minor Pentad
+Major Triad
+Minor Triad
 
 
 | Pin Name | Function | Comment |

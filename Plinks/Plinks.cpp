@@ -28,21 +28,30 @@ float scaleSelect(float nn){
 	switch (scale_idx)
 	{
 	case 1:
-		freq = nn + noMajFif[arp_idx];
+		freq = nn + noMajPen[arp_idx];
+		ledOff();
+		gen_led2.Toggle();
 		break;
 		
 	case 2:
-		freq = nn + noMinFif[arp_idx];
+		freq = nn + noMinPen[arp_idx];
+		ledOff();
+		cv_led2.Toggle();
 		break;
 	case 3:
 		freq = nn + noMajTri[arp_idx];
+		ledOff();
+		cv_led1.Toggle();
 		break;
-		
 	case 4:
 		freq = nn + noMinTri[arp_idx];
+		ledOff();
+		gen_led1.Toggle();
 		break;
 	default:
-		freq = nn + noMajFif[arp_idx];
+		freq = nn + noMajPen[arp_idx];
+		ledOff();
+		gen_led2.Toggle();
 		break;
 	}
 	return freq;
@@ -85,9 +94,6 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 		if(hw.gate_in_2.Trig()){
 			env.Trigger();
 		}
-
-		//freq = nn + noMajFif[arp_idx];
-		// testing scale select
 
 		float new_freq = scaleSelect(nn);
 

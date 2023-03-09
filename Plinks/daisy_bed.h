@@ -54,6 +54,13 @@ namespace patch_sm
         b2.Init(DaisyPatchSM::D10);
     }
 
+    void ledOff(){
+        gen_led1.Write(false);
+        gen_led2.Write(false);
+        cv_led1.Write(false);
+        cv_led2.Write(false);
+    }
+
 } // namespace patch_sm
 
 } // namespace daisy
