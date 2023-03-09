@@ -5,7 +5,9 @@ a plucked string arpeggiator with modifiable speed for rich tone creation
 Daniel Lawler
 
 ## Description
-Plinks is a combination pluck engine and rich texturized "background noise generator". 
+### Plinks is a combination pluck engine and rich texturized "background noise generator". 
+
+<img width="634" alt="Plinks Panel" src="https://user-images.githubusercontent.com/39495124/224009417-d959ce2a-15ca-41f1-85b4-478753ebb314.png">
 
 Plinks takes a 1v/oct CV in and Quantizes it to a midi note, which then creates an arpeggio scale and applies it to a PolyPluck instance with 32 separate voices. These voices are passed through a filter and reverb to create lush walls of sound.
 
@@ -19,7 +21,7 @@ Major Pentad
 Minor Pentad
 Major Triad
 Minor Triad
-
+(check arp_notes.h for ideas and try out your own!)
 
 | Pin Name | Function | Comment |
 | --- | --- | --- |
