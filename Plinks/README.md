@@ -7,7 +7,10 @@ Daniel Lawler
 ## Description
 ### Plinks is a combination pluck engine and rich texturized "background noise generator". 
 
-<img width="634" alt="Plinks Panel" src="https://user-images.githubusercontent.com/39495124/224009417-d959ce2a-15ca-41f1-85b4-478753ebb314.png">
+![image](https://user-images.githubusercontent.com/39495124/224424011-034505a8-f5aa-4185-a906-0daffa765b25.png)
+
+
+[Audio sample of raw output displaying clock speed and reverb/filter levels](https://soundcloud.com/dlawler/plinks?si=e33e9bdff9154520beaf0bd30887ca63&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing)
 
 Plinks takes a 1v/oct CV in and Quantizes it to a midi note, which then creates an arpeggio scale and applies it to a PolyPluck instance with 32 separate voices. These voices are passed through a filter and reverb to create lush walls of sound.
 
@@ -35,8 +38,10 @@ Minor Triad
 | Gate In 1 | Pluck Speed | The speed here is intended to be run at an almost "unnaturally high" rate in order to create rich tones with the reverb, though you can create interesting sounds with slower speeds | 
 | Gate In 2 | Trigger Envelope | This triggers the internal envelope to fire which provides a swell on the outputs | 
 | Button 1 | Arp Mode | Switch between 4 arpeggio modes (Major Triad, Minor Triad, Major Pentad, Minor Pentad). See arp_notes.h for customization and modification |
-| Audio Out L | Reverb out + Pluck Mix | | 
-| Audio Out R |  Reverb out only | |
+| Audio Out L | Reverb + Plucks, no envelope | | 
+| Audio Out R |  Reverb + Plucks, with envelope | |
 
 ## Note 
 Some peripherals are left unused, but will be updated later! 
+
+Will be adding the board files for the Daisy Bed (A custom Daisy PatchSM Board) shortly. Will update with URL to repo when available! 
