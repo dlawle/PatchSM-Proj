@@ -43,7 +43,7 @@ namespace patch_sm
     void InitBed(){
         // leds
         gen_led1.Init(newPinD7, GPIO::Mode::OUTPUT);
-        gen_led2.Init(newPinD7, GPIO::Mode::OUTPUT);
+        gen_led2.Init(newPinA9, GPIO::Mode::OUTPUT);
         cv_led1.Init(newPinD2, GPIO::Mode::OUTPUT);
         cv_led2.Init(newPinD1, GPIO::Mode::OUTPUT);
         gate_in_led.Init(newPinD3, GPIO::Mode::OUTPUT);

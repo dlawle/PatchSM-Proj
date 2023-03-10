@@ -30,13 +30,12 @@ float scaleSelect(float nn){
 	case 1:
 		freq = nn + noMajPen[arp_idx];
 		ledOff();
-		gen_led2.Toggle();
+		gen_led1.Toggle();
 		break;
-		
 	case 2:
 		freq = nn + noMinPen[arp_idx];
 		ledOff();
-		cv_led2.Toggle();
+		gen_led2.Toggle();
 		break;
 	case 3:
 		freq = nn + noMajTri[arp_idx];
@@ -46,12 +45,12 @@ float scaleSelect(float nn){
 	case 4:
 		freq = nn + noMinTri[arp_idx];
 		ledOff();
-		gen_led1.Toggle();
+		cv_led1.Toggle();
 		break;
 	default:
 		freq = nn + noMajPen[arp_idx];
 		ledOff();
-		gen_led2.Toggle();
+		gen_led1.Toggle();
 		break;
 	}
 	return freq;
@@ -61,12 +60,12 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 {
 	hw.ProcessAllControls();
 	float nn, trig, sig_out;
-	trig = 0.f; 
+	trig = 0.f;
 
 	float decay = fmap(hw.GetAdcValue(CV_4), 0.f, 1.f);
 	pp.SetDecay(decay);
 	
-	float feedback = fmap(hw.GetAdcValue(CV_3), 0.f, 1.f);
+	float feedback = fmap(hw.GetAdcValue(CV_3), 0.f, 0.9f);
 	rv.SetFeedback(feedback);
 
 	float lpf = fmap(hw.GetAdcValue(CV_2), 1000.f, 32000.f, Mapping::LOG);
@@ -99,13 +98,22 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 
 		sig_out = pp.Process(trig, new_freq);
 		sig_out = ladder.Process(sig_out);
-		sig_out *= env.Process();
+		float sig_out_env = sig_out * env.Process();
+		
+		float wet;
+		rv.Process(sig_out, sig_out, &wet, &wet);
+		// is this wet = softclip(wet) or just softclip(wet)?
+		wet = SoftClip(wet);
 
-		rv.Process(sig_out, sig_out, &OUT_L[i], &OUT_R[i]);
+		OUT_L[i] = wet + (sig_out * .5f);
+		OUT_R[i] = wet + (sig_out_env * .5f);
 
-		out[0][i] = OUT_L[i] + (sig_out * .5f);
-		out[1][i] = OUT_R[i];
-		hw.WriteCvOut(CV_OUT_1, env.Process());
+		//testing soft clip
+		// also out = OUT never really made much sense anyway? 
+		//out[0][i] = OUT_L[i] + (sig_out * .5f);
+		//out[1][i] = OUT_R[i] + (sig_out_env * .5f);
+
+
 	}
 }
 
@@ -132,7 +140,7 @@ int main(void)
 	// envelope
 	env.Init(sample_rate);
 	env.SetMin(0.0);
-    env.SetMax(0.25);
+    env.SetMax(0.5);
 
 	hw.StartAudio(AudioCallback);
 	while(1) {

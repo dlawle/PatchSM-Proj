@@ -1,5 +1,6 @@
 namespace arps {
-// direction
+    
+// direction - to be implemented later
 enum direction {
     up = 0,
     down,
@@ -13,8 +14,8 @@ enum direction {
 // 0 scale
 const float noMajTri[3] = {0, 4, 7};
 const float noMinTri[3] = {0, 3, 7};
-const float noMajFif[5] = {0, 2, 4, 5, 7};
-const float noMinFif[5] = {0, 2, 3, 5, 7};
+const float noMajPen[5] = {0, 2, 4, 5, 7};
+const float noMinPen[5] = {0, 2, 3, 5, 7};
 
 // triples
 //const float majTri[3] = {48.0f, 52.0f, 55.0f};
