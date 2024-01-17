@@ -1,0 +1,3012 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"diffuser.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN7daisysp8Diffuser4InitEv,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_ZN7daisysp8Diffuser4InitEv
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN7daisysp8Diffuser4InitEv:
+  27              	.LVL0:
+  28              	.LFB3065:
+  29              		.file 1 "diffuser.cpp"
+   1:diffuser.cpp  **** #include "diffuser.h"
+   2:diffuser.cpp  **** #include <math.h>
+   3:diffuser.cpp  **** 
+   4:diffuser.cpp  **** using namespace daisysp;
+   5:diffuser.cpp  **** 
+   6:diffuser.cpp  **** void Diffuser::Init()
+   7:diffuser.cpp  **** {
+  30              		.loc 1 7 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+   8:diffuser.cpp  ****     engine_.Init(buffer_);
+  35              		.loc 1 8 5 view .LVU1
+  36              	.LBB139:
+  37              	.LBB140:
+  38              		.file 2 "fx_engine.h"
+   1:fx_engine.h   **** #pragma once
+   2:fx_engine.h   **** #ifndef DSY_FX_ENGINE_H
+   3:fx_engine.h   **** #define DSY_FX_ENGINE_H
+   4:fx_engine.h   **** 
+   5:fx_engine.h   **** #include <algorithm>
+   6:fx_engine.h   **** #include <stdint.h>
+   7:fx_engine.h   **** #include "Utility/dsp.h"
+   8:fx_engine.h   **** #ifdef __cplusplus
+   9:fx_engine.h   **** 
+  10:fx_engine.h   **** #define JOIN(lhs, rhs) JOIN_1(lhs, rhs)
+  11:fx_engine.h   **** #define JOIN_1(lhs, rhs) JOIN_2(lhs, rhs)
+  12:fx_engine.h   **** #define JOIN_2(lhs, rhs) lhs##rhs
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 2
+
+
+  13:fx_engine.h   **** 
+  14:fx_engine.h   **** #define STATIC_ASSERT(expression, message)                                  \
+  15:fx_engine.h   ****     struct JOIN(__static_assertion_at_line_, __LINE__)                      \
+  16:fx_engine.h   ****     {                                                                       \
+  17:fx_engine.h   ****         impl::StaticAssertion<static_cast<bool>((expression))>              \
+  18:fx_engine.h   ****             JOIN(JOIN(JOIN(STATIC_ASSERTION_FAILED_AT_LINE_, __LINE__), _), \
+  19:fx_engine.h   ****                  message);                                                  \
+  20:fx_engine.h   ****     };
+  21:fx_engine.h   **** 
+  22:fx_engine.h   **** /** @file fx_engine.h */
+  23:fx_engine.h   **** namespace impl
+  24:fx_engine.h   **** {
+  25:fx_engine.h   **** template <bool>
+  26:fx_engine.h   **** struct StaticAssertion;
+  27:fx_engine.h   **** 
+  28:fx_engine.h   **** template <>
+  29:fx_engine.h   **** struct StaticAssertion<true>
+  30:fx_engine.h   **** {
+  31:fx_engine.h   **** }; // StaticAssertion<true>
+  32:fx_engine.h   **** 
+  33:fx_engine.h   **** template <int i>
+  34:fx_engine.h   **** struct StaticAssertionTest
+  35:fx_engine.h   **** {
+  36:fx_engine.h   **** }; // StaticAssertionTest<int>
+  37:fx_engine.h   **** 
+  38:fx_engine.h   **** } // namespace impl
+  39:fx_engine.h   **** 
+  40:fx_engine.h   **** namespace daisysp
+  41:fx_engine.h   **** {
+  42:fx_engine.h   **** #define TAIL , -1
+  43:fx_engine.h   **** 
+  44:fx_engine.h   **** enum Format
+  45:fx_engine.h   **** {
+  46:fx_engine.h   ****     FORMAT_12_BIT,
+  47:fx_engine.h   ****     FORMAT_16_BIT,
+  48:fx_engine.h   ****     FORMAT_32_BIT
+  49:fx_engine.h   **** };
+  50:fx_engine.h   **** 
+  51:fx_engine.h   **** enum LFOIndex
+  52:fx_engine.h   **** {
+  53:fx_engine.h   ****     LFO_1,
+  54:fx_engine.h   ****     LFO_2
+  55:fx_engine.h   **** };
+  56:fx_engine.h   **** 
+  57:fx_engine.h   **** static inline int32_t Clip16(int32_t x)
+  58:fx_engine.h   **** {
+  59:fx_engine.h   ****     if(x < -32768)
+  60:fx_engine.h   ****     {
+  61:fx_engine.h   ****         return -32768;
+  62:fx_engine.h   ****     }
+  63:fx_engine.h   ****     else if(x > 32767)
+  64:fx_engine.h   ****     {
+  65:fx_engine.h   ****         return 32767;
+  66:fx_engine.h   ****     }
+  67:fx_engine.h   ****     else
+  68:fx_engine.h   ****     {
+  69:fx_engine.h   ****         return x;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 3
+
+
+  70:fx_engine.h   ****     }
+  71:fx_engine.h   **** }
+  72:fx_engine.h   **** 
+  73:fx_engine.h   **** template <Format format>
+  74:fx_engine.h   **** struct DataType
+  75:fx_engine.h   **** {
+  76:fx_engine.h   **** };
+  77:fx_engine.h   **** 
+  78:fx_engine.h   **** template <>
+  79:fx_engine.h   **** struct DataType<FORMAT_12_BIT>
+  80:fx_engine.h   **** {
+  81:fx_engine.h   ****     typedef uint16_t T;
+  82:fx_engine.h   **** 
+  83:fx_engine.h   ****     static inline float Decompress(T value)
+  84:fx_engine.h   ****     {
+  85:fx_engine.h   ****         return static_cast<float>(static_cast<int16_t>(value)) / 4096.0f;
+  86:fx_engine.h   ****     }
+  87:fx_engine.h   **** 
+  88:fx_engine.h   ****     static inline T Compress(float value)
+  89:fx_engine.h   ****     {
+  90:fx_engine.h   ****         return static_cast<uint16_t>(
+  91:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+  92:fx_engine.h   ****     }
+  93:fx_engine.h   **** };
+  94:fx_engine.h   **** 
+  95:fx_engine.h   **** template <>
+  96:fx_engine.h   **** struct DataType<FORMAT_16_BIT>
+  97:fx_engine.h   **** {
+  98:fx_engine.h   ****     typedef uint16_t T;
+  99:fx_engine.h   **** 
+ 100:fx_engine.h   ****     static inline float Decompress(T value)
+ 101:fx_engine.h   ****     {
+ 102:fx_engine.h   ****         return static_cast<float>(static_cast<int16_t>(value)) / 32768.0f;
+ 103:fx_engine.h   ****     }
+ 104:fx_engine.h   **** 
+ 105:fx_engine.h   ****     static inline T Compress(float value)
+ 106:fx_engine.h   ****     {
+ 107:fx_engine.h   ****         return static_cast<uint16_t>(
+ 108:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 32768.0f)));
+ 109:fx_engine.h   ****     }
+ 110:fx_engine.h   **** };
+ 111:fx_engine.h   **** 
+ 112:fx_engine.h   **** template <>
+ 113:fx_engine.h   **** struct DataType<FORMAT_32_BIT>
+ 114:fx_engine.h   **** {
+ 115:fx_engine.h   ****     typedef float T;
+ 116:fx_engine.h   **** 
+ 117:fx_engine.h   ****     static inline float Decompress(T value)
+ 118:fx_engine.h   ****     {
+ 119:fx_engine.h   ****         return value;
+ 120:fx_engine.h   ****         ;
+ 121:fx_engine.h   ****     }
+ 122:fx_engine.h   **** 
+ 123:fx_engine.h   ****     static inline T Compress(float value) { return value; }
+ 124:fx_engine.h   **** };
+ 125:fx_engine.h   **** 
+ 126:fx_engine.h   **** /**  
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 4
+
+
+ 127:fx_engine.h   ****        @brief Base Class for building reverbs
+ 128:fx_engine.h   **** 	   @author Ben Sergentanis
+ 129:fx_engine.h   **** 	   @date Jan 2021
+ 130:fx_engine.h   **** 	   Ported from pichenettes/eurorack/plaits/dsp/fx/fx_engine.h \n
+ 131:fx_engine.h   **** 	   to an independent module. \n
+ 132:fx_engine.h   **** 	   Original code written by Emilie Gillet in 2014. \n
+ 133:fx_engine.h   **** */
+ 134:fx_engine.h   **** template <size_t size, Format format = FORMAT_12_BIT>
+ 135:fx_engine.h   **** class FxEngine
+ 136:fx_engine.h   **** {
+ 137:fx_engine.h   ****   public:
+ 138:fx_engine.h   ****     typedef typename DataType<format>::T T;
+ 139:fx_engine.h   ****     FxEngine() {}
+ 140:fx_engine.h   ****     ~FxEngine() {}
+ 141:fx_engine.h   **** 
+ 142:fx_engine.h   ****     void Init(T* buffer)
+ 143:fx_engine.h   ****     {
+ 144:fx_engine.h   ****         buffer_       = buffer;
+ 145:fx_engine.h   ****         lfo_phase_[0] = 0.f;
+  39              		.loc 2 145 23 is_stmt 0 view .LVU2
+  40 0000 DFED107A 		vldr.32	s15, .L3
+ 144:fx_engine.h   ****         lfo_phase_[0] = 0.f;
+  41              		.loc 2 144 23 view .LVU3
+  42 0004 00F58043 		add	r3, r0, #16384
+  43              	.LBE140:
+  44              	.LBE139:
+  45              	.LBB144:
+  46              	.LBB145:
+ 146:fx_engine.h   ****         lfo_phase_[1] = 0.f;
+ 147:fx_engine.h   **** 
+ 148:fx_engine.h   ****         lfo_freq_[0] = 0.f;
+ 149:fx_engine.h   ****         lfo_freq_[1] = 0.f;
+ 150:fx_engine.h   ****     }
+ 151:fx_engine.h   **** 
+ 152:fx_engine.h   ****     void Clear()
+ 153:fx_engine.h   ****     {
+ 154:fx_engine.h   ****         std::fill(&buffer_[0], &buffer_[size], 0);
+ 155:fx_engine.h   ****         write_ptr_ = 0;
+ 156:fx_engine.h   ****     }
+ 157:fx_engine.h   **** 
+ 158:fx_engine.h   ****     struct Empty
+ 159:fx_engine.h   ****     {
+ 160:fx_engine.h   ****     };
+ 161:fx_engine.h   **** 
+ 162:fx_engine.h   ****     template <int32_t l, typename T = Empty>
+ 163:fx_engine.h   ****     struct Reserve
+ 164:fx_engine.h   ****     {
+ 165:fx_engine.h   ****         typedef T Tail;
+ 166:fx_engine.h   ****         enum
+ 167:fx_engine.h   ****         {
+ 168:fx_engine.h   ****             length = l
+ 169:fx_engine.h   ****         };
+ 170:fx_engine.h   ****     };
+ 171:fx_engine.h   **** 
+ 172:fx_engine.h   ****     template <typename Memory, int32_t index>
+ 173:fx_engine.h   ****     struct DelayLine
+ 174:fx_engine.h   ****     {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 5
+
+
+ 175:fx_engine.h   ****         enum
+ 176:fx_engine.h   ****         {
+ 177:fx_engine.h   ****             length = DelayLine<typename Memory::Tail, index - 1>::length,
+ 178:fx_engine.h   ****             base   = DelayLine<Memory, index - 1>::base
+ 179:fx_engine.h   ****                    + DelayLine<Memory, index - 1>::length + 1
+ 180:fx_engine.h   ****         };
+ 181:fx_engine.h   ****     };
+ 182:fx_engine.h   **** 
+ 183:fx_engine.h   ****     template <typename Memory>
+ 184:fx_engine.h   ****     struct DelayLine<Memory, 0>
+ 185:fx_engine.h   ****     {
+ 186:fx_engine.h   ****         enum
+ 187:fx_engine.h   ****         {
+ 188:fx_engine.h   ****             length = Memory::length,
+ 189:fx_engine.h   ****             base   = 0
+ 190:fx_engine.h   ****         };
+ 191:fx_engine.h   ****     };
+ 192:fx_engine.h   **** 
+ 193:fx_engine.h   ****     class Context
+ 194:fx_engine.h   ****     {
+ 195:fx_engine.h   ****         friend class FxEngine;
+ 196:fx_engine.h   **** 
+ 197:fx_engine.h   ****       public:
+ 198:fx_engine.h   ****         Context() {}
+ 199:fx_engine.h   ****         ~Context() {}
+ 200:fx_engine.h   **** 
+ 201:fx_engine.h   ****         inline void Load(float value) { accumulator_ = value; }
+ 202:fx_engine.h   **** 
+ 203:fx_engine.h   ****         inline void Read(float value, float scale)
+ 204:fx_engine.h   ****         {
+ 205:fx_engine.h   ****             accumulator_ += value * scale;
+ 206:fx_engine.h   ****         }
+ 207:fx_engine.h   **** 
+ 208:fx_engine.h   ****         inline void Read(float value) { accumulator_ += value; }
+ 209:fx_engine.h   **** 
+ 210:fx_engine.h   ****         inline void Write(float& value) { value = accumulator_; }
+ 211:fx_engine.h   **** 
+ 212:fx_engine.h   ****         inline void Write(float& value, float scale)
+ 213:fx_engine.h   ****         {
+ 214:fx_engine.h   ****             value = accumulator_;
+ 215:fx_engine.h   ****             accumulator_ *= scale;
+ 216:fx_engine.h   ****         }
+ 217:fx_engine.h   **** 
+ 218:fx_engine.h   ****         template <typename D>
+ 219:fx_engine.h   ****         inline void Write(D& d, int32_t offset, float scale)
+ 220:fx_engine.h   ****         {
+ 221:fx_engine.h   ****             STATIC_ASSERT(D::base + D::length <= size, delay_memory_full);
+ 222:fx_engine.h   ****             T w = DataType<format>::Compress(accumulator_);
+ 223:fx_engine.h   ****             if(offset == -1)
+ 224:fx_engine.h   ****             {
+ 225:fx_engine.h   ****                 buffer_[(write_ptr_ + D::base + D::length - 1) & MASK] = w;
+ 226:fx_engine.h   ****             }
+ 227:fx_engine.h   ****             else
+ 228:fx_engine.h   ****             {
+ 229:fx_engine.h   ****                 buffer_[(write_ptr_ + D::base + offset) & MASK] = w;
+ 230:fx_engine.h   ****             }
+ 231:fx_engine.h   ****             accumulator_ *= scale;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 6
+
+
+ 232:fx_engine.h   ****         }
+ 233:fx_engine.h   **** 
+ 234:fx_engine.h   ****         template <typename D>
+ 235:fx_engine.h   ****         inline void Write(D& d, float scale)
+ 236:fx_engine.h   ****         {
+ 237:fx_engine.h   ****             Write(d, 0, scale);
+ 238:fx_engine.h   ****         }
+ 239:fx_engine.h   **** 
+ 240:fx_engine.h   ****         template <typename D>
+ 241:fx_engine.h   ****         inline void WriteAllPass(D& d, int32_t offset, float scale)
+ 242:fx_engine.h   ****         {
+ 243:fx_engine.h   ****             Write(d, offset, scale);
+ 244:fx_engine.h   ****             accumulator_ += previous_read_;
+ 245:fx_engine.h   ****         }
+ 246:fx_engine.h   **** 
+ 247:fx_engine.h   ****         template <typename D>
+ 248:fx_engine.h   ****         inline void WriteAllPass(D& d, float scale)
+ 249:fx_engine.h   ****         {
+ 250:fx_engine.h   ****             WriteAllPass(d, 0, scale);
+ 251:fx_engine.h   ****         }
+ 252:fx_engine.h   **** 
+ 253:fx_engine.h   ****         template <typename D>
+ 254:fx_engine.h   ****         inline void Read(D& d, int32_t offset, float scale)
+ 255:fx_engine.h   ****         {
+ 256:fx_engine.h   ****             STATIC_ASSERT(D::base + D::length <= size, delay_memory_full);
+ 257:fx_engine.h   ****             T r;
+ 258:fx_engine.h   ****             if(offset == -1)
+ 259:fx_engine.h   ****             {
+ 260:fx_engine.h   ****                 r = buffer_[(write_ptr_ + D::base + D::length - 1) & MASK];
+ 261:fx_engine.h   ****             }
+ 262:fx_engine.h   ****             else
+ 263:fx_engine.h   ****             {
+ 264:fx_engine.h   ****                 r = buffer_[(write_ptr_ + D::base + offset) & MASK];
+ 265:fx_engine.h   ****             }
+ 266:fx_engine.h   ****             float r_f      = DataType<format>::Decompress(r);
+ 267:fx_engine.h   ****             previous_read_ = r_f;
+ 268:fx_engine.h   ****             accumulator_ += r_f * scale;
+ 269:fx_engine.h   ****         }
+ 270:fx_engine.h   **** 
+ 271:fx_engine.h   ****         template <typename D>
+ 272:fx_engine.h   ****         inline void Read(D& d, float scale)
+ 273:fx_engine.h   ****         {
+ 274:fx_engine.h   ****             Read(d, 0, scale);
+ 275:fx_engine.h   ****         }
+ 276:fx_engine.h   **** 
+ 277:fx_engine.h   ****         inline void Lp(float& state, float coefficient)
+ 278:fx_engine.h   ****         {
+ 279:fx_engine.h   ****             state += coefficient * (accumulator_ - state);
+ 280:fx_engine.h   ****             accumulator_ = state;
+ 281:fx_engine.h   ****         }
+ 282:fx_engine.h   **** 
+ 283:fx_engine.h   ****         inline void Hp(float& state, float coefficient)
+ 284:fx_engine.h   ****         {
+ 285:fx_engine.h   ****             state += coefficient * (accumulator_ - state);
+ 286:fx_engine.h   ****             accumulator_ -= state;
+ 287:fx_engine.h   ****         }
+ 288:fx_engine.h   **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 7
+
+
+ 289:fx_engine.h   ****         template <typename D>
+ 290:fx_engine.h   ****         inline void Interpolate(D& d, float offset, float scale)
+ 291:fx_engine.h   ****         {
+ 292:fx_engine.h   ****             STATIC_ASSERT(D::base + D::length <= size, delay_memory_full);
+ 293:fx_engine.h   **** 
+ 294:fx_engine.h   ****             int32_t offset_integral = static_cast<int32_t>(offset);
+ 295:fx_engine.h   ****             float   offset_fractional
+ 296:fx_engine.h   ****                 = offset - static_cast<float>(offset_integral);
+ 297:fx_engine.h   **** 
+ 298:fx_engine.h   ****             float a = DataType<format>::Decompress(
+ 299:fx_engine.h   ****                 buffer_[(write_ptr_ + offset_integral + D::base) & MASK]);
+ 300:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 301:fx_engine.h   ****                 buffer_[(write_ptr_ + offset_integral + D::base + 1) & MASK]);
+ 302:fx_engine.h   ****             float x        = a + (b - a) * offset_fractional;
+ 303:fx_engine.h   ****             previous_read_ = x;
+ 304:fx_engine.h   ****             accumulator_ += x * scale;
+ 305:fx_engine.h   ****         }
+ 306:fx_engine.h   **** 
+ 307:fx_engine.h   ****         template <typename D>
+ 308:fx_engine.h   ****         inline void Interpolate(D&       d,
+ 309:fx_engine.h   ****                                 float    offset,
+ 310:fx_engine.h   ****                                 LFOIndex index,
+ 311:fx_engine.h   ****                                 float    amplitude,
+ 312:fx_engine.h   ****                                 float    scale)
+ 313:fx_engine.h   ****         {
+ 314:fx_engine.h   ****             STATIC_ASSERT(D::base + D::length <= size, delay_memory_full);
+ 315:fx_engine.h   ****             lfo_phase_[index] += lfo_freq_[index];
+ 316:fx_engine.h   ****             lfo_phase_[index] = lfo_phase_[index] >= 1.f
+ 317:fx_engine.h   ****                                     ? lfo_phase_[index] - 1.f
+ 318:fx_engine.h   ****                                     : lfo_phase_[index];
+ 319:fx_engine.h   **** 
+ 320:fx_engine.h   ****             offset += amplitude * cosf(lfo_phase_[index] * TWOPI_F);
+ 321:fx_engine.h   **** 
+ 322:fx_engine.h   ****             int32_t offset_integral = static_cast<int32_t>(offset);
+ 323:fx_engine.h   ****             float   offset_fractional
+ 324:fx_engine.h   ****                 = offset - static_cast<float>(offset_integral);
+ 325:fx_engine.h   **** 
+ 326:fx_engine.h   ****             float a = DataType<format>::Decompress(
+ 327:fx_engine.h   ****                 buffer_[(write_ptr_ + offset_integral + D::base) & MASK]);
+ 328:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 329:fx_engine.h   ****                 buffer_[(write_ptr_ + offset_integral + D::base + 1) & MASK]);
+ 330:fx_engine.h   ****             float x        = a + (b - a) * offset_fractional;
+ 331:fx_engine.h   ****             previous_read_ = x;
+ 332:fx_engine.h   ****             accumulator_ += x * scale;
+ 333:fx_engine.h   ****         }
+ 334:fx_engine.h   **** 
+ 335:fx_engine.h   ****       private:
+ 336:fx_engine.h   ****         float   accumulator_;
+ 337:fx_engine.h   ****         float   previous_read_;
+ 338:fx_engine.h   ****         float   lfo_value_[2];
+ 339:fx_engine.h   ****         T*      buffer_;
+ 340:fx_engine.h   ****         int32_t write_ptr_;
+ 341:fx_engine.h   **** 
+ 342:fx_engine.h   ****         float* lfo_phase_;
+ 343:fx_engine.h   ****         float* lfo_freq_;
+ 344:fx_engine.h   ****     };
+ 345:fx_engine.h   **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 8
+
+
+ 346:fx_engine.h   ****     inline void SetLFOFrequency(LFOIndex index, float frequency)
+ 347:fx_engine.h   ****     {
+ 348:fx_engine.h   ****         lfo_freq_[index] = frequency; //* 32.f ?
+  47              		.loc 2 348 26 view .LVU4
+  48 0008 0F4A     		ldr	r2, .L3+4
+  49              	.LBE145:
+  50              	.LBE144:
+  51              		.loc 1 8 18 view .LVU5
+  52 000a 00F10801 		add	r1, r0, #8
+  53              	.LBB147:
+  54              	.LBB148:
+  55              	.LBB149:
+  56              	.LBB150:
+  57              	.LBB151:
+  58              		.file 3 "../../DaisySP//Source/Utility/dsp.h"
+   1:../../DaisySP//Source/Utility/dsp.h **** /** Helpful defines, functions, and other utilities for use in/with daisysp modules.
+   2:../../DaisySP//Source/Utility/dsp.h **** */
+   3:../../DaisySP//Source/Utility/dsp.h **** #pragma once
+   4:../../DaisySP//Source/Utility/dsp.h **** #ifndef DSY_CORE_DSP
+   5:../../DaisySP//Source/Utility/dsp.h **** #define DSY_CORE_DSP
+   6:../../DaisySP//Source/Utility/dsp.h **** #include <cassert>
+   7:../../DaisySP//Source/Utility/dsp.h **** #include <cstdint>
+   8:../../DaisySP//Source/Utility/dsp.h **** #include <random>
+   9:../../DaisySP//Source/Utility/dsp.h **** #include <cmath>
+  10:../../DaisySP//Source/Utility/dsp.h **** 
+  11:../../DaisySP//Source/Utility/dsp.h **** /** PIs
+  12:../../DaisySP//Source/Utility/dsp.h **** */
+  13:../../DaisySP//Source/Utility/dsp.h **** #define PI_F 3.1415927410125732421875f
+  14:../../DaisySP//Source/Utility/dsp.h **** #define TWOPI_F (2.0f * PI_F)
+  15:../../DaisySP//Source/Utility/dsp.h **** #define HALFPI_F (PI_F * 0.5f)
+  16:../../DaisySP//Source/Utility/dsp.h **** #define DSY_MIN(in, mn) (in < mn ? in : mn)
+  17:../../DaisySP//Source/Utility/dsp.h **** #define DSY_MAX(in, mx) (in > mx ? in : mx)
+  18:../../DaisySP//Source/Utility/dsp.h **** #define DSY_CLAMP(in, mn, mx) (DSY_MIN(DSY_MAX(in, mn), mx))
+  19:../../DaisySP//Source/Utility/dsp.h **** #define DSY_COUNTOF(_arr) (sizeof(_arr) / sizeof(_arr[0]))
+  20:../../DaisySP//Source/Utility/dsp.h **** 
+  21:../../DaisySP//Source/Utility/dsp.h **** namespace daisysp
+  22:../../DaisySP//Source/Utility/dsp.h **** {
+  23:../../DaisySP//Source/Utility/dsp.h **** //Avoids division for random floats. e.g. rand() * kRandFrac
+  24:../../DaisySP//Source/Utility/dsp.h **** static constexpr float kRandFrac = 1.f / (float)RAND_MAX;
+  25:../../DaisySP//Source/Utility/dsp.h **** 
+  26:../../DaisySP//Source/Utility/dsp.h **** //Convert from semitones to other units. e.g. 2 ^ (kOneTwelfth * x)
+  27:../../DaisySP//Source/Utility/dsp.h **** static constexpr float kOneTwelfth = 1.f / 12.f;
+  28:../../DaisySP//Source/Utility/dsp.h **** 
+  29:../../DaisySP//Source/Utility/dsp.h **** /** efficient floating point min/max
+  30:../../DaisySP//Source/Utility/dsp.h **** c/o stephen mccaul
+  31:../../DaisySP//Source/Utility/dsp.h **** */
+  32:../../DaisySP//Source/Utility/dsp.h **** inline float fmax(float a, float b)
+  33:../../DaisySP//Source/Utility/dsp.h **** {
+  34:../../DaisySP//Source/Utility/dsp.h ****     float r;
+  35:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+  36:../../DaisySP//Source/Utility/dsp.h ****     asm("vmaxnm.f32 %[d], %[n], %[m]" : [d] "=t"(r) : [n] "t"(a), [m] "t"(b) :);
+  59              		.loc 3 36 5 view .LVU6
+  60 000e F7EE006A 		vmov.f32	s13, #1.0e+0
+  61              	.LVL1:
+  62              		.loc 3 36 5 view .LVU7
+  63              	.LBE151:
+  64              	.LBE150:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 9
+
+
+  65              	.LBE149:
+  66              	.LBE148:
+  67              	.LBE147:
+  68              	.LBB165:
+  69              	.LBI139:
+ 142:fx_engine.h   ****     {
+  70              		.loc 2 142 10 is_stmt 1 view .LVU8
+  71              	.LBB141:
+ 145:fx_engine.h   ****         lfo_phase_[1] = 0.f;
+  72              		.loc 2 145 23 is_stmt 0 view .LVU9
+  73 0012 C3ED047A 		vstr.32	s15, [r3, #16]
+ 146:fx_engine.h   **** 
+  74              		.loc 2 146 23 view .LVU10
+  75 0016 C3ED057A 		vstr.32	s15, [r3, #20]
+  76              	.LBE141:
+  77              	.LBE165:
+  78              	.LBB166:
+  79              	.LBB167:
+  80              	.LBB168:
+  81              	.LBB169:
+  82              	.LBB170:
+  83              		.loc 3 36 5 view .LVU11
+  84 001a B6EE007A 		vmov.f32	s14, #5.0e-1
+  85              	.LBE170:
+  86              	.LBE169:
+  87              	.LBE168:
+  88              	.LBE167:
+  89              	.LBE166:
+  90              	.LBB183:
+  91              	.LBB142:
+ 149:fx_engine.h   ****     }
+  92              		.loc 2 149 22 view .LVU12
+  93 001e C3ED077A 		vstr.32	s15, [r3, #28]
+  94              	.LBE142:
+  95              	.LBE183:
+   9:diffuser.cpp  ****     engine_.SetLFOFrequency(LFO_1, 0.3f / 48000.0f);
+  10:diffuser.cpp  ****     lp_decay_ = 0.0f;
+  96              		.loc 1 10 15 view .LVU13
+  97 0022 C3ED087A 		vstr.32	s15, [r3, #32]
+  98              	.LBB184:
+  99              	.LBB161:
+ 100              	.LBB158:
+ 101              	.LBB154:
+ 102              	.LBB152:
+ 103              		.loc 3 36 5 view .LVU14
+ 104              		.syntax unified
+ 105              	@ 36 "../../DaisySP//Source/Utility/dsp.h" 1
+ 106 0026 86FEA76A 		vmaxnm.f32 s12, s13, s15
+ 107              	@ 0 "" 2
+ 108              	.LVL2:
+ 109              		.loc 3 36 5 view .LVU15
+ 110              		.thumb
+ 111              		.syntax unified
+ 112              	.LBE152:
+ 113              	.LBE154:
+ 114              	.LBE158:
+ 115              	.LBE161:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 10
+
+
+ 116              	.LBE184:
+   9:diffuser.cpp  ****     engine_.SetLFOFrequency(LFO_1, 0.3f / 48000.0f);
+ 117              		.loc 1 9 5 is_stmt 1 view .LVU16
+ 118              	.LBB185:
+ 119              	.LBI144:
+ 346:fx_engine.h   ****     {
+ 120              		.loc 2 346 17 view .LVU17
+ 121              	.LBE185:
+ 122              	.LBB186:
+ 123              	.LBB143:
+ 144:fx_engine.h   ****         lfo_phase_[0] = 0.f;
+ 124              		.loc 2 144 23 is_stmt 0 view .LVU18
+ 125 002a D960     		str	r1, [r3, #12]
+ 126              	.LBE143:
+ 127              	.LBE186:
+ 128              	.LBB187:
+ 129              	.LBB146:
+ 130              		.loc 2 348 26 view .LVU19
+ 131 002c 9A61     		str	r2, [r3, #24]	@ float
+ 132              	.LVL3:
+ 133              		.loc 2 348 26 view .LVU20
+ 134              	.LBE146:
+ 135              	.LBE187:
+ 136              		.loc 1 10 5 is_stmt 1 view .LVU21
+  11:diffuser.cpp  **** 
+  12:diffuser.cpp  ****     SetAmount(1.f);
+ 137              		.loc 1 12 5 view .LVU22
+ 138              	.LBB188:
+ 139              	.LBI147:
+ 140              		.file 4 "diffuser.h"
+   1:diffuser.h    **** #pragma once
+   2:diffuser.h    **** #ifndef DSY_DIFFUSER_H
+   3:diffuser.h    **** #define DSY_DIFFUSER_H
+   4:diffuser.h    **** 
+   5:diffuser.h    **** #include "fx_engine.h"
+   6:diffuser.h    **** #include "Utility/dsp.h"
+   7:diffuser.h    **** 
+   8:diffuser.h    **** #include <stdint.h>
+   9:diffuser.h    **** #ifdef __cplusplus
+  10:diffuser.h    **** 
+  11:diffuser.h    **** /** @file diffuser.h */
+  12:diffuser.h    **** 
+  13:diffuser.h    **** namespace daisysp
+  14:diffuser.h    **** {
+  15:diffuser.h    **** /**  
+  16:diffuser.h    ****        @brief Granular Diffuser
+  17:diffuser.h    **** 	   @author Ben Sergentanis
+  18:diffuser.h    **** 	   @date Jan 2021
+  19:diffuser.h    **** 	   Ported from pichenettes/eurorack/plaits/dsp/fx/diffuser.h \n
+  20:diffuser.h    **** 	   to an independent module. \n
+  21:diffuser.h    **** 	   Original code written by Emilie Gillet in 2016. \n
+  22:diffuser.h    **** */
+  23:diffuser.h    **** class Diffuser
+  24:diffuser.h    **** {
+  25:diffuser.h    ****   public:
+  26:diffuser.h    ****     Diffuser() {}
+  27:diffuser.h    ****     ~Diffuser() {}
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 11
+
+
+  28:diffuser.h    **** 
+  29:diffuser.h    ****     /** Initialize the module
+  30:diffuser.h    **** 	*/
+  31:diffuser.h    ****     void Init();
+  32:diffuser.h    **** 
+  33:diffuser.h    ****     /** Reset the reverb */
+  34:diffuser.h    ****     void Clear() { engine_.Clear(); }
+  35:diffuser.h    **** 
+  36:diffuser.h    ****     /** Get the next sample
+  37:diffuser.h    **** 		\param in Next sample to process
+  38:diffuser.h    **** 	*/
+  39:diffuser.h    ****     float Process(float in);
+  40:diffuser.h    **** 
+  41:diffuser.h    ****     /** Set the reverb tail length
+  42:diffuser.h    **** 		\param rt Works 0-1.
+  43:diffuser.h    **** 	*/
+  44:diffuser.h    ****     void SetTime(float rt) { rt_ = fclamp(rt, 0.f, 1.f); }
+  45:diffuser.h    **** 
+  46:diffuser.h    ****     /** Set the amount of reverb.
+  47:diffuser.h    **** 		\param amount Works 0-1.
+  48:diffuser.h    **** 	*/
+  49:diffuser.h    ****     void SetAmount(float amount) { amount_ = fclamp(amount, 0.f, 1.f); };
+ 141              		.loc 4 49 10 view .LVU23
+ 142              	.LBB162:
+ 143              		.loc 4 49 36 view .LVU24
+ 144              	.LBB159:
+ 145              	.LBI149:
+  37:../../DaisySP//Source/Utility/dsp.h **** #else
+  38:../../DaisySP//Source/Utility/dsp.h ****     r = (a > b) ? a : b;
+  39:../../DaisySP//Source/Utility/dsp.h **** #endif // __arm__
+  40:../../DaisySP//Source/Utility/dsp.h ****     return r;
+  41:../../DaisySP//Source/Utility/dsp.h **** }
+  42:../../DaisySP//Source/Utility/dsp.h **** 
+  43:../../DaisySP//Source/Utility/dsp.h **** inline float fmin(float a, float b)
+  44:../../DaisySP//Source/Utility/dsp.h **** {
+  45:../../DaisySP//Source/Utility/dsp.h ****     float r;
+  46:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+  47:../../DaisySP//Source/Utility/dsp.h ****     asm("vminnm.f32 %[d], %[n], %[m]" : [d] "=t"(r) : [n] "t"(a), [m] "t"(b) :);
+  48:../../DaisySP//Source/Utility/dsp.h **** #else
+  49:../../DaisySP//Source/Utility/dsp.h ****     r = (a < b) ? a : b;
+  50:../../DaisySP//Source/Utility/dsp.h **** #endif // __arm__
+  51:../../DaisySP//Source/Utility/dsp.h ****     return r;
+  52:../../DaisySP//Source/Utility/dsp.h **** }
+  53:../../DaisySP//Source/Utility/dsp.h **** 
+  54:../../DaisySP//Source/Utility/dsp.h **** /** quick fp clamp
+  55:../../DaisySP//Source/Utility/dsp.h **** */
+  56:../../DaisySP//Source/Utility/dsp.h **** inline float fclamp(float in, float min, float max)
+ 146              		.loc 3 56 14 view .LVU25
+ 147              	.LBE159:
+ 148              	.LBE162:
+ 149              	.LBE188:
+  57:../../DaisySP//Source/Utility/dsp.h **** {
+  58:../../DaisySP//Source/Utility/dsp.h ****     return fmin(fmax(in, min), max);
+ 150              		.loc 3 58 5 view .LVU26
+ 151              	.LBB189:
+ 152              	.LBB163:
+ 153              	.LBB160:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 12
+
+
+ 154              	.LBB155:
+ 155              	.LBI150:
+  32:../../DaisySP//Source/Utility/dsp.h **** {
+ 156              		.loc 3 32 14 view .LVU27
+ 157              	.LBB153:
+  34:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+ 158              		.loc 3 34 5 view .LVU28
+  36:../../DaisySP//Source/Utility/dsp.h **** #else
+ 159              		.loc 3 36 5 view .LVU29
+  40:../../DaisySP//Source/Utility/dsp.h **** }
+ 160              		.loc 3 40 5 view .LVU30
+  40:../../DaisySP//Source/Utility/dsp.h **** }
+ 161              		.loc 3 40 5 is_stmt 0 view .LVU31
+ 162              	.LBE153:
+ 163              	.LBE155:
+ 164              	.LBB156:
+ 165              	.LBI156:
+  43:../../DaisySP//Source/Utility/dsp.h **** {
+ 166              		.loc 3 43 14 is_stmt 1 view .LVU32
+ 167              	.LBB157:
+  45:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+ 168              		.loc 3 45 5 view .LVU33
+  47:../../DaisySP//Source/Utility/dsp.h **** #else
+ 169              		.loc 3 47 5 view .LVU34
+ 170              		.syntax unified
+ 171              	@ 47 "../../DaisySP//Source/Utility/dsp.h" 1
+ 172 002e 86FE666A 		vminnm.f32 s12, s12, s13
+ 173              	@ 0 "" 2
+ 174              	.LVL4:
+  51:../../DaisySP//Source/Utility/dsp.h **** }
+ 175              		.loc 3 51 5 view .LVU35
+  51:../../DaisySP//Source/Utility/dsp.h **** }
+ 176              		.loc 3 51 5 is_stmt 0 view .LVU36
+ 177              		.thumb
+ 178              		.syntax unified
+ 179              	.LBE157:
+ 180              	.LBE156:
+ 181              	.LBE160:
+ 182              	.LBE163:
+ 183              	.LBE189:
+ 184              	.LBB190:
+ 185              	.LBB180:
+ 186              	.LBB177:
+ 187              	.LBB173:
+ 188              	.LBB171:
+  36:../../DaisySP//Source/Utility/dsp.h **** #else
+ 189              		.loc 3 36 5 view .LVU37
+ 190              		.syntax unified
+ 191              	@ 36 "../../DaisySP//Source/Utility/dsp.h" 1
+ 192 0032 C7FE277A 		vmaxnm.f32 s15, s14, s15
+ 193              	@ 0 "" 2
+ 194              		.thumb
+ 195              		.syntax unified
+ 196              	.LBE171:
+ 197              	.LBE173:
+ 198              	.LBE177:
+ 199              	.LBE180:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 13
+
+
+ 200              	.LBE190:
+ 201              	.LBB191:
+ 202              	.LBB164:
+ 203              		.loc 4 49 44 view .LVU38
+ 204 0036 80ED016A 		vstr.32	s12, [r0, #4]
+ 205              	.LVL5:
+ 206              		.loc 4 49 44 view .LVU39
+ 207              	.LBE164:
+ 208              	.LBE191:
+  13:diffuser.cpp  ****     SetTime(.5f);
+ 209              		.loc 1 13 5 is_stmt 1 view .LVU40
+ 210              	.LBB192:
+ 211              	.LBI166:
+  44:diffuser.h    **** 
+ 212              		.loc 4 44 10 view .LVU41
+ 213              	.LBB181:
+  44:diffuser.h    **** 
+ 214              		.loc 4 44 30 view .LVU42
+ 215              	.LBB178:
+ 216              	.LBI168:
+  56:../../DaisySP//Source/Utility/dsp.h **** {
+ 217              		.loc 3 56 14 view .LVU43
+ 218              	.LBE178:
+ 219              	.LBE181:
+ 220              	.LBE192:
+ 221              		.loc 3 58 5 view .LVU44
+ 222              	.LBB193:
+ 223              	.LBB182:
+ 224              	.LBB179:
+ 225              	.LBB174:
+ 226              	.LBI169:
+  32:../../DaisySP//Source/Utility/dsp.h **** {
+ 227              		.loc 3 32 14 view .LVU45
+ 228              	.LBB172:
+  34:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+ 229              		.loc 3 34 5 view .LVU46
+  36:../../DaisySP//Source/Utility/dsp.h **** #else
+ 230              		.loc 3 36 5 view .LVU47
+  40:../../DaisySP//Source/Utility/dsp.h **** }
+ 231              		.loc 3 40 5 view .LVU48
+  40:../../DaisySP//Source/Utility/dsp.h **** }
+ 232              		.loc 3 40 5 is_stmt 0 view .LVU49
+ 233              	.LBE172:
+ 234              	.LBE174:
+ 235              	.LBB175:
+ 236              	.LBI175:
+  43:../../DaisySP//Source/Utility/dsp.h **** {
+ 237              		.loc 3 43 14 is_stmt 1 view .LVU50
+ 238              	.LBB176:
+  45:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+ 239              		.loc 3 45 5 view .LVU51
+  47:../../DaisySP//Source/Utility/dsp.h **** #else
+ 240              		.loc 3 47 5 view .LVU52
+ 241              		.syntax unified
+ 242              	@ 47 "../../DaisySP//Source/Utility/dsp.h" 1
+ 243 003a C7FEE67A 		vminnm.f32 s15, s15, s13
+ 244              	@ 0 "" 2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 14
+
+
+ 245              	.LVL6:
+  51:../../DaisySP//Source/Utility/dsp.h **** }
+ 246              		.loc 3 51 5 view .LVU53
+  51:../../DaisySP//Source/Utility/dsp.h **** }
+ 247              		.loc 3 51 5 is_stmt 0 view .LVU54
+ 248              		.thumb
+ 249              		.syntax unified
+ 250              	.LBE176:
+ 251              	.LBE175:
+ 252              	.LBE179:
+  44:diffuser.h    **** 
+ 253              		.loc 4 44 34 view .LVU55
+ 254 003e C0ED007A 		vstr.32	s15, [r0]
+ 255              	.LVL7:
+  44:diffuser.h    **** 
+ 256              		.loc 4 44 34 view .LVU56
+ 257              	.LBE182:
+ 258              	.LBE193:
+  14:diffuser.cpp  **** }
+ 259              		.loc 1 14 1 view .LVU57
+ 260 0042 7047     		bx	lr
+ 261              	.L4:
+ 262              		.align	2
+ 263              	.L3:
+ 264 0044 00000000 		.word	0
+ 265 0048 18B7D136 		.word	919713560
+ 266              		.cfi_endproc
+ 267              	.LFE3065:
+ 269              		.section	.text._ZN7daisysp8Diffuser7ProcessEf,"ax",%progbits
+ 270              		.align	1
+ 271              		.p2align 2,,3
+ 272              		.global	_ZN7daisysp8Diffuser7ProcessEf
+ 273              		.syntax unified
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.fpu fpv5-d16
+ 278              	_ZN7daisysp8Diffuser7ProcessEf:
+ 279              	.LVL8:
+ 280              	.LFB3066:
+  15:diffuser.cpp  **** 
+  16:diffuser.cpp  **** float Diffuser::Process(float in)
+  17:diffuser.cpp  **** {
+ 281              		.loc 1 17 1 is_stmt 1 view -0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+  18:diffuser.cpp  ****     typedef E::Reserve<
+ 285              		.loc 1 18 5 view .LVU59
+  19:diffuser.cpp  ****         126,
+  20:diffuser.cpp  ****         E::Reserve<
+  21:diffuser.cpp  ****             180,
+  22:diffuser.cpp  ****             E::Reserve<
+  23:diffuser.cpp  ****                 269,
+  24:diffuser.cpp  ****                 E::Reserve<
+  25:diffuser.cpp  ****                     444,
+  26:diffuser.cpp  ****                     E::Reserve<1653, E::Reserve<2010, E::Reserve<3411>>>>>>>
+  27:diffuser.cpp  ****                             Memory;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 15
+
+
+  28:diffuser.cpp  ****     E::DelayLine<Memory, 0> ap1;
+ 286              		.loc 1 28 5 view .LVU60
+  29:diffuser.cpp  ****     E::DelayLine<Memory, 1> ap2;
+ 287              		.loc 1 29 5 view .LVU61
+  30:diffuser.cpp  ****     E::DelayLine<Memory, 2> ap3;
+ 288              		.loc 1 30 5 view .LVU62
+  31:diffuser.cpp  ****     E::DelayLine<Memory, 3> ap4;
+ 289              		.loc 1 31 5 view .LVU63
+  32:diffuser.cpp  ****     E::DelayLine<Memory, 4> dapa;
+ 290              		.loc 1 32 5 view .LVU64
+  33:diffuser.cpp  ****     E::DelayLine<Memory, 5> dapb;
+ 291              		.loc 1 33 5 view .LVU65
+  34:diffuser.cpp  ****     E::DelayLine<Memory, 6> del;
+ 292              		.loc 1 34 5 view .LVU66
+  35:diffuser.cpp  ****     E::Context              c;
+ 293              		.loc 1 35 5 view .LVU67
+ 294              	.LBB294:
+ 295              	.LBI294:
+ 198:fx_engine.h   ****         ~Context() {}
+ 296              		.loc 2 198 9 view .LVU68
+ 198:fx_engine.h   ****         ~Context() {}
+ 297              		.loc 2 198 9 is_stmt 0 view .LVU69
+ 298              	.LBE294:
+  36:diffuser.cpp  ****     const float             kap = 0.625f;
+ 299              		.loc 1 36 5 is_stmt 1 view .LVU70
+  37:diffuser.cpp  ****     const float             klp = 0.75f;
+ 300              		.loc 1 37 5 view .LVU71
+  38:diffuser.cpp  ****     float                   lp  = lp_decay_;
+ 301              		.loc 1 38 5 view .LVU72
+  17:diffuser.cpp  ****     typedef E::Reserve<
+ 302              		.loc 1 17 1 is_stmt 0 view .LVU73
+ 303 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 304              		.cfi_def_cfa_offset 24
+ 305              		.cfi_offset 3, -24
+ 306              		.cfi_offset 4, -20
+ 307              		.cfi_offset 5, -16
+ 308              		.cfi_offset 6, -12
+ 309              		.cfi_offset 7, -8
+ 310              		.cfi_offset 14, -4
+ 311              		.loc 1 38 35 view .LVU74
+ 312 0002 00F58046 		add	r6, r0, #16384
+  17:diffuser.cpp  ****     typedef E::Reserve<
+ 313              		.loc 1 17 1 view .LVU75
+ 314 0006 0746     		mov	r7, r0
+ 315              	.LBB295:
+ 316              	.LBB296:
+ 349:fx_engine.h   ****     }
+ 350:fx_engine.h   **** 
+ 351:fx_engine.h   ****     inline void Start(Context* c)
+ 352:fx_engine.h   ****     {
+ 353:fx_engine.h   ****         --write_ptr_;
+ 317              		.loc 2 353 11 view .LVU76
+ 318 0008 B268     		ldr	r2, [r6, #8]
+ 354:fx_engine.h   ****         if(write_ptr_ < 0)
+ 319              		.loc 2 354 9 view .LVU77
+ 320 000a 541E     		subs	r4, r2, #1
+ 321              	.LBE296:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 16
+
+
+ 322              	.LBE295:
+  17:diffuser.cpp  ****     typedef E::Reserve<
+ 323              		.loc 1 17 1 view .LVU78
+ 324 000c 2DED068B 		vpush.64	{d8, d9, d10}
+ 325              		.cfi_def_cfa_offset 48
+ 326              		.cfi_offset 80, -48
+ 327              		.cfi_offset 81, -44
+ 328              		.cfi_offset 82, -40
+ 329              		.cfi_offset 83, -36
+ 330              		.cfi_offset 84, -32
+ 331              		.cfi_offset 85, -28
+  17:diffuser.cpp  ****     typedef E::Reserve<
+ 332              		.loc 1 17 1 view .LVU79
+ 333 0010 B0EE408A 		vmov.f32	s16, s0
+ 334              		.loc 1 38 35 view .LVU80
+ 335 0014 96ED089A 		vldr.32	s18, [r6, #32]
+ 336              	.LVL9:
+  39:diffuser.cpp  **** 
+  40:diffuser.cpp  ****     float wet;
+ 337              		.loc 1 40 5 is_stmt 1 view .LVU81
+  41:diffuser.cpp  ****     engine_.Start(&c);
+ 338              		.loc 1 41 5 view .LVU82
+ 339              	.LBB305:
+ 340              	.LBI295:
+ 351:fx_engine.h   ****     {
+ 341              		.loc 2 351 17 view .LVU83
+ 342              	.LBB301:
+ 343              		.loc 2 354 9 is_stmt 0 view .LVU84
+ 344 0018 00F1B581 		bmi	.L6
+ 345              	.LBE301:
+ 346              	.LBE305:
+ 347              	.LBB306:
+ 348              	.LBB307:
+ 349              	.LBB308:
+ 350              	.LBB309:
+ 351              	.LBB310:
+ 229:fx_engine.h   ****             }
+ 352              		.loc 2 229 57 view .LVU85
+ 353 001c 2346     		mov	r3, r4
+ 354              	.LBE310:
+ 355              	.LBE309:
+ 356              	.LBE308:
+ 357              	.LBE307:
+ 358              	.LBE306:
+ 359              	.LBB339:
+ 360              	.LBB302:
+ 353:fx_engine.h   ****         if(write_ptr_ < 0)
+ 361              		.loc 2 353 9 view .LVU86
+ 362 001e B460     		str	r4, [r6, #8]
+ 363              	.L7:
+ 355:fx_engine.h   ****         {
+ 356:fx_engine.h   ****             write_ptr_ += size;
+ 357:fx_engine.h   ****         }
+ 358:fx_engine.h   ****         c->accumulator_   = 0.0f;
+ 359:fx_engine.h   ****         c->previous_read_ = 0.0f;
+ 360:fx_engine.h   ****         c->buffer_        = buffer_;
+ 361:fx_engine.h   ****         c->write_ptr_     = write_ptr_;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 17
+
+
+ 362:fx_engine.h   **** 
+ 363:fx_engine.h   ****         c->lfo_phase_ = lfo_phase_;
+ 364:fx_engine.h   ****         c->lfo_freq_  = lfo_freq_;
+ 365:fx_engine.h   **** 
+ 366:fx_engine.h   ****         if((write_ptr_ & 31) == 0)
+ 364              		.loc 2 366 9 view .LVU87
+ 365 0020 E206     		lsls	r2, r4, #27
+ 360:fx_engine.h   ****         c->write_ptr_     = write_ptr_;
+ 366              		.loc 2 360 29 view .LVU88
+ 367 0022 F568     		ldr	r5, [r6, #12]
+ 368              		.loc 2 366 9 view .LVU89
+ 369 0024 00F08E81 		beq	.L8
+ 370              	.LBE302:
+ 371              	.LBE339:
+ 372              	.LBB340:
+ 373              	.LBB341:
+ 315:fx_engine.h   ****             lfo_phase_[index] = lfo_phase_[index] >= 1.f
+ 374              		.loc 2 315 31 view .LVU90
+ 375 0028 D6ED049A 		vldr.32	s19, [r6, #16]
+ 376              	.LBE341:
+ 377              	.LBE340:
+ 378              	.LBB372:
+ 379              	.LBB303:
+ 380              	.LBB297:
+ 381              	.LBB298:
+ 367:fx_engine.h   ****         {
+ 368:fx_engine.h   ****             lfo_phase_[0] += lfo_freq_[0];
+ 382              		.loc 2 368 41 view .LVU91
+ 383 002c 96ED06AA 		vldr.32	s20, [r6, #24]
+ 384              	.L9:
+ 385              	.LVL10:
+ 386              		.loc 2 368 41 view .LVU92
+ 387              	.LBE298:
+ 388              	.LBE297:
+ 389              	.LBE303:
+ 390              	.LBE372:
+  42:diffuser.cpp  ****     c.Read(in);
+ 391              		.loc 1 42 5 is_stmt 1 view .LVU93
+ 392              	.LBB373:
+ 393              	.LBI373:
+ 208:fx_engine.h   **** 
+ 394              		.loc 2 208 21 view .LVU94
+ 208:fx_engine.h   **** 
+ 395              		.loc 2 208 21 is_stmt 0 view .LVU95
+ 396              	.LBE373:
+  43:diffuser.cpp  ****     c.Read(ap1 TAIL, kap);
+ 397              		.loc 1 43 5 is_stmt 1 view .LVU96
+ 398              	.LBB376:
+ 399              	.LBI376:
+ 254:fx_engine.h   ****         {
+ 400              		.loc 2 254 21 view .LVU97
+ 401              	.LBB377:
+ 402              	.LBB378:
+ 403              	.LBI378:
+  83:fx_engine.h   ****     {
+ 404              		.loc 2 83 25 view .LVU98
+ 405              	.LBB379:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 18
+
+
+  85:fx_engine.h   ****     }
+ 406              		.loc 2 85 9 view .LVU99
+ 407              	.LBE379:
+ 408              	.LBE378:
+ 409              	.LBE377:
+ 410              	.LBE376:
+ 411              	.LBB395:
+ 412              	.LBB334:
+ 413              	.LBB329:
+ 414              	.LBB324:
+ 415              	.LBB319:
+ 229:fx_engine.h   ****             }
+ 416              		.loc 2 229 57 is_stmt 0 view .LVU100
+ 417 0030 C3F30C02 		ubfx	r2, r3, #0, #13
+ 418              	.LBE319:
+ 419              	.LBE324:
+ 420              	.LBE329:
+ 421              	.LBE334:
+ 422              	.LBE395:
+ 423              	.LBB396:
+ 424              	.LBB390:
+ 260:fx_engine.h   ****             }
+ 425              		.loc 2 260 63 view .LVU101
+ 426 0034 04F17D03 		add	r3, r4, #125
+ 427              	.LVL11:
+ 428              	.LBB385:
+ 429              	.LBB380:
+  85:fx_engine.h   ****     }
+ 430              		.loc 2 85 66 view .LVU102
+ 431 0038 9FEDD65A 		vldr.32	s10, .L23
+ 432              	.LBE380:
+ 433              	.LBE385:
+ 268:fx_engine.h   ****         }
+ 434              		.loc 2 268 26 view .LVU103
+ 435 003c F6EE045A 		vmov.f32	s11, #6.25e-1
+ 260:fx_engine.h   ****             }
+ 436              		.loc 2 260 68 view .LVU104
+ 437 0040 C3F30C03 		ubfx	r3, r3, #0, #13
+ 438              	.LVL12:
+ 260:fx_engine.h   ****             }
+ 439              		.loc 2 260 68 view .LVU105
+ 440              	.LBE390:
+ 441              	.LBE396:
+ 442              	.LBB397:
+ 443              	.LBB374:
+ 208:fx_engine.h   **** 
+ 444              		.loc 2 208 54 view .LVU106
+ 445 0044 DFEDD46A 		vldr.32	s13, .L23+4
+ 446              	.LBE374:
+ 447              	.LBE397:
+ 448              	.LBB398:
+ 449              	.LBB335:
+ 450              	.LBB330:
+ 451              	.LBB325:
+ 452              	.LBB320:
+ 453              	.LBB311:
+ 454              	.LBB312:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 19
+
+
+  91:fx_engine.h   ****     }
+ 455              		.loc 2 91 58 view .LVU107
+ 456 0048 47F6FF70 		movw	r0, #32767
+ 457              	.LVL13:
+  91:fx_engine.h   ****     }
+ 458              		.loc 2 91 58 view .LVU108
+ 459 004c D349     		ldr	r1, .L23+8
+ 460              	.LBE312:
+ 461              	.LBE311:
+ 462              	.LBE320:
+ 463              	.LBE325:
+ 464              	.LBE330:
+ 465              	.LBE335:
+ 466              	.LBE398:
+ 467              	.LBB399:
+ 468              	.LBB391:
+ 469              	.LBB386:
+ 470              	.LBB381:
+  85:fx_engine.h   ****     }
+ 471              		.loc 2 85 16 view .LVU109
+ 472 004e 35F91330 		ldrsh	r3, [r5, r3, lsl #1]
+ 473              	.LBE381:
+ 474              	.LBE386:
+ 475              	.LBE391:
+ 476              	.LBE399:
+ 477              	.LBB400:
+ 478              	.LBB375:
+ 208:fx_engine.h   **** 
+ 479              		.loc 2 208 54 view .LVU110
+ 480 0052 78EE266A 		vadd.f32	s13, s16, s13
+ 481              	.LBE375:
+ 482              	.LBE400:
+ 483              	.LBB401:
+ 484              	.LBB336:
+ 485              	.LBB331:
+ 244:fx_engine.h   ****         }
+ 486              		.loc 2 244 26 view .LVU111
+ 487 0056 BEEE046A 		vmov.f32	s12, #-6.25e-1
+ 488              	.LBE331:
+ 489              	.LBE336:
+ 490              	.LBE401:
+ 491              	.LBB402:
+ 492              	.LBB360:
+ 320:fx_engine.h   **** 
+ 493              		.loc 2 320 39 view .LVU112
+ 494 005a 9FEDD10A 		vldr.32	s0, .L23+12
+ 495              	.LVL14:
+ 320:fx_engine.h   **** 
+ 496              		.loc 2 320 39 view .LVU113
+ 497              	.LBE360:
+ 498              	.LBE402:
+ 499              	.LBB403:
+ 500              	.LBB392:
+ 501              	.LBB387:
+ 502              	.LBB382:
+  85:fx_engine.h   ****     }
+ 503              		.loc 2 85 16 view .LVU114
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 20
+
+
+ 504 005e 07EE103A 		vmov	s14, r3	@ int
+ 505              	.LBE382:
+ 506              	.LBE387:
+ 507              	.LBE392:
+ 508              	.LBE403:
+ 509              	.LBB404:
+ 510              	.LBB361:
+ 315:fx_engine.h   ****             lfo_phase_[index] = lfo_phase_[index] >= 1.f
+ 511              		.loc 2 315 31 view .LVU115
+ 512 0062 79EE8A9A 		vadd.f32	s19, s19, s20
+ 317:fx_engine.h   ****                                     : lfo_phase_[index];
+ 513              		.loc 2 317 37 view .LVU116
+ 514 0066 F7EE004A 		vmov.f32	s9, #1.0e+0
+ 515              	.LBE361:
+ 516              	.LBE404:
+ 517              	.LBB405:
+ 518              	.LBB393:
+ 519              	.LBB388:
+ 520              	.LBB383:
+  85:fx_engine.h   ****     }
+ 521              		.loc 2 85 16 view .LVU117
+ 522 006a B8EEC77A 		vcvt.f32.s32	s14, s14
+ 523              	.LBE383:
+ 524              	.LBE388:
+ 525              	.LBE393:
+ 526              	.LBE405:
+ 527              	.LBB406:
+ 528              	.LBB362:
+ 317:fx_engine.h   ****                                     : lfo_phase_[index];
+ 529              		.loc 2 317 37 view .LVU118
+ 530 006e F4EEE49A 		vcmpe.f32	s19, s9
+ 531              	.LBE362:
+ 532              	.LBE406:
+ 533              	.LBB407:
+ 534              	.LBB394:
+ 535              	.LBB389:
+ 536              	.LBB384:
+  85:fx_engine.h   ****     }
+ 537              		.loc 2 85 66 view .LVU119
+ 538 0072 27EE057A 		vmul.f32	s14, s14, s10
+ 539              	.LVL15:
+  85:fx_engine.h   ****     }
+ 540              		.loc 2 85 66 view .LVU120
+ 541              	.LBE384:
+ 542              	.LBE389:
+ 268:fx_engine.h   ****         }
+ 543              		.loc 2 268 26 view .LVU121
+ 544 0076 E7EE256A 		vfma.f32	s13, s14, s11
+ 545              	.LVL16:
+ 268:fx_engine.h   ****         }
+ 546              		.loc 2 268 26 view .LVU122
+ 547              	.LBE394:
+ 548              	.LBE407:
+  44:diffuser.cpp  ****     c.WriteAllPass(ap1, -kap);
+ 549              		.loc 1 44 5 is_stmt 1 view .LVU123
+ 550              	.LBB408:
+ 551              	.LBI306:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 21
+
+
+ 248:fx_engine.h   ****         {
+ 552              		.loc 2 248 21 view .LVU124
+ 553              	.LBB337:
+ 554              	.LBI307:
+ 241:fx_engine.h   ****         {
+ 555              		.loc 2 241 21 view .LVU125
+ 556              	.LBB332:
+ 557              	.LBB326:
+ 558              	.LBI309:
+ 219:fx_engine.h   ****         {
+ 559              		.loc 2 219 21 view .LVU126
+ 560              	.LBB321:
+ 561              	.LBB316:
+ 562              	.LBI311:
+  88:fx_engine.h   ****     {
+ 563              		.loc 2 88 21 view .LVU127
+ 564              	.LBB313:
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 565              		.loc 2 90 9 view .LVU128
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 566              		.loc 2 90 9 is_stmt 0 view .LVU129
+ 567              	.LBE313:
+ 568              	.LBE316:
+ 569              	.LBE321:
+ 570              	.LBE326:
+ 571              	.LBE332:
+ 572              	.LBE337:
+ 573              	.LBE408:
+  59:fx_engine.h   ****     {
+ 574              		.loc 2 59 5 is_stmt 1 view .LVU130
+ 575              	.LBB409:
+ 576              	.LBB338:
+ 577              	.LBB333:
+ 578              	.LBB327:
+ 579              	.LBB322:
+ 580              	.LBB317:
+ 581              	.LBB314:
+  91:fx_engine.h   ****     }
+ 582              		.loc 2 91 19 is_stmt 0 view .LVU131
+ 583 007a F0EE667A 		vmov.f32	s15, s13
+ 584              	.LBE314:
+ 585              	.LBE317:
+ 586              	.LBE322:
+ 587              	.LBE327:
+ 244:fx_engine.h   ****         }
+ 588              		.loc 2 244 26 view .LVU132
+ 589 007e A6EE867A 		vfma.f32	s14, s13, s12
+ 590              	.LVL17:
+ 591              	.LBB328:
+ 592              	.LBB323:
+ 593              	.LBB318:
+ 594              	.LBB315:
+  91:fx_engine.h   ****     }
+ 595              		.loc 2 91 19 view .LVU133
+ 596 0082 FEEECA7A 		vcvt.s32.f32	s15, s15, #12
+ 597 0086 17EE903A 		vmov	r3, s15	@ int
+ 598              	.LVL18:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 22
+
+
+  91:fx_engine.h   ****     }
+ 599              		.loc 2 91 58 view .LVU134
+ 600 008a 8342     		cmp	r3, r0
+ 601 008c A8BF     		it	ge
+ 602 008e 0346     		movge	r3, r0
+ 603 0090 8B42     		cmp	r3, r1
+ 604 0092 B8BF     		it	lt
+ 605 0094 0B46     		movlt	r3, r1
+ 606 0096 25F81230 		strh	r3, [r5, r2, lsl #1]	@ movhi
+ 607              	.LVL19:
+  91:fx_engine.h   ****     }
+ 608              		.loc 2 91 58 view .LVU135
+ 609              	.LBE315:
+ 610              	.LBE318:
+ 611              	.LBE323:
+ 612              	.LBE328:
+ 613              	.LBE333:
+ 614              	.LBE338:
+ 615              	.LBE409:
+  45:diffuser.cpp  ****     c.Read(ap2 TAIL, kap);
+ 616              		.loc 1 45 5 is_stmt 1 view .LVU136
+ 617              	.LBB410:
+ 618              	.LBI410:
+ 254:fx_engine.h   ****         {
+ 619              		.loc 2 254 21 view .LVU137
+ 620              	.LBB411:
+ 621              	.LBB412:
+ 622              	.LBI412:
+  83:fx_engine.h   ****     {
+ 623              		.loc 2 83 25 view .LVU138
+ 624              	.LBB413:
+  85:fx_engine.h   ****     }
+ 625              		.loc 2 85 9 view .LVU139
+ 626              	.LBE413:
+ 627              	.LBE412:
+ 260:fx_engine.h   ****             }
+ 628              		.loc 2 260 63 is_stmt 0 view .LVU140
+ 629 009a 04F59973 		add	r3, r4, #306
+ 630              	.LVL20:
+ 260:fx_engine.h   ****             }
+ 631              		.loc 2 260 63 view .LVU141
+ 632              	.LBE411:
+ 633              	.LBE410:
+ 634              	.LBB418:
+ 635              	.LBB419:
+ 636              	.LBB420:
+ 637              	.LBB421:
+ 638              	.LBB422:
+ 229:fx_engine.h   ****             }
+ 639              		.loc 2 229 37 view .LVU142
+ 640 009e 04F17F02 		add	r2, r4, #127
+ 641              	.LBE422:
+ 642              	.LBE421:
+ 643              	.LBE420:
+ 644              	.LBE419:
+ 645              	.LBE418:
+ 646              	.LBB443:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 23
+
+
+ 647              	.LBB416:
+ 260:fx_engine.h   ****             }
+ 648              		.loc 2 260 68 view .LVU143
+ 649 00a2 C3F30C03 		ubfx	r3, r3, #0, #13
+ 650              	.LVL21:
+ 260:fx_engine.h   ****             }
+ 651              		.loc 2 260 68 view .LVU144
+ 652              	.LBE416:
+ 653              	.LBE443:
+ 654              	.LBB444:
+ 655              	.LBB440:
+ 656              	.LBB437:
+ 657              	.LBB433:
+ 658              	.LBB429:
+ 229:fx_engine.h   ****             }
+ 659              		.loc 2 229 57 view .LVU145
+ 660 00a6 C2F30C02 		ubfx	r2, r2, #0, #13
+ 661              	.LBE429:
+ 662              	.LBE433:
+ 663              	.LBE437:
+ 664              	.LBE440:
+ 665              	.LBE444:
+ 666              	.LBB445:
+ 667              	.LBB417:
+ 668              	.LBB415:
+ 669              	.LBB414:
+  85:fx_engine.h   ****     }
+ 670              		.loc 2 85 16 view .LVU146
+ 671 00aa 35F91330 		ldrsh	r3, [r5, r3, lsl #1]
+ 672 00ae 07EE903A 		vmov	s15, r3	@ int
+ 673 00b2 F8EEE77A 		vcvt.f32.s32	s15, s15
+  85:fx_engine.h   ****     }
+ 674              		.loc 2 85 66 view .LVU147
+ 675 00b6 67EE857A 		vmul.f32	s15, s15, s10
+ 676              	.LVL22:
+  85:fx_engine.h   ****     }
+ 677              		.loc 2 85 66 view .LVU148
+ 678              	.LBE414:
+ 679              	.LBE415:
+ 268:fx_engine.h   ****         }
+ 680              		.loc 2 268 26 view .LVU149
+ 681 00ba A7EEA57A 		vfma.f32	s14, s15, s11
+ 682              	.LVL23:
+ 268:fx_engine.h   ****         }
+ 683              		.loc 2 268 26 view .LVU150
+ 684              	.LBE417:
+ 685              	.LBE445:
+  46:diffuser.cpp  ****     c.WriteAllPass(ap2, -kap);
+ 686              		.loc 1 46 5 is_stmt 1 view .LVU151
+ 687              	.LBB446:
+ 688              	.LBI418:
+ 248:fx_engine.h   ****         {
+ 689              		.loc 2 248 21 view .LVU152
+ 690              	.LBB441:
+ 691              	.LBI419:
+ 241:fx_engine.h   ****         {
+ 692              		.loc 2 241 21 view .LVU153
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 24
+
+
+ 693              	.LBB438:
+ 694              	.LBB434:
+ 695              	.LBI421:
+ 219:fx_engine.h   ****         {
+ 696              		.loc 2 219 21 view .LVU154
+ 697              	.LBB430:
+ 698              	.LBB423:
+ 699              	.LBI423:
+  88:fx_engine.h   ****     {
+ 700              		.loc 2 88 21 view .LVU155
+ 701              	.LBB424:
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 702              		.loc 2 90 9 view .LVU156
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 703              		.loc 2 90 9 is_stmt 0 view .LVU157
+ 704              	.LBE424:
+ 705              	.LBE423:
+ 706              	.LBE430:
+ 707              	.LBE434:
+ 708              	.LBE438:
+ 709              	.LBE441:
+ 710              	.LBE446:
+  59:fx_engine.h   ****     {
+ 711              		.loc 2 59 5 is_stmt 1 view .LVU158
+ 712              	.LBB447:
+ 713              	.LBB442:
+ 714              	.LBB439:
+ 715              	.LBB435:
+ 716              	.LBB431:
+ 717              	.LBB427:
+ 718              	.LBB425:
+  91:fx_engine.h   ****     }
+ 719              		.loc 2 91 19 is_stmt 0 view .LVU159
+ 720 00be F0EE476A 		vmov.f32	s13, s14
+ 721              	.LVL24:
+  91:fx_engine.h   ****     }
+ 722              		.loc 2 91 19 view .LVU160
+ 723              	.LBE425:
+ 724              	.LBE427:
+ 725              	.LBE431:
+ 726              	.LBE435:
+ 244:fx_engine.h   ****         }
+ 727              		.loc 2 244 26 view .LVU161
+ 728 00c2 E7EE067A 		vfma.f32	s15, s14, s12
+ 729              	.LVL25:
+ 730              	.LBB436:
+ 731              	.LBB432:
+ 732              	.LBB428:
+ 733              	.LBB426:
+  91:fx_engine.h   ****     }
+ 734              		.loc 2 91 19 view .LVU162
+ 735 00c6 FEEECA6A 		vcvt.s32.f32	s13, s13, #12
+ 736 00ca 16EE903A 		vmov	r3, s13	@ int
+ 737              	.LVL26:
+  91:fx_engine.h   ****     }
+ 738              		.loc 2 91 58 view .LVU163
+ 739 00ce 8342     		cmp	r3, r0
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 25
+
+
+ 740 00d0 A8BF     		it	ge
+ 741 00d2 0346     		movge	r3, r0
+ 742 00d4 8B42     		cmp	r3, r1
+ 743 00d6 B8BF     		it	lt
+ 744 00d8 0B46     		movlt	r3, r1
+ 745 00da 25F81230 		strh	r3, [r5, r2, lsl #1]	@ movhi
+ 746              	.LVL27:
+  91:fx_engine.h   ****     }
+ 747              		.loc 2 91 58 view .LVU164
+ 748              	.LBE426:
+ 749              	.LBE428:
+ 750              	.LBE432:
+ 751              	.LBE436:
+ 752              	.LBE439:
+ 753              	.LBE442:
+ 754              	.LBE447:
+  47:diffuser.cpp  ****     c.Read(ap3 TAIL, kap);
+ 755              		.loc 1 47 5 is_stmt 1 view .LVU165
+ 756              	.LBB448:
+ 757              	.LBI448:
+ 254:fx_engine.h   ****         {
+ 758              		.loc 2 254 21 view .LVU166
+ 759              	.LBB449:
+ 760              	.LBB450:
+ 761              	.LBI450:
+  83:fx_engine.h   ****     {
+ 762              		.loc 2 83 25 view .LVU167
+ 763              	.LBB451:
+  85:fx_engine.h   ****     }
+ 764              		.loc 2 85 9 view .LVU168
+ 765              	.LBE451:
+ 766              	.LBE450:
+ 260:fx_engine.h   ****             }
+ 767              		.loc 2 260 63 is_stmt 0 view .LVU169
+ 768 00de 04F51073 		add	r3, r4, #576
+ 769              	.LVL28:
+ 260:fx_engine.h   ****             }
+ 770              		.loc 2 260 63 view .LVU170
+ 771              	.LBE449:
+ 772              	.LBE448:
+ 773              	.LBB456:
+ 774              	.LBB457:
+ 775              	.LBB458:
+ 776              	.LBB459:
+ 777              	.LBB460:
+ 229:fx_engine.h   ****             }
+ 778              		.loc 2 229 37 view .LVU171
+ 779 00e2 04F59A72 		add	r2, r4, #308
+ 780              	.LBE460:
+ 781              	.LBE459:
+ 782              	.LBE458:
+ 783              	.LBE457:
+ 784              	.LBE456:
+ 785              	.LBB483:
+ 786              	.LBB454:
+ 260:fx_engine.h   ****             }
+ 787              		.loc 2 260 68 view .LVU172
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 26
+
+
+ 788 00e6 C3F30C03 		ubfx	r3, r3, #0, #13
+ 789              	.LVL29:
+ 260:fx_engine.h   ****             }
+ 790              		.loc 2 260 68 view .LVU173
+ 791              	.LBE454:
+ 792              	.LBE483:
+ 793              	.LBB484:
+ 794              	.LBB479:
+ 795              	.LBB475:
+ 796              	.LBB471:
+ 797              	.LBB467:
+ 229:fx_engine.h   ****             }
+ 798              		.loc 2 229 57 view .LVU174
+ 799 00ea C2F30C02 		ubfx	r2, r2, #0, #13
+ 800              	.LBE467:
+ 801              	.LBE471:
+ 802              	.LBE475:
+ 803              	.LBE479:
+ 804              	.LBE484:
+ 805              	.LBB485:
+ 806              	.LBB455:
+ 807              	.LBB453:
+ 808              	.LBB452:
+  85:fx_engine.h   ****     }
+ 809              		.loc 2 85 16 view .LVU175
+ 810 00ee 35F91330 		ldrsh	r3, [r5, r3, lsl #1]
+ 811 00f2 07EE103A 		vmov	s14, r3	@ int
+ 812              	.LVL30:
+  85:fx_engine.h   ****     }
+ 813              		.loc 2 85 16 view .LVU176
+ 814 00f6 B8EEC77A 		vcvt.f32.s32	s14, s14
+  85:fx_engine.h   ****     }
+ 815              		.loc 2 85 66 view .LVU177
+ 816 00fa 27EE057A 		vmul.f32	s14, s14, s10
+ 817              	.LVL31:
+  85:fx_engine.h   ****     }
+ 818              		.loc 2 85 66 view .LVU178
+ 819              	.LBE452:
+ 820              	.LBE453:
+ 268:fx_engine.h   ****         }
+ 821              		.loc 2 268 26 view .LVU179
+ 822 00fe E7EE257A 		vfma.f32	s15, s14, s11
+ 823              	.LVL32:
+ 268:fx_engine.h   ****         }
+ 824              		.loc 2 268 26 view .LVU180
+ 825              	.LBE455:
+ 826              	.LBE485:
+  48:diffuser.cpp  ****     c.WriteAllPass(ap3, -kap);
+ 827              		.loc 1 48 5 is_stmt 1 view .LVU181
+ 828              	.LBB486:
+ 829              	.LBI456:
+ 248:fx_engine.h   ****         {
+ 830              		.loc 2 248 21 view .LVU182
+ 831              	.LBB480:
+ 832              	.LBI457:
+ 241:fx_engine.h   ****         {
+ 833              		.loc 2 241 21 view .LVU183
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 27
+
+
+ 834              	.LBB476:
+ 835              	.LBB472:
+ 836              	.LBI459:
+ 219:fx_engine.h   ****         {
+ 837              		.loc 2 219 21 view .LVU184
+ 838              	.LBB468:
+ 839              	.LBB461:
+ 840              	.LBI461:
+  88:fx_engine.h   ****     {
+ 841              		.loc 2 88 21 view .LVU185
+ 842              	.LBB462:
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 843              		.loc 2 90 9 view .LVU186
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 844              		.loc 2 90 9 is_stmt 0 view .LVU187
+ 845              	.LBE462:
+ 846              	.LBE461:
+ 847              	.LBE468:
+ 848              	.LBE472:
+ 849              	.LBE476:
+ 850              	.LBE480:
+ 851              	.LBE486:
+  59:fx_engine.h   ****     {
+ 852              		.loc 2 59 5 is_stmt 1 view .LVU188
+ 853              	.LBB487:
+ 854              	.LBB481:
+ 855              	.LBB477:
+ 244:fx_engine.h   ****         }
+ 856              		.loc 2 244 26 is_stmt 0 view .LVU189
+ 857 0102 A7EE867A 		vfma.f32	s14, s15, s12
+ 858              	.LVL33:
+ 244:fx_engine.h   ****         }
+ 859              		.loc 2 244 26 view .LVU190
+ 860 0106 F0EE478A 		vmov.f32	s17, s14
+ 861              	.LBB473:
+ 862              	.LBB469:
+ 863              	.LBB465:
+ 864              	.LBB463:
+  91:fx_engine.h   ****     }
+ 865              		.loc 2 91 19 view .LVU191
+ 866 010a B0EE677A 		vmov.f32	s14, s15
+ 867 010e BEEECA7A 		vcvt.s32.f32	s14, s14, #12
+ 868 0112 17EE103A 		vmov	r3, s14	@ int
+ 869              	.LVL34:
+  91:fx_engine.h   ****     }
+ 870              		.loc 2 91 58 view .LVU192
+ 871 0116 8342     		cmp	r3, r0
+ 872 0118 A8BF     		it	ge
+ 873 011a 0346     		movge	r3, r0
+ 874 011c 8B42     		cmp	r3, r1
+ 875 011e B8BF     		it	lt
+ 876 0120 0B46     		movlt	r3, r1
+ 877              	.LBE463:
+ 878              	.LBE465:
+ 879              	.LBE469:
+ 880              	.LBE473:
+ 881              	.LBE477:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 28
+
+
+ 882              	.LBE481:
+ 883              	.LBE487:
+ 884              	.LBB488:
+ 885              	.LBB363:
+ 317:fx_engine.h   ****                                     : lfo_phase_[index];
+ 886              		.loc 2 317 37 view .LVU193
+ 887 0122 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 888              	.LBE363:
+ 889              	.LBE488:
+ 890              	.LBB489:
+ 891              	.LBB482:
+ 892              	.LBB478:
+ 893              	.LBB474:
+ 894              	.LBB470:
+ 895              	.LBB466:
+ 896              	.LBB464:
+  91:fx_engine.h   ****     }
+ 897              		.loc 2 91 58 view .LVU194
+ 898 0126 25F81230 		strh	r3, [r5, r2, lsl #1]	@ movhi
+ 899              	.LVL35:
+  91:fx_engine.h   ****     }
+ 900              		.loc 2 91 58 view .LVU195
+ 901              	.LBE464:
+ 902              	.LBE466:
+ 903              	.LBE470:
+ 904              	.LBE474:
+ 905              	.LBE478:
+ 906              	.LBE482:
+ 907              	.LBE489:
+  49:diffuser.cpp  ****     c.Interpolate(ap4, 400.0f, LFO_1, 43.0f, kap);
+ 908              		.loc 1 49 5 is_stmt 1 view .LVU196
+ 909              	.LBB490:
+ 910              	.LBI340:
+ 308:fx_engine.h   ****                                 float    offset,
+ 911              		.loc 2 308 21 view .LVU197
+ 912              	.LBB364:
+ 317:fx_engine.h   ****                                     : lfo_phase_[index];
+ 913              		.loc 2 317 37 is_stmt 0 view .LVU198
+ 914 012a A8BF     		it	ge
+ 915 012c 79EEE49A 		vsubge.f32	s19, s19, s9
+ 320:fx_engine.h   **** 
+ 916              		.loc 2 320 39 view .LVU199
+ 917 0130 29EE800A 		vmul.f32	s0, s19, s0
+ 918 0134 FFF7FEFF 		bl	cosf
+ 919              	.LVL36:
+ 320:fx_engine.h   **** 
+ 920              		.loc 2 320 20 view .LVU200
+ 921 0138 9FED9A7A 		vldr.32	s14, .L23+16
+ 922 013c DFED9A7A 		vldr.32	s15, .L23+20
+ 332:fx_engine.h   ****         }
+ 923              		.loc 2 332 26 view .LVU201
+ 924 0140 F6EE044A 		vmov.f32	s9, #6.25e-1
+ 925              	.LBB342:
+ 926              	.LBB343:
+  85:fx_engine.h   ****     }
+ 927              		.loc 2 85 66 view .LVU202
+ 928 0144 9FED936A 		vldr.32	s12, .L23
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 29
+
+
+ 929              	.LBE343:
+ 930              	.LBE342:
+ 931              	.LBE364:
+ 932              	.LBE490:
+ 933              	.LBB491:
+ 934              	.LBB492:
+ 935              	.LBB493:
+ 244:fx_engine.h   ****         }
+ 936              		.loc 2 244 26 view .LVU203
+ 937 0148 BEEE045A 		vmov.f32	s10, #-6.25e-1
+ 938              	.LBE493:
+ 939              	.LBE492:
+ 940              	.LBE491:
+ 941              	.LBB514:
+ 942              	.LBB365:
+ 320:fx_engine.h   **** 
+ 943              		.loc 2 320 20 view .LVU204
+ 944 014c E0EE077A 		vfma.f32	s15, s0, s14
+ 945              	.LVL37:
+ 320:fx_engine.h   **** 
+ 946              		.loc 2 320 20 view .LVU205
+ 947              	.LBE365:
+ 948              	.LBE514:
+ 949              	.LBB515:
+ 950              	.LBB516:
+ 320:fx_engine.h   **** 
+ 951              		.loc 2 320 39 view .LVU206
+ 952 0150 9FED930A 		vldr.32	s0, .L23+12
+ 315:fx_engine.h   ****             lfo_phase_[index] = lfo_phase_[index] >= 1.f
+ 953              		.loc 2 315 31 view .LVU207
+ 954 0154 79EE8A9A 		vadd.f32	s19, s19, s20
+ 955              	.LBE516:
+ 956              	.LBE515:
+  50:diffuser.cpp  ****     c.WriteAllPass(ap4, -kap);
+  51:diffuser.cpp  ****     c.Interpolate(del, 3070.0f, LFO_1, 340.0f, rt_);
+ 957              		.loc 1 51 18 view .LVU208
+ 958 0158 97ED00AA 		vldr.32	s20, [r7]
+ 959              	.LBB552:
+ 960              	.LBB537:
+ 317:fx_engine.h   ****                                     : lfo_phase_[index];
+ 961              		.loc 2 317 37 view .LVU209
+ 962 015c F7EE005A 		vmov.f32	s11, #1.0e+0
+ 963 0160 F4EEE59A 		vcmpe.f32	s19, s11
+ 964              	.LBE537:
+ 965              	.LBE552:
+ 966              	.LBB553:
+ 967              	.LBB366:
+ 322:fx_engine.h   ****             float   offset_fractional
+ 968              		.loc 2 322 21 view .LVU210
+ 969 0164 BDEEE77A 		vcvt.s32.f32	s14, s15
+ 970              	.LVL38:
+ 322:fx_engine.h   ****             float   offset_fractional
+ 971              		.loc 2 322 21 view .LVU211
+ 972              	.LBE366:
+ 973              	.LBE553:
+ 974              	.LBB554:
+ 975              	.LBB538:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 30
+
+
+ 317:fx_engine.h   ****                                     : lfo_phase_[index];
+ 976              		.loc 2 317 37 view .LVU212
+ 977 0168 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 978              	.LBE538:
+ 979              	.LBE554:
+ 980              	.LBB555:
+ 981              	.LBB367:
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 982              		.loc 2 327 37 view .LVU213
+ 983 016c 17EE103A 		vmov	r3, s14	@ int
+ 324:fx_engine.h   **** 
+ 984              		.loc 2 324 28 view .LVU214
+ 985 0170 B8EEC77A 		vcvt.f32.s32	s14, s14
+ 986              	.LVL39:
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 987              		.loc 2 327 37 view .LVU215
+ 988 0174 2344     		add	r3, r3, r4
+ 989              	.LVL40:
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 990              		.loc 2 327 37 view .LVU216
+ 991              	.LBE367:
+ 992              	.LBE555:
+ 993              	.LBB556:
+ 994              	.LBB539:
+ 317:fx_engine.h   ****                                     : lfo_phase_[index];
+ 995              		.loc 2 317 37 view .LVU217
+ 996 0176 A8BF     		it	ge
+ 997 0178 79EEE59A 		vsubge.f32	s19, s19, s11
+ 998              	.LBE539:
+ 999              	.LBE556:
+ 1000              	.LBB557:
+ 1001              	.LBB368:
+ 323:fx_engine.h   ****                 = offset - static_cast<float>(offset_integral);
+ 1002              		.loc 2 323 21 view .LVU218
+ 1003 017c 77EEC77A 		vsub.f32	s15, s15, s14
+ 1004              	.LVL41:
+ 1005              	.LBB348:
+ 1006              	.LBI348:
+  83:fx_engine.h   ****     {
+ 1007              		.loc 2 83 25 is_stmt 1 view .LVU219
+ 1008              	.LBB349:
+  85:fx_engine.h   ****     }
+ 1009              		.loc 2 85 9 view .LVU220
+ 1010              	.LBE349:
+ 1011              	.LBE348:
+ 329:fx_engine.h   ****             float x        = a + (b - a) * offset_fractional;
+ 1012              		.loc 2 329 65 is_stmt 0 view .LVU221
+ 1013 0180 03F24322 		addw	r2, r3, #579
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1014              		.loc 2 327 55 view .LVU222
+ 1015 0184 03F24223 		addw	r3, r3, #578
+ 1016              	.LVL42:
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1017              		.loc 2 327 55 view .LVU223
+ 1018              	.LBE368:
+ 1019              	.LBE557:
+ 1020              	.LBB558:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 31
+
+
+ 1021              	.LBB540:
+ 320:fx_engine.h   **** 
+ 1022              		.loc 2 320 39 view .LVU224
+ 1023 0188 29EE800A 		vmul.f32	s0, s19, s0
+ 1024              	.LBE540:
+ 1025              	.LBE558:
+ 1026              	.LBB559:
+ 1027              	.LBB369:
+ 329:fx_engine.h   ****             float x        = a + (b - a) * offset_fractional;
+ 1028              		.loc 2 329 70 view .LVU225
+ 1029 018c C2F30C02 		ubfx	r2, r2, #0, #13
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1030              		.loc 2 327 66 view .LVU226
+ 1031 0190 C3F30C03 		ubfx	r3, r3, #0, #13
+ 1032              	.LVL43:
+ 1033              	.LBB353:
+ 1034              	.LBB344:
+  85:fx_engine.h   ****     }
+ 1035              		.loc 2 85 16 view .LVU227
+ 1036 0194 35F91220 		ldrsh	r2, [r5, r2, lsl #1]
+ 1037              	.LBE344:
+ 1038              	.LBE353:
+ 1039              	.LBB354:
+ 1040              	.LBB350:
+ 1041 0198 35F91330 		ldrsh	r3, [r5, r3, lsl #1]
+ 1042              	.LBE350:
+ 1043              	.LBE354:
+ 1044              	.LBB355:
+ 1045              	.LBB345:
+ 1046 019c 07EE102A 		vmov	s14, r2	@ int
+ 1047              	.LBE345:
+ 1048              	.LBE355:
+ 1049              	.LBE369:
+ 1050              	.LBE559:
+ 1051              	.LBB560:
+ 1052              	.LBB510:
+ 1053              	.LBB506:
+ 1054              	.LBB494:
+ 1055              	.LBB495:
+ 229:fx_engine.h   ****             }
+ 1056              		.loc 2 229 37 view .LVU228
+ 1057 01a0 04F24222 		addw	r2, r4, #578
+ 1058              	.LBE495:
+ 1059              	.LBE494:
+ 1060              	.LBE506:
+ 1061              	.LBE510:
+ 1062              	.LBE560:
+ 1063              	.LBB561:
+ 1064              	.LBB370:
+ 1065              	.LBB356:
+ 1066              	.LBB351:
+  85:fx_engine.h   ****     }
+ 1067              		.loc 2 85 16 view .LVU229
+ 1068 01a4 06EE903A 		vmov	s13, r3	@ int
+ 1069              	.LBE351:
+ 1070              	.LBE356:
+ 1071              	.LBB357:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 32
+
+
+ 1072              	.LBB346:
+ 1073 01a8 B8EEC77A 		vcvt.f32.s32	s14, s14
+ 1074              	.LBE346:
+ 1075              	.LBE357:
+ 1076              	.LBE370:
+ 1077              	.LBE561:
+ 1078              	.LBB562:
+ 1079              	.LBB511:
+ 1080              	.LBB507:
+ 1081              	.LBB503:
+ 1082              	.LBB500:
+ 229:fx_engine.h   ****             }
+ 1083              		.loc 2 229 57 view .LVU230
+ 1084 01ac C2F30C02 		ubfx	r2, r2, #0, #13
+ 1085              	.LBE500:
+ 1086              	.LBE503:
+ 1087              	.LBE507:
+ 1088              	.LBE511:
+ 1089              	.LBE562:
+ 1090              	.LBB563:
+ 1091              	.LBB371:
+ 1092              	.LBB358:
+ 1093              	.LBB352:
+  85:fx_engine.h   ****     }
+ 1094              		.loc 2 85 16 view .LVU231
+ 1095 01b0 F8EEE66A 		vcvt.f32.s32	s13, s13
+ 1096              	.LVL44:
+  85:fx_engine.h   ****     }
+ 1097              		.loc 2 85 16 view .LVU232
+ 1098              	.LBE352:
+ 1099              	.LBE358:
+ 1100              	.LBB359:
+ 1101              	.LBI342:
+  83:fx_engine.h   ****     {
+ 1102              		.loc 2 83 25 is_stmt 1 view .LVU233
+ 1103              	.LBB347:
+  85:fx_engine.h   ****     }
+ 1104              		.loc 2 85 9 view .LVU234
+  85:fx_engine.h   ****     }
+ 1105              		.loc 2 85 66 is_stmt 0 view .LVU235
+ 1106 01b4 27EE067A 		vmul.f32	s14, s14, s12
+ 1107              	.LBE347:
+ 1108              	.LBE359:
+ 330:fx_engine.h   ****             previous_read_ = x;
+ 1109              		.loc 2 330 37 view .LVU236
+ 1110 01b8 A6EEC67A 		vfms.f32	s14, s13, s12
+ 330:fx_engine.h   ****             previous_read_ = x;
+ 1111              		.loc 2 330 42 view .LVU237
+ 1112 01bc 27EE877A 		vmul.f32	s14, s15, s14
+ 332:fx_engine.h   ****         }
+ 1113              		.loc 2 332 26 view .LVU238
+ 1114 01c0 F0EE687A 		vmov.f32	s15, s17
+ 1115              	.LVL45:
+ 330:fx_engine.h   ****             previous_read_ = x;
+ 1116              		.loc 2 330 19 view .LVU239
+ 1117 01c4 A6EE867A 		vfma.f32	s14, s13, s12
+ 1118              	.LVL46:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 33
+
+
+ 332:fx_engine.h   ****         }
+ 1119              		.loc 2 332 26 view .LVU240
+ 1120 01c8 E7EE247A 		vfma.f32	s15, s14, s9
+ 1121              	.LVL47:
+ 332:fx_engine.h   ****         }
+ 1122              		.loc 2 332 26 view .LVU241
+ 1123              	.LBE371:
+ 1124              	.LBE563:
+  50:diffuser.cpp  ****     c.Interpolate(del, 3070.0f, LFO_1, 340.0f, rt_);
+ 1125              		.loc 1 50 5 is_stmt 1 view .LVU242
+ 1126              	.LBB564:
+ 1127              	.LBI491:
+ 248:fx_engine.h   ****         {
+ 1128              		.loc 2 248 21 view .LVU243
+ 1129              	.LBB512:
+ 1130              	.LBI492:
+ 241:fx_engine.h   ****         {
+ 1131              		.loc 2 241 21 view .LVU244
+ 1132              	.LBB508:
+ 1133              	.LBB504:
+ 1134              	.LBI494:
+ 219:fx_engine.h   ****         {
+ 1135              		.loc 2 219 21 view .LVU245
+ 1136              	.LBB501:
+ 1137              	.LBB496:
+ 1138              	.LBI496:
+  88:fx_engine.h   ****     {
+ 1139              		.loc 2 88 21 view .LVU246
+ 1140              	.LBB497:
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 1141              		.loc 2 90 9 view .LVU247
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 1142              		.loc 2 90 9 is_stmt 0 view .LVU248
+ 1143              	.LBE497:
+ 1144              	.LBE496:
+ 1145              	.LBE501:
+ 1146              	.LBE504:
+ 1147              	.LBE508:
+ 1148              	.LBE512:
+ 1149              	.LBE564:
+  59:fx_engine.h   ****     {
+ 1150              		.loc 2 59 5 is_stmt 1 view .LVU249
+ 1151              	.LBB565:
+ 1152              	.LBB513:
+ 1153              	.LBB509:
+ 244:fx_engine.h   ****         }
+ 1154              		.loc 2 244 26 is_stmt 0 view .LVU250
+ 1155 01cc A7EE857A 		vfma.f32	s14, s15, s10
+ 1156 01d0 F0EE478A 		vmov.f32	s17, s14
+ 1157              	.LBB505:
+ 1158              	.LBB502:
+ 1159              	.LBB499:
+ 1160              	.LBB498:
+  91:fx_engine.h   ****     }
+ 1161              		.loc 2 91 19 view .LVU251
+ 1162 01d4 B0EE677A 		vmov.f32	s14, s15
+ 1163 01d8 BEEECA7A 		vcvt.s32.f32	s14, s14, #12
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 34
+
+
+ 1164 01dc 17EE103A 		vmov	r3, s14	@ int
+  91:fx_engine.h   ****     }
+ 1165              		.loc 2 91 58 view .LVU252
+ 1166 01e0 03F30F03 		ssat	r3, #16, r3
+ 1167 01e4 25F81230 		strh	r3, [r5, r2, lsl #1]	@ movhi
+ 1168              	.LVL48:
+  91:fx_engine.h   ****     }
+ 1169              		.loc 2 91 58 view .LVU253
+ 1170              	.LBE498:
+ 1171              	.LBE499:
+ 1172              	.LBE502:
+ 1173              	.LBE505:
+ 1174              	.LBE509:
+ 1175              	.LBE513:
+ 1176              	.LBE565:
+ 1177              		.loc 1 51 5 is_stmt 1 view .LVU254
+ 1178              	.LBB566:
+ 1179              	.LBI515:
+ 308:fx_engine.h   ****                                 float    offset,
+ 1180              		.loc 2 308 21 view .LVU255
+ 1181              	.LBB541:
+ 316:fx_engine.h   ****                                     ? lfo_phase_[index] - 1.f
+ 1182              		.loc 2 316 31 is_stmt 0 view .LVU256
+ 1183 01e8 C6ED049A 		vstr.32	s19, [r6, #16]
+ 320:fx_engine.h   **** 
+ 1184              		.loc 2 320 39 view .LVU257
+ 1185 01ec FFF7FEFF 		bl	cosf
+ 1186              	.LVL49:
+ 320:fx_engine.h   **** 
+ 1187              		.loc 2 320 20 view .LVU258
+ 1188 01f0 DFED6E6A 		vldr.32	s13, .L23+24
+ 1189 01f4 DFED6E7A 		vldr.32	s15, .L23+28
+ 329:fx_engine.h   ****             float x        = a + (b - a) * offset_fractional;
+ 1190              		.loc 2 329 65 view .LVU259
+ 1191 01f8 41F25121 		movw	r1, #4689
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1192              		.loc 2 327 55 view .LVU260
+ 1193 01fc 41F25022 		movw	r2, #4688
+ 1194              	.LBB517:
+ 1195              	.LBB518:
+  85:fx_engine.h   ****     }
+ 1196              		.loc 2 85 66 view .LVU261
+ 1197 0200 DFED645A 		vldr.32	s11, .L23
+ 1198              	.LBE518:
+ 1199              	.LBE517:
+ 320:fx_engine.h   **** 
+ 1200              		.loc 2 320 20 view .LVU262
+ 1201 0204 E0EE267A 		vfma.f32	s15, s0, s13
+ 1202              	.LVL50:
+ 320:fx_engine.h   **** 
+ 1203              		.loc 2 320 20 view .LVU263
+ 1204              	.LBE541:
+ 1205              	.LBE566:
+  52:diffuser.cpp  ****     c.Lp(lp, klp);
+  53:diffuser.cpp  ****     c.Read(dapa TAIL, -kap);
+  54:diffuser.cpp  ****     c.WriteAllPass(dapa, kap);
+  55:diffuser.cpp  ****     c.Read(dapb TAIL, kap);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 35
+
+
+  56:diffuser.cpp  ****     c.WriteAllPass(dapb, -kap);
+  57:diffuser.cpp  ****     c.Write(del, 2.0f);
+  58:diffuser.cpp  ****     c.Write(wet, 0.0f);
+  59:diffuser.cpp  **** 
+  60:diffuser.cpp  ****     lp_decay_ = lp;
+  61:diffuser.cpp  **** 
+  62:diffuser.cpp  ****     return .1f * amount_ * (wet - in);
+ 1206              		.loc 1 62 16 view .LVU264
+ 1207 0208 97ED017A 		vldr.32	s14, [r7, #4]
+ 1208 020c 9FED690A 		vldr.32	s0, .L23+32
+ 1209              	.LBB567:
+ 1210              	.LBB568:
+ 279:fx_engine.h   ****             accumulator_ = state;
+ 1211              		.loc 2 279 19 view .LVU265
+ 1212 0210 F6EE083A 		vmov.f32	s7, #7.5e-1
+ 1213              	.LBE568:
+ 1214              	.LBE567:
+ 1215              	.LBB570:
+ 1216              	.LBB571:
+ 268:fx_engine.h   ****         }
+ 1217              		.loc 2 268 26 view .LVU266
+ 1218 0214 FEEE044A 		vmov.f32	s9, #-6.25e-1
+ 1219              	.LBE571:
+ 1220              	.LBE570:
+ 1221              	.LBB583:
+ 1222              	.LBB584:
+ 1223              	.LBB585:
+ 1224              	.LBB586:
+ 1225              	.LBB587:
+ 1226              	.LBB588:
+ 1227              	.LBB589:
+  91:fx_engine.h   ****     }
+ 1228              		.loc 2 91 58 view .LVU267
+ 1229 0218 47F6FF77 		movw	r7, #32767
+ 1230              	.LVL51:
+  91:fx_engine.h   ****     }
+ 1231              		.loc 2 91 58 view .LVU268
+ 1232              	.LBE589:
+ 1233              	.LBE588:
+ 1234              	.LBE587:
+ 1235              	.LBE586:
+ 1236              	.LBE585:
+ 1237              	.LBE584:
+ 1238              	.LBE583:
+ 1239              		.loc 1 62 16 view .LVU269
+ 1240 021c 27EE000A 		vmul.f32	s0, s14, s0
+ 1241              	.LBB620:
+ 1242              	.LBB615:
+ 1243              	.LBB610:
+ 1244              	.LBB604:
+ 1245              	.LBB598:
+ 1246              	.LBB594:
+ 1247              	.LBB590:
+  91:fx_engine.h   ****     }
+ 1248              		.loc 2 91 58 view .LVU270
+ 1249 0220 DFF878C1 		ldr	ip, .L23+8
+ 1250              	.LBE590:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 36
+
+
+ 1251              	.LBE594:
+ 1252              	.LBE598:
+ 1253              	.LBE604:
+ 1254              	.LBE610:
+ 1255              	.LBE615:
+ 1256              	.LBE620:
+ 1257              	.LBB621:
+ 1258              	.LBB542:
+ 332:fx_engine.h   ****         }
+ 1259              		.loc 2 332 26 view .LVU271
+ 1260 0224 B0EE687A 		vmov.f32	s14, s17
+ 1261              	.LBE542:
+ 1262              	.LBE621:
+ 1263              	.LBB622:
+ 1264              	.LBB616:
+ 1265              	.LBB611:
+ 1266              	.LBB605:
+ 1267              	.LBB599:
+ 229:fx_engine.h   ****             }
+ 1268              		.loc 2 229 37 view .LVU272
+ 1269 0228 04F2FF30 		addw	r0, r4, #1023
+ 1270              	.LBE599:
+ 1271              	.LBE605:
+ 244:fx_engine.h   ****         }
+ 1272              		.loc 2 244 26 view .LVU273
+ 1273 022c B6EE044A 		vmov.f32	s8, #6.25e-1
+ 1274              	.LBE611:
+ 1275              	.LBE616:
+ 1276              	.LBE622:
+ 1277              	.LBB623:
+ 1278              	.LBB543:
+ 322:fx_engine.h   ****             float   offset_fractional
+ 1279              		.loc 2 322 21 view .LVU274
+ 1280 0230 BDEEE76A 		vcvt.s32.f32	s12, s15
+ 1281              	.LVL52:
+ 322:fx_engine.h   ****             float   offset_fractional
+ 1282              		.loc 2 322 21 view .LVU275
+ 1283              	.LBE543:
+ 1284              	.LBE623:
+ 1285              	.LBB624:
+ 1286              	.LBB617:
+ 1287              	.LBB612:
+ 1288              	.LBB606:
+ 1289              	.LBB600:
+ 229:fx_engine.h   ****             }
+ 1290              		.loc 2 229 57 view .LVU276
+ 1291 0234 C0F30C00 		ubfx	r0, r0, #0, #13
+ 1292              	.LBE600:
+ 1293              	.LBE606:
+ 1294              	.LBE612:
+ 1295              	.LBE617:
+ 1296              	.LBE624:
+ 1297              		.loc 1 62 33 view .LVU277
+ 1298 0238 B0EE005A 		vmov.f32	s10, #2.0e+0
+ 1299              	.LBB625:
+ 1300              	.LBB544:
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 37
+
+
+ 1301              		.loc 2 327 37 view .LVU278
+ 1302 023c 16EE103A 		vmov	r3, s12	@ int
+ 324:fx_engine.h   **** 
+ 1303              		.loc 2 324 28 view .LVU279
+ 1304 0240 F8EEC66A 		vcvt.f32.s32	s13, s12
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1305              		.loc 2 327 37 view .LVU280
+ 1306 0244 2344     		add	r3, r3, r4
+ 323:fx_engine.h   ****                 = offset - static_cast<float>(offset_integral);
+ 1307              		.loc 2 323 21 view .LVU281
+ 1308 0246 77EEE66A 		vsub.f32	s13, s15, s13
+ 1309              	.LVL53:
+ 1310              	.LBB524:
+ 1311              	.LBI524:
+  83:fx_engine.h   ****     {
+ 1312              		.loc 2 83 25 is_stmt 1 view .LVU282
+ 1313              	.LBB525:
+  85:fx_engine.h   ****     }
+ 1314              		.loc 2 85 9 view .LVU283
+ 1315              	.LBE525:
+ 1316              	.LBE524:
+ 329:fx_engine.h   ****             float x        = a + (b - a) * offset_fractional;
+ 1317              		.loc 2 329 65 is_stmt 0 view .LVU284
+ 1318 024a 1944     		add	r1, r1, r3
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1319              		.loc 2 327 55 view .LVU285
+ 1320 024c 1344     		add	r3, r3, r2
+ 1321              	.LVL54:
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1322              		.loc 2 327 55 view .LVU286
+ 1323              	.LBE544:
+ 1324              	.LBE625:
+ 1325              	.LBB626:
+ 1326              	.LBB627:
+ 1327              	.LBB628:
+ 229:fx_engine.h   ****             }
+ 1328              		.loc 2 229 37 view .LVU287
+ 1329 024e 2244     		add	r2, r2, r4
+ 1330              	.LBE628:
+ 1331              	.LBE627:
+ 1332              	.LBE626:
+ 1333              	.LBB647:
+ 1334              	.LBB545:
+ 329:fx_engine.h   ****             float x        = a + (b - a) * offset_fractional;
+ 1335              		.loc 2 329 70 view .LVU288
+ 1336 0250 C1F30C01 		ubfx	r1, r1, #0, #13
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1337              		.loc 2 327 66 view .LVU289
+ 1338 0254 C3F30C03 		ubfx	r3, r3, #0, #13
+ 1339              	.LVL55:
+ 327:fx_engine.h   ****             float b = DataType<format>::Decompress(
+ 1340              		.loc 2 327 66 view .LVU290
+ 1341              	.LBE545:
+ 1342              	.LBE647:
+ 1343              	.LBB648:
+ 1344              	.LBB642:
+ 1345              	.LBB637:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 38
+
+
+ 229:fx_engine.h   ****             }
+ 1346              		.loc 2 229 57 view .LVU291
+ 1347 0258 C2F30C02 		ubfx	r2, r2, #0, #13
+ 1348              	.LBE637:
+ 1349              	.LBE642:
+ 1350              	.LBE648:
+ 1351              	.LBB649:
+ 1352              	.LBB546:
+ 1353              	.LBB529:
+ 1354              	.LBB519:
+  85:fx_engine.h   ****     }
+ 1355              		.loc 2 85 16 view .LVU292
+ 1356 025c 35F91110 		ldrsh	r1, [r5, r1, lsl #1]
+ 1357              	.LBE519:
+ 1358              	.LBE529:
+ 1359              	.LBB530:
+ 1360              	.LBB526:
+ 1361 0260 35F91330 		ldrsh	r3, [r5, r3, lsl #1]
+ 1362              	.LBE526:
+ 1363              	.LBE530:
+ 1364              	.LBB531:
+ 1365              	.LBB520:
+ 1366 0264 07EE901A 		vmov	s15, r1	@ int
+ 1367              	.LVL56:
+  85:fx_engine.h   ****     }
+ 1368              		.loc 2 85 16 view .LVU293
+ 1369              	.LBE520:
+ 1370              	.LBE531:
+ 1371              	.LBE546:
+ 1372              	.LBE649:
+ 1373              	.LBB650:
+ 1374              	.LBB651:
+ 260:fx_engine.h   ****             }
+ 1375              		.loc 2 260 63 view .LVU294
+ 1376 0268 41F24E21 		movw	r1, #4686
+ 1377              	.LBE651:
+ 1378              	.LBE650:
+ 1379              	.LBB657:
+ 1380              	.LBB547:
+ 1381              	.LBB532:
+ 1382              	.LBB527:
+  85:fx_engine.h   ****     }
+ 1383              		.loc 2 85 16 view .LVU295
+ 1384 026c 06EE103A 		vmov	s12, r3	@ int
+ 1385              	.LVL57:
+  85:fx_engine.h   ****     }
+ 1386              		.loc 2 85 16 view .LVU296
+ 1387              	.LBE527:
+ 1388              	.LBE532:
+ 1389              	.LBE547:
+ 1390              	.LBE657:
+ 1391              	.LBB658:
+ 1392              	.LBB578:
+ 260:fx_engine.h   ****             }
+ 1393              		.loc 2 260 63 view .LVU297
+ 1394 0270 04F67323 		addw	r3, r4, #2675
+ 1395              	.LBE578:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 39
+
+
+ 1396              	.LBE658:
+ 1397              	.LBB659:
+ 1398              	.LBB548:
+ 1399              	.LBB533:
+ 1400              	.LBB521:
+  85:fx_engine.h   ****     }
+ 1401              		.loc 2 85 16 view .LVU298
+ 1402 0274 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1403              	.LBE521:
+ 1404              	.LBE533:
+ 1405              	.LBE548:
+ 1406              	.LBE659:
+ 1407              	.LBB660:
+ 1408              	.LBB654:
+ 260:fx_engine.h   ****             }
+ 1409              		.loc 2 260 63 view .LVU299
+ 1410 0278 2144     		add	r1, r1, r4
+ 1411              	.LBE654:
+ 1412              	.LBE660:
+ 1413              	.LBB661:
+ 1414              	.LBB549:
+ 1415              	.LBB534:
+ 1416              	.LBB528:
+  85:fx_engine.h   ****     }
+ 1417              		.loc 2 85 16 view .LVU300
+ 1418 027a B8EEC66A 		vcvt.f32.s32	s12, s12
+ 1419              	.LVL58:
+  85:fx_engine.h   ****     }
+ 1420              		.loc 2 85 16 view .LVU301
+ 1421              	.LBE528:
+ 1422              	.LBE534:
+ 1423              	.LBB535:
+ 1424              	.LBI517:
+  83:fx_engine.h   ****     {
+ 1425              		.loc 2 83 25 is_stmt 1 view .LVU302
+ 1426              	.LBB522:
+  85:fx_engine.h   ****     }
+ 1427              		.loc 2 85 9 view .LVU303
+  85:fx_engine.h   ****     }
+ 1428              		.loc 2 85 9 is_stmt 0 view .LVU304
+ 1429              	.LBE522:
+ 1430              	.LBE535:
+ 1431              	.LBE549:
+ 1432              	.LBE661:
+ 1433              	.LBB662:
+ 1434              	.LBB579:
+ 260:fx_engine.h   ****             }
+ 1435              		.loc 2 260 68 view .LVU305
+ 1436 027e C3F30C03 		ubfx	r3, r3, #0, #13
+ 1437              	.LBE579:
+ 1438              	.LBE662:
+ 1439              	.LBB663:
+ 1440              	.LBB655:
+ 1441 0282 C1F30C01 		ubfx	r1, r1, #0, #13
+ 1442              	.LBE655:
+ 1443              	.LBE663:
+ 1444              	.LBB664:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 40
+
+
+ 1445              	.LBB665:
+ 1446              	.LBB666:
+ 1447              	.LBB667:
+ 1448              	.LBB668:
+ 229:fx_engine.h   ****             }
+ 1449              		.loc 2 229 37 view .LVU306
+ 1450 0286 04F67524 		addw	r4, r4, #2677
+ 1451              	.LBE668:
+ 1452              	.LBE667:
+ 1453              	.LBE666:
+ 1454              	.LBE665:
+ 1455              	.LBE664:
+ 1456              	.LBB713:
+ 1457              	.LBB550:
+ 1458              	.LBB536:
+ 1459              	.LBB523:
+  85:fx_engine.h   ****     }
+ 1460              		.loc 2 85 66 view .LVU307
+ 1461 028a 67EEA57A 		vmul.f32	s15, s15, s11
+ 1462              	.LBE523:
+ 1463              	.LBE536:
+ 1464              	.LBE550:
+ 1465              	.LBE713:
+ 1466              	.LBB714:
+ 1467              	.LBB580:
+ 1468              	.LBB572:
+ 1469              	.LBB573:
+  85:fx_engine.h   ****     }
+ 1470              		.loc 2 85 16 view .LVU308
+ 1471 028e 35F91330 		ldrsh	r3, [r5, r3, lsl #1]
+ 1472              	.LBE573:
+ 1473              	.LBE572:
+ 1474              	.LBE580:
+ 1475              	.LBE714:
+ 1476              	.LBB715:
+ 1477              	.LBB706:
+ 1478              	.LBB699:
+ 1479              	.LBB691:
+ 1480              	.LBB683:
+ 229:fx_engine.h   ****             }
+ 1481              		.loc 2 229 57 view .LVU309
+ 1482 0292 C4F30C04 		ubfx	r4, r4, #0, #13
+ 1483              	.LBE683:
+ 1484              	.LBE691:
+ 1485              	.LBE699:
+ 1486              	.LBE706:
+ 1487              	.LBE715:
+ 1488              	.LBB716:
+ 1489              	.LBB551:
+ 330:fx_engine.h   ****             previous_read_ = x;
+ 1490              		.loc 2 330 37 view .LVU310
+ 1491 0296 E6EE657A 		vfms.f32	s15, s12, s11
+ 330:fx_engine.h   ****             previous_read_ = x;
+ 1492              		.loc 2 330 42 view .LVU311
+ 1493 029a 66EEA77A 		vmul.f32	s15, s13, s15
+ 330:fx_engine.h   ****             previous_read_ = x;
+ 1494              		.loc 2 330 19 view .LVU312
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 41
+
+
+ 1495 029e E6EE257A 		vfma.f32	s15, s12, s11
+ 1496              	.LVL59:
+ 332:fx_engine.h   ****         }
+ 1497              		.loc 2 332 26 view .LVU313
+ 1498 02a2 AAEE277A 		vfma.f32	s14, s20, s15
+ 1499              	.LVL60:
+ 332:fx_engine.h   ****         }
+ 1500              		.loc 2 332 26 view .LVU314
+ 1501              	.LBE551:
+ 1502              	.LBE716:
+  52:diffuser.cpp  ****     c.Read(dapa TAIL, -kap);
+ 1503              		.loc 1 52 5 is_stmt 1 view .LVU315
+ 1504              	.LBB717:
+ 1505              	.LBI567:
+ 277:fx_engine.h   ****         {
+ 1506              		.loc 2 277 21 view .LVU316
+ 1507              	.LBE717:
+ 1508              	.LBB718:
+ 1509              	.LBB581:
+ 1510              	.LBB576:
+ 1511              	.LBB574:
+  85:fx_engine.h   ****     }
+ 1512              		.loc 2 85 16 is_stmt 0 view .LVU317
+ 1513 02a6 07EE903A 		vmov	s15, r3	@ int
+ 1514 02aa F8EEE77A 		vcvt.f32.s32	s15, s15
+  85:fx_engine.h   ****     }
+ 1515              		.loc 2 85 66 view .LVU318
+ 1516 02ae 67EEA57A 		vmul.f32	s15, s15, s11
+ 1517              	.LBE574:
+ 1518              	.LBE576:
+ 1519              	.LBE581:
+ 1520              	.LBE718:
+ 1521              	.LBB719:
+ 1522              	.LBB569:
+ 279:fx_engine.h   ****             accumulator_ = state;
+ 1523              		.loc 2 279 50 view .LVU319
+ 1524 02b2 77EE498A 		vsub.f32	s17, s14, s18
+ 279:fx_engine.h   ****             accumulator_ = state;
+ 1525              		.loc 2 279 19 view .LVU320
+ 1526 02b6 A8EEA39A 		vfma.f32	s18, s17, s7
+ 1527              	.LVL61:
+ 279:fx_engine.h   ****             accumulator_ = state;
+ 1528              		.loc 2 279 19 view .LVU321
+ 1529              	.LBE569:
+ 1530              	.LBE719:
+  53:diffuser.cpp  ****     c.WriteAllPass(dapa, kap);
+ 1531              		.loc 1 53 5 is_stmt 1 view .LVU322
+ 1532              	.LBB720:
+ 1533              	.LBI570:
+ 254:fx_engine.h   ****         {
+ 1534              		.loc 2 254 21 view .LVU323
+ 1535              	.LBB582:
+ 1536              	.LBB577:
+ 1537              	.LBI572:
+  83:fx_engine.h   ****     {
+ 1538              		.loc 2 83 25 view .LVU324
+ 1539              	.LBB575:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 42
+
+
+  85:fx_engine.h   ****     }
+ 1540              		.loc 2 85 9 view .LVU325
+  85:fx_engine.h   ****     }
+ 1541              		.loc 2 85 9 is_stmt 0 view .LVU326
+ 1542              	.LBE575:
+ 1543              	.LBE577:
+ 268:fx_engine.h   ****         }
+ 1544              		.loc 2 268 26 view .LVU327
+ 1545 02ba F0EE496A 		vmov.f32	s13, s18
+ 1546 02be E7EEA46A 		vfma.f32	s13, s15, s9
+ 1547              	.LVL62:
+ 268:fx_engine.h   ****         }
+ 1548              		.loc 2 268 26 view .LVU328
+ 1549              	.LBE582:
+ 1550              	.LBE720:
+  54:diffuser.cpp  ****     c.Read(dapb TAIL, kap);
+ 1551              		.loc 1 54 5 is_stmt 1 view .LVU329
+ 1552              	.LBB721:
+ 1553              	.LBI583:
+ 248:fx_engine.h   ****         {
+ 1554              		.loc 2 248 21 view .LVU330
+ 1555              	.LBB618:
+ 1556              	.LBI584:
+ 241:fx_engine.h   ****         {
+ 1557              		.loc 2 241 21 view .LVU331
+ 1558              	.LBB613:
+ 1559              	.LBB607:
+ 1560              	.LBI586:
+ 219:fx_engine.h   ****         {
+ 1561              		.loc 2 219 21 view .LVU332
+ 1562              	.LBB601:
+ 1563              	.LBB595:
+ 1564              	.LBI588:
+  88:fx_engine.h   ****     {
+ 1565              		.loc 2 88 21 view .LVU333
+ 1566              	.LBB591:
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 1567              		.loc 2 90 9 view .LVU334
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 1568              		.loc 2 90 9 is_stmt 0 view .LVU335
+ 1569              	.LBE591:
+ 1570              	.LBE595:
+ 1571              	.LBE601:
+ 1572              	.LBE607:
+ 1573              	.LBE613:
+ 1574              	.LBE618:
+ 1575              	.LBE721:
+  59:fx_engine.h   ****     {
+ 1576              		.loc 2 59 5 is_stmt 1 view .LVU336
+ 1577              	.LBB722:
+ 1578              	.LBB619:
+ 1579              	.LBB614:
+ 1580              	.LBB608:
+ 1581              	.LBB602:
+ 1582              	.LBB596:
+ 1583              	.LBB592:
+  91:fx_engine.h   ****     }
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 43
+
+
+ 1584              		.loc 2 91 19 is_stmt 0 view .LVU337
+ 1585 02c2 B0EE667A 		vmov.f32	s14, s13
+ 1586              	.LBE592:
+ 1587              	.LBE596:
+ 1588              	.LBE602:
+ 1589              	.LBE608:
+ 244:fx_engine.h   ****         }
+ 1590              		.loc 2 244 26 view .LVU338
+ 1591 02c6 E6EE847A 		vfma.f32	s15, s13, s8
+ 1592              	.LVL63:
+ 1593              	.LBB609:
+ 1594              	.LBB603:
+ 1595              	.LBB597:
+ 1596              	.LBB593:
+  91:fx_engine.h   ****     }
+ 1597              		.loc 2 91 19 view .LVU339
+ 1598 02ca BEEECA7A 		vcvt.s32.f32	s14, s14, #12
+ 1599 02ce 17EE103A 		vmov	r3, s14	@ int
+ 1600              	.LVL64:
+  91:fx_engine.h   ****     }
+ 1601              		.loc 2 91 58 view .LVU340
+ 1602 02d2 BB42     		cmp	r3, r7
+ 1603 02d4 A8BF     		it	ge
+ 1604 02d6 3B46     		movge	r3, r7
+ 1605 02d8 6345     		cmp	r3, ip
+ 1606 02da B8BF     		it	lt
+ 1607 02dc 6346     		movlt	r3, ip
+ 1608 02de 25F81030 		strh	r3, [r5, r0, lsl #1]	@ movhi
+ 1609              	.LVL65:
+  91:fx_engine.h   ****     }
+ 1610              		.loc 2 91 58 view .LVU341
+ 1611              	.LBE593:
+ 1612              	.LBE597:
+ 1613              	.LBE603:
+ 1614              	.LBE609:
+ 1615              	.LBE614:
+ 1616              	.LBE619:
+ 1617              	.LBE722:
+  55:diffuser.cpp  ****     c.WriteAllPass(dapb, -kap);
+ 1618              		.loc 1 55 5 is_stmt 1 view .LVU342
+ 1619              	.LBB723:
+ 1620              	.LBI650:
+ 254:fx_engine.h   ****         {
+ 1621              		.loc 2 254 21 view .LVU343
+ 1622              	.LBB656:
+ 1623              	.LBB652:
+ 1624              	.LBI652:
+  83:fx_engine.h   ****     {
+ 1625              		.loc 2 83 25 view .LVU344
+ 1626              	.LBB653:
+  85:fx_engine.h   ****     }
+ 1627              		.loc 2 85 9 view .LVU345
+  85:fx_engine.h   ****     }
+ 1628              		.loc 2 85 16 is_stmt 0 view .LVU346
+ 1629 02e2 35F91130 		ldrsh	r3, [r5, r1, lsl #1]
+ 1630 02e6 07EE103A 		vmov	s14, r3	@ int
+ 1631 02ea B8EEC77A 		vcvt.f32.s32	s14, s14
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 44
+
+
+  85:fx_engine.h   ****     }
+ 1632              		.loc 2 85 66 view .LVU347
+ 1633 02ee 27EE257A 		vmul.f32	s14, s14, s11
+ 1634              	.LVL66:
+  85:fx_engine.h   ****     }
+ 1635              		.loc 2 85 66 view .LVU348
+ 1636              	.LBE653:
+ 1637              	.LBE652:
+ 268:fx_engine.h   ****         }
+ 1638              		.loc 2 268 26 view .LVU349
+ 1639 02f2 E7EE047A 		vfma.f32	s15, s14, s8
+ 1640              	.LVL67:
+ 268:fx_engine.h   ****         }
+ 1641              		.loc 2 268 26 view .LVU350
+ 1642              	.LBE656:
+ 1643              	.LBE723:
+  56:diffuser.cpp  ****     c.Write(del, 2.0f);
+ 1644              		.loc 1 56 5 is_stmt 1 view .LVU351
+ 1645              	.LBB724:
+ 1646              	.LBI664:
+ 248:fx_engine.h   ****         {
+ 1647              		.loc 2 248 21 view .LVU352
+ 1648              	.LBB707:
+ 1649              	.LBI665:
+ 241:fx_engine.h   ****         {
+ 1650              		.loc 2 241 21 view .LVU353
+ 1651              	.LBB700:
+ 1652              	.LBB692:
+ 1653              	.LBI667:
+ 219:fx_engine.h   ****         {
+ 1654              		.loc 2 219 21 view .LVU354
+ 1655              	.LBB684:
+ 1656              	.LBB669:
+ 1657              	.LBI669:
+  88:fx_engine.h   ****     {
+ 1658              		.loc 2 88 21 view .LVU355
+ 1659              	.LBB670:
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 1660              		.loc 2 90 9 view .LVU356
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 1661              		.loc 2 90 9 is_stmt 0 view .LVU357
+ 1662              	.LBE670:
+ 1663              	.LBE669:
+ 1664              	.LBE684:
+ 1665              	.LBE692:
+ 1666              	.LBE700:
+ 1667              	.LBE707:
+ 1668              	.LBE724:
+  59:fx_engine.h   ****     {
+ 1669              		.loc 2 59 5 is_stmt 1 view .LVU358
+ 1670              	.LBB725:
+ 1671              	.LBB708:
+ 1672              	.LBB701:
+ 1673              	.LBB693:
+ 1674              	.LBB685:
+ 1675              	.LBB677:
+ 1676              	.LBB671:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 45
+
+
+  91:fx_engine.h   ****     }
+ 1677              		.loc 2 91 19 is_stmt 0 view .LVU359
+ 1678 02f6 F0EE676A 		vmov.f32	s13, s15
+ 1679              	.LVL68:
+  91:fx_engine.h   ****     }
+ 1680              		.loc 2 91 19 view .LVU360
+ 1681              	.LBE671:
+ 1682              	.LBE677:
+ 1683              	.LBE685:
+ 1684              	.LBE693:
+ 244:fx_engine.h   ****         }
+ 1685              		.loc 2 244 26 view .LVU361
+ 1686 02fa A7EEA47A 		vfma.f32	s14, s15, s9
+ 1687              	.LVL69:
+ 1688              	.LBB694:
+ 1689              	.LBB686:
+ 1690              	.LBB678:
+ 1691              	.LBB672:
+  91:fx_engine.h   ****     }
+ 1692              		.loc 2 91 19 view .LVU362
+ 1693 02fe FEEECA6A 		vcvt.s32.f32	s13, s13, #12
+ 1694 0302 16EE903A 		vmov	r3, s13	@ int
+ 1695              	.LVL70:
+  91:fx_engine.h   ****     }
+ 1696              		.loc 2 91 19 view .LVU363
+ 1697              	.LBE672:
+ 1698              	.LBE678:
+ 1699              	.LBE686:
+ 1700              	.LBE694:
+ 1701              	.LBE701:
+ 1702              	.LBE708:
+ 1703              	.LBE725:
+ 1704              	.LBB726:
+ 1705              	.LBB643:
+ 1706              	.LBB638:
+ 1707              	.LBB629:
+ 1708              	.LBB630:
+ 1709 0306 F0EE477A 		vmov.f32	s15, s14
+ 1710              	.LVL71:
+  91:fx_engine.h   ****     }
+ 1711              		.loc 2 91 19 view .LVU364
+ 1712              	.LBE630:
+ 1713              	.LBE629:
+ 1714              	.LBE638:
+ 1715              	.LBE643:
+ 1716              	.LBE726:
+ 1717              	.LBB727:
+ 1718              	.LBB709:
+ 1719              	.LBB702:
+ 1720              	.LBB695:
+ 1721              	.LBB687:
+ 1722              	.LBB679:
+ 1723              	.LBB673:
+  91:fx_engine.h   ****     }
+ 1724              		.loc 2 91 58 view .LVU365
+ 1725 030a BB42     		cmp	r3, r7
+ 1726              	.LBE673:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 46
+
+
+ 1727              	.LBE679:
+ 1728              	.LBE687:
+ 1729              	.LBE695:
+ 1730              	.LBE702:
+ 1731              	.LBE709:
+ 1732              	.LBE727:
+ 1733              		.loc 1 62 33 view .LVU366
+ 1734 030c 97EE058A 		vfnms.f32	s16, s14, s10
+ 1735              	.LVL72:
+ 1736              	.LBB728:
+ 1737              	.LBB710:
+ 1738              	.LBB703:
+ 1739              	.LBB696:
+ 1740              	.LBB688:
+ 1741              	.LBB680:
+ 1742              	.LBB674:
+  91:fx_engine.h   ****     }
+ 1743              		.loc 2 91 58 view .LVU367
+ 1744 0310 A8BF     		it	ge
+ 1745 0312 3B46     		movge	r3, r7
+ 1746              	.LBE674:
+ 1747              	.LBE680:
+ 1748              	.LBE688:
+ 1749              	.LBE696:
+ 1750              	.LBE703:
+ 1751              	.LBE710:
+ 1752              	.LBE728:
+ 1753              	.LBB729:
+ 1754              	.LBB644:
+ 1755              	.LBB639:
+ 1756              	.LBB634:
+ 1757              	.LBB631:
+  91:fx_engine.h   ****     }
+ 1758              		.loc 2 91 19 view .LVU368
+ 1759 0314 FEEECA7A 		vcvt.s32.f32	s15, s15, #12
+ 1760              	.LBE631:
+ 1761              	.LBE634:
+ 1762              	.LBE639:
+ 1763              	.LBE644:
+ 1764              	.LBE729:
+ 1765              	.LBB730:
+ 1766              	.LBB711:
+ 1767              	.LBB704:
+ 1768              	.LBB697:
+ 1769              	.LBB689:
+ 1770              	.LBB681:
+ 1771              	.LBB675:
+  91:fx_engine.h   ****     }
+ 1772              		.loc 2 91 58 view .LVU369
+ 1773 0318 6345     		cmp	r3, ip
+ 1774 031a B8BF     		it	lt
+ 1775 031c 6346     		movlt	r3, ip
+ 1776              	.LBE675:
+ 1777              	.LBE681:
+ 1778              	.LBE689:
+ 1779              	.LBE697:
+ 1780              	.LBE704:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 47
+
+
+ 1781              	.LBE711:
+ 1782              	.LBE730:
+  63:diffuser.cpp  **** }...
+ 1783              		.loc 1 63 1 view .LVU370
+ 1784 031e 20EE080A 		vmul.f32	s0, s0, s16
+ 1785              	.LBB731:
+ 1786              	.LBB712:
+ 1787              	.LBB705:
+ 1788              	.LBB698:
+ 1789              	.LBB690:
+ 1790              	.LBB682:
+ 1791              	.LBB676:
+  91:fx_engine.h   ****     }
+ 1792              		.loc 2 91 58 view .LVU371
+ 1793 0322 25F81430 		strh	r3, [r5, r4, lsl #1]	@ movhi
+ 1794              	.LVL73:
+  91:fx_engine.h   ****     }
+ 1795              		.loc 2 91 58 view .LVU372
+ 1796              	.LBE676:
+ 1797              	.LBE682:
+ 1798              	.LBE690:
+ 1799              	.LBE698:
+ 1800              	.LBE705:
+ 1801              	.LBE712:
+ 1802              	.LBE731:
+  57:diffuser.cpp  ****     c.Write(del, 2.0f);
+ 1803              		.loc 1 57 5 is_stmt 1 view .LVU373
+ 1804              	.LBB732:
+ 1805              	.LBI626:
+ 235:fx_engine.h   ****         {
+ 1806              		.loc 2 235 21 view .LVU374
+ 1807              	.LBB645:
+ 1808              	.LBI627:
+ 219:fx_engine.h   ****         {
+ 1809              		.loc 2 219 21 view .LVU375
+ 1810              	.LBB640:
+ 1811              	.LBB635:
+ 1812              	.LBI629:
+  88:fx_engine.h   ****     {
+ 1813              		.loc 2 88 21 view .LVU376
+ 1814              	.LBB632:
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 1815              		.loc 2 90 9 view .LVU377
+  90:fx_engine.h   ****             Clip16(static_cast<int32_t>(value * 4096.0f)));
+ 1816              		.loc 2 90 9 is_stmt 0 view .LVU378
+ 1817              	.LBE632:
+ 1818              	.LBE635:
+ 1819              	.LBE640:
+ 1820              	.LBE645:
+ 1821              	.LBE732:
+  59:fx_engine.h   ****     {
+ 1822              		.loc 2 59 5 is_stmt 1 view .LVU379
+ 1823              	.LBB733:
+ 1824              	.LBB646:
+ 1825              	.LBB641:
+ 1826              	.LBB636:
+ 1827              	.LBB633:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 48
+
+
+  91:fx_engine.h   ****     }
+ 1828              		.loc 2 91 19 is_stmt 0 view .LVU380
+ 1829 0326 17EE903A 		vmov	r3, s15	@ int
+  91:fx_engine.h   ****     }
+ 1830              		.loc 2 91 58 view .LVU381
+ 1831 032a BB42     		cmp	r3, r7
+ 1832 032c A8BF     		it	ge
+ 1833 032e 3B46     		movge	r3, r7
+ 1834 0330 6345     		cmp	r3, ip
+ 1835 0332 B8BF     		it	lt
+ 1836 0334 6346     		movlt	r3, ip
+ 1837 0336 25F81230 		strh	r3, [r5, r2, lsl #1]	@ movhi
+ 1838              	.LVL74:
+  91:fx_engine.h   ****     }
+ 1839              		.loc 2 91 58 view .LVU382
+ 1840              	.LBE633:
+ 1841              	.LBE636:
+ 1842              	.LBE641:
+ 1843              	.LBE646:
+ 1844              	.LBE733:
+  58:diffuser.cpp  ****     c.Write(wet, 0.0f);
+ 1845              		.loc 1 58 5 is_stmt 1 view .LVU383
+  60:diffuser.cpp  ****     lp_decay_ = lp;
+ 1846              		.loc 1 60 5 view .LVU384
+  60:diffuser.cpp  ****     lp_decay_ = lp;
+ 1847              		.loc 1 60 15 is_stmt 0 view .LVU385
+ 1848 033a 86ED089A 		vstr.32	s18, [r6, #32]
+  62:diffuser.cpp  ****     return .1f * amount_ * (wet - in);
+ 1849              		.loc 1 62 5 is_stmt 1 view .LVU386
+ 1850              	.LVL75:
+ 1851              	.LBB734:
+ 1852              	.LBI734:
+ 199:fx_engine.h   **** 
+ 1853              		.loc 2 199 9 view .LVU387
+ 199:fx_engine.h   **** 
+ 1854              		.loc 2 199 9 is_stmt 0 view .LVU388
+ 1855              	.LBE734:
+ 1856              		.loc 1 63 1 view .LVU389
+ 1857 033e BDEC068B 		vldm	sp!, {d8-d10}
+ 1858              		.cfi_remember_state
+ 1859              		.cfi_restore 84
+ 1860              		.cfi_restore 85
+ 1861              		.cfi_restore 82
+ 1862              		.cfi_restore 83
+ 1863              		.cfi_restore 80
+ 1864              		.cfi_restore 81
+ 1865              		.cfi_def_cfa_offset 24
+ 1866 0342 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1867              	.LVL76:
+ 1868              	.L8:
+ 1869              		.cfi_restore_state
+ 1870              	.LBB735:
+ 1871              	.LBB304:
+ 1872              	.LBB300:
+ 1873              	.LBI297:
+ 351:fx_engine.h   ****     {
+ 1874              		.loc 2 351 17 is_stmt 1 view .LVU390
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 49
+
+
+ 1875              	.LBB299:
+ 1876              		.loc 2 368 41 is_stmt 0 view .LVU391
+ 1877 0344 96ED06AA 		vldr.32	s20, [r6, #24]
+ 369:fx_engine.h   ****             lfo_phase_[0]
+ 370:fx_engine.h   ****                 = lfo_phase_[0] >= 1.f ? lfo_phase_[0] - 1.f : lfo_phase_[0];
+ 1878              		.loc 2 370 40 view .LVU392
+ 1879 0348 F7EE007A 		vmov.f32	s15, #1.0e+0
+ 368:fx_engine.h   ****             lfo_phase_[0]
+ 1880              		.loc 2 368 27 view .LVU393
+ 1881 034c D6ED049A 		vldr.32	s19, [r6, #16]
+ 371:fx_engine.h   **** 
+ 372:fx_engine.h   ****             lfo_phase_[1] += lfo_freq_[1];
+ 373:fx_engine.h   ****             lfo_phase_[1]
+ 374:fx_engine.h   ****                 = lfo_phase_[1] >= 1.f ? lfo_phase_[1] - 1.f : lfo_phase_[1];
+ 1882              		.loc 2 374 40 view .LVU394
+ 1883 0350 B7EE007A 		vmov.f32	s14, #1.0e+0
+ 372:fx_engine.h   ****             lfo_phase_[1]
+ 1884              		.loc 2 372 27 view .LVU395
+ 1885 0354 D6ED076A 		vldr.32	s13, [r6, #28]
+ 368:fx_engine.h   ****             lfo_phase_[0]
+ 1886              		.loc 2 368 27 view .LVU396
+ 1887 0358 7AEE299A 		vadd.f32	s19, s20, s19
+ 370:fx_engine.h   **** 
+ 1888              		.loc 2 370 40 view .LVU397
+ 1889 035c F4EEE79A 		vcmpe.f32	s19, s15
+ 1890 0360 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1891 0364 A8BF     		it	ge
+ 1892 0366 79EEE79A 		vsubge.f32	s19, s19, s15
+ 372:fx_engine.h   ****             lfo_phase_[1]
+ 1893              		.loc 2 372 27 view .LVU398
+ 1894 036a D6ED057A 		vldr.32	s15, [r6, #20]
+ 1895 036e 77EEA67A 		vadd.f32	s15, s15, s13
+ 1896              		.loc 2 374 40 view .LVU399
+ 1897 0372 F4EEC77A 		vcmpe.f32	s15, s14
+ 1898 0376 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1899 037a A8BF     		it	ge
+ 1900 037c 77EEC77A 		vsubge.f32	s15, s15, s14
+ 1901              		.loc 2 374 17 view .LVU400
+ 1902 0380 C6ED057A 		vstr.32	s15, [r6, #20]
+ 375:fx_engine.h   **** 
+ 376:fx_engine.h   ****             c->lfo_value_[0] = cosf(TWOPI_F * lfo_phase_[0]);
+ 377:fx_engine.h   ****             c->lfo_value_[1] = cosf(TWOPI_F * lfo_phase_[1]);
+ 378:fx_engine.h   ****         }
+ 379:fx_engine.h   ****         else
+ 380:fx_engine.h   ****         {
+ 381:fx_engine.h   ****             c->lfo_value_[0] = cosf(TWOPI_F * lfo_phase_[0]);
+ 382:fx_engine.h   ****             c->lfo_value_[1] = cosf(TWOPI_F * lfo_phase_[1]);
+ 383:fx_engine.h   ****         }
+ 384:fx_engine.h   ****     }
+ 1903              		.loc 2 384 5 view .LVU401
+ 1904 0384 54E6     		b	.L9
+ 1905              	.LVL77:
+ 1906              	.L6:
+ 1907              		.loc 2 384 5 view .LVU402
+ 1908              	.LBE299:
+ 1909              	.LBE300:
+ 356:fx_engine.h   ****         }
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 50
+
+
+ 1910              		.loc 2 356 24 view .LVU403
+ 1911 0386 41F6FF73 		movw	r3, #8191
+ 1912 038a 1344     		add	r3, r3, r2
+ 1913 038c 1C46     		mov	r4, r3
+ 1914 038e B360     		str	r3, [r6, #8]
+ 1915 0390 46E6     		b	.L7
+ 1916              	.L24:
+ 1917 0392 00BF     		.align	2
+ 1918              	.L23:
+ 1919 0394 00008039 		.word	964689920
+ 1920 0398 00000000 		.word	0
+ 1921 039c 0080FFFF 		.word	-32768
+ 1922 03a0 DB0FC940 		.word	1086918619
+ 1923 03a4 00002C42 		.word	1110179840
+ 1924 03a8 0000C843 		.word	1137180672
+ 1925 03ac 0000AA43 		.word	1135214592
+ 1926 03b0 00E03F45 		.word	1161814016
+ 1927 03b4 CDCCCC3D 		.word	1036831949
+ 1928              	.LBE304:
+ 1929              	.LBE735:
+ 1930              		.cfi_endproc
+ 1931              	.LFE3066:
+ 1933              		.text
+ 1934              	.Letext0:
+ 1935              		.file 5 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
+ 1936              		.file 6 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+ 1937              		.file 7 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h"
+ 1938              		.file 8 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/incl
+ 1939              		.file 9 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 1940              		.file 10 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1941              		.file 11 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1942              		.file 12 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1943              		.file 13 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1944              		.file 14 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1945              		.file 15 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1946              		.file 16 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1947              		.file 17 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1948              		.file 18 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1949              		.file 19 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1950              		.file 20 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1951              		.file 21 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1952              		.file 22 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1953              		.file 23 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1954              		.file 24 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1955              		.file 25 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_types
+ 1956              		.file 26 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/reent.
+ 1957              		.file 27 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/lock.h
+ 1958              		.file 28 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+ 1959              		.file 29 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h"
+ 1960              		.file 30 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1961              		.file 31 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
+ 1962              		.file 32 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/wchar.h"
+ 1963              		.file 33 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/locale.h"
+ 1964              		.file 34 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdio.h"
+ 1965              		.file 35 "<built-in>"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s 			page 51
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 diffuser.cpp
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s:17     .text._ZN7daisysp8Diffuser4InitEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s:26     .text._ZN7daisysp8Diffuser4InitEv:0000000000000000 _ZN7daisysp8Diffuser4InitEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s:264    .text._ZN7daisysp8Diffuser4InitEv:0000000000000044 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s:270    .text._ZN7daisysp8Diffuser7ProcessEf:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s:278    .text._ZN7daisysp8Diffuser7ProcessEf:0000000000000000 _ZN7daisysp8Diffuser7ProcessEf
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccm40mv7.s:1919   .text._ZN7daisysp8Diffuser7ProcessEf:0000000000000394 $d
+
+UNDEFINED SYMBOLS
+cosf

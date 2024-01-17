@@ -170,6 +170,8 @@ build/PluckEcho.o: PluckEcho.cpp \
  ../../DaisySP/Source/Effects/pitchshifter.h \
  ../../DaisySP/Source/Effects/sampleratereducer.h \
  ../../DaisySP/Source/Effects/tremolo.h \
+ ../../DaisySP/Source/Effects/wavefolder.h \
+ ../../DaisySP/Source/Utility/dcblock.h \
  ../../DaisySP/Source/Filters/allpass.h \
  ../../DaisySP/Source/Filters/atone.h \
  ../../DaisySP/Source/Filters/biquad.h \
@@ -188,7 +190,6 @@ build/PluckEcho.o: PluckEcho.cpp \
  ../../DaisySP/Source/PhysicalModeling/resonator.h \
  ../../DaisySP/Source/PhysicalModeling/pluck.h \
  ../../DaisySP/Source/PhysicalModeling/PolyPluck.h \
- ../../DaisySP/Source/Utility/dcblock.h \
  ../../DaisySP/Source/PhysicalModeling/KarplusString.h \
  ../../DaisySP/Source/PhysicalModeling/stringvoice.h \
  ../../DaisySP/Source/Synthesis/blosc.h \
@@ -414,6 +415,8 @@ build/PluckEcho.o: PluckEcho.cpp \
 ../../DaisySP/Source/Effects/pitchshifter.h:
 ../../DaisySP/Source/Effects/sampleratereducer.h:
 ../../DaisySP/Source/Effects/tremolo.h:
+../../DaisySP/Source/Effects/wavefolder.h:
+../../DaisySP/Source/Utility/dcblock.h:
 ../../DaisySP/Source/Filters/allpass.h:
 ../../DaisySP/Source/Filters/atone.h:
 ../../DaisySP/Source/Filters/biquad.h:
@@ -434,7 +437,6 @@ build/PluckEcho.o: PluckEcho.cpp \
 ../../DaisySP/Source/PhysicalModeling/resonator.h:
 ../../DaisySP/Source/PhysicalModeling/pluck.h:
 ../../DaisySP/Source/PhysicalModeling/PolyPluck.h:
-../../DaisySP/Source/Utility/dcblock.h:
 ../../DaisySP/Source/PhysicalModeling/KarplusString.h:
 ../../DaisySP/Source/PhysicalModeling/stringvoice.h:
 ../../DaisySP/Source/Synthesis/blosc.h:

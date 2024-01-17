@@ -1,12 +1,12 @@
 #include "daisy_patch_sm.h"
 #include "daisysp.h"
+#include "daisy_bed.h"
 
 using namespace daisy;
 using namespace patch_sm;
 using namespace daisysp;
 
 ReverbSc     reverb;
-
 DaisyPatchSM patch;
 Switch       button;
 Switch       toggle;
@@ -26,9 +26,9 @@ void AudioCallback(AudioHandle::InputBuffer  in,
 {
     // Process the controls
     patch.ProcessAllControls();
-    button.Debounce();
-    toggle.Debounce();
-    bool state = toggle.Pressed();
+    b1.Debounce();
+    b2.Debounce();
+    bool state = b2.Pressed();
 
     // Set in and loop gain from CV_1 and CV_2 respectively
     float in_level   = patch.GetAdcValue(CV_1);
@@ -42,7 +42,7 @@ void AudioCallback(AudioHandle::InputBuffer  in,
     reverb.SetLpFreq(damp);
 
     //if you press the button, toggle the record state
-    if(patch.gate_in_1.Trig())
+    if(patch.gate_in_1.Trig() || b1.RisingEdge())
     {
         looper_l.TrigRecord();
         looper_r.TrigRecord();
@@ -60,7 +60,7 @@ void AudioCallback(AudioHandle::InputBuffer  in,
     }
 
     // Set the led to 5V if the looper is recording
-    patch.WriteCvOut(2, 5.f * looper_l.Recording());
+    gen_led1.Write(looper_l.Recording());
 
     // Process audio
     for(size_t i = 0; i < size; i++)
@@ -92,9 +92,8 @@ int main(void)
     looper_r.Init(buffer_r, kBuffSize);
     reverb.Init(patch.AudioSampleRate());
 
-    // Init the button
-    toggle.Init(patch.B8);
-    button.Init(patch.B7);
+    //init bed
+    InitBed();
 
     // Start the audio callback
     patch.StartAudio(AudioCallback);

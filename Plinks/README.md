@@ -44,4 +44,4 @@ Minor Triad
 ## Note 
 Some peripherals are left unused, but will be updated later! 
 
-Will be adding the board files for the Daisy Bed (A custom Daisy PatchSM Board) shortly. Will update with URL to repo when available! 
+Update: This project uses a custom board called the Daisy-Bed. [Click here to go the Daisy-Bed schematics and board files](https://github.com/dlawle/DaisyBed)

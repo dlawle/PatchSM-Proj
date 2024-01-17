@@ -1,30 +1,30 @@
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 1
 
 
    1              		.cpu cortex-m7
-   2              		.eabi_attribute 28, 1
-   3              		.eabi_attribute 20, 1
-   4              		.eabi_attribute 21, 1
-   5              		.eabi_attribute 23, 3
-   6              		.eabi_attribute 24, 1
-   7              		.eabi_attribute 25, 1
-   8              		.eabi_attribute 26, 1
-   9              		.eabi_attribute 30, 2
-  10              		.eabi_attribute 34, 1
-  11              		.eabi_attribute 18, 4
-  12              		.file	"startup_stm32h750xx.c"
-  13              		.text
-  14              	.Ltext0:
-  15              		.cfi_sections	.debug_frame
-  16              		.section	.text.Default_Handler,"ax",%progbits
-  17              		.align	1
-  18              		.p2align 2,,3
-  19              		.global	Default_Handler
-  20              		.arch armv7e-m
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  24              		.fpu fpv5-d16
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-d16
+   4              		.eabi_attribute 28, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 2
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"startup_stm32h750xx.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.Default_Handler,"ax",%progbits
+  19              		.align	1
+  20              		.p2align 2,,3
+  21              		.global	Default_Handler
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
   26              	Default_Handler:
   27              	.LFB321:
   28              		.file 1 "../../libDaisy/core/startup_stm32h750xx.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
   28:../../libDaisy/core/startup_stm32h750xx.c **** }
   29:../../libDaisy/core/startup_stm32h750xx.c **** 
   30:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) MemManage_Handler() 
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 2
 
 
   31:../../libDaisy/core/startup_stm32h750xx.c **** {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
   85:../../libDaisy/core/startup_stm32h750xx.c **** 
   86:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) WWDG_IRQHandler() 
   87:../../libDaisy/core/startup_stm32h750xx.c **** {
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 3
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 3
 
 
   88:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  142:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) EXTI1_IRQHandler() 
  143:../../libDaisy/core/startup_stm32h750xx.c **** {
  144:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 4
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 4
 
 
  145:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  199:../../libDaisy/core/startup_stm32h750xx.c **** {
  200:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
  201:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 5
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 5
 
 
  202:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void DMA1_Stream3_IRQHandler();
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  256:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
  257:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
  258:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void FDCAN1_IT1_IRQHandler();
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 6
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 6
 
 
  259:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  313:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
  314:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void TIM2_IRQHandler();
  315:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 7
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 7
 
 
  316:../../libDaisy/core/startup_stm32h750xx.c **** }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  370:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void SPI1_IRQHandler();
  371:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
  372:../../libDaisy/core/startup_stm32h750xx.c **** }
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 8
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 8
 
 
  373:../../libDaisy/core/startup_stm32h750xx.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  427:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
  428:../../libDaisy/core/startup_stm32h750xx.c **** }
  429:../../libDaisy/core/startup_stm32h750xx.c **** 
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 9
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 9
 
 
  430:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) TIM8_UP_TIM13_IRQHandler() 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  484:../../libDaisy/core/startup_stm32h750xx.c **** }
  485:../../libDaisy/core/startup_stm32h750xx.c **** 
  486:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) SPI3_IRQHandler() 
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 10
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 10
 
 
  487:../../libDaisy/core/startup_stm32h750xx.c **** {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  541:../../libDaisy/core/startup_stm32h750xx.c **** 
  542:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) DMA2_Stream2_IRQHandler() 
  543:../../libDaisy/core/startup_stm32h750xx.c **** {
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 11
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 11
 
 
  544:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  598:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) DMA2_Stream6_IRQHandler() 
  599:../../libDaisy/core/startup_stm32h750xx.c **** {
  600:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 12
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 12
 
 
  601:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  655:../../libDaisy/core/startup_stm32h750xx.c **** {
  656:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
  657:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 13
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 13
 
 
  658:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void OTG_HS_WKUP_IRQHandler();
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  712:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
  713:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
  714:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void UART8_IRQHandler();
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 14
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 14
 
 
  715:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  769:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
  770:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void DMA2D_IRQHandler();
  771:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 15
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 15
 
 
  772:../../libDaisy/core/startup_stm32h750xx.c **** }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  826:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void SPDIF_RX_IRQHandler();
  827:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
  828:../../libDaisy/core/startup_stm32h750xx.c **** }
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 16
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 16
 
 
  829:../../libDaisy/core/startup_stm32h750xx.c **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  883:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
  884:../../libDaisy/core/startup_stm32h750xx.c **** }
  885:../../libDaisy/core/startup_stm32h750xx.c **** 
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 17
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 17
 
 
  886:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) HRTIM1_TIMB_IRQHandler() 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  940:../../libDaisy/core/startup_stm32h750xx.c **** }
  941:../../libDaisy/core/startup_stm32h750xx.c **** 
  942:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) DFSDM1_FLT2_IRQHandler() 
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 18
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 18
 
 
  943:../../libDaisy/core/startup_stm32h750xx.c **** {
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  997:../../libDaisy/core/startup_stm32h750xx.c **** 
  998:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) MDIOS_WKUP_IRQHandler() 
  999:../../libDaisy/core/startup_stm32h750xx.c **** {
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 19
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 19
 
 
 1000:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1054:../../libDaisy/core/startup_stm32h750xx.c **** void __attribute__ ((weak)) DMAMUX2_OVR_IRQHandler() 
 1055:../../libDaisy/core/startup_stm32h750xx.c **** {
 1056:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 20
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 20
 
 
 1057:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1111:../../libDaisy/core/startup_stm32h750xx.c **** {
 1112:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
 1113:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 21
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 21
 
 
 1114:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void BDMA_Channel6_IRQHandler();
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1168:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you hit the breakpoint below, one of the interrupts was unhandled in your code. 
 1169:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define the following function in your code to handle it:
 1170:../../libDaisy/core/startup_stm32h750xx.c **** 	//	extern "C" void LPUART1_IRQHandler();
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 22
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 22
 
 
 1171:../../libDaisy/core/startup_stm32h750xx.c **** 	asm("bkpt 255");
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1225:../../libDaisy/core/startup_stm32h750xx.c **** void EXTI3_IRQHandler()               __attribute__ ((weak, alias ("Default_Handler")));
 1226:../../libDaisy/core/startup_stm32h750xx.c **** void EXTI4_IRQHandler()               __attribute__ ((weak, alias ("Default_Handler")));
 1227:../../libDaisy/core/startup_stm32h750xx.c **** void DMA1_Stream0_IRQHandler()        __attribute__ ((weak, alias ("Default_Handler")));
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 23
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 23
 
 
 1228:../../libDaisy/core/startup_stm32h750xx.c **** void DMA1_Stream1_IRQHandler()        __attribute__ ((weak, alias ("Default_Handler")));
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1282:../../libDaisy/core/startup_stm32h750xx.c **** void USART6_IRQHandler()              __attribute__ ((weak, alias ("Default_Handler")));
 1283:../../libDaisy/core/startup_stm32h750xx.c **** void I2C3_EV_IRQHandler()             __attribute__ ((weak, alias ("Default_Handler")));
 1284:../../libDaisy/core/startup_stm32h750xx.c **** void I2C3_ER_IRQHandler()             __attribute__ ((weak, alias ("Default_Handler")));
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 24
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 24
 
 
 1285:../../libDaisy/core/startup_stm32h750xx.c **** void OTG_HS_EP1_OUT_IRQHandler()      __attribute__ ((weak, alias ("Default_Handler")));
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1339:../../libDaisy/core/startup_stm32h750xx.c **** void BDMA_Channel1_IRQHandler()       __attribute__ ((weak, alias ("Default_Handler")));
 1340:../../libDaisy/core/startup_stm32h750xx.c **** void BDMA_Channel2_IRQHandler()       __attribute__ ((weak, alias ("Default_Handler")));
 1341:../../libDaisy/core/startup_stm32h750xx.c **** void BDMA_Channel3_IRQHandler()       __attribute__ ((weak, alias ("Default_Handler")));
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 25
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 25
 
 
 1342:../../libDaisy/core/startup_stm32h750xx.c **** void BDMA_Channel4_IRQHandler()       __attribute__ ((weak, alias ("Default_Handler")));
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1396:../../libDaisy/core/startup_stm32h750xx.c **** 	&FDCAN2_IT0_IRQHandler,
 1397:../../libDaisy/core/startup_stm32h750xx.c **** 	&FDCAN1_IT1_IRQHandler,
 1398:../../libDaisy/core/startup_stm32h750xx.c **** 	&FDCAN2_IT1_IRQHandler,
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 26
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 26
 
 
 1399:../../libDaisy/core/startup_stm32h750xx.c **** 	&EXTI9_5_IRQHandler,
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1453:../../libDaisy/core/startup_stm32h750xx.c **** 	&OTG_HS_IRQHandler,
 1454:../../libDaisy/core/startup_stm32h750xx.c **** 	&DCMI_IRQHandler,
 1455:../../libDaisy/core/startup_stm32h750xx.c **** 	&CRYP_IRQHandler,
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 27
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 27
 
 
 1456:../../libDaisy/core/startup_stm32h750xx.c **** 	&HASH_RNG_IRQHandler,
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
 1510:../../libDaisy/core/startup_stm32h750xx.c **** 	&BDMA_Channel5_IRQHandler,
 1511:../../libDaisy/core/startup_stm32h750xx.c **** 	&BDMA_Channel6_IRQHandler,
 1512:../../libDaisy/core/startup_stm32h750xx.c **** 	&BDMA_Channel7_IRQHandler,
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 28
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 28
 
 
 1513:../../libDaisy/core/startup_stm32h750xx.c **** 	&COMP1_IRQHandler,
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
   34              		@ frame_needed = 0, uses_anonymous_args = 0
   35              	.L2:
 1562:../../libDaisy/core/startup_stm32h750xx.c **** 	//If you get stuck here, your code is missing a handler for some interrupt.
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 29
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 29
 
 
 1563:../../libDaisy/core/startup_stm32h750xx.c **** 	//Define a 'DEBUG_DEFAULT_INTERRUPT_HANDLERS' macro via VisualGDB Project Properties and rebuild y
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
   88              		.thumb_set MDMA_IRQHandler,Default_Handler
   89              		.weak	JPEG_IRQHandler
   90              		.thumb_set JPEG_IRQHandler,Default_Handler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 30
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 30
 
 
   91              		.weak	MDIOS_IRQHandler
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  145              		.weak	LPTIM1_IRQHandler
  146              		.thumb_set LPTIM1_IRQHandler,Default_Handler
  147              		.weak	QUADSPI_IRQHandler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 31
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 31
 
 
  148              		.thumb_set QUADSPI_IRQHandler,Default_Handler
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  202              		.thumb_set ETH_IRQHandler,Default_Handler
  203              		.weak	DMA2_Stream4_IRQHandler
  204              		.thumb_set DMA2_Stream4_IRQHandler,Default_Handler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 32
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 32
 
 
  205              		.weak	DMA2_Stream3_IRQHandler
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  259              		.weak	I2C1_EV_IRQHandler
  260              		.thumb_set I2C1_EV_IRQHandler,Default_Handler
  261              		.weak	TIM4_IRQHandler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 33
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 33
 
 
  262              		.thumb_set TIM4_IRQHandler,Default_Handler
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  316              		.thumb_set RTC_WKUP_IRQHandler,Default_Handler
  317              		.weak	TAMP_STAMP_IRQHandler
  318              		.thumb_set TAMP_STAMP_IRQHandler,Default_Handler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 34
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 34
 
 
  319              		.weak	PVD_AVD_IRQHandler
@@ -2010,447 +2010,446 @@ ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 1
  345              		.syntax unified
  346              		.thumb
  347              		.thumb_func
- 348              		.fpu fpv5-d16
- 350              	Reset_Handler:
- 351              	.LFB320:
+ 349              	Reset_Handler:
+ 350              	.LFB320:
 1536:../../libDaisy/core/startup_stm32h750xx.c **** 	//Normally the CPU should will setup the based on the value from the first entry in the vector tab
- 352              		.loc 1 1536 1 view -0
- 353              		.cfi_startproc
- 354              		@ Naked Function: prologue and epilogue provided by programmer.
- 355              		@ Volatile: function does not return.
- 356              		@ args = 0, pretend = 0, frame = 0
- 357              		@ frame_needed = 0, uses_anonymous_args = 0
+ 351              		.loc 1 1536 1 view -0
+ 352              		.cfi_startproc
+ 353              		@ Naked Function: prologue and epilogue provided by programmer.
+ 354              		@ Volatile: function does not return.
+ 355              		@ args = 0, pretend = 0, frame = 0
+ 356              		@ frame_needed = 0, uses_anonymous_args = 0
 1543:../../libDaisy/core/startup_stm32h750xx.c **** 	for (pSource = &_sidata, pDest = &_sdata; pDest != &_edata; pSource++, pDest++)
- 358              		.loc 1 1543 2 view .LVU5
+ 357              		.loc 1 1543 2 view .LVU5
 1544:../../libDaisy/core/startup_stm32h750xx.c **** 		*pDest = *pSource;
- 359              		.loc 1 1544 2 view .LVU6
- 360              	.LVL0:
+ 358              		.loc 1 1544 2 view .LVU6
+ 359              	.LVL0:
 1544:../../libDaisy/core/startup_stm32h750xx.c **** 		*pDest = *pSource;
- 361              		.loc 1 1544 44 view .LVU7
+ 360              		.loc 1 1544 44 view .LVU7
 1544:../../libDaisy/core/startup_stm32h750xx.c **** 		*pDest = *pSource;
- 362              		.loc 1 1544 2 is_stmt 0 view .LVU8
- 363 0000 0B48     		ldr	r0, .L8
- 364 0002 0C4A     		ldr	r2, .L8+4
- 365 0004 9042     		cmp	r0, r2
- 366 0006 03D0     		beq	.L5
+ 361              		.loc 1 1544 2 is_stmt 0 view .LVU8
+ 362 0000 0B48     		ldr	r0, .L8
+ 363 0002 0C4A     		ldr	r2, .L8+4
+ 364 0004 9042     		cmp	r0, r2
+ 365 0006 03D0     		beq	.L5
 1545:../../libDaisy/core/startup_stm32h750xx.c **** 
- 367              		.loc 1 1545 10 view .LVU9
- 368 0008 121A     		subs	r2, r2, r0
- 369 000a 0B49     		ldr	r1, .L8+8
- 370 000c FFF7FEFF 		bl	memcpy
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 35
+ 366              		.loc 1 1545 10 view .LVU9
+ 367 0008 121A     		subs	r2, r2, r0
+ 368 000a 0B49     		ldr	r1, .L8+8
+ 369 000c FFF7FEFF 		bl	memcpy
+ 370              	.LVL1:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 35
 
 
- 371              	.LVL1:
- 372              	.L5:
+ 371              	.L5:
 1547:../../libDaisy/core/startup_stm32h750xx.c **** 		*pDest = 0;
- 373              		.loc 1 1547 23 is_stmt 1 view .LVU10
+ 372              		.loc 1 1547 23 is_stmt 1 view .LVU10
 1547:../../libDaisy/core/startup_stm32h750xx.c **** 		*pDest = 0;
- 374              		.loc 1 1547 2 is_stmt 0 view .LVU11
- 375 0010 0A48     		ldr	r0, .L8+12
- 376 0012 0B4A     		ldr	r2, .L8+16
- 377 0014 9042     		cmp	r0, r2
- 378 0016 03D0     		beq	.L6
+ 373              		.loc 1 1547 2 is_stmt 0 view .LVU11
+ 374 0010 0A48     		ldr	r0, .L8+12
+ 375 0012 0B4A     		ldr	r2, .L8+16
+ 376 0014 9042     		cmp	r0, r2
+ 377 0016 03D0     		beq	.L6
 1548:../../libDaisy/core/startup_stm32h750xx.c **** 
- 379              		.loc 1 1548 10 view .LVU12
- 380 0018 121A     		subs	r2, r2, r0
- 381 001a 0021     		movs	r1, #0
- 382 001c FFF7FEFF 		bl	memset
- 383              	.LVL2:
- 384              	.L6:
+ 378              		.loc 1 1548 10 view .LVU12
+ 379 0018 121A     		subs	r2, r2, r0
+ 380 001a 0021     		movs	r1, #0
+ 381 001c FFF7FEFF 		bl	memset
+ 382              	.LVL2:
+ 383              	.L6:
 1551:../../libDaisy/core/startup_stm32h750xx.c **** 	#endif
- 385              		.loc 1 1551 2 is_stmt 1 view .LVU13
- 386 0020 FFF7FEFF 		bl	SystemInit
- 387              	.LVL3:
+ 384              		.loc 1 1551 2 is_stmt 1 view .LVU13
+ 385 0020 FFF7FEFF 		bl	SystemInit
+ 386              	.LVL3:
 1553:../../libDaisy/core/startup_stm32h750xx.c **** 
- 388              		.loc 1 1553 2 view .LVU14
- 389 0024 FFF7FEFF 		bl	__libc_init_array
- 390              	.LVL4:
+ 387              		.loc 1 1553 2 view .LVU14
+ 388 0024 FFF7FEFF 		bl	__libc_init_array
+ 389              	.LVL4:
 1556:../../libDaisy/core/startup_stm32h750xx.c **** 	for (;;) ;
- 391              		.loc 1 1556 2 view .LVU15
+ 390              		.loc 1 1556 2 view .LVU15
 1556:../../libDaisy/core/startup_stm32h750xx.c **** 	for (;;) ;
- 392              		.loc 1 1556 8 is_stmt 0 view .LVU16
- 393 0028 FFF7FEFF 		bl	main
- 394              	.LVL5:
- 395              	.L7:
+ 391              		.loc 1 1556 8 is_stmt 0 view .LVU16
+ 392 0028 FFF7FEFF 		bl	main
+ 393              	.LVL5:
+ 394              	.L7:
 1557:../../libDaisy/core/startup_stm32h750xx.c **** }
- 396              		.loc 1 1557 2 is_stmt 1 discriminator 1 view .LVU17
+ 395              		.loc 1 1557 2 is_stmt 1 discriminator 1 view .LVU17
 1557:../../libDaisy/core/startup_stm32h750xx.c **** }
- 397              		.loc 1 1557 11 discriminator 1 view .LVU18
+ 396              		.loc 1 1557 11 discriminator 1 view .LVU18
 1557:../../libDaisy/core/startup_stm32h750xx.c **** }
- 398              		.loc 1 1557 8 discriminator 1 view .LVU19
+ 397              		.loc 1 1557 8 discriminator 1 view .LVU19
 1557:../../libDaisy/core/startup_stm32h750xx.c **** }
- 399              		.loc 1 1557 2 discriminator 1 view .LVU20
+ 398              		.loc 1 1557 2 discriminator 1 view .LVU20
 1557:../../libDaisy/core/startup_stm32h750xx.c **** }
- 400              		.loc 1 1557 11 discriminator 1 view .LVU21
+ 399              		.loc 1 1557 11 discriminator 1 view .LVU21
 1557:../../libDaisy/core/startup_stm32h750xx.c **** }
- 401              		.loc 1 1557 8 discriminator 1 view .LVU22
- 402 002c FEE7     		b	.L7
- 403              	.L9:
- 404 002e 00BF     		.align	2
- 405              	.L8:
- 406 0030 00000000 		.word	_sdata
- 407 0034 00000000 		.word	_edata
- 408 0038 00000000 		.word	_sidata
- 409 003c 00000000 		.word	_sbss
- 410 0040 00000000 		.word	_ebss
- 411              		.cfi_endproc
- 412              	.LFE320:
- 414              		.global	g_pfnVectors
- 415              		.section	.isr_vector,"aw"
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 36
+ 400              		.loc 1 1557 8 discriminator 1 view .LVU22
+ 401 002c FEE7     		b	.L7
+ 402              	.L9:
+ 403 002e 00BF     		.align	2
+ 404              	.L8:
+ 405 0030 00000000 		.word	_sdata
+ 406 0034 00000000 		.word	_edata
+ 407 0038 00000000 		.word	_sidata
+ 408 003c 00000000 		.word	_sbss
+ 409 0040 00000000 		.word	_ebss
+ 410              		.cfi_endproc
+ 411              	.LFE320:
+ 413              		.global	g_pfnVectors
+ 414              		.section	.isr_vector,"aw"
+ 415              		.align	2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 36
 
 
- 416              		.align	2
- 419              	g_pfnVectors:
- 420 0000 00000000 		.word	_estack
- 421 0004 00000000 		.word	Reset_Handler
- 422 0008 00000000 		.word	NMI_Handler
- 423 000c 00000000 		.word	HardFault_Handler
- 424 0010 00000000 		.word	MemManage_Handler
- 425 0014 00000000 		.word	BusFault_Handler
- 426 0018 00000000 		.word	UsageFault_Handler
- 427 001c 00000000 		.word	0
- 428 0020 00000000 		.word	0
- 429 0024 00000000 		.word	0
- 430 0028 00000000 		.word	0
- 431 002c 00000000 		.word	SVC_Handler
- 432 0030 00000000 		.word	DebugMon_Handler
- 433 0034 00000000 		.word	0
- 434 0038 00000000 		.word	PendSV_Handler
- 435 003c 00000000 		.word	SysTick_Handler
- 436 0040 00000000 		.word	WWDG_IRQHandler
- 437 0044 00000000 		.word	PVD_AVD_IRQHandler
- 438 0048 00000000 		.word	TAMP_STAMP_IRQHandler
- 439 004c 00000000 		.word	RTC_WKUP_IRQHandler
- 440 0050 00000000 		.word	FLASH_IRQHandler
- 441 0054 00000000 		.word	RCC_IRQHandler
- 442 0058 00000000 		.word	EXTI0_IRQHandler
- 443 005c 00000000 		.word	EXTI1_IRQHandler
- 444 0060 00000000 		.word	EXTI2_IRQHandler
- 445 0064 00000000 		.word	EXTI3_IRQHandler
- 446 0068 00000000 		.word	EXTI4_IRQHandler
- 447 006c 00000000 		.word	DMA1_Stream0_IRQHandler
- 448 0070 00000000 		.word	DMA1_Stream1_IRQHandler
- 449 0074 00000000 		.word	DMA1_Stream2_IRQHandler
- 450 0078 00000000 		.word	DMA1_Stream3_IRQHandler
- 451 007c 00000000 		.word	DMA1_Stream4_IRQHandler
- 452 0080 00000000 		.word	DMA1_Stream5_IRQHandler
- 453 0084 00000000 		.word	DMA1_Stream6_IRQHandler
- 454 0088 00000000 		.word	ADC_IRQHandler
- 455 008c 00000000 		.word	FDCAN1_IT0_IRQHandler
- 456 0090 00000000 		.word	FDCAN2_IT0_IRQHandler
- 457 0094 00000000 		.word	FDCAN1_IT1_IRQHandler
- 458 0098 00000000 		.word	FDCAN2_IT1_IRQHandler
- 459 009c 00000000 		.word	EXTI9_5_IRQHandler
- 460 00a0 00000000 		.word	TIM1_BRK_IRQHandler
- 461 00a4 00000000 		.word	TIM1_UP_IRQHandler
- 462 00a8 00000000 		.word	TIM1_TRG_COM_IRQHandler
- 463 00ac 00000000 		.word	TIM1_CC_IRQHandler
- 464 00b0 00000000 		.word	TIM2_IRQHandler
- 465 00b4 00000000 		.word	TIM3_IRQHandler
- 466 00b8 00000000 		.word	TIM4_IRQHandler
- 467 00bc 00000000 		.word	I2C1_EV_IRQHandler
- 468 00c0 00000000 		.word	I2C1_ER_IRQHandler
- 469 00c4 00000000 		.word	I2C2_EV_IRQHandler
- 470 00c8 00000000 		.word	I2C2_ER_IRQHandler
- 471 00cc 00000000 		.word	SPI1_IRQHandler
- 472 00d0 00000000 		.word	SPI2_IRQHandler
- 473 00d4 00000000 		.word	USART1_IRQHandler
- 474 00d8 00000000 		.word	USART2_IRQHandler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 37
+ 418              	g_pfnVectors:
+ 419 0000 00000000 		.word	_estack
+ 420 0004 00000000 		.word	Reset_Handler
+ 421 0008 00000000 		.word	NMI_Handler
+ 422 000c 00000000 		.word	HardFault_Handler
+ 423 0010 00000000 		.word	MemManage_Handler
+ 424 0014 00000000 		.word	BusFault_Handler
+ 425 0018 00000000 		.word	UsageFault_Handler
+ 426 001c 00000000 		.word	0
+ 427 0020 00000000 		.word	0
+ 428 0024 00000000 		.word	0
+ 429 0028 00000000 		.word	0
+ 430 002c 00000000 		.word	SVC_Handler
+ 431 0030 00000000 		.word	DebugMon_Handler
+ 432 0034 00000000 		.word	0
+ 433 0038 00000000 		.word	PendSV_Handler
+ 434 003c 00000000 		.word	SysTick_Handler
+ 435 0040 00000000 		.word	WWDG_IRQHandler
+ 436 0044 00000000 		.word	PVD_AVD_IRQHandler
+ 437 0048 00000000 		.word	TAMP_STAMP_IRQHandler
+ 438 004c 00000000 		.word	RTC_WKUP_IRQHandler
+ 439 0050 00000000 		.word	FLASH_IRQHandler
+ 440 0054 00000000 		.word	RCC_IRQHandler
+ 441 0058 00000000 		.word	EXTI0_IRQHandler
+ 442 005c 00000000 		.word	EXTI1_IRQHandler
+ 443 0060 00000000 		.word	EXTI2_IRQHandler
+ 444 0064 00000000 		.word	EXTI3_IRQHandler
+ 445 0068 00000000 		.word	EXTI4_IRQHandler
+ 446 006c 00000000 		.word	DMA1_Stream0_IRQHandler
+ 447 0070 00000000 		.word	DMA1_Stream1_IRQHandler
+ 448 0074 00000000 		.word	DMA1_Stream2_IRQHandler
+ 449 0078 00000000 		.word	DMA1_Stream3_IRQHandler
+ 450 007c 00000000 		.word	DMA1_Stream4_IRQHandler
+ 451 0080 00000000 		.word	DMA1_Stream5_IRQHandler
+ 452 0084 00000000 		.word	DMA1_Stream6_IRQHandler
+ 453 0088 00000000 		.word	ADC_IRQHandler
+ 454 008c 00000000 		.word	FDCAN1_IT0_IRQHandler
+ 455 0090 00000000 		.word	FDCAN2_IT0_IRQHandler
+ 456 0094 00000000 		.word	FDCAN1_IT1_IRQHandler
+ 457 0098 00000000 		.word	FDCAN2_IT1_IRQHandler
+ 458 009c 00000000 		.word	EXTI9_5_IRQHandler
+ 459 00a0 00000000 		.word	TIM1_BRK_IRQHandler
+ 460 00a4 00000000 		.word	TIM1_UP_IRQHandler
+ 461 00a8 00000000 		.word	TIM1_TRG_COM_IRQHandler
+ 462 00ac 00000000 		.word	TIM1_CC_IRQHandler
+ 463 00b0 00000000 		.word	TIM2_IRQHandler
+ 464 00b4 00000000 		.word	TIM3_IRQHandler
+ 465 00b8 00000000 		.word	TIM4_IRQHandler
+ 466 00bc 00000000 		.word	I2C1_EV_IRQHandler
+ 467 00c0 00000000 		.word	I2C1_ER_IRQHandler
+ 468 00c4 00000000 		.word	I2C2_EV_IRQHandler
+ 469 00c8 00000000 		.word	I2C2_ER_IRQHandler
+ 470 00cc 00000000 		.word	SPI1_IRQHandler
+ 471 00d0 00000000 		.word	SPI2_IRQHandler
+ 472 00d4 00000000 		.word	USART1_IRQHandler
+ 473 00d8 00000000 		.word	USART2_IRQHandler
+ 474 00dc 00000000 		.word	USART3_IRQHandler
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 37
 
 
- 475 00dc 00000000 		.word	USART3_IRQHandler
- 476 00e0 00000000 		.word	EXTI15_10_IRQHandler
- 477 00e4 00000000 		.word	RTC_Alarm_IRQHandler
- 478 00e8 00000000 		.word	0
- 479 00ec 00000000 		.word	TIM8_BRK_TIM12_IRQHandler
- 480 00f0 00000000 		.word	TIM8_UP_TIM13_IRQHandler
- 481 00f4 00000000 		.word	TIM8_TRG_COM_TIM14_IRQHandler
- 482 00f8 00000000 		.word	TIM8_CC_IRQHandler
- 483 00fc 00000000 		.word	DMA1_Stream7_IRQHandler
- 484 0100 00000000 		.word	FMC_IRQHandler
- 485 0104 00000000 		.word	SDMMC1_IRQHandler
- 486 0108 00000000 		.word	TIM5_IRQHandler
- 487 010c 00000000 		.word	SPI3_IRQHandler
- 488 0110 00000000 		.word	UART4_IRQHandler
- 489 0114 00000000 		.word	UART5_IRQHandler
- 490 0118 00000000 		.word	TIM6_DAC_IRQHandler
- 491 011c 00000000 		.word	TIM7_IRQHandler
- 492 0120 00000000 		.word	DMA2_Stream0_IRQHandler
- 493 0124 00000000 		.word	DMA2_Stream1_IRQHandler
- 494 0128 00000000 		.word	DMA2_Stream2_IRQHandler
- 495 012c 00000000 		.word	DMA2_Stream3_IRQHandler
- 496 0130 00000000 		.word	DMA2_Stream4_IRQHandler
- 497 0134 00000000 		.word	ETH_IRQHandler
- 498 0138 00000000 		.word	ETH_WKUP_IRQHandler
- 499 013c 00000000 		.word	FDCAN_CAL_IRQHandler
- 500 0140 00000000 		.word	0
- 501 0144 00000000 		.word	0
- 502 0148 00000000 		.word	0
- 503 014c 00000000 		.word	0
- 504 0150 00000000 		.word	DMA2_Stream5_IRQHandler
- 505 0154 00000000 		.word	DMA2_Stream6_IRQHandler
- 506 0158 00000000 		.word	DMA2_Stream7_IRQHandler
- 507 015c 00000000 		.word	USART6_IRQHandler
- 508 0160 00000000 		.word	I2C3_EV_IRQHandler
- 509 0164 00000000 		.word	I2C3_ER_IRQHandler
- 510 0168 00000000 		.word	OTG_HS_EP1_OUT_IRQHandler
- 511 016c 00000000 		.word	OTG_HS_EP1_IN_IRQHandler
- 512 0170 00000000 		.word	OTG_HS_WKUP_IRQHandler
- 513 0174 00000000 		.word	OTG_HS_IRQHandler
- 514 0178 00000000 		.word	DCMI_IRQHandler
- 515 017c 00000000 		.word	CRYP_IRQHandler
- 516 0180 00000000 		.word	HASH_RNG_IRQHandler
- 517 0184 00000000 		.word	FPU_IRQHandler
- 518 0188 00000000 		.word	UART7_IRQHandler
- 519 018c 00000000 		.word	UART8_IRQHandler
- 520 0190 00000000 		.word	SPI4_IRQHandler
- 521 0194 00000000 		.word	SPI5_IRQHandler
- 522 0198 00000000 		.word	SPI6_IRQHandler
- 523 019c 00000000 		.word	SAI1_IRQHandler
- 524 01a0 00000000 		.word	LTDC_IRQHandler
- 525 01a4 00000000 		.word	LTDC_ER_IRQHandler
- 526 01a8 00000000 		.word	DMA2D_IRQHandler
- 527 01ac 00000000 		.word	SAI2_IRQHandler
- 528 01b0 00000000 		.word	QUADSPI_IRQHandler
- 529 01b4 00000000 		.word	LPTIM1_IRQHandler
- 530 01b8 00000000 		.word	CEC_IRQHandler
- 531 01bc 00000000 		.word	I2C4_EV_IRQHandler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 38
+ 475 00e0 00000000 		.word	EXTI15_10_IRQHandler
+ 476 00e4 00000000 		.word	RTC_Alarm_IRQHandler
+ 477 00e8 00000000 		.word	0
+ 478 00ec 00000000 		.word	TIM8_BRK_TIM12_IRQHandler
+ 479 00f0 00000000 		.word	TIM8_UP_TIM13_IRQHandler
+ 480 00f4 00000000 		.word	TIM8_TRG_COM_TIM14_IRQHandler
+ 481 00f8 00000000 		.word	TIM8_CC_IRQHandler
+ 482 00fc 00000000 		.word	DMA1_Stream7_IRQHandler
+ 483 0100 00000000 		.word	FMC_IRQHandler
+ 484 0104 00000000 		.word	SDMMC1_IRQHandler
+ 485 0108 00000000 		.word	TIM5_IRQHandler
+ 486 010c 00000000 		.word	SPI3_IRQHandler
+ 487 0110 00000000 		.word	UART4_IRQHandler
+ 488 0114 00000000 		.word	UART5_IRQHandler
+ 489 0118 00000000 		.word	TIM6_DAC_IRQHandler
+ 490 011c 00000000 		.word	TIM7_IRQHandler
+ 491 0120 00000000 		.word	DMA2_Stream0_IRQHandler
+ 492 0124 00000000 		.word	DMA2_Stream1_IRQHandler
+ 493 0128 00000000 		.word	DMA2_Stream2_IRQHandler
+ 494 012c 00000000 		.word	DMA2_Stream3_IRQHandler
+ 495 0130 00000000 		.word	DMA2_Stream4_IRQHandler
+ 496 0134 00000000 		.word	ETH_IRQHandler
+ 497 0138 00000000 		.word	ETH_WKUP_IRQHandler
+ 498 013c 00000000 		.word	FDCAN_CAL_IRQHandler
+ 499 0140 00000000 		.word	0
+ 500 0144 00000000 		.word	0
+ 501 0148 00000000 		.word	0
+ 502 014c 00000000 		.word	0
+ 503 0150 00000000 		.word	DMA2_Stream5_IRQHandler
+ 504 0154 00000000 		.word	DMA2_Stream6_IRQHandler
+ 505 0158 00000000 		.word	DMA2_Stream7_IRQHandler
+ 506 015c 00000000 		.word	USART6_IRQHandler
+ 507 0160 00000000 		.word	I2C3_EV_IRQHandler
+ 508 0164 00000000 		.word	I2C3_ER_IRQHandler
+ 509 0168 00000000 		.word	OTG_HS_EP1_OUT_IRQHandler
+ 510 016c 00000000 		.word	OTG_HS_EP1_IN_IRQHandler
+ 511 0170 00000000 		.word	OTG_HS_WKUP_IRQHandler
+ 512 0174 00000000 		.word	OTG_HS_IRQHandler
+ 513 0178 00000000 		.word	DCMI_IRQHandler
+ 514 017c 00000000 		.word	CRYP_IRQHandler
+ 515 0180 00000000 		.word	HASH_RNG_IRQHandler
+ 516 0184 00000000 		.word	FPU_IRQHandler
+ 517 0188 00000000 		.word	UART7_IRQHandler
+ 518 018c 00000000 		.word	UART8_IRQHandler
+ 519 0190 00000000 		.word	SPI4_IRQHandler
+ 520 0194 00000000 		.word	SPI5_IRQHandler
+ 521 0198 00000000 		.word	SPI6_IRQHandler
+ 522 019c 00000000 		.word	SAI1_IRQHandler
+ 523 01a0 00000000 		.word	LTDC_IRQHandler
+ 524 01a4 00000000 		.word	LTDC_ER_IRQHandler
+ 525 01a8 00000000 		.word	DMA2D_IRQHandler
+ 526 01ac 00000000 		.word	SAI2_IRQHandler
+ 527 01b0 00000000 		.word	QUADSPI_IRQHandler
+ 528 01b4 00000000 		.word	LPTIM1_IRQHandler
+ 529 01b8 00000000 		.word	CEC_IRQHandler
+ 530 01bc 00000000 		.word	I2C4_EV_IRQHandler
+ 531 01c0 00000000 		.word	I2C4_ER_IRQHandler
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 38
 
 
- 532 01c0 00000000 		.word	I2C4_ER_IRQHandler
- 533 01c4 00000000 		.word	SPDIF_RX_IRQHandler
- 534 01c8 00000000 		.word	OTG_FS_EP1_OUT_IRQHandler
- 535 01cc 00000000 		.word	OTG_FS_EP1_IN_IRQHandler
- 536 01d0 00000000 		.word	OTG_FS_WKUP_IRQHandler
- 537 01d4 00000000 		.word	OTG_FS_IRQHandler
- 538 01d8 00000000 		.word	DMAMUX1_OVR_IRQHandler
- 539 01dc 00000000 		.word	HRTIM1_Master_IRQHandler
- 540 01e0 00000000 		.word	HRTIM1_TIMA_IRQHandler
- 541 01e4 00000000 		.word	HRTIM1_TIMB_IRQHandler
- 542 01e8 00000000 		.word	HRTIM1_TIMC_IRQHandler
- 543 01ec 00000000 		.word	HRTIM1_TIMD_IRQHandler
- 544 01f0 00000000 		.word	HRTIM1_TIME_IRQHandler
- 545 01f4 00000000 		.word	HRTIM1_FLT_IRQHandler
- 546 01f8 00000000 		.word	DFSDM1_FLT0_IRQHandler
- 547 01fc 00000000 		.word	DFSDM1_FLT1_IRQHandler
- 548 0200 00000000 		.word	DFSDM1_FLT2_IRQHandler
- 549 0204 00000000 		.word	DFSDM1_FLT3_IRQHandler
- 550 0208 00000000 		.word	SAI3_IRQHandler
- 551 020c 00000000 		.word	SWPMI1_IRQHandler
- 552 0210 00000000 		.word	TIM15_IRQHandler
- 553 0214 00000000 		.word	TIM16_IRQHandler
- 554 0218 00000000 		.word	TIM17_IRQHandler
- 555 021c 00000000 		.word	MDIOS_WKUP_IRQHandler
- 556 0220 00000000 		.word	MDIOS_IRQHandler
- 557 0224 00000000 		.word	JPEG_IRQHandler
- 558 0228 00000000 		.word	MDMA_IRQHandler
- 559 022c 00000000 		.word	0
- 560 0230 00000000 		.word	SDMMC2_IRQHandler
- 561 0234 00000000 		.word	HSEM1_IRQHandler
- 562 0238 00000000 		.word	0
- 563 023c 00000000 		.word	ADC3_IRQHandler
- 564 0240 00000000 		.word	DMAMUX2_OVR_IRQHandler
- 565 0244 00000000 		.word	BDMA_Channel0_IRQHandler
- 566 0248 00000000 		.word	BDMA_Channel1_IRQHandler
- 567 024c 00000000 		.word	BDMA_Channel2_IRQHandler
- 568 0250 00000000 		.word	BDMA_Channel3_IRQHandler
- 569 0254 00000000 		.word	BDMA_Channel4_IRQHandler
- 570 0258 00000000 		.word	BDMA_Channel5_IRQHandler
- 571 025c 00000000 		.word	BDMA_Channel6_IRQHandler
- 572 0260 00000000 		.word	BDMA_Channel7_IRQHandler
- 573 0264 00000000 		.word	COMP1_IRQHandler
- 574 0268 00000000 		.word	LPTIM2_IRQHandler
- 575 026c 00000000 		.word	LPTIM3_IRQHandler
- 576 0270 00000000 		.word	LPTIM4_IRQHandler
- 577 0274 00000000 		.word	LPTIM5_IRQHandler
- 578 0278 00000000 		.word	LPUART1_IRQHandler
- 579 027c 00000000 		.word	0
- 580 0280 00000000 		.word	CRS_IRQHandler
- 581 0284 00000000 		.word	ECC_IRQHandler
- 582 0288 00000000 		.word	SAI4_IRQHandler
- 583 028c 00000000 		.word	0
- 584 0290 00000000 		.word	0
- 585 0294 00000000 		.word	WAKEUP_PIN_IRQHandler
- 586              		.text
- 587              	.Letext0:
- 588              		.file 2 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 39
+ 532 01c4 00000000 		.word	SPDIF_RX_IRQHandler
+ 533 01c8 00000000 		.word	OTG_FS_EP1_OUT_IRQHandler
+ 534 01cc 00000000 		.word	OTG_FS_EP1_IN_IRQHandler
+ 535 01d0 00000000 		.word	OTG_FS_WKUP_IRQHandler
+ 536 01d4 00000000 		.word	OTG_FS_IRQHandler
+ 537 01d8 00000000 		.word	DMAMUX1_OVR_IRQHandler
+ 538 01dc 00000000 		.word	HRTIM1_Master_IRQHandler
+ 539 01e0 00000000 		.word	HRTIM1_TIMA_IRQHandler
+ 540 01e4 00000000 		.word	HRTIM1_TIMB_IRQHandler
+ 541 01e8 00000000 		.word	HRTIM1_TIMC_IRQHandler
+ 542 01ec 00000000 		.word	HRTIM1_TIMD_IRQHandler
+ 543 01f0 00000000 		.word	HRTIM1_TIME_IRQHandler
+ 544 01f4 00000000 		.word	HRTIM1_FLT_IRQHandler
+ 545 01f8 00000000 		.word	DFSDM1_FLT0_IRQHandler
+ 546 01fc 00000000 		.word	DFSDM1_FLT1_IRQHandler
+ 547 0200 00000000 		.word	DFSDM1_FLT2_IRQHandler
+ 548 0204 00000000 		.word	DFSDM1_FLT3_IRQHandler
+ 549 0208 00000000 		.word	SAI3_IRQHandler
+ 550 020c 00000000 		.word	SWPMI1_IRQHandler
+ 551 0210 00000000 		.word	TIM15_IRQHandler
+ 552 0214 00000000 		.word	TIM16_IRQHandler
+ 553 0218 00000000 		.word	TIM17_IRQHandler
+ 554 021c 00000000 		.word	MDIOS_WKUP_IRQHandler
+ 555 0220 00000000 		.word	MDIOS_IRQHandler
+ 556 0224 00000000 		.word	JPEG_IRQHandler
+ 557 0228 00000000 		.word	MDMA_IRQHandler
+ 558 022c 00000000 		.word	0
+ 559 0230 00000000 		.word	SDMMC2_IRQHandler
+ 560 0234 00000000 		.word	HSEM1_IRQHandler
+ 561 0238 00000000 		.word	0
+ 562 023c 00000000 		.word	ADC3_IRQHandler
+ 563 0240 00000000 		.word	DMAMUX2_OVR_IRQHandler
+ 564 0244 00000000 		.word	BDMA_Channel0_IRQHandler
+ 565 0248 00000000 		.word	BDMA_Channel1_IRQHandler
+ 566 024c 00000000 		.word	BDMA_Channel2_IRQHandler
+ 567 0250 00000000 		.word	BDMA_Channel3_IRQHandler
+ 568 0254 00000000 		.word	BDMA_Channel4_IRQHandler
+ 569 0258 00000000 		.word	BDMA_Channel5_IRQHandler
+ 570 025c 00000000 		.word	BDMA_Channel6_IRQHandler
+ 571 0260 00000000 		.word	BDMA_Channel7_IRQHandler
+ 572 0264 00000000 		.word	COMP1_IRQHandler
+ 573 0268 00000000 		.word	LPTIM2_IRQHandler
+ 574 026c 00000000 		.word	LPTIM3_IRQHandler
+ 575 0270 00000000 		.word	LPTIM4_IRQHandler
+ 576 0274 00000000 		.word	LPTIM5_IRQHandler
+ 577 0278 00000000 		.word	LPUART1_IRQHandler
+ 578 027c 00000000 		.word	0
+ 579 0280 00000000 		.word	CRS_IRQHandler
+ 580 0284 00000000 		.word	ECC_IRQHandler
+ 581 0288 00000000 		.word	SAI4_IRQHandler
+ 582 028c 00000000 		.word	0
+ 583 0290 00000000 		.word	0
+ 584 0294 00000000 		.word	WAKEUP_PIN_IRQHandler
+ 585              		.text
+ 586              	.Letext0:
+ 587              		.file 2 "/Library/DaisyToolchain/0.2.0/arm/arm-none-eabi/include/machine/_default_types.h"
+ 588              		.file 3 "/Library/DaisyToolchain/0.2.0/arm/arm-none-eabi/include/sys/_stdint.h"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 39
 
 
- 589              		.file 3 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
- 590              		.file 4 "<built-in>"
- 591              		.file 5 "../../libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h"
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 40
+ 589              		.file 4 "<built-in>"
+ 590              		.file 5 "../../libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 40
 
 
 DEFINED SYMBOLS
-                            *ABS*:00000000 startup_stm32h750xx.c
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:17     .text.Default_Handler:00000000 $t
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 Default_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 WAKEUP_PIN_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SAI4_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 ECC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 CRS_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 LPUART1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 LPTIM5_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 LPTIM4_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 LPTIM3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 LPTIM2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 COMP1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BDMA_Channel7_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BDMA_Channel6_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BDMA_Channel5_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BDMA_Channel4_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BDMA_Channel3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BDMA_Channel2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BDMA_Channel1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BDMA_Channel0_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMAMUX2_OVR_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 ADC3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HSEM1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SDMMC2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 MDMA_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 JPEG_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 MDIOS_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 MDIOS_WKUP_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM17_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM16_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM15_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SWPMI1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SAI3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DFSDM1_FLT3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DFSDM1_FLT2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DFSDM1_FLT1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DFSDM1_FLT0_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HRTIM1_FLT_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HRTIM1_TIME_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HRTIM1_TIMD_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HRTIM1_TIMC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HRTIM1_TIMB_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HRTIM1_TIMA_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HRTIM1_Master_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMAMUX1_OVR_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 OTG_FS_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 OTG_FS_WKUP_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 OTG_FS_EP1_IN_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 OTG_FS_EP1_OUT_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SPDIF_RX_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 I2C4_ER_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 I2C4_EV_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 CEC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 LPTIM1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 QUADSPI_IRQHandler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 41
+                            *ABS*:0000000000000000 startup_stm32h750xx.c
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:19     .text.Default_Handler:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 Default_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 WAKEUP_PIN_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SAI4_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 ECC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 CRS_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 LPUART1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 LPTIM5_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 LPTIM4_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 LPTIM3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 LPTIM2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 COMP1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BDMA_Channel7_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BDMA_Channel6_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BDMA_Channel5_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BDMA_Channel4_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BDMA_Channel3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BDMA_Channel2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BDMA_Channel1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BDMA_Channel0_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMAMUX2_OVR_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 ADC3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HSEM1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SDMMC2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 MDMA_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 JPEG_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 MDIOS_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 MDIOS_WKUP_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM17_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM16_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM15_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SWPMI1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SAI3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DFSDM1_FLT3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DFSDM1_FLT2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DFSDM1_FLT1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DFSDM1_FLT0_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HRTIM1_FLT_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HRTIM1_TIME_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HRTIM1_TIMD_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HRTIM1_TIMC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HRTIM1_TIMB_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HRTIM1_TIMA_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HRTIM1_Master_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMAMUX1_OVR_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 OTG_FS_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 OTG_FS_WKUP_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 OTG_FS_EP1_IN_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 OTG_FS_EP1_OUT_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SPDIF_RX_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 I2C4_ER_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 I2C4_EV_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 CEC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 LPTIM1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 QUADSPI_IRQHandler
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 41
 
 
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SAI2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2D_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 LTDC_ER_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 LTDC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SAI1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SPI6_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SPI5_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SPI4_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 UART8_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 UART7_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 FPU_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HASH_RNG_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 CRYP_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DCMI_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 OTG_HS_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 OTG_HS_WKUP_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 OTG_HS_EP1_IN_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 OTG_HS_EP1_OUT_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 I2C3_ER_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 I2C3_EV_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 USART6_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2_Stream7_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2_Stream6_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2_Stream5_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 FDCAN_CAL_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 ETH_WKUP_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 ETH_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2_Stream4_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2_Stream3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2_Stream2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2_Stream1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA2_Stream0_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM7_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM6_DAC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 UART5_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 UART4_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SPI3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM5_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SDMMC1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 FMC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA1_Stream7_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM8_CC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM8_TRG_COM_TIM14_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM8_UP_TIM13_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM8_BRK_TIM12_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 RTC_Alarm_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 EXTI15_10_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 USART3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 USART2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 USART1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SPI2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SPI1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 I2C2_ER_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 I2C2_EV_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 I2C1_ER_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 I2C1_EV_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM4_IRQHandler
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 42
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SAI2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2D_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 LTDC_ER_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 LTDC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SAI1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SPI6_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SPI5_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SPI4_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 UART8_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 UART7_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 FPU_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HASH_RNG_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 CRYP_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DCMI_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 OTG_HS_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 OTG_HS_WKUP_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 OTG_HS_EP1_IN_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 OTG_HS_EP1_OUT_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 I2C3_ER_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 I2C3_EV_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 USART6_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2_Stream7_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2_Stream6_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2_Stream5_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 FDCAN_CAL_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 ETH_WKUP_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 ETH_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2_Stream4_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2_Stream3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2_Stream2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2_Stream1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA2_Stream0_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM7_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM6_DAC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 UART5_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 UART4_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SPI3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM5_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SDMMC1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 FMC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA1_Stream7_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM8_CC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM8_TRG_COM_TIM14_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM8_UP_TIM13_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM8_BRK_TIM12_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 RTC_Alarm_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 EXTI15_10_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 USART3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 USART2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 USART1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SPI2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SPI1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 I2C2_ER_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 I2C2_EV_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 I2C1_ER_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 I2C1_EV_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM4_IRQHandler
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 42
 
 
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM1_CC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM1_TRG_COM_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM1_UP_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TIM1_BRK_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 EXTI9_5_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 FDCAN2_IT1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 FDCAN1_IT1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 FDCAN2_IT0_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 FDCAN1_IT0_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 ADC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA1_Stream6_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA1_Stream5_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA1_Stream4_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA1_Stream3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA1_Stream2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA1_Stream1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DMA1_Stream0_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 EXTI4_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 EXTI3_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 EXTI2_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 EXTI1_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 EXTI0_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 RCC_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 FLASH_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 RTC_WKUP_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 TAMP_STAMP_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 PVD_AVD_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 WWDG_IRQHandler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SysTick_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 PendSV_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 DebugMon_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 SVC_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 UsageFault_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 BusFault_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 MemManage_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 HardFault_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:26     .text.Default_Handler:00000000 NMI_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:342    .text.Reset_Handler:00000000 $t
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:350    .text.Reset_Handler:00000000 Reset_Handler
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:406    .text.Reset_Handler:00000030 $d
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:419    .isr_vector:00000000 g_pfnVectors
-C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s:416    .isr_vector:00000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM1_CC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM1_TRG_COM_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM1_UP_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TIM1_BRK_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 EXTI9_5_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 FDCAN2_IT1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 FDCAN1_IT1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 FDCAN2_IT0_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 FDCAN1_IT0_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 ADC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA1_Stream6_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA1_Stream5_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA1_Stream4_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA1_Stream3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA1_Stream2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA1_Stream1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DMA1_Stream0_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 EXTI4_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 EXTI3_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 EXTI2_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 EXTI1_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 EXTI0_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 RCC_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 FLASH_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 RTC_WKUP_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 TAMP_STAMP_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 PVD_AVD_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 WWDG_IRQHandler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SysTick_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 PendSV_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 DebugMon_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 SVC_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 UsageFault_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 BusFault_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 MemManage_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 HardFault_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:26     .text.Default_Handler:0000000000000000 NMI_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:342    .text.Reset_Handler:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:349    .text.Reset_Handler:0000000000000000 Reset_Handler
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:405    .text.Reset_Handler:0000000000000030 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:418    .isr_vector:0000000000000000 g_pfnVectors
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s:415    .isr_vector:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 memcpy
@@ -2464,6 +2463,6 @@ _sidata
 _sbss
 _ebss
 _estack
-ARM GAS  C:\Users\daniel\AppData\Local\Temp\ccQFHrA4.s 			page 43
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//cce6SPAs.s 			page 43
 
 

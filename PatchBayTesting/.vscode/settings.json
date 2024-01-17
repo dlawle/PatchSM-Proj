@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.cc": "cpp",
+        "random": "cpp",
+        "atomic": "cpp",
+        "cstdint": "cpp",
+        "*.tcc": "cpp",
+        "stop_token": "cpp"
+    }
+}

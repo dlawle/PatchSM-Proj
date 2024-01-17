@@ -1,0 +1,2189 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"Grain.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN10graindelay5Grain8SetSpeedEf,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_ZN10graindelay5Grain8SetSpeedEf
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN10graindelay5Grain8SetSpeedEf:
+  27              	.LVL0:
+  28              	.LFB3660:
+  29              		.file 1 "Grain.cpp"
+   1:Grain.cpp     **** #include "Grain.h"
+   2:Grain.cpp     **** 
+   3:Grain.cpp     **** using namespace graindelay;
+   4:Grain.cpp     **** 
+   5:Grain.cpp     **** const size_t Grain::kGrainMinDuration = 4000;   // In samples
+   6:Grain.cpp     **** const float Grain::kPanMaxWidth = 1.0f;
+   7:Grain.cpp     **** const size_t Grain::kInterpolationTail = 8;
+   8:Grain.cpp     **** const float Grain::kSizeVariationAmount = 0.05f;
+   9:Grain.cpp     **** 
+  10:Grain.cpp     **** float Grain::Process(const float in)
+  11:Grain.cpp     **** {
+  12:Grain.cpp     ****     buffer_[writeIndex_] = in;
+  13:Grain.cpp     **** 
+  14:Grain.cpp     ****     if (!env_.IsRunning())
+  15:Grain.cpp     ****     {
+  16:Grain.cpp     ****         audible_ = (rand() * kRandFrac) >= grainDensity_ ? 0.0f : 1.0f;
+  17:Grain.cpp     ****         updateGrainSize();
+  18:Grain.cpp     ****         UpdatePan();
+  19:Grain.cpp     ****         Trigger();
+  20:Grain.cpp     ****     }
+  21:Grain.cpp     **** 
+  22:Grain.cpp     ****     const float out = readHermite(readPosition_);
+  23:Grain.cpp     ****     const float level = env_.Process() * amp_ * audible_;
+  24:Grain.cpp     **** 
+  25:Grain.cpp     ****     // Apply feedback, with high-pass filtering to prevent build-ups at very
+  26:Grain.cpp     ****     // low frequencies (causing large DC swings).
+  27:Grain.cpp     ****     feedbackSvf_.Process(out);
+  28:Grain.cpp     **** 
+  29:Grain.cpp     ****     // TODO Try out with formula from https://github.com/pichenettes/eurorack/blob/master/clouds/ds
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 2
+
+
+  30:Grain.cpp     ****     buffer_[writeIndex_] += feedbackSvf_.High() * level * feedback_;
+  31:Grain.cpp     **** 
+  32:Grain.cpp     ****     if (writeIndex_ < kInterpolationTail)
+  33:Grain.cpp     ****         buffer_[writeIndex_ + bufferSize_] = buffer_[writeIndex_];
+  34:Grain.cpp     ****     writeIndex_ += (++writeIndex_) % bufferSize_;
+  35:Grain.cpp     **** 
+  36:Grain.cpp     ****     updateReadPosition();
+  37:Grain.cpp     **** 
+  38:Grain.cpp     ****     return out * level;
+  39:Grain.cpp     **** }
+  40:Grain.cpp     **** 
+  41:Grain.cpp     **** void Grain::SetSpeed(const float speed)
+  42:Grain.cpp     **** {
+  30              		.loc 1 42 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  43:Grain.cpp     ****     speed_ = speed;
+  35              		.loc 1 43 5 view .LVU1
+  44:Grain.cpp     ****     float sizeRatio = 1.0f;
+  45:Grain.cpp     ****     if (speed < 0.0f || speed > 1.0f)
+  36              		.loc 1 45 5 is_stmt 0 view .LVU2
+  37 0000 B5EEC00A 		vcmpe.f32	s0, #0
+  43:Grain.cpp     ****     speed_ = speed;
+  38              		.loc 1 43 12 view .LVU3
+  39 0004 80ED0B0A 		vstr.32	s0, [r0, #44]
+  44:Grain.cpp     ****     float sizeRatio = 1.0f;
+  40              		.loc 1 44 5 is_stmt 1 view .LVU4
+  41              	.LVL1:
+  42              		.loc 1 45 5 view .LVU5
+  43 0008 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  44 000c 06D4     		bmi	.L2
+  45              		.loc 1 45 22 is_stmt 0 discriminator 1 view .LVU6
+  46 000e F7EE007A 		vmov.f32	s15, #1.0e+0
+  47 0012 B4EEE70A 		vcmpe.f32	s0, s15
+  48 0016 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  49 001a 12DD     		ble	.L6
+  50              	.L2:
+  46:Grain.cpp     ****         sizeRatio = 1.0f / fabs(speed - 1.0f);
+  51              		.loc 1 46 9 is_stmt 1 view .LVU7
+  52              	.LVL2:
+  53              	.LBB75:
+  54              	.LBI75:
+  55              		.file 2 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+   1:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // -*- C++ -*- C forwarding header.
+   2:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+   3:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Copyright (C) 1997-2020 Free Software Foundation, Inc.
+   4:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
+   5:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // software; you can redistribute it and/or modify it under the
+   7:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // terms of the GNU General Public License as published by the
+   8:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Free Software Foundation; either version 3, or (at your option)
+   9:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // any later version.
+  10:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  11:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // This library is distributed in the hope that it will be useful,
+  12:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 3
+
+
+  13:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // GNU General Public License for more details.
+  15:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  16:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // permissions described in the GCC Runtime Library Exception, version
+  18:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // 3.1, as published by the Free Software Foundation.
+  19:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  20:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // You should have received a copy of the GNU General Public License and
+  21:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // <http://www.gnu.org/licenses/>.
+  24:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  25:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** /** @file include/cmath
+  26:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  This is a Standard C++ Library file.  You should @c \#include this file
+  27:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  in your programs, rather than any of the @a *.h implementation files.
+  28:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *
+  29:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  This is the C++ version of the Standard C Library header @c math.h,
+  30:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  and its contents are (mostly) the same as that header, but are all
+  31:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  contained in the namespace @c std (except for names which are defined
+  32:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  as macros in C).
+  33:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  */
+  34:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  35:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
+  36:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // ISO C++ 14882: 26.5  C library
+  37:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
+  38:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  39:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #pragma GCC system_header
+  40:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  41:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/c++config.h>
+  42:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/cpp_type_traits.h>
+  43:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <ext/type_traits.h>
+  44:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #define _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  45:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include_next <math.h>
+  46:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  47:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/std_abs.h>
+  48:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  49:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef _GLIBCXX_CMATH
+  50:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #define _GLIBCXX_CMATH 1
+  51:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  52:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Get rid of those macros defined in <math.h> in lieu of real functions.
+  53:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef div
+  54:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef acos
+  55:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef asin
+  56:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef atan
+  57:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef atan2
+  58:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef ceil
+  59:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef cos
+  60:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef cosh
+  61:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef exp
+  62:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef fabs
+  63:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef floor
+  64:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef fmod
+  65:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef frexp
+  66:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef ldexp
+  67:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef log
+  68:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef log10
+  69:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef modf
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 4
+
+
+  70:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef pow
+  71:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sin
+  72:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sinh
+  73:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sqrt
+  74:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef tan
+  75:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef tanh
+  76:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  77:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** extern "C++"
+  78:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** {
+  79:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** namespace std _GLIBCXX_VISIBILITY(default)
+  80:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** {
+  81:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  82:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  83:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::acos;
+  84:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  85:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+  86:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+  87:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   acos(float __x)
+  88:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_acosf(__x); }
+  89:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  90:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+  91:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   acos(long double __x)
+  92:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_acosl(__x); }
+  93:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+  94:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  95:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+  96:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+  97:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+  98:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+  99:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     acos(_Tp __x)
+ 100:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_acos(__x); }
+ 101:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 102:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::asin;
+ 103:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 104:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 105:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 106:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   asin(float __x)
+ 107:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_asinf(__x); }
+ 108:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 109:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 110:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   asin(long double __x)
+ 111:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_asinl(__x); }
+ 112:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 113:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 114:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 115:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 116:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 117:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 118:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     asin(_Tp __x)
+ 119:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_asin(__x); }
+ 120:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 121:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::atan;
+ 122:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 123:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 124:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 125:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan(float __x)
+ 126:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atanf(__x); }
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 5
+
+
+ 127:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 128:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 129:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan(long double __x)
+ 130:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atanl(__x); }
+ 131:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 132:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 133:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 134:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 135:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 136:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 137:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     atan(_Tp __x)
+ 138:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_atan(__x); }
+ 139:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 140:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::atan2;
+ 141:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 142:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 143:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 144:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan2(float __y, float __x)
+ 145:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atan2f(__y, __x); }
+ 146:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 147:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 148:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan2(long double __y, long double __x)
+ 149:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atan2l(__y, __x); }
+ 150:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 151:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 152:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp, typename _Up>
+ 153:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 154:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 155:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     atan2(_Tp __y, _Up __x)
+ 156:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     {
+ 157:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 158:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       return atan2(__type(__y), __type(__x));
+ 159:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     }
+ 160:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 161:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::ceil;
+ 162:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 163:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 164:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 165:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ceil(float __x)
+ 166:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ceilf(__x); }
+ 167:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 168:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 169:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ceil(long double __x)
+ 170:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ceill(__x); }
+ 171:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 172:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 173:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 174:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 175:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 176:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 177:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     ceil(_Tp __x)
+ 178:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_ceil(__x); }
+ 179:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 180:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::cos;
+ 181:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 182:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 183:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 6
+
+
+ 184:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cos(float __x)
+ 185:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_cosf(__x); }
+ 186:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 187:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 188:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cos(long double __x)
+ 189:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_cosl(__x); }
+ 190:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 191:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 192:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 193:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 194:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 195:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 196:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     cos(_Tp __x)
+ 197:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_cos(__x); }
+ 198:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 199:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::cosh;
+ 200:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 201:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 202:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 203:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cosh(float __x)
+ 204:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_coshf(__x); }
+ 205:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 206:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 207:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cosh(long double __x)
+ 208:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_coshl(__x); }
+ 209:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 210:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 211:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 212:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 213:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 214:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 215:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     cosh(_Tp __x)
+ 216:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_cosh(__x); }
+ 217:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 218:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::exp;
+ 219:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 220:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 221:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 222:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   exp(float __x)
+ 223:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_expf(__x); }
+ 224:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 225:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 226:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   exp(long double __x)
+ 227:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_expl(__x); }
+ 228:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 229:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 230:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 231:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 232:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 233:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 234:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     exp(_Tp __x)
+ 235:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_exp(__x); }
+ 236:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 237:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::fabs;
+ 238:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 239:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 240:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 7
+
+
+ 241:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fabs(float __x)
+  56              		.loc 2 241 3 view .LVU8
+  57              	.LBB76:
+ 242:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fabsf(__x); }
+  58              		.loc 2 242 5 view .LVU9
+  59              		.loc 2 242 5 is_stmt 0 view .LVU10
+  60              	.LBE76:
+  61              	.LBE75:
+  62              		.loc 1 46 32 view .LVU11
+  63 001c F7EE007A 		vmov.f32	s15, #1.0e+0
+  64 0020 30EE670A 		vsub.f32	s0, s0, s15
+  65              	.LVL3:
+  66              	.LBB78:
+  67              	.LBB77:
+  68              		.loc 2 242 31 view .LVU12
+  69 0024 B0EEC00A 		vabs.f32	s0, s0
+  70              	.LBE77:
+  71              	.LBE78:
+  72              		.loc 1 46 19 view .LVU13
+  73 0028 87EE807A 		vdiv.f32	s14, s15, s0
+  74              	.LVL4:
+  75              	.L3:
+  47:Grain.cpp     ****     grainMaxDuration_ = static_cast<size_t>(sizeRatio * bufferSize_);
+  76              		.loc 1 47 5 is_stmt 1 view .LVU14
+  77              		.loc 1 47 55 is_stmt 0 view .LVU15
+  78 002c D0ED017A 		vldr.32	s15, [r0, #4]	@ int
+  79 0030 F8EE677A 		vcvt.f32.u32	s15, s15
+  80 0034 67EE877A 		vmul.f32	s15, s15, s14
+  81              		.loc 1 47 25 view .LVU16
+  82 0038 FCEEE77A 		vcvt.u32.f32	s15, s15
+  83 003c C0ED037A 		vstr.32	s15, [r0, #12]	@ int
+  48:Grain.cpp     **** }
+  84              		.loc 1 48 1 view .LVU17
+  85 0040 7047     		bx	lr
+  86              	.LVL5:
+  87              	.L6:
+  44:Grain.cpp     ****     if (speed < 0.0f || speed > 1.0f)
+  88              		.loc 1 44 11 view .LVU18
+  89 0042 B0EE677A 		vmov.f32	s14, s15
+  90 0046 F1E7     		b	.L3
+  91              		.cfi_endproc
+  92              	.LFE3660:
+  94              		.section	.text._ZN10graindelay5Grain15updateGrainSizeEv,"ax",%progbits
+  95              		.align	1
+  96              		.p2align 2,,3
+  97              		.global	_ZN10graindelay5Grain15updateGrainSizeEv
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv5-d16
+ 103              	_ZN10graindelay5Grain15updateGrainSizeEv:
+ 104              	.LVL6:
+ 105              	.LFB3664:
+  49:Grain.cpp     **** 
+  50:Grain.cpp     **** inline float Grain::read(size_t position)
+  51:Grain.cpp     **** {
+  52:Grain.cpp     ****     return buffer_[position % bufferSize_];
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 8
+
+
+  53:Grain.cpp     **** }
+  54:Grain.cpp     **** 
+  55:Grain.cpp     **** // Linear interpolation
+  56:Grain.cpp     **** inline float Grain::read(float position)
+  57:Grain.cpp     **** {
+  58:Grain.cpp     ****     const int32_t t = static_cast<int32_t>(position);
+  59:Grain.cpp     ****     const float f = position - static_cast<float>(t);
+  60:Grain.cpp     **** 
+  61:Grain.cpp     ****     const float a = buffer_[t % bufferSize_];
+  62:Grain.cpp     ****     const float b = buffer_[(t+1) % bufferSize_];
+  63:Grain.cpp     **** 
+  64:Grain.cpp     ****     return a + (b-a) * f;
+  65:Grain.cpp     **** }
+  66:Grain.cpp     **** 
+  67:Grain.cpp     **** // Hermite interpolation (from here https://github.com/pichenettes/stmlib/blob/master/dsp/dsp.h)
+  68:Grain.cpp     **** inline float Grain::readHermite(float position)
+  69:Grain.cpp     **** {
+  70:Grain.cpp     ****     const int32_t t = static_cast<int32_t>(position);
+  71:Grain.cpp     ****     const float f = position - static_cast<float>(t);
+  72:Grain.cpp     **** 
+  73:Grain.cpp     ****     const float xm1 = buffer_[(t - 1) % bufferSize_]; // this line causes issue as a negative index
+  74:Grain.cpp     ****     const float x0 = buffer_[(t) % bufferSize_];
+  75:Grain.cpp     ****     const float x1 = buffer_[(t + 1) % bufferSize_];
+  76:Grain.cpp     ****     const float x2 = buffer_[(t + 2) % bufferSize_];
+  77:Grain.cpp     **** 
+  78:Grain.cpp     ****     const float c = (x1 - xm1) * 0.5f;
+  79:Grain.cpp     ****     const float v = x0 - x1;
+  80:Grain.cpp     ****     const float w = c + v;
+  81:Grain.cpp     ****     const float a = w + v + (x2 - x0) * 0.5f;
+  82:Grain.cpp     ****     const float b_neg = w + a;
+  83:Grain.cpp     **** 
+  84:Grain.cpp     ****     return (((a * f) - b_neg) * f + c) * f + x0;
+  85:Grain.cpp     **** }
+  86:Grain.cpp     **** 
+  87:Grain.cpp     **** void Grain::updateGrainSize()
+  88:Grain.cpp     **** {
+ 106              		.loc 1 88 1 is_stmt 1 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+  89:Grain.cpp     ****     const size_t scaledDialedDuration = static_cast<size_t>(kGrainMinDuration + nextDuration_ * (bu
+ 110              		.loc 1 89 5 view .LVU20
+ 111              		.loc 1 89 110 is_stmt 0 view .LVU21
+ 112 0000 4368     		ldr	r3, [r0, #4]
+ 113              		.loc 1 89 79 view .LVU22
+ 114 0002 90ED087A 		vldr.32	s14, [r0, #32]
+ 115              		.loc 1 89 110 view .LVU23
+ 116 0006 A3F57A63 		sub	r3, r3, #4000
+ 117              		.loc 1 89 95 view .LVU24
+ 118 000a 07EE903A 		vmov	s15, r3	@ int
+ 119 000e F8EE677A 		vcvt.f32.u32	s15, s15
+  88:Grain.cpp     ****     const size_t scaledDialedDuration = static_cast<size_t>(kGrainMinDuration + nextDuration_ * (bu
+ 120              		.loc 1 88 1 view .LVU25
+ 121 0012 10B5     		push	{r4, lr}
+ 122              		.cfi_def_cfa_offset 8
+ 123              		.cfi_offset 4, -8
+ 124              		.cfi_offset 14, -4
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 9
+
+
+ 125 0014 2DED028B 		vpush.64	{d8}
+ 126              		.cfi_def_cfa_offset 16
+ 127              		.cfi_offset 80, -16
+ 128              		.cfi_offset 81, -12
+ 129              		.loc 1 89 79 view .LVU26
+ 130 0018 9FED1D8A 		vldr.32	s16, .L10
+  88:Grain.cpp     ****     const size_t scaledDialedDuration = static_cast<size_t>(kGrainMinDuration + nextDuration_ * (bu
+ 131              		.loc 1 88 1 view .LVU27
+ 132 001c 0446     		mov	r4, r0
+ 133              		.loc 1 89 79 view .LVU28
+ 134 001e A7EE278A 		vfma.f32	s16, s14, s15
+  90:Grain.cpp     ****     const size_t variation = static_cast<size_t>((rand() * kRandFrac * 2 - 1) * scaledDialedDuratio
+ 135              		.loc 1 90 55 view .LVU29
+ 136 0022 FFF7FEFF 		bl	rand
+ 137              	.LVL7:
+ 138              		.loc 1 90 58 view .LVU30
+ 139 0026 06EE900A 		vmov	s13, r0	@ int
+ 140              		.loc 1 90 74 view .LVU31
+ 141 002a B0EE005A 		vmov.f32	s10, #2.0e+0
+ 142 002e FFEE007A 		vmov.f32	s15, #-1.0e+0
+ 143              		.loc 1 90 102 view .LVU32
+ 144 0032 DFED185A 		vldr.32	s11, .L10+4
+ 145              		.loc 1 90 58 view .LVU33
+ 146 0036 FAEEE06A 		vcvt.f32.s32	s13, s13, #31
+ 147 003a E268     		ldr	r2, [r4, #12]
+  91:Grain.cpp     **** 
+  92:Grain.cpp     ****     grainSize_ = std::min(std::max(scaledDialedDuration + variation, kGrainMinDuration), grainMaxDu
+  93:Grain.cpp     **** 
+  94:Grain.cpp     ****     env_.SetTime(ADENV_SEG_ATTACK, grainSize_ * 0.5f / sampleRate_);
+ 148              		.loc 1 94 17 view .LVU34
+ 149 003c 94ED0A6A 		vldr.32	s12, [r4, #40]
+  89:Grain.cpp     ****     const size_t variation = static_cast<size_t>((rand() * kRandFrac * 2 - 1) * scaledDialedDuratio
+ 150              		.loc 1 89 18 view .LVU35
+ 151 0040 BCEEC88A 		vcvt.u32.f32	s16, s16
+ 152              	.LVL8:
+  90:Grain.cpp     ****     const size_t variation = static_cast<size_t>((rand() * kRandFrac * 2 - 1) * scaledDialedDuratio
+ 153              		.loc 1 90 5 is_stmt 1 view .LVU36
+  90:Grain.cpp     ****     const size_t variation = static_cast<size_t>((rand() * kRandFrac * 2 - 1) * scaledDialedDuratio
+ 154              		.loc 1 90 74 is_stmt 0 view .LVU37
+ 155 0044 E6EE857A 		vfma.f32	s15, s13, s10
+ 156              	.LVL9:
+  92:Grain.cpp     **** 
+ 157              		.loc 1 92 5 is_stmt 1 view .LVU38
+ 158              	.LBB79:
+ 159              	.LBI79:
+ 160              		.file 3 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+   1:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // Core algorithmic facilities -*- C++ -*-
+   2:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+   3:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // Copyright (C) 2001-2020 Free Software Foundation, Inc.
+   4:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** //
+   5:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // software; you can redistribute it and/or modify it under the
+   7:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // terms of the GNU General Public License as published by the
+   8:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // Free Software Foundation; either version 3, or (at your option)
+   9:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // any later version.
+  10:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  11:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // This library is distributed in the hope that it will be useful,
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 10
+
+
+  12:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  14:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // GNU General Public License for more details.
+  15:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  16:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // permissions described in the GCC Runtime Library Exception, version
+  18:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // 3.1, as published by the Free Software Foundation.
+  19:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  20:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // You should have received a copy of the GNU General Public License and
+  21:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** // <http://www.gnu.org/licenses/>.
+  24:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  25:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** /*
+  26:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  *
+  27:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * Copyright (c) 1994
+  28:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * Hewlett-Packard Company
+  29:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  *
+  30:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * Permission to use, copy, modify, distribute and sell this software
+  31:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * and its documentation for any purpose is hereby granted without fee,
+  32:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * provided that the above copyright notice appear in all copies and
+  33:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * that both that copyright notice and this permission notice appear
+  34:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * in supporting documentation.  Hewlett-Packard Company makes no
+  35:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * representations about the suitability of this software for any
+  36:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * purpose.  It is provided "as is" without express or implied warranty.
+  37:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  *
+  38:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  *
+  39:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * Copyright (c) 1996-1998
+  40:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * Silicon Graphics Computer Systems, Inc.
+  41:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  *
+  42:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * Permission to use, copy, modify, distribute and sell this software
+  43:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * and its documentation for any purpose is hereby granted without fee,
+  44:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * provided that the above copyright notice appear in all copies and
+  45:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * that both that copyright notice and this permission notice appear
+  46:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * in supporting documentation.  Silicon Graphics makes no
+  47:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * representations about the suitability of this software for any
+  48:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  * purpose.  It is provided "as is" without express or implied warranty.
+  49:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  */
+  50:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  51:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** /** @file bits/stl_algobase.h
+  52:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  *  This is an internal header file, included by other library headers.
+  53:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  *  Do not attempt to use it directly. @headername{algorithm}
+  54:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****  */
+  55:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  56:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #ifndef _STL_ALGOBASE_H
+  57:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #define _STL_ALGOBASE_H 1
+  58:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  59:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/c++config.h>
+  60:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/functexcept.h>
+  61:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/cpp_type_traits.h>
+  62:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <ext/type_traits.h>
+  63:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <ext/numeric_traits.h>
+  64:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/stl_pair.h>
+  65:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/stl_iterator_base_types.h>
+  66:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/stl_iterator_base_funcs.h>
+  67:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/stl_iterator.h>
+  68:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/concept_check.h>
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 11
+
+
+  69:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <debug/debug.h>
+  70:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/move.h> // For std::swap
+  71:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #include <bits/predefined_ops.h>
+  72:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #if __cplusplus >= 201103L
+  73:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** # include <type_traits>
+  74:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #endif
+  75:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #if __cplusplus > 201703L
+  76:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** # include <compare>
+  77:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #endif
+  78:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  79:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** namespace std _GLIBCXX_VISIBILITY(default)
+  80:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** {
+  81:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  82:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+  83:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   /*
+  84:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    * A constexpr wrapper for __builtin_memcmp.
+  85:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    * @param __num The number of elements of type _Tp (not bytes).
+  86:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    */
+  87:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<typename _Tp, typename _Up>
+  88:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     _GLIBCXX14_CONSTEXPR
+  89:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     inline int
+  90:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     __memcmp(const _Tp* __first1, const _Up* __first2, size_t __num)
+  91:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     {
+  92:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #if __cplusplus >= 201103L
+  93:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       static_assert(sizeof(_Tp) == sizeof(_Up), "can be compared with memcmp");
+  94:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #endif
+  95:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #ifdef __cpp_lib_is_constant_evaluated
+  96:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       if (std::is_constant_evaluated())
+  97:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	{
+  98:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  for(; __num > 0; ++__first1, ++__first2, --__num)
+  99:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	    if (*__first1 != *__first2)
+ 100:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	      return *__first1 < *__first2 ? -1 : 1;
+ 101:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  return 0;
+ 102:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	}
+ 103:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       else
+ 104:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #endif
+ 105:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	return __builtin_memcmp(__first1, __first2, sizeof(_Tp) * __num);
+ 106:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     }
+ 107:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 108:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #if __cplusplus < 201103L
+ 109:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   // See http://gcc.gnu.org/ml/libstdc++/2004-08/msg00167.html: in a
+ 110:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   // nutshell, we are partially implementing the resolution of DR 187,
+ 111:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   // when it's safe, i.e., the value_types are equal.
+ 112:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<bool _BoolType>
+ 113:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     struct __iter_swap
+ 114:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     {
+ 115:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       template<typename _ForwardIterator1, typename _ForwardIterator2>
+ 116:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	static void
+ 117:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	iter_swap(_ForwardIterator1 __a, _ForwardIterator2 __b)
+ 118:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	{
+ 119:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  typedef typename iterator_traits<_ForwardIterator1>::value_type
+ 120:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	    _ValueType1;
+ 121:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  _ValueType1 __tmp = *__a;
+ 122:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  *__a = *__b;
+ 123:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  *__b = __tmp;
+ 124:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	}
+ 125:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     };
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 12
+
+
+ 126:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 127:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<>
+ 128:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     struct __iter_swap<true>
+ 129:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     {
+ 130:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       template<typename _ForwardIterator1, typename _ForwardIterator2>
+ 131:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	static void
+ 132:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	iter_swap(_ForwardIterator1 __a, _ForwardIterator2 __b)
+ 133:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	{
+ 134:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	  swap(*__a, *__b);
+ 135:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	}
+ 136:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     };
+ 137:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #endif // C++03
+ 138:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 139:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   /**
+ 140:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @brief Swaps the contents of two iterators.
+ 141:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @ingroup mutating_algorithms
+ 142:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __a  An iterator.
+ 143:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __b  Another iterator.
+ 144:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @return   Nothing.
+ 145:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *
+ 146:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  This function swaps the values pointed to by two iterators, not the
+ 147:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  iterators themselves.
+ 148:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   */
+ 149:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<typename _ForwardIterator1, typename _ForwardIterator2>
+ 150:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     _GLIBCXX20_CONSTEXPR
+ 151:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     inline void
+ 152:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     iter_swap(_ForwardIterator1 __a, _ForwardIterator2 __b)
+ 153:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     {
+ 154:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       // concept requirements
+ 155:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       __glibcxx_function_requires(_Mutable_ForwardIteratorConcept<
+ 156:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 				  _ForwardIterator1>)
+ 157:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       __glibcxx_function_requires(_Mutable_ForwardIteratorConcept<
+ 158:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 				  _ForwardIterator2>)
+ 159:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 160:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #if __cplusplus < 201103L
+ 161:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       typedef typename iterator_traits<_ForwardIterator1>::value_type
+ 162:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	_ValueType1;
+ 163:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       typedef typename iterator_traits<_ForwardIterator2>::value_type
+ 164:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	_ValueType2;
+ 165:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 166:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       __glibcxx_function_requires(_ConvertibleConcept<_ValueType1,
+ 167:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 				  _ValueType2>)
+ 168:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       __glibcxx_function_requires(_ConvertibleConcept<_ValueType2,
+ 169:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 				  _ValueType1>)
+ 170:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 171:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       typedef typename iterator_traits<_ForwardIterator1>::reference
+ 172:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	_ReferenceType1;
+ 173:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       typedef typename iterator_traits<_ForwardIterator2>::reference
+ 174:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	_ReferenceType2;
+ 175:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       std::__iter_swap<__are_same<_ValueType1, _ValueType2>::__value
+ 176:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	&& __are_same<_ValueType1&, _ReferenceType1>::__value
+ 177:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	&& __are_same<_ValueType2&, _ReferenceType2>::__value>::
+ 178:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	iter_swap(__a, __b);
+ 179:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #else
+ 180:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       // _GLIBCXX_RESOLVE_LIB_DEFECTS
+ 181:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       // 187. iter_swap underspecified
+ 182:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       swap(*__a, *__b);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 13
+
+
+ 183:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** #endif
+ 184:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     }
+ 185:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 186:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   /**
+ 187:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @brief Swap the elements of two sequences.
+ 188:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @ingroup mutating_algorithms
+ 189:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __first1  A forward iterator.
+ 190:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __last1   A forward iterator.
+ 191:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __first2  A forward iterator.
+ 192:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @return   An iterator equal to @p first2+(last1-first1).
+ 193:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *
+ 194:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  Swaps each element in the range @p [first1,last1) with the
+ 195:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  corresponding element in the range @p [first2,(last1-first1)).
+ 196:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  The ranges must not overlap.
+ 197:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   */
+ 198:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<typename _ForwardIterator1, typename _ForwardIterator2>
+ 199:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     _GLIBCXX20_CONSTEXPR
+ 200:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     _ForwardIterator2
+ 201:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     swap_ranges(_ForwardIterator1 __first1, _ForwardIterator1 __last1,
+ 202:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 		_ForwardIterator2 __first2)
+ 203:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     {
+ 204:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       // concept requirements
+ 205:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       __glibcxx_function_requires(_Mutable_ForwardIteratorConcept<
+ 206:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 				  _ForwardIterator1>)
+ 207:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       __glibcxx_function_requires(_Mutable_ForwardIteratorConcept<
+ 208:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 				  _ForwardIterator2>)
+ 209:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       __glibcxx_requires_valid_range(__first1, __last1);
+ 210:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 211:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       for (; __first1 != __last1; ++__first1, (void)++__first2)
+ 212:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 	std::iter_swap(__first1, __first2);
+ 213:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****       return __first2;
+ 214:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     }
+ 215:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h **** 
+ 216:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   /**
+ 217:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @brief This does what you think it does.
+ 218:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @ingroup sorting_algorithms
+ 219:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __a  A thing of arbitrary type.
+ 220:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @param  __b  Another thing of arbitrary type.
+ 221:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  @return   The lesser of the parameters.
+ 222:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *
+ 223:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  This is the simple classic generic implementation.  It will work on
+ 224:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  temporary expressions, since they are only evaluated once, unlike a
+ 225:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****    *  preprocessor macro.
+ 226:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   */
+ 227:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****   template<typename _Tp>
+ 228:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     _GLIBCXX14_CONSTEXPR
+ 229:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     inline const _Tp&
+ 230:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h ****     min(const _Tp& __a, const _Tp& __b)
+ 161              		.loc 3 230 5 view .LVU39
+ 162              	.LBE79:
+  90:Grain.cpp     **** 
+ 163              		.loc 1 90 79 is_stmt 0 view .LVU40
+ 164 0048 B8EE487A 		vcvt.f32.u32	s14, s16
+  92:Grain.cpp     **** 
+ 165              		.loc 1 92 57 view .LVU41
+ 166 004c 18EE101A 		vmov	r1, s16	@ int
+  95:Grain.cpp     ****     env_.SetTime(ADENV_SEG_DECAY, grainSize_ * 0.5f / sampleRate_);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 14
+
+
+  96:Grain.cpp     **** }
+ 167              		.loc 1 96 1 view .LVU42
+ 168 0050 BDEC028B 		vldm	sp!, {d8}
+ 169              		.cfi_restore 80
+ 170              		.cfi_restore 81
+ 171              		.cfi_def_cfa_offset 8
+ 172              	.LVL10:
+  90:Grain.cpp     **** 
+ 173              		.loc 1 90 79 view .LVU43
+ 174 0054 67EE277A 		vmul.f32	s15, s14, s15
+ 175              	.LVL11:
+  90:Grain.cpp     **** 
+ 176              		.loc 1 90 102 view .LVU44
+ 177 0058 67EEA57A 		vmul.f32	s15, s15, s11
+  90:Grain.cpp     **** 
+ 178              		.loc 1 90 124 view .LVU45
+ 179 005c FCEEE77A 		vcvt.u32.f32	s15, s15
+  92:Grain.cpp     **** 
+ 180              		.loc 1 92 57 view .LVU46
+ 181 0060 17EE903A 		vmov	r3, s15	@ int
+ 182 0064 0B44     		add	r3, r3, r1
+ 183 0066 B3F57A6F 		cmp	r3, #4000
+ 184 006a 38BF     		it	cc
+ 185 006c 4FF47A63 		movcc	r3, #4000
+ 186 0070 9342     		cmp	r3, r2
+ 187 0072 28BF     		it	cs
+ 188 0074 1346     		movcs	r3, r2
+ 189              	.LVL12:
+  94:Grain.cpp     ****     env_.SetTime(ADENV_SEG_DECAY, grainSize_ * 0.5f / sampleRate_);
+ 190              		.loc 1 94 47 view .LVU47
+ 191 0076 07EE103A 		vmov	s14, r3	@ int
+  92:Grain.cpp     **** 
+ 192              		.loc 1 92 16 view .LVU48
+ 193 007a 2361     		str	r3, [r4, #16]
+  94:Grain.cpp     ****     env_.SetTime(ADENV_SEG_DECAY, grainSize_ * 0.5f / sampleRate_);
+ 194              		.loc 1 94 5 is_stmt 1 view .LVU49
+  94:Grain.cpp     ****     env_.SetTime(ADENV_SEG_DECAY, grainSize_ * 0.5f / sampleRate_);
+ 195              		.loc 1 94 47 is_stmt 0 view .LVU50
+ 196 007c BBEEEF7A 		vcvt.f32.u32	s14, s14, #1
+  94:Grain.cpp     ****     env_.SetTime(ADENV_SEG_DECAY, grainSize_ * 0.5f / sampleRate_);
+ 197              		.loc 1 94 17 view .LVU51
+ 198 0080 C7EE067A 		vdiv.f32	s15, s14, s12
+ 199              	.LVL13:
+ 200              	.LBB80:
+ 201              	.LBI80:
+ 202              		.file 4 "../../DaisySP//Source/Control/adenv.h"
+   1:../../DaisySP//Source/Control/adenv.h **** #pragma once
+   2:../../DaisySP//Source/Control/adenv.h **** #ifndef ADENV_H
+   3:../../DaisySP//Source/Control/adenv.h **** #define ADENV_H
+   4:../../DaisySP//Source/Control/adenv.h **** #include <stdint.h>
+   5:../../DaisySP//Source/Control/adenv.h **** #ifdef __cplusplus
+   6:../../DaisySP//Source/Control/adenv.h **** 
+   7:../../DaisySP//Source/Control/adenv.h **** namespace daisysp
+   8:../../DaisySP//Source/Control/adenv.h **** {
+   9:../../DaisySP//Source/Control/adenv.h **** /** Distinct stages that the phase of the envelope can be located in.
+  10:../../DaisySP//Source/Control/adenv.h ****     @see AdEnv
+  11:../../DaisySP//Source/Control/adenv.h **** */
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 15
+
+
+  12:../../DaisySP//Source/Control/adenv.h **** enum AdEnvSegment
+  13:../../DaisySP//Source/Control/adenv.h **** {
+  14:../../DaisySP//Source/Control/adenv.h ****     /** located at phase location 0, and not currently running */
+  15:../../DaisySP//Source/Control/adenv.h ****     ADENV_SEG_IDLE,
+  16:../../DaisySP//Source/Control/adenv.h ****     /** First segment of envelope where phase moves from MIN value to MAX value */
+  17:../../DaisySP//Source/Control/adenv.h ****     ADENV_SEG_ATTACK,
+  18:../../DaisySP//Source/Control/adenv.h ****     /** Second segment of envelope where phase moves from MAX to MIN value */
+  19:../../DaisySP//Source/Control/adenv.h ****     ADENV_SEG_DECAY,
+  20:../../DaisySP//Source/Control/adenv.h ****     /** The final segment of the envelope (currently decay) */
+  21:../../DaisySP//Source/Control/adenv.h ****     ADENV_SEG_LAST,
+  22:../../DaisySP//Source/Control/adenv.h **** };
+  23:../../DaisySP//Source/Control/adenv.h **** 
+  24:../../DaisySP//Source/Control/adenv.h **** /** Trigger-able envelope with adjustable min/max, and independent per-segment time control.
+  25:../../DaisySP//Source/Control/adenv.h **** 
+  26:../../DaisySP//Source/Control/adenv.h ****     \author shensley
+  27:../../DaisySP//Source/Control/adenv.h ****     \todo - Add Cycling
+  28:../../DaisySP//Source/Control/adenv.h ****     \todo - Implement Curve (its only linear for now).
+  29:../../DaisySP//Source/Control/adenv.h ****     \todo - Maybe make this an ADsr_ that has AD/AR/Asr_ modes.
+  30:../../DaisySP//Source/Control/adenv.h ****  */
+  31:../../DaisySP//Source/Control/adenv.h **** class AdEnv
+  32:../../DaisySP//Source/Control/adenv.h **** {
+  33:../../DaisySP//Source/Control/adenv.h ****   public:
+  34:../../DaisySP//Source/Control/adenv.h ****     AdEnv() {}
+  35:../../DaisySP//Source/Control/adenv.h ****     ~AdEnv() {}
+  36:../../DaisySP//Source/Control/adenv.h ****     /** Initializes the ad envelope.
+  37:../../DaisySP//Source/Control/adenv.h **** 
+  38:../../DaisySP//Source/Control/adenv.h ****         Defaults:
+  39:../../DaisySP//Source/Control/adenv.h ****             - current segment = idle
+  40:../../DaisySP//Source/Control/adenv.h ****             - curve = linear
+  41:../../DaisySP//Source/Control/adenv.h ****             - phase = 0
+  42:../../DaisySP//Source/Control/adenv.h ****             - min = 0
+  43:../../DaisySP//Source/Control/adenv.h ****             - max = 1
+  44:../../DaisySP//Source/Control/adenv.h **** 
+  45:../../DaisySP//Source/Control/adenv.h ****         \param sample_rate      sample rate of the audio engine being run
+  46:../../DaisySP//Source/Control/adenv.h ****     */
+  47:../../DaisySP//Source/Control/adenv.h ****     void Init(float sample_rate);
+  48:../../DaisySP//Source/Control/adenv.h **** 
+  49:../../DaisySP//Source/Control/adenv.h ****     /** Processes the current sample of the envelope. This should be called once
+  50:../../DaisySP//Source/Control/adenv.h ****         per sample period.
+  51:../../DaisySP//Source/Control/adenv.h ****         \return the current envelope value.
+  52:../../DaisySP//Source/Control/adenv.h ****     */
+  53:../../DaisySP//Source/Control/adenv.h ****     float Process();
+  54:../../DaisySP//Source/Control/adenv.h **** 
+  55:../../DaisySP//Source/Control/adenv.h ****     /** Starts or retriggers the envelope.*/
+  56:../../DaisySP//Source/Control/adenv.h ****     inline void Trigger() { trigger_ = 1; }
+  57:../../DaisySP//Source/Control/adenv.h ****     /** Sets the length of time (in seconds) for a specific segment. */
+  58:../../DaisySP//Source/Control/adenv.h ****     inline void SetTime(uint8_t seg, float time) { segment_time_[seg] = time; }
+ 203              		.loc 4 58 17 is_stmt 1 view .LVU52
+ 204              	.LBB81:
+ 205              		.loc 4 58 52 view .LVU53
+ 206              		.loc 4 58 71 is_stmt 0 view .LVU54
+ 207 0084 C4ED107A 		vstr.32	s15, [r4, #64]
+ 208              	.LVL14:
+ 209              		.loc 4 58 71 view .LVU55
+ 210              	.LBE81:
+ 211              	.LBE80:
+  95:Grain.cpp     **** }
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 16
+
+
+ 212              		.loc 1 95 5 is_stmt 1 view .LVU56
+ 213              	.LBB82:
+ 214              	.LBI82:
+ 215              		.loc 4 58 17 view .LVU57
+ 216              	.LBB83:
+ 217              		.loc 4 58 52 view .LVU58
+ 218              		.loc 4 58 71 is_stmt 0 view .LVU59
+ 219 0088 C4ED117A 		vstr.32	s15, [r4, #68]
+ 220              	.LVL15:
+ 221              		.loc 4 58 71 view .LVU60
+ 222              	.LBE83:
+ 223              	.LBE82:
+ 224              		.loc 1 96 1 view .LVU61
+ 225 008c 10BD     		pop	{r4, pc}
+ 226              	.LVL16:
+ 227              	.L11:
+ 228              		.loc 1 96 1 view .LVU62
+ 229 008e 00BF     		.align	2
+ 230              	.L10:
+ 231 0090 00007A45 		.word	1165623296
+ 232 0094 CDCC4C3D 		.word	1028443341
+ 233              		.cfi_endproc
+ 234              	.LFE3664:
+ 236              		.section	.text._ZN10graindelay5Grain7ProcessEf,"ax",%progbits
+ 237              		.align	1
+ 238              		.p2align 2,,3
+ 239              		.global	_ZN10graindelay5Grain7ProcessEf
+ 240              		.syntax unified
+ 241              		.thumb
+ 242              		.thumb_func
+ 243              		.fpu fpv5-d16
+ 245              	_ZN10graindelay5Grain7ProcessEf:
+ 246              	.LVL17:
+ 247              	.LFB3659:
+  11:Grain.cpp     ****     buffer_[writeIndex_] = in;
+ 248              		.loc 1 11 1 is_stmt 1 view -0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 0
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+  12:Grain.cpp     **** 
+ 252              		.loc 1 12 5 view .LVU64
+ 253 0000 0168     		ldr	r1, [r0]
+  12:Grain.cpp     **** 
+ 254              		.loc 1 12 24 is_stmt 0 view .LVU65
+ 255 0002 8368     		ldr	r3, [r0, #8]
+  12:Grain.cpp     **** 
+ 256              		.loc 1 12 26 view .LVU66
+ 257 0004 01EB8303 		add	r3, r1, r3, lsl #2
+  11:Grain.cpp     ****     buffer_[writeIndex_] = in;
+ 258              		.loc 1 11 1 view .LVU67
+ 259 0008 10B5     		push	{r4, lr}
+ 260              		.cfi_def_cfa_offset 8
+ 261              		.cfi_offset 4, -8
+ 262              		.cfi_offset 14, -4
+ 263 000a 2DED028B 		vpush.64	{d8}
+ 264              		.cfi_def_cfa_offset 16
+ 265              		.cfi_offset 80, -16
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 17
+
+
+ 266              		.cfi_offset 81, -12
+  12:Grain.cpp     **** 
+ 267              		.loc 1 12 26 view .LVU68
+ 268 000e 83ED000A 		vstr.32	s0, [r3]
+  14:Grain.cpp     ****     {
+ 269              		.loc 1 14 5 is_stmt 1 view .LVU69
+ 270              	.LVL18:
+ 271              	.LBB105:
+ 272              	.LBI105:
+  59:../../DaisySP//Source/Control/adenv.h ****     /** Sets the amount of curve applied. A positve value will create a log
+  60:../../DaisySP//Source/Control/adenv.h ****         curve. Input range: -100 to 100.  (or more)
+  61:../../DaisySP//Source/Control/adenv.h ****     */
+  62:../../DaisySP//Source/Control/adenv.h ****     inline void SetCurve(float scalar) { curve_scalar_ = scalar; }
+  63:../../DaisySP//Source/Control/adenv.h ****     /** Sets the minimum value of the envelope output.
+  64:../../DaisySP//Source/Control/adenv.h ****         Input range: -FLTmax_, to FLTmax_
+  65:../../DaisySP//Source/Control/adenv.h ****     */
+  66:../../DaisySP//Source/Control/adenv.h ****     inline void SetMin(float min) { min_ = min; }
+  67:../../DaisySP//Source/Control/adenv.h ****     /** Sets the maximum value of the envelope output.
+  68:../../DaisySP//Source/Control/adenv.h ****         Input range: -FLTmax_, to FLTmax_
+  69:../../DaisySP//Source/Control/adenv.h ****     */
+  70:../../DaisySP//Source/Control/adenv.h ****     inline void SetMax(float max) { max_ = max; }
+  71:../../DaisySP//Source/Control/adenv.h ****     /** Returns the current output value without processing the next sample */
+  72:../../DaisySP//Source/Control/adenv.h ****     inline float GetValue() const { return (output_ * (max_ - min_)) + min_; }
+  73:../../DaisySP//Source/Control/adenv.h ****     /** Returns the segment of the envelope that the phase is currently located
+  74:../../DaisySP//Source/Control/adenv.h ****         in.
+  75:../../DaisySP//Source/Control/adenv.h ****     */
+  76:../../DaisySP//Source/Control/adenv.h ****     inline uint8_t GetCurrentSegment() { return current_segment_; }
+  77:../../DaisySP//Source/Control/adenv.h ****     /** Returns true if the envelope is currently in any stage apart from idle.
+  78:../../DaisySP//Source/Control/adenv.h ****     */
+  79:../../DaisySP//Source/Control/adenv.h ****     inline bool IsRunning() const { return current_segment_ != ADENV_SEG_IDLE; }
+ 273              		.loc 4 79 17 view .LVU70
+ 274              	.LBB106:
+ 275              		.loc 4 79 37 view .LVU71
+ 276              		.loc 4 79 37 is_stmt 0 view .LVU72
+ 277              	.LBE106:
+ 278              	.LBE105:
+  11:Grain.cpp     ****     buffer_[writeIndex_] = in;
+ 279              		.loc 1 11 1 view .LVU73
+ 280 0012 0446     		mov	r4, r0
+  14:Grain.cpp     ****     {
+ 281              		.loc 1 14 5 view .LVU74
+ 282 0014 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 283 0018 002B     		cmp	r3, #0
+ 284 001a 00F0A980 		beq	.L13
+  22:Grain.cpp     ****     const float level = env_.Process() * amp_ * audible_;
+ 285              		.loc 1 22 34 view .LVU75
+ 286 001e 90ED0C7A 		vldr.32	s14, [r0, #48]
+ 287 0022 4268     		ldr	r2, [r0, #4]
+ 288              	.LVL19:
+ 289              	.L14:
+  22:Grain.cpp     ****     const float level = env_.Process() * amp_ * audible_;
+ 290              		.loc 1 22 5 is_stmt 1 view .LVU76
+ 291              	.LBB107:
+ 292              	.LBI107:
+  68:Grain.cpp     **** {
+ 293              		.loc 1 68 14 view .LVU77
+ 294              	.LBB108:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 18
+
+
+  70:Grain.cpp     ****     const float f = position - static_cast<float>(t);
+ 295              		.loc 1 70 5 view .LVU78
+  70:Grain.cpp     ****     const float f = position - static_cast<float>(t);
+ 296              		.loc 1 70 19 is_stmt 0 view .LVU79
+ 297 0024 FDEEC77A 		vcvt.s32.f32	s15, s14
+  80:Grain.cpp     ****     const float a = w + v + (x2 - x0) * 0.5f;
+ 298              		.loc 1 80 17 view .LVU80
+ 299 0028 F6EE005A 		vmov.f32	s11, #5.0e-1
+  70:Grain.cpp     ****     const float f = position - static_cast<float>(t);
+ 300              		.loc 1 70 19 view .LVU81
+ 301 002c 17EE903A 		vmov	r3, s15	@ int
+ 302              	.LVL20:
+  71:Grain.cpp     **** 
+ 303              		.loc 1 71 5 is_stmt 1 view .LVU82
+  71:Grain.cpp     **** 
+ 304              		.loc 1 71 32 is_stmt 0 view .LVU83
+ 305 0030 F8EEE77A 		vcvt.f32.s32	s15, s15
+  74:Grain.cpp     ****     const float x1 = buffer_[(t + 1) % bufferSize_];
+ 306              		.loc 1 74 34 view .LVU84
+ 307 0034 B3FBF2F0 		udiv	r0, r3, r2
+  76:Grain.cpp     **** 
+ 308              		.loc 1 76 33 view .LVU85
+ 309 0038 03F1020C 		add	ip, r3, #2
+  74:Grain.cpp     ****     const float x1 = buffer_[(t + 1) % bufferSize_];
+ 310              		.loc 1 74 34 view .LVU86
+ 311 003c 02FB1030 		mls	r0, r2, r0, r3
+  71:Grain.cpp     **** 
+ 312              		.loc 1 71 17 view .LVU87
+ 313 0040 37EE677A 		vsub.f32	s14, s14, s15
+ 314              	.LVL21:
+  73:Grain.cpp     ****     const float x0 = buffer_[(t) % bufferSize_];
+ 315              		.loc 1 73 5 is_stmt 1 view .LVU88
+  74:Grain.cpp     ****     const float x1 = buffer_[(t + 1) % bufferSize_];
+ 316              		.loc 1 74 5 view .LVU89
+  74:Grain.cpp     ****     const float x1 = buffer_[(t + 1) % bufferSize_];
+ 317              		.loc 1 74 17 is_stmt 0 view .LVU90
+ 318 0044 01EB8000 		add	r0, r1, r0, lsl #2
+  76:Grain.cpp     **** 
+ 319              		.loc 1 76 38 view .LVU91
+ 320 0048 BCFBF2FE 		udiv	lr, ip, r2
+ 321 004c 02FB1ECC 		mls	ip, r2, lr, ip
+  74:Grain.cpp     ****     const float x1 = buffer_[(t + 1) % bufferSize_];
+ 322              		.loc 1 74 17 view .LVU92
+ 323 0050 90ED000A 		vldr.32	s0, [r0]
+ 324              	.LVL22:
+  75:Grain.cpp     ****     const float x2 = buffer_[(t + 2) % bufferSize_];
+ 325              		.loc 1 75 5 is_stmt 1 view .LVU93
+  75:Grain.cpp     ****     const float x2 = buffer_[(t + 2) % bufferSize_];
+ 326              		.loc 1 75 33 is_stmt 0 view .LVU94
+ 327 0054 581C     		adds	r0, r3, #1
+  73:Grain.cpp     ****     const float x0 = buffer_[(t) % bufferSize_];
+ 328              		.loc 1 73 34 view .LVU95
+ 329 0056 013B     		subs	r3, r3, #1
+ 330              	.LVL23:
+  76:Grain.cpp     **** 
+ 331              		.loc 1 76 17 view .LVU96
+ 332 0058 01EB8C0C 		add	ip, r1, ip, lsl #2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 19
+
+
+  81:Grain.cpp     ****     const float b_neg = w + a;
+ 333              		.loc 1 81 33 view .LVU97
+ 334 005c 9CED005A 		vldr.32	s10, [ip]
+  75:Grain.cpp     ****     const float x2 = buffer_[(t + 2) % bufferSize_];
+ 335              		.loc 1 75 38 view .LVU98
+ 336 0060 B0FBF2FC 		udiv	ip, r0, r2
+ 337 0064 02FB1C00 		mls	r0, r2, ip, r0
+  81:Grain.cpp     ****     const float b_neg = w + a;
+ 338              		.loc 1 81 33 view .LVU99
+ 339 0068 35EE405A 		vsub.f32	s10, s10, s0
+  75:Grain.cpp     ****     const float x2 = buffer_[(t + 2) % bufferSize_];
+ 340              		.loc 1 75 17 view .LVU100
+ 341 006c 01EB8000 		add	r0, r1, r0, lsl #2
+ 342 0070 90ED006A 		vldr.32	s12, [r0]
+ 343              	.LVL24:
+  76:Grain.cpp     **** 
+ 344              		.loc 1 76 5 is_stmt 1 view .LVU101
+  78:Grain.cpp     ****     const float v = x0 - x1;
+ 345              		.loc 1 78 5 view .LVU102
+  73:Grain.cpp     ****     const float x0 = buffer_[(t) % bufferSize_];
+ 346              		.loc 1 73 39 is_stmt 0 view .LVU103
+ 347 0074 B3FBF2F0 		udiv	r0, r3, r2
+ 348 0078 02FB1033 		mls	r3, r2, r0, r3
+ 349              	.LVL25:
+  79:Grain.cpp     ****     const float w = c + v;
+ 350              		.loc 1 79 17 view .LVU104
+ 351 007c 70EE466A 		vsub.f32	s13, s0, s12
+ 352              	.LBE108:
+ 353              	.LBE107:
+  23:Grain.cpp     **** 
+ 354              		.loc 1 23 37 view .LVU105
+ 355 0080 04F13800 		add	r0, r4, #56
+ 356              	.LBB110:
+ 357              	.LBB109:
+  73:Grain.cpp     ****     const float x0 = buffer_[(t) % bufferSize_];
+ 358              		.loc 1 73 17 view .LVU106
+ 359 0084 01EB8303 		add	r3, r1, r3, lsl #2
+  78:Grain.cpp     ****     const float v = x0 - x1;
+ 360              		.loc 1 78 25 view .LVU107
+ 361 0088 D3ED007A 		vldr.32	s15, [r3]
+ 362 008c 36EE676A 		vsub.f32	s12, s12, s15
+ 363              	.LVL26:
+  79:Grain.cpp     ****     const float w = c + v;
+ 364              		.loc 1 79 5 is_stmt 1 view .LVU108
+  80:Grain.cpp     ****     const float a = w + v + (x2 - x0) * 0.5f;
+ 365              		.loc 1 80 5 view .LVU109
+  80:Grain.cpp     ****     const float a = w + v + (x2 - x0) * 0.5f;
+ 366              		.loc 1 80 17 is_stmt 0 view .LVU110
+ 367 0090 F0EE667A 		vmov.f32	s15, s13
+ 368 0094 E6EE257A 		vfma.f32	s15, s12, s11
+ 369              	.LVL27:
+  81:Grain.cpp     ****     const float b_neg = w + a;
+ 370              		.loc 1 81 5 is_stmt 1 view .LVU111
+  81:Grain.cpp     ****     const float b_neg = w + a;
+ 371              		.loc 1 81 23 is_stmt 0 view .LVU112
+ 372 0098 76EEA76A 		vadd.f32	s13, s13, s15
+ 373              	.LVL28:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 20
+
+
+  81:Grain.cpp     ****     const float b_neg = w + a;
+ 374              		.loc 1 81 17 view .LVU113
+ 375 009c E5EE256A 		vfma.f32	s13, s10, s11
+ 376              	.LVL29:
+  82:Grain.cpp     **** 
+ 377              		.loc 1 82 5 is_stmt 1 view .LVU114
+  84:Grain.cpp     **** }
+ 378              		.loc 1 84 5 view .LVU115
+  82:Grain.cpp     **** 
+ 379              		.loc 1 82 17 is_stmt 0 view .LVU116
+ 380 00a0 77EEA67A 		vadd.f32	s15, s15, s13
+ 381              	.LVL30:
+  84:Grain.cpp     **** }
+ 382              		.loc 1 84 22 view .LVU117
+ 383 00a4 D7EE267A 		vfnms.f32	s15, s14, s13
+ 384              	.LVL31:
+  84:Grain.cpp     **** }
+ 385              		.loc 1 84 31 view .LVU118
+ 386 00a8 67EE277A 		vmul.f32	s15, s14, s15
+  84:Grain.cpp     **** }
+ 387              		.loc 1 84 35 view .LVU119
+ 388 00ac E6EE257A 		vfma.f32	s15, s12, s11
+  84:Grain.cpp     **** }
+ 389              		.loc 1 84 46 view .LVU120
+ 390 00b0 A7EE270A 		vfma.f32	s0, s14, s15
+ 391              	.LVL32:
+  84:Grain.cpp     **** }
+ 392              		.loc 1 84 46 view .LVU121
+ 393 00b4 F0EE408A 		vmov.f32	s17, s0
+ 394              	.LVL33:
+  84:Grain.cpp     **** }
+ 395              		.loc 1 84 46 view .LVU122
+ 396              	.LBE109:
+ 397              	.LBE110:
+  23:Grain.cpp     **** 
+ 398              		.loc 1 23 5 is_stmt 1 view .LVU123
+  23:Grain.cpp     **** 
+ 399              		.loc 1 23 37 is_stmt 0 view .LVU124
+ 400 00b8 FFF7FEFF 		bl	_ZN7daisysp5AdEnv7ProcessEv
+ 401              	.LVL34:
+  23:Grain.cpp     **** 
+ 402              		.loc 1 23 40 view .LVU125
+ 403 00bc 94ED058A 		vldr.32	s16, [r4, #20]
+  27:Grain.cpp     **** 
+ 404              		.loc 1 27 25 view .LVU126
+ 405 00c0 04F17000 		add	r0, r4, #112
+  23:Grain.cpp     **** 
+ 406              		.loc 1 23 49 view .LVU127
+ 407 00c4 D4ED0D7A 		vldr.32	s15, [r4, #52]
+  23:Grain.cpp     **** 
+ 408              		.loc 1 23 40 view .LVU128
+ 409 00c8 20EE088A 		vmul.f32	s16, s0, s16
+  27:Grain.cpp     **** 
+ 410              		.loc 1 27 25 view .LVU129
+ 411 00cc B0EE680A 		vmov.f32	s0, s17
+  23:Grain.cpp     **** 
+ 412              		.loc 1 23 49 view .LVU130
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 21
+
+
+ 413 00d0 28EE278A 		vmul.f32	s16, s16, s15
+ 414              	.LVL35:
+  27:Grain.cpp     **** 
+ 415              		.loc 1 27 5 is_stmt 1 view .LVU131
+  27:Grain.cpp     **** 
+ 416              		.loc 1 27 25 is_stmt 0 view .LVU132
+ 417 00d4 FFF7FEFF 		bl	_ZN7daisysp3Svf7ProcessEf
+ 418              	.LVL36:
+  30:Grain.cpp     **** 
+ 419              		.loc 1 30 5 is_stmt 1 view .LVU133
+ 420              	.LBB111:
+ 421              	.LBI111:
+ 422              		.file 5 "../../DaisySP//Source/Filters/svf.h"
+   1:../../DaisySP//Source/Filters/svf.h **** #pragma once
+   2:../../DaisySP//Source/Filters/svf.h **** #ifndef DSY_SVF_H
+   3:../../DaisySP//Source/Filters/svf.h **** #define DSY_SVF_H
+   4:../../DaisySP//Source/Filters/svf.h **** 
+   5:../../DaisySP//Source/Filters/svf.h **** namespace daisysp
+   6:../../DaisySP//Source/Filters/svf.h **** {
+   7:../../DaisySP//Source/Filters/svf.h **** /**      Double Sampled, Stable State Variable Filter
+   8:../../DaisySP//Source/Filters/svf.h **** 
+   9:../../DaisySP//Source/Filters/svf.h **** Credit to Andrew Simper from musicdsp.org
+  10:../../DaisySP//Source/Filters/svf.h **** 
+  11:../../DaisySP//Source/Filters/svf.h **** This is his "State Variable Filter (Double Sampled, Stable)"
+  12:../../DaisySP//Source/Filters/svf.h **** 
+  13:../../DaisySP//Source/Filters/svf.h **** Additional thanks to Laurent de Soras for stability limit, and 
+  14:../../DaisySP//Source/Filters/svf.h **** Stefan Diedrichsen for the correct notch output
+  15:../../DaisySP//Source/Filters/svf.h **** 
+  16:../../DaisySP//Source/Filters/svf.h **** Ported by: Stephen Hensley
+  17:../../DaisySP//Source/Filters/svf.h **** */
+  18:../../DaisySP//Source/Filters/svf.h **** class Svf
+  19:../../DaisySP//Source/Filters/svf.h **** {
+  20:../../DaisySP//Source/Filters/svf.h ****   public:
+  21:../../DaisySP//Source/Filters/svf.h ****     Svf() {}
+  22:../../DaisySP//Source/Filters/svf.h ****     ~Svf() {}
+  23:../../DaisySP//Source/Filters/svf.h ****     /** Initializes the filter
+  24:../../DaisySP//Source/Filters/svf.h ****         float sample_rate - sample rate of the audio engine being run, and the frequency that the P
+  25:../../DaisySP//Source/Filters/svf.h ****     */
+  26:../../DaisySP//Source/Filters/svf.h ****     void Init(float sample_rate);
+  27:../../DaisySP//Source/Filters/svf.h **** 
+  28:../../DaisySP//Source/Filters/svf.h **** 
+  29:../../DaisySP//Source/Filters/svf.h ****     /** 
+  30:../../DaisySP//Source/Filters/svf.h ****         Process the input signal, updating all of the outputs.
+  31:../../DaisySP//Source/Filters/svf.h ****     */
+  32:../../DaisySP//Source/Filters/svf.h ****     void Process(float in);
+  33:../../DaisySP//Source/Filters/svf.h **** 
+  34:../../DaisySP//Source/Filters/svf.h **** 
+  35:../../DaisySP//Source/Filters/svf.h ****     /** sets the frequency of the cutoff frequency. 
+  36:../../DaisySP//Source/Filters/svf.h ****         f must be between 0.0 and sample_rate / 3
+  37:../../DaisySP//Source/Filters/svf.h ****     */
+  38:../../DaisySP//Source/Filters/svf.h ****     void SetFreq(float f);
+  39:../../DaisySP//Source/Filters/svf.h **** 
+  40:../../DaisySP//Source/Filters/svf.h ****     /** sets the resonance of the filter.
+  41:../../DaisySP//Source/Filters/svf.h ****         Must be between 0.0 and 1.0 to ensure stability.
+  42:../../DaisySP//Source/Filters/svf.h ****     */
+  43:../../DaisySP//Source/Filters/svf.h ****     void SetRes(float r);
+  44:../../DaisySP//Source/Filters/svf.h **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 22
+
+
+  45:../../DaisySP//Source/Filters/svf.h ****     /** sets the drive of the filter 
+  46:../../DaisySP//Source/Filters/svf.h ****         affects the response of the resonance of the filter
+  47:../../DaisySP//Source/Filters/svf.h ****     */
+  48:../../DaisySP//Source/Filters/svf.h ****     void SetDrive(float d);
+  49:../../DaisySP//Source/Filters/svf.h ****     /** lowpass output
+  50:../../DaisySP//Source/Filters/svf.h ****         \return low pass output of the filter
+  51:../../DaisySP//Source/Filters/svf.h ****     */
+  52:../../DaisySP//Source/Filters/svf.h ****     inline float Low() { return out_low_; }
+  53:../../DaisySP//Source/Filters/svf.h ****     /** highpass output
+  54:../../DaisySP//Source/Filters/svf.h ****         \return high pass output of the filter
+  55:../../DaisySP//Source/Filters/svf.h ****     */
+  56:../../DaisySP//Source/Filters/svf.h ****     inline float High() { return out_high_; }
+ 423              		.loc 5 56 18 view .LVU134
+ 424              	.LBB112:
+ 425              		.loc 5 56 27 view .LVU135
+ 426              		.loc 5 56 27 is_stmt 0 view .LVU136
+ 427              	.LBE112:
+ 428              	.LBE111:
+  30:Grain.cpp     **** 
+ 429              		.loc 1 30 13 view .LVU137
+ 430 00d8 A368     		ldr	r3, [r4, #8]
+  30:Grain.cpp     **** 
+ 431              		.loc 1 30 5 view .LVU138
+ 432 00da 2168     		ldr	r1, [r4]
+  30:Grain.cpp     **** 
+ 433              		.loc 1 30 49 view .LVU139
+ 434 00dc 94ED297A 		vldr.32	s14, [r4, #164]
+  32:Grain.cpp     ****         buffer_[writeIndex_ + bufferSize_] = buffer_[writeIndex_];
+ 435              		.loc 1 32 5 view .LVU140
+ 436 00e0 072B     		cmp	r3, #7
+  30:Grain.cpp     **** 
+ 437              		.loc 1 30 26 view .LVU141
+ 438 00e2 01EB8302 		add	r2, r1, r3, lsl #2
+ 439 00e6 D4ED076A 		vldr.32	s13, [r4, #28]
+  30:Grain.cpp     **** 
+ 440              		.loc 1 30 49 view .LVU142
+ 441 00ea 28EE077A 		vmul.f32	s14, s16, s14
+  30:Grain.cpp     **** 
+ 442              		.loc 1 30 26 view .LVU143
+ 443 00ee D2ED007A 		vldr.32	s15, [r2]
+ 444 00f2 E7EE267A 		vfma.f32	s15, s14, s13
+ 445 00f6 C2ED007A 		vstr.32	s15, [r2]
+  32:Grain.cpp     ****         buffer_[writeIndex_ + bufferSize_] = buffer_[writeIndex_];
+ 446              		.loc 1 32 5 is_stmt 1 view .LVU144
+  33:Grain.cpp     ****     writeIndex_ += (++writeIndex_) % bufferSize_;
+ 447              		.loc 1 33 31 is_stmt 0 view .LVU145
+ 448 00fa 6268     		ldr	r2, [r4, #4]
+  32:Grain.cpp     ****         buffer_[writeIndex_ + bufferSize_] = buffer_[writeIndex_];
+ 449              		.loc 1 32 5 view .LVU146
+ 450 00fc 04D8     		bhi	.L20
+  33:Grain.cpp     ****     writeIndex_ += (++writeIndex_) % bufferSize_;
+ 451              		.loc 1 33 9 is_stmt 1 view .LVU147
+  33:Grain.cpp     ****     writeIndex_ += (++writeIndex_) % bufferSize_;
+ 452              		.loc 1 33 42 is_stmt 0 view .LVU148
+ 453 00fe 9818     		adds	r0, r3, r2
+  33:Grain.cpp     ****     writeIndex_ += (++writeIndex_) % bufferSize_;
+ 454              		.loc 1 33 44 view .LVU149
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 23
+
+
+ 455 0100 01EB8001 		add	r1, r1, r0, lsl #2
+ 456 0104 C1ED007A 		vstr.32	s15, [r1]
+ 457              	.L20:
+  34:Grain.cpp     **** 
+ 458              		.loc 1 34 5 is_stmt 1 view .LVU150
+ 459              	.LBB113:
+ 460              	.LBB114:
+ 461              		.file 6 "Grain.h"
+   1:Grain.h       **** #pragma once
+   2:Grain.h       **** #ifndef GRAIN_H
+   3:Grain.h       **** #define GRAIN_H
+   4:Grain.h       **** #include <stdint.h>
+   5:Grain.h       **** #include "daisysp.h"
+   6:Grain.h       **** #ifdef __cplusplus
+   7:Grain.h       **** 
+   8:Grain.h       **** using namespace daisysp;
+   9:Grain.h       **** 
+  10:Grain.h       **** namespace graindelay
+  11:Grain.h       **** {
+  12:Grain.h       **** class Grain
+  13:Grain.h       **** {
+  14:Grain.h       ****     public:
+  15:Grain.h       ****         Grain() {}
+  16:Grain.h       ****         ~Grain() {}
+  17:Grain.h       **** 
+  18:Grain.h       ****         void Init(const float sampleRate, float* buffer, const size_t bufferSize)
+  19:Grain.h       ****         {
+  20:Grain.h       ****             sampleRate_ = sampleRate;
+  21:Grain.h       ****             buffer_ = buffer;
+  22:Grain.h       ****             bufferSize_ = bufferSize - kInterpolationTail;
+  23:Grain.h       ****             for (size_t i = 0; i < bufferSize; i++)
+  24:Grain.h       ****                 buffer_[i] = 0;
+  25:Grain.h       ****             writeIndex_ = 0;
+  26:Grain.h       ****             readPosition_ = 0;
+  27:Grain.h       **** 
+  28:Grain.h       ****             feedbackSvf_.Init(sampleRate);
+  29:Grain.h       ****             env_.Init(sampleRate);
+  30:Grain.h       **** 
+  31:Grain.h       ****             audible_ = 0.0f;
+  32:Grain.h       ****             speed_ = 1.0f;
+  33:Grain.h       ****             amp_ = 0.0f;
+  34:Grain.h       ****             grainDensity_ = 0.0f;
+  35:Grain.h       ****             feedback_ = 0.0f;
+  36:Grain.h       ****         }
+  37:Grain.h       **** 
+  38:Grain.h       ****         void SetSpeed(const float speed);
+  39:Grain.h       **** 
+  40:Grain.h       ****         void SetAmp(const float amp)
+  41:Grain.h       ****         {
+  42:Grain.h       ****             amp_ = fclamp(amp, 0.0f, 1.0f);
+  43:Grain.h       ****         }
+  44:Grain.h       **** 
+  45:Grain.h       ****         inline void SetFeedback(const float feedback)
+  46:Grain.h       ****         {
+  47:Grain.h       ****             feedback_ = fclamp(feedback, 0.0f, 1.0f);
+  48:Grain.h       ****             feedbackSvf_.SetFreq(20.0f + 100.0f * feedback_ * feedback_);   // Formula from https:/
+  49:Grain.h       ****         }
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 24
+
+
+  50:Grain.h       **** 
+  51:Grain.h       ****         inline void Trigger()
+  52:Grain.h       ****         {
+  53:Grain.h       ****             readPosition_ = speed_ > sampleRate_ ? ((writeIndex_ - grainSize_) + bufferSize_) % buf
+  54:Grain.h       ****             env_.Trigger();
+  55:Grain.h       ****         }
+  56:Grain.h       **** 
+  57:Grain.h       ****         inline void SetDuration(const float length)
+  58:Grain.h       ****         {
+  59:Grain.h       ****             nextDuration_ = length;
+  60:Grain.h       ****         }
+  61:Grain.h       **** 
+  62:Grain.h       ****         inline void SetGrainDensity(const float grainDensity)
+  63:Grain.h       ****         {
+  64:Grain.h       ****             grainDensity_ = fclamp(grainDensity, 0.0f, 1.0f);
+  65:Grain.h       ****         }
+  66:Grain.h       **** 
+  67:Grain.h       ****         inline float GetPan() {return pan_;}
+  68:Grain.h       **** 
+  69:Grain.h       ****         float Process(const float in);
+  70:Grain.h       **** 
+  71:Grain.h       ****     private:
+  72:Grain.h       ****         float* buffer_;
+  73:Grain.h       **** 
+  74:Grain.h       ****         size_t  bufferSize_,
+  75:Grain.h       ****                 writeIndex_,
+  76:Grain.h       ****                 grainMaxDuration_,
+  77:Grain.h       ****                 grainSize_;
+  78:Grain.h       **** 
+  79:Grain.h       ****         float   amp_,
+  80:Grain.h       ****                 pan_,
+  81:Grain.h       ****                 feedback_,
+  82:Grain.h       ****                 nextDuration_,
+  83:Grain.h       ****                 grainDensity_,
+  84:Grain.h       ****                 sampleRate_,
+  85:Grain.h       ****                 speed_,
+  86:Grain.h       ****                 readPosition_,
+  87:Grain.h       ****                 audible_;
+  88:Grain.h       **** 
+  89:Grain.h       ****         AdEnv env_;
+  90:Grain.h       ****         Svf feedbackSvf_;
+  91:Grain.h       **** 
+  92:Grain.h       ****         static const size_t kGrainMinDuration;
+  93:Grain.h       ****         static const float kPanMaxWidth;
+  94:Grain.h       ****         static const size_t kInterpolationTail;
+  95:Grain.h       ****         static const float kSizeVariationAmount;
+  96:Grain.h       **** 
+  97:Grain.h       ****         inline void updateReadPosition()
+  98:Grain.h       ****         {
+  99:Grain.h       ****             // TODO (Later optimization) readPosition could be split in two size_t vars
+ 100:Grain.h       ****             // one to track the integral value of the other one to track the fractional value * 655
+ 101:Grain.h       ****             // is in clouds code)
+ 102:Grain.h       ****             readPosition_ += speed_;
+ 462              		.loc 6 102 27 is_stmt 0 view .LVU151
+ 463 0108 D4ED0C7A 		vldr.32	s15, [r4, #48]
+ 464              	.LBE114:
+ 465              	.LBE113:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 25
+
+
+  34:Grain.cpp     **** 
+ 466              		.loc 1 34 21 view .LVU152
+ 467 010c 0133     		adds	r3, r3, #1
+ 468              	.LBB125:
+ 469              	.LBB115:
+ 470              		.loc 6 102 27 view .LVU153
+ 471 010e 94ED0B7A 		vldr.32	s14, [r4, #44]
+ 472 0112 37EE877A 		vadd.f32	s14, s15, s14
+ 103:Grain.h       ****             if (readPosition_ < 0) readPosition_ += bufferSize_;
+ 473              		.loc 6 103 50 view .LVU154
+ 474 0116 07EE902A 		vmov	s15, r2	@ int
+ 475              	.LBE115:
+ 476              	.LBE125:
+  34:Grain.cpp     **** 
+ 477              		.loc 1 34 36 view .LVU155
+ 478 011a B3FBF2F1 		udiv	r1, r3, r2
+ 479              	.LBB126:
+ 480              	.LBB116:
+ 481              		.loc 6 103 13 view .LVU156
+ 482 011e B5EEC07A 		vcmpe.f32	s14, #0
+ 483              	.LBE116:
+ 484              	.LBE126:
+  34:Grain.cpp     **** 
+ 485              		.loc 1 34 36 view .LVU157
+ 486 0122 02FB1131 		mls	r1, r2, r1, r3
+ 487              	.LBB127:
+ 488              	.LBB117:
+ 489              		.loc 6 103 50 view .LVU158
+ 490 0126 F8EE677A 		vcvt.f32.u32	s15, s15
+ 491              	.LBE117:
+ 492              	.LBE127:
+  34:Grain.cpp     **** 
+ 493              		.loc 1 34 17 view .LVU159
+ 494 012a 0B44     		add	r3, r3, r1
+ 495              	.LBB128:
+ 496              	.LBB118:
+ 497              		.loc 6 103 13 view .LVU160
+ 498 012c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 499              	.LBE118:
+ 500              	.LBE128:
+  34:Grain.cpp     **** 
+ 501              		.loc 1 34 17 view .LVU161
+ 502 0130 A360     		str	r3, [r4, #8]
+  36:Grain.cpp     **** 
+ 503              		.loc 1 36 5 is_stmt 1 view .LVU162
+ 504              	.LVL37:
+ 505              	.LBB129:
+ 506              	.LBI113:
+  97:Grain.h       ****         {
+ 507              		.loc 6 97 21 view .LVU163
+ 508              	.LBB119:
+ 102:Grain.h       ****             if (readPosition_ < 0) readPosition_ += bufferSize_;
+ 509              		.loc 6 102 13 view .LVU164
+ 510              		.loc 6 103 13 view .LVU165
+ 511 0132 14D4     		bmi	.L31
+ 104:Grain.h       ****             else if (readPosition_ > bufferSize_) readPosition_ -= bufferSize_;
+ 512              		.loc 6 104 18 view .LVU166
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 26
+
+
+ 513 0134 B4EEE77A 		vcmpe.f32	s14, s15
+ 514 0138 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 515 013c 06DC     		bgt	.L24
+ 516              	.LVL38:
+ 517              		.loc 6 104 18 is_stmt 0 view .LVU167
+ 518              	.LBE119:
+ 519              	.LBE129:
+  38:Grain.cpp     **** }
+ 520              		.loc 1 38 5 is_stmt 1 view .LVU168
+  39:Grain.cpp     **** 
+ 521              		.loc 1 39 1 is_stmt 0 view .LVU169
+ 522 013e 28EE280A 		vmul.f32	s0, s16, s17
+ 523              	.LBB130:
+ 524              	.LBB120:
+ 102:Grain.h       ****             if (readPosition_ < 0) readPosition_ += bufferSize_;
+ 525              		.loc 6 102 27 view .LVU170
+ 526 0142 84ED0C7A 		vstr.32	s14, [r4, #48]
+ 527              	.LBE120:
+ 528              	.LBE130:
+  39:Grain.cpp     **** 
+ 529              		.loc 1 39 1 view .LVU171
+ 530 0146 BDEC028B 		vldm	sp!, {d8}
+ 531              		.cfi_remember_state
+ 532              		.cfi_restore 80
+ 533              		.cfi_restore 81
+ 534              		.cfi_def_cfa_offset 8
+ 535              	.LVL39:
+  39:Grain.cpp     **** 
+ 536              		.loc 1 39 1 view .LVU172
+ 537 014a 10BD     		pop	{r4, pc}
+ 538              	.LVL40:
+ 539              	.L24:
+ 540              		.cfi_restore_state
+ 541              	.LBB131:
+ 542              	.LBB121:
+ 543              		.loc 6 104 51 is_stmt 1 view .LVU173
+ 544              		.loc 6 104 65 is_stmt 0 view .LVU174
+ 545 014c 77EE677A 		vsub.f32	s15, s14, s15
+ 546              	.LBE121:
+ 547              	.LBE131:
+  39:Grain.cpp     **** 
+ 548              		.loc 1 39 1 view .LVU175
+ 549 0150 28EE280A 		vmul.f32	s0, s16, s17
+ 550 0154 BDEC028B 		vldm	sp!, {d8}
+ 551              		.cfi_remember_state
+ 552              		.cfi_restore 80
+ 553              		.cfi_restore 81
+ 554              		.cfi_def_cfa_offset 8
+ 555              	.LVL41:
+ 556              	.LBB132:
+ 557              	.LBB122:
+ 558              		.loc 6 104 65 view .LVU176
+ 559 0158 C4ED0C7A 		vstr.32	s15, [r4, #48]
+ 560              	.LVL42:
+ 561              		.loc 6 104 65 view .LVU177
+ 562              	.LBE122:
+ 563              	.LBE132:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 27
+
+
+  38:Grain.cpp     **** }
+ 564              		.loc 1 38 5 is_stmt 1 view .LVU178
+  39:Grain.cpp     **** 
+ 565              		.loc 1 39 1 is_stmt 0 view .LVU179
+ 566 015c 10BD     		pop	{r4, pc}
+ 567              	.LVL43:
+ 568              	.L31:
+ 569              		.cfi_restore_state
+ 570              	.LBB133:
+ 571              	.LBB123:
+ 103:Grain.h       ****             else if (readPosition_ > bufferSize_) readPosition_ -= bufferSize_;
+ 572              		.loc 6 103 36 is_stmt 1 view .LVU180
+ 103:Grain.h       ****             else if (readPosition_ > bufferSize_) readPosition_ -= bufferSize_;
+ 573              		.loc 6 103 50 is_stmt 0 view .LVU181
+ 574 015e 77EE877A 		vadd.f32	s15, s15, s14
+ 575              	.LBE123:
+ 576              	.LBE133:
+  39:Grain.cpp     **** 
+ 577              		.loc 1 39 1 view .LVU182
+ 578 0162 28EE280A 		vmul.f32	s0, s16, s17
+ 579 0166 BDEC028B 		vldm	sp!, {d8}
+ 580              		.cfi_remember_state
+ 581              		.cfi_restore 80
+ 582              		.cfi_restore 81
+ 583              		.cfi_def_cfa_offset 8
+ 584              	.LVL44:
+ 585              	.LBB134:
+ 586              	.LBB124:
+ 103:Grain.h       ****             else if (readPosition_ > bufferSize_) readPosition_ -= bufferSize_;
+ 587              		.loc 6 103 50 view .LVU183
+ 588 016a C4ED0C7A 		vstr.32	s15, [r4, #48]
+ 589              	.LVL45:
+ 103:Grain.h       ****             else if (readPosition_ > bufferSize_) readPosition_ -= bufferSize_;
+ 590              		.loc 6 103 50 view .LVU184
+ 591              	.LBE124:
+ 592              	.LBE134:
+  38:Grain.cpp     **** }
+ 593              		.loc 1 38 5 is_stmt 1 view .LVU185
+  39:Grain.cpp     **** 
+ 594              		.loc 1 39 1 is_stmt 0 view .LVU186
+ 595 016e 10BD     		pop	{r4, pc}
+ 596              	.LVL46:
+ 597              	.L13:
+ 598              		.cfi_restore_state
+  16:Grain.cpp     ****         updateGrainSize();
+ 599              		.loc 1 16 9 is_stmt 1 view .LVU187
+  16:Grain.cpp     ****         updateGrainSize();
+ 600              		.loc 1 16 25 is_stmt 0 view .LVU188
+ 601 0170 FFF7FEFF 		bl	rand
+ 602              	.LVL47:
+  16:Grain.cpp     ****         updateGrainSize();
+ 603              		.loc 1 16 28 view .LVU189
+ 604 0174 07EE100A 		vmov	s14, r0	@ int
+ 605 0178 DFED278A 		vldr.32	s17, .L33
+  16:Grain.cpp     ****         updateGrainSize();
+ 606              		.loc 1 16 58 view .LVU190
+ 607 017c B7EE008A 		vmov.f32	s16, #1.0e+0
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 28
+
+
+  16:Grain.cpp     ****         updateGrainSize();
+ 608              		.loc 1 16 28 view .LVU191
+ 609 0180 F8EEC76A 		vcvt.f32.s32	s13, s14
+  16:Grain.cpp     ****         updateGrainSize();
+ 610              		.loc 1 16 58 view .LVU192
+ 611 0184 D4ED097A 		vldr.32	s15, [r4, #36]
+ 612 0188 9FED246A 		vldr.32	s12, .L33+4
+  17:Grain.cpp     ****         UpdatePan();
+ 613              		.loc 1 17 24 view .LVU193
+ 614 018c 2046     		mov	r0, r4
+  16:Grain.cpp     ****         updateGrainSize();
+ 615              		.loc 1 16 28 view .LVU194
+ 616 018e 66EEA86A 		vmul.f32	s13, s13, s17
+  16:Grain.cpp     ****         updateGrainSize();
+ 617              		.loc 1 16 58 view .LVU195
+ 618 0192 F4EEE76A 		vcmpe.f32	s13, s15
+ 619 0196 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 620 019a 66FE086A 		vselge.f32	s13, s12, s16
+  16:Grain.cpp     ****         updateGrainSize();
+ 621              		.loc 1 16 18 view .LVU196
+ 622 019e C4ED0D6A 		vstr.32	s13, [r4, #52]
+  17:Grain.cpp     ****         UpdatePan();
+ 623              		.loc 1 17 9 is_stmt 1 view .LVU197
+  17:Grain.cpp     ****         UpdatePan();
+ 624              		.loc 1 17 24 is_stmt 0 view .LVU198
+ 625 01a2 FFF7FEFF 		bl	_ZN10graindelay5Grain15updateGrainSizeEv
+ 626              	.LVL48:
+  18:Grain.cpp     ****         Trigger();
+ 627              		.loc 1 18 9 is_stmt 1 view .LVU199
+ 628              	.LBB135:
+ 629              	.LBI135:
+ 105:Grain.h       ****         }
+ 106:Grain.h       **** 
+ 107:Grain.h       ****         inline void UpdatePan()
+ 630              		.loc 6 107 21 view .LVU200
+ 631              	.LBB136:
+ 108:Grain.h       ****         {
+ 109:Grain.h       ****             pan_ = fmap(rand() * kRandFrac, -1 * kPanMaxWidth, kPanMaxWidth);
+ 632              		.loc 6 109 13 view .LVU201
+ 633              		.loc 6 109 29 is_stmt 0 view .LVU202
+ 634 01a6 FFF7FEFF 		bl	rand
+ 635              	.LVL49:
+ 636              	.LBB137:
+ 637              	.LBI137:
+ 638              		.file 7 "../../DaisySP//Source/Utility/dsp.h"
+   1:../../DaisySP//Source/Utility/dsp.h **** /** Helpful defines, functions, and other utilities for use in/with daisysp modules.
+   2:../../DaisySP//Source/Utility/dsp.h **** */
+   3:../../DaisySP//Source/Utility/dsp.h **** #pragma once
+   4:../../DaisySP//Source/Utility/dsp.h **** #ifndef DSY_CORE_DSP
+   5:../../DaisySP//Source/Utility/dsp.h **** #define DSY_CORE_DSP
+   6:../../DaisySP//Source/Utility/dsp.h **** #include <cassert>
+   7:../../DaisySP//Source/Utility/dsp.h **** #include <cstdint>
+   8:../../DaisySP//Source/Utility/dsp.h **** #include <random>
+   9:../../DaisySP//Source/Utility/dsp.h **** #include <cmath>
+  10:../../DaisySP//Source/Utility/dsp.h **** 
+  11:../../DaisySP//Source/Utility/dsp.h **** /** PIs
+  12:../../DaisySP//Source/Utility/dsp.h **** */
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 29
+
+
+  13:../../DaisySP//Source/Utility/dsp.h **** #define PI_F 3.1415927410125732421875f
+  14:../../DaisySP//Source/Utility/dsp.h **** #define TWOPI_F (2.0f * PI_F)
+  15:../../DaisySP//Source/Utility/dsp.h **** #define HALFPI_F (PI_F * 0.5f)
+  16:../../DaisySP//Source/Utility/dsp.h **** #define DSY_MIN(in, mn) (in < mn ? in : mn)
+  17:../../DaisySP//Source/Utility/dsp.h **** #define DSY_MAX(in, mx) (in > mx ? in : mx)
+  18:../../DaisySP//Source/Utility/dsp.h **** #define DSY_CLAMP(in, mn, mx) (DSY_MIN(DSY_MAX(in, mn), mx))
+  19:../../DaisySP//Source/Utility/dsp.h **** #define DSY_COUNTOF(_arr) (sizeof(_arr) / sizeof(_arr[0]))
+  20:../../DaisySP//Source/Utility/dsp.h **** 
+  21:../../DaisySP//Source/Utility/dsp.h **** namespace daisysp
+  22:../../DaisySP//Source/Utility/dsp.h **** {
+  23:../../DaisySP//Source/Utility/dsp.h **** //Avoids division for random floats. e.g. rand() * kRandFrac
+  24:../../DaisySP//Source/Utility/dsp.h **** static constexpr float kRandFrac = 1.f / (float)RAND_MAX;
+  25:../../DaisySP//Source/Utility/dsp.h **** 
+  26:../../DaisySP//Source/Utility/dsp.h **** //Convert from semitones to other units. e.g. 2 ^ (kOneTwelfth * x)
+  27:../../DaisySP//Source/Utility/dsp.h **** static constexpr float kOneTwelfth = 1.f / 12.f;
+  28:../../DaisySP//Source/Utility/dsp.h **** 
+  29:../../DaisySP//Source/Utility/dsp.h **** /** efficient floating point min/max
+  30:../../DaisySP//Source/Utility/dsp.h **** c/o stephen mccaul
+  31:../../DaisySP//Source/Utility/dsp.h **** */
+  32:../../DaisySP//Source/Utility/dsp.h **** inline float fmax(float a, float b)
+  33:../../DaisySP//Source/Utility/dsp.h **** {
+  34:../../DaisySP//Source/Utility/dsp.h ****     float r;
+  35:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+  36:../../DaisySP//Source/Utility/dsp.h ****     asm("vmaxnm.f32 %[d], %[n], %[m]" : [d] "=t"(r) : [n] "t"(a), [m] "t"(b) :);
+  37:../../DaisySP//Source/Utility/dsp.h **** #else
+  38:../../DaisySP//Source/Utility/dsp.h ****     r = (a > b) ? a : b;
+  39:../../DaisySP//Source/Utility/dsp.h **** #endif // __arm__
+  40:../../DaisySP//Source/Utility/dsp.h ****     return r;
+  41:../../DaisySP//Source/Utility/dsp.h **** }
+  42:../../DaisySP//Source/Utility/dsp.h **** 
+  43:../../DaisySP//Source/Utility/dsp.h **** inline float fmin(float a, float b)
+  44:../../DaisySP//Source/Utility/dsp.h **** {
+  45:../../DaisySP//Source/Utility/dsp.h ****     float r;
+  46:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+  47:../../DaisySP//Source/Utility/dsp.h ****     asm("vminnm.f32 %[d], %[n], %[m]" : [d] "=t"(r) : [n] "t"(a), [m] "t"(b) :);
+  48:../../DaisySP//Source/Utility/dsp.h **** #else
+  49:../../DaisySP//Source/Utility/dsp.h ****     r = (a < b) ? a : b;
+  50:../../DaisySP//Source/Utility/dsp.h **** #endif // __arm__
+  51:../../DaisySP//Source/Utility/dsp.h ****     return r;
+  52:../../DaisySP//Source/Utility/dsp.h **** }
+  53:../../DaisySP//Source/Utility/dsp.h **** 
+  54:../../DaisySP//Source/Utility/dsp.h **** /** quick fp clamp
+  55:../../DaisySP//Source/Utility/dsp.h **** */
+  56:../../DaisySP//Source/Utility/dsp.h **** inline float fclamp(float in, float min, float max)
+  57:../../DaisySP//Source/Utility/dsp.h **** {
+  58:../../DaisySP//Source/Utility/dsp.h ****     return fmin(fmax(in, min), max);
+  59:../../DaisySP//Source/Utility/dsp.h **** }
+  60:../../DaisySP//Source/Utility/dsp.h **** 
+  61:../../DaisySP//Source/Utility/dsp.h **** /** From Musicdsp.org "Fast power and root estimates for 32bit floats)
+  62:../../DaisySP//Source/Utility/dsp.h **** Original code by Stefan Stenzel
+  63:../../DaisySP//Source/Utility/dsp.h **** These are approximations
+  64:../../DaisySP//Source/Utility/dsp.h **** */
+  65:../../DaisySP//Source/Utility/dsp.h **** inline float fastpower(float f, int n)
+  66:../../DaisySP//Source/Utility/dsp.h **** {
+  67:../../DaisySP//Source/Utility/dsp.h ****     long *lp, l;
+  68:../../DaisySP//Source/Utility/dsp.h ****     lp = (long *)(&f);
+  69:../../DaisySP//Source/Utility/dsp.h ****     l  = *lp;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 30
+
+
+  70:../../DaisySP//Source/Utility/dsp.h ****     l -= 0x3F800000;
+  71:../../DaisySP//Source/Utility/dsp.h ****     l <<= (n - 1);
+  72:../../DaisySP//Source/Utility/dsp.h ****     l += 0x3F800000;
+  73:../../DaisySP//Source/Utility/dsp.h ****     *lp = l;
+  74:../../DaisySP//Source/Utility/dsp.h ****     return f;
+  75:../../DaisySP//Source/Utility/dsp.h **** }
+  76:../../DaisySP//Source/Utility/dsp.h **** 
+  77:../../DaisySP//Source/Utility/dsp.h **** inline float fastroot(float f, int n)
+  78:../../DaisySP//Source/Utility/dsp.h **** {
+  79:../../DaisySP//Source/Utility/dsp.h ****     long *lp, l;
+  80:../../DaisySP//Source/Utility/dsp.h ****     lp = (long *)(&f);
+  81:../../DaisySP//Source/Utility/dsp.h ****     l  = *lp;
+  82:../../DaisySP//Source/Utility/dsp.h ****     l -= 0x3F800000;
+  83:../../DaisySP//Source/Utility/dsp.h ****     l >>= (n = 1);
+  84:../../DaisySP//Source/Utility/dsp.h ****     l += 0x3F800000;
+  85:../../DaisySP//Source/Utility/dsp.h ****     *lp = l;
+  86:../../DaisySP//Source/Utility/dsp.h ****     return f;
+  87:../../DaisySP//Source/Utility/dsp.h **** }
+  88:../../DaisySP//Source/Utility/dsp.h **** 
+  89:../../DaisySP//Source/Utility/dsp.h **** /** From http://openaudio.blogspot.com/2017/02/faster-log10-and-pow.html
+  90:../../DaisySP//Source/Utility/dsp.h **** No approximation, pow10f(x) gives a 90% speed increase over powf(10.f, x)
+  91:../../DaisySP//Source/Utility/dsp.h **** */
+  92:../../DaisySP//Source/Utility/dsp.h **** inline float pow10f(float f)
+  93:../../DaisySP//Source/Utility/dsp.h **** {
+  94:../../DaisySP//Source/Utility/dsp.h ****     return expf(2.302585092994046f * f);
+  95:../../DaisySP//Source/Utility/dsp.h **** }
+  96:../../DaisySP//Source/Utility/dsp.h **** 
+  97:../../DaisySP//Source/Utility/dsp.h **** /* Original code for fastlog2f by Dr. Paul Beckmann from the ARM community forum, adapted from the 
+  98:../../DaisySP//Source/Utility/dsp.h **** About 25% performance increase over std::log10f
+  99:../../DaisySP//Source/Utility/dsp.h **** */
+ 100:../../DaisySP//Source/Utility/dsp.h **** inline float fastlog2f(float f)
+ 101:../../DaisySP//Source/Utility/dsp.h **** {
+ 102:../../DaisySP//Source/Utility/dsp.h ****     float frac;
+ 103:../../DaisySP//Source/Utility/dsp.h ****     int   exp;
+ 104:../../DaisySP//Source/Utility/dsp.h ****     frac = frexpf(fabsf(f), &exp);
+ 105:../../DaisySP//Source/Utility/dsp.h ****     f    = 1.23149591368684f;
+ 106:../../DaisySP//Source/Utility/dsp.h ****     f *= frac;
+ 107:../../DaisySP//Source/Utility/dsp.h ****     f += -4.11852516267426f;
+ 108:../../DaisySP//Source/Utility/dsp.h ****     f *= frac;
+ 109:../../DaisySP//Source/Utility/dsp.h ****     f += 6.02197014179219f;
+ 110:../../DaisySP//Source/Utility/dsp.h ****     f *= frac;
+ 111:../../DaisySP//Source/Utility/dsp.h ****     f += -3.13396450166353f;
+ 112:../../DaisySP//Source/Utility/dsp.h ****     f += exp;
+ 113:../../DaisySP//Source/Utility/dsp.h ****     return (f);
+ 114:../../DaisySP//Source/Utility/dsp.h **** }
+ 115:../../DaisySP//Source/Utility/dsp.h **** 
+ 116:../../DaisySP//Source/Utility/dsp.h **** inline float fastlog10f(float f)
+ 117:../../DaisySP//Source/Utility/dsp.h **** {
+ 118:../../DaisySP//Source/Utility/dsp.h ****     return fastlog2f(f) * 0.3010299956639812f;
+ 119:../../DaisySP//Source/Utility/dsp.h **** }
+ 120:../../DaisySP//Source/Utility/dsp.h **** 
+ 121:../../DaisySP//Source/Utility/dsp.h **** /** Midi to frequency helper
+ 122:../../DaisySP//Source/Utility/dsp.h **** */
+ 123:../../DaisySP//Source/Utility/dsp.h **** inline float mtof(float m)
+ 124:../../DaisySP//Source/Utility/dsp.h **** {
+ 125:../../DaisySP//Source/Utility/dsp.h ****     return powf(2, (m - 69.0f) / 12.0f) * 440.0f;
+ 126:../../DaisySP//Source/Utility/dsp.h **** }
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 31
+
+
+ 127:../../DaisySP//Source/Utility/dsp.h **** 
+ 128:../../DaisySP//Source/Utility/dsp.h **** 
+ 129:../../DaisySP//Source/Utility/dsp.h **** /** one pole lpf
+ 130:../../DaisySP//Source/Utility/dsp.h **** out is passed by reference, and must be retained between
+ 131:../../DaisySP//Source/Utility/dsp.h **** calls to properly filter the signal
+ 132:../../DaisySP//Source/Utility/dsp.h **** coeff can be calculated:
+ 133:../../DaisySP//Source/Utility/dsp.h **** coeff = 1.0 / (time * sample_rate) ; where time is in seconds
+ 134:../../DaisySP//Source/Utility/dsp.h **** */
+ 135:../../DaisySP//Source/Utility/dsp.h **** inline void fonepole(float &out, float in, float coeff)
+ 136:../../DaisySP//Source/Utility/dsp.h **** {
+ 137:../../DaisySP//Source/Utility/dsp.h ****     out += coeff * (in - out);
+ 138:../../DaisySP//Source/Utility/dsp.h **** }
+ 139:../../DaisySP//Source/Utility/dsp.h **** 
+ 140:../../DaisySP//Source/Utility/dsp.h **** /** Curves to use with the fmap function */
+ 141:../../DaisySP//Source/Utility/dsp.h **** enum class Mapping
+ 142:../../DaisySP//Source/Utility/dsp.h **** {
+ 143:../../DaisySP//Source/Utility/dsp.h ****     LINEAR,
+ 144:../../DaisySP//Source/Utility/dsp.h ****     EXP,
+ 145:../../DaisySP//Source/Utility/dsp.h ****     LOG,
+ 146:../../DaisySP//Source/Utility/dsp.h **** };
+ 147:../../DaisySP//Source/Utility/dsp.h **** 
+ 148:../../DaisySP//Source/Utility/dsp.h **** /** Maps a float between a specified range, using a specified curve. 
+ 149:../../DaisySP//Source/Utility/dsp.h ****  * 
+ 150:../../DaisySP//Source/Utility/dsp.h ****  *  \param in a value between 0 to 1 that will be mapped to the new range.
+ 151:../../DaisySP//Source/Utility/dsp.h ****  *  \param min the new minimum value
+ 152:../../DaisySP//Source/Utility/dsp.h ****  *  \param max the new maxmimum value
+ 153:../../DaisySP//Source/Utility/dsp.h ****  *  \param curve a Mapping Value to adjust the response curve of the transformation
+ 154:../../DaisySP//Source/Utility/dsp.h ****  *               defaults to Linear. @see Mapping
+ 155:../../DaisySP//Source/Utility/dsp.h ****  * 
+ 156:../../DaisySP//Source/Utility/dsp.h ****  *  When using the log curve min and max, must be greater than zero.
+ 157:../../DaisySP//Source/Utility/dsp.h ****  * 
+ 158:../../DaisySP//Source/Utility/dsp.h ****  *  \retval returns the transformed float within the new range.
+ 159:../../DaisySP//Source/Utility/dsp.h **** */
+ 160:../../DaisySP//Source/Utility/dsp.h **** inline float
+ 161:../../DaisySP//Source/Utility/dsp.h **** fmap(float in, float min, float max, Mapping curve = Mapping::LINEAR)
+ 639              		.loc 7 161 1 is_stmt 1 view .LVU203
+ 640              	.LBE137:
+ 641              	.LBE136:
+ 642              	.LBE135:
+ 162:../../DaisySP//Source/Utility/dsp.h **** {
+ 163:../../DaisySP//Source/Utility/dsp.h ****     switch(curve)
+ 643              		.loc 7 163 5 view .LVU204
+ 644              	.LBB163:
+ 645              	.LBB156:
+ 646              	.LBB150:
+ 647              	.LBB138:
+ 164:../../DaisySP//Source/Utility/dsp.h ****     {
+ 165:../../DaisySP//Source/Utility/dsp.h ****         case Mapping::EXP:
+ 166:../../DaisySP//Source/Utility/dsp.h ****             return fclamp(min + (in * in) * (max - min), min, max);
+ 167:../../DaisySP//Source/Utility/dsp.h ****         case Mapping::LOG:
+ 168:../../DaisySP//Source/Utility/dsp.h ****         {
+ 169:../../DaisySP//Source/Utility/dsp.h ****             const float a = 1.f / log10f(max / min);
+ 170:../../DaisySP//Source/Utility/dsp.h ****             return fclamp(min * powf(10, in / a), min, max);
+ 171:../../DaisySP//Source/Utility/dsp.h ****         }
+ 172:../../DaisySP//Source/Utility/dsp.h ****         case Mapping::LINEAR:
+ 648              		.loc 7 172 9 view .LVU205
+ 173:../../DaisySP//Source/Utility/dsp.h ****         default: return fclamp(min + in * (max - min), min, max);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 32
+
+
+ 649              		.loc 7 173 9 view .LVU206
+ 650              		.loc 7 173 18 view .LVU207
+ 651              	.LBE138:
+ 652              	.LBE150:
+ 653              	.LBE156:
+ 654              	.LBE163:
+ 655              	.LBB164:
+ 656              	.LBB165:
+  53:Grain.h       ****             env_.Trigger();
+ 657              		.loc 6 53 27 is_stmt 0 view .LVU208
+ 658 01aa D4ED0B5A 		vldr.32	s11, [r4, #44]
+ 659              	.LBE165:
+ 660              	.LBE164:
+ 661              	.LBB175:
+ 662              	.LBB157:
+ 663              		.loc 6 109 24 view .LVU209
+ 664 01ae 07EE900A 		vmov	s15, r0	@ int
+ 665              	.LBE157:
+ 666              	.LBE175:
+ 667              	.LBB176:
+ 668              	.LBB170:
+  53:Grain.h       ****             env_.Trigger();
+ 669              		.loc 6 53 27 view .LVU210
+ 670 01b2 94ED0A6A 		vldr.32	s12, [r4, #40]
+ 671              	.LBE170:
+ 672              	.LBE176:
+ 673              	.LBB177:
+ 674              	.LBB158:
+ 675              	.LBB151:
+ 676              	.LBB145:
+ 677              		.loc 7 173 31 view .LVU211
+ 678 01b6 FFEE006A 		vmov.f32	s13, #-1.0e+0
+ 679              	.LBE145:
+ 680              	.LBE151:
+ 681              	.LBE158:
+ 682              	.LBE177:
+ 683              	.LBB178:
+ 684              	.LBB171:
+  53:Grain.h       ****             env_.Trigger();
+ 685              		.loc 6 53 82 view .LVU212
+ 686 01ba 6268     		ldr	r2, [r4, #4]
+ 687              	.LBE171:
+ 688              	.LBE178:
+ 689              	.LBB179:
+ 690              	.LBB159:
+ 691              		.loc 6 109 24 view .LVU213
+ 692 01bc B8EEE77A 		vcvt.f32.s32	s14, s15
+ 693              	.LBE159:
+ 694              	.LBE179:
+ 695              	.LBB180:
+ 696              	.LBB172:
+  53:Grain.h       ****             env_.Trigger();
+ 697              		.loc 6 53 27 view .LVU214
+ 698 01c0 F4EEC65A 		vcmpe.f32	s11, s12
+ 699              	.LBE172:
+ 700              	.LBE180:
+ 701              	.LBB181:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 33
+
+
+ 702              	.LBB160:
+ 703              	.LBB152:
+ 704              	.LBB146:
+ 705              		.loc 7 173 31 view .LVU215
+ 706 01c4 B0EE005A 		vmov.f32	s10, #2.0e+0
+ 707              	.LBE146:
+ 708              	.LBE152:
+ 709              		.loc 6 109 24 view .LVU216
+ 710 01c8 27EE287A 		vmul.f32	s14, s14, s17
+ 711              	.LVL50:
+ 712              	.LBB153:
+ 713              	.LBB147:
+ 714              		.loc 7 173 31 view .LVU217
+ 715 01cc F0EE667A 		vmov.f32	s15, s13
+ 716              	.LBE147:
+ 717              	.LBE153:
+ 718              	.LBE160:
+ 719              	.LBE181:
+ 720              	.LBB182:
+ 721              	.LBB173:
+  53:Grain.h       ****             env_.Trigger();
+ 722              		.loc 6 53 27 view .LVU218
+ 723 01d0 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 724              	.LBE173:
+ 725              	.LBE182:
+ 726              	.LBB183:
+ 727              	.LBB161:
+ 728              	.LBB154:
+ 729              	.LBB148:
+ 730              		.loc 7 173 31 view .LVU219
+ 731 01d4 E7EE057A 		vfma.f32	s15, s14, s10
+ 732              	.LVL51:
+ 733              	.LBB139:
+ 734              	.LBI139:
+  56:../../DaisySP//Source/Utility/dsp.h **** {
+ 735              		.loc 7 56 14 is_stmt 1 view .LVU220
+ 736              	.LBE139:
+ 737              	.LBE148:
+ 738              	.LBE154:
+ 739              	.LBE161:
+ 740              	.LBE183:
+  58:../../DaisySP//Source/Utility/dsp.h **** }
+ 741              		.loc 7 58 5 view .LVU221
+ 742              	.LBB184:
+ 743              	.LBB162:
+ 744              	.LBB155:
+ 745              	.LBB149:
+ 746              	.LBB144:
+ 747              	.LBB140:
+ 748              	.LBI140:
+  32:../../DaisySP//Source/Utility/dsp.h **** {
+ 749              		.loc 7 32 14 view .LVU222
+ 750              	.LBB141:
+  34:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+ 751              		.loc 7 34 5 view .LVU223
+  36:../../DaisySP//Source/Utility/dsp.h **** #else
+ 752              		.loc 7 36 5 view .LVU224
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 34
+
+
+ 753              		.syntax unified
+ 754              	@ 36 "../../DaisySP//Source/Utility/dsp.h" 1
+ 755 01d8 C7FEA67A 		vmaxnm.f32 s15, s15, s13
+ 756              	@ 0 "" 2
+ 757              	.LVL52:
+  40:../../DaisySP//Source/Utility/dsp.h **** }
+ 758              		.loc 7 40 5 view .LVU225
+  40:../../DaisySP//Source/Utility/dsp.h **** }
+ 759              		.loc 7 40 5 is_stmt 0 view .LVU226
+ 760              		.thumb
+ 761              		.syntax unified
+ 762              	.LBE141:
+ 763              	.LBE140:
+ 764              	.LBB142:
+ 765              	.LBI142:
+  43:../../DaisySP//Source/Utility/dsp.h **** {
+ 766              		.loc 7 43 14 is_stmt 1 view .LVU227
+ 767              	.LBB143:
+  45:../../DaisySP//Source/Utility/dsp.h **** #ifdef __arm__
+ 768              		.loc 7 45 5 view .LVU228
+  47:../../DaisySP//Source/Utility/dsp.h **** #else
+ 769              		.loc 7 47 5 view .LVU229
+ 770              		.syntax unified
+ 771              	@ 47 "../../DaisySP//Source/Utility/dsp.h" 1
+ 772 01dc C7FEC87A 		vminnm.f32 s15, s15, s16
+ 773              	@ 0 "" 2
+ 774              	.LVL53:
+  51:../../DaisySP//Source/Utility/dsp.h **** }
+ 775              		.loc 7 51 5 view .LVU230
+  51:../../DaisySP//Source/Utility/dsp.h **** }
+ 776              		.loc 7 51 5 is_stmt 0 view .LVU231
+ 777              		.thumb
+ 778              		.syntax unified
+ 779              	.LBE143:
+ 780              	.LBE142:
+ 781              	.LBE144:
+ 782              	.LBE149:
+ 783              	.LBE155:
+ 784              		.loc 6 109 18 view .LVU232
+ 785 01e0 C4ED067A 		vstr.32	s15, [r4, #24]
+ 786              	.LVL54:
+ 787              		.loc 6 109 18 view .LVU233
+ 788              	.LBE162:
+ 789              	.LBE184:
+  19:Grain.cpp     ****     }
+ 790              		.loc 1 19 9 is_stmt 1 view .LVU234
+ 791              	.LBB185:
+ 792              	.LBI164:
+  51:Grain.h       ****         {
+ 793              		.loc 6 51 21 view .LVU235
+ 794              	.LBB174:
+  53:Grain.h       ****             env_.Trigger();
+ 795              		.loc 6 53 13 view .LVU236
+  53:Grain.h       ****             env_.Trigger();
+ 796              		.loc 6 53 27 is_stmt 0 view .LVU237
+ 797 01e4 0ADC     		bgt	.L32
+ 798 01e6 D4ED027A 		vldr.32	s15, [r4, #8]	@ int
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 35
+
+
+ 799 01ea B8EE677A 		vcvt.f32.u32	s14, s15
+ 800              	.L18:
+ 801              	.LBB166:
+ 802              	.LBB167:
+  56:../../DaisySP//Source/Control/adenv.h ****     /** Sets the length of time (in seconds) for a specific segment. */
+ 803              		.loc 4 56 38 view .LVU238
+ 804 01ee 0123     		movs	r3, #1
+ 805 01f0 2168     		ldr	r1, [r4]
+ 806              	.LBE167:
+ 807              	.LBE166:
+  53:Grain.h       ****             env_.Trigger();
+ 808              		.loc 6 53 27 view .LVU239
+ 809 01f2 84ED0C7A 		vstr.32	s14, [r4, #48]
+  54:Grain.h       ****         }
+ 810              		.loc 6 54 13 is_stmt 1 view .LVU240
+ 811              	.LVL55:
+ 812              	.LBB169:
+ 813              	.LBI166:
+  56:../../DaisySP//Source/Control/adenv.h ****     /** Sets the length of time (in seconds) for a specific segment. */
+ 814              		.loc 4 56 17 view .LVU241
+ 815              	.LBB168:
+  56:../../DaisySP//Source/Control/adenv.h ****     /** Sets the length of time (in seconds) for a specific segment. */
+ 816              		.loc 4 56 29 view .LVU242
+  56:../../DaisySP//Source/Control/adenv.h ****     /** Sets the length of time (in seconds) for a specific segment. */
+ 817              		.loc 4 56 38 is_stmt 0 view .LVU243
+ 818 01f6 84F86C30 		strb	r3, [r4, #108]
+ 819              	.LVL56:
+  56:../../DaisySP//Source/Control/adenv.h ****     /** Sets the length of time (in seconds) for a specific segment. */
+ 820              		.loc 4 56 38 view .LVU244
+ 821              	.LBE168:
+ 822              	.LBE169:
+  55:Grain.h       **** 
+ 823              		.loc 6 55 9 view .LVU245
+ 824 01fa 13E7     		b	.L14
+ 825              	.L32:
+  53:Grain.h       ****             env_.Trigger();
+ 826              		.loc 6 53 80 view .LVU246
+ 827 01fc A368     		ldr	r3, [r4, #8]
+ 828 01fe 2169     		ldr	r1, [r4, #16]
+ 829 0200 1344     		add	r3, r3, r2
+ 830 0202 5B1A     		subs	r3, r3, r1
+  53:Grain.h       ****             env_.Trigger();
+ 831              		.loc 6 53 95 view .LVU247
+ 832 0204 B3FBF2F1 		udiv	r1, r3, r2
+ 833 0208 02FB1133 		mls	r3, r2, r1, r3
+ 834 020c 07EE103A 		vmov	s14, r3	@ int
+  53:Grain.h       ****             env_.Trigger();
+ 835              		.loc 6 53 27 view .LVU248
+ 836 0210 B8EE477A 		vcvt.f32.u32	s14, s14
+ 837 0214 EBE7     		b	.L18
+ 838              	.L34:
+ 839 0216 00BF     		.align	2
+ 840              	.L33:
+ 841 0218 00000030 		.word	805306368
+ 842 021c 00000000 		.word	0
+ 843              	.LBE174:
+ 844              	.LBE185:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 36
+
+
+ 845              		.cfi_endproc
+ 846              	.LFE3659:
+ 848              		.global	_ZN10graindelay5Grain20kSizeVariationAmountE
+ 849              		.global	_ZN10graindelay5Grain18kInterpolationTailE
+ 850              		.global	_ZN10graindelay5Grain12kPanMaxWidthE
+ 851              		.global	_ZN10graindelay5Grain17kGrainMinDurationE
+ 852              		.section	.rodata._ZN10graindelay5Grain12kPanMaxWidthE,"a"
+ 853              		.align	2
+ 856              	_ZN10graindelay5Grain12kPanMaxWidthE:
+ 857 0000 0000803F 		.word	1065353216
+ 858              		.section	.rodata._ZN10graindelay5Grain17kGrainMinDurationE,"a"
+ 859              		.align	2
+ 862              	_ZN10graindelay5Grain17kGrainMinDurationE:
+ 863 0000 A00F0000 		.word	4000
+ 864              		.section	.rodata._ZN10graindelay5Grain18kInterpolationTailE,"a"
+ 865              		.align	2
+ 868              	_ZN10graindelay5Grain18kInterpolationTailE:
+ 869 0000 08000000 		.word	8
+ 870              		.section	.rodata._ZN10graindelay5Grain20kSizeVariationAmountE,"a"
+ 871              		.align	2
+ 874              	_ZN10graindelay5Grain20kSizeVariationAmountE:
+ 875 0000 CDCC4C3D 		.word	1028443341
+ 876              		.text
+ 877              	.Letext0:
+ 878              		.file 8 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
+ 879              		.file 9 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+ 880              		.file 10 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h"
+ 881              		.file 11 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
+ 882              		.file 12 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 883              		.file 13 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 884              		.file 14 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 885              		.file 15 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 886              		.file 16 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 887              		.file 17 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 888              		.file 18 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 889              		.file 19 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 890              		.file 20 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 891              		.file 21 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 892              		.file 22 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 893              		.file 23 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 894              		.file 24 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 895              		.file 25 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 896              		.file 26 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 897              		.file 27 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 898              		.file 28 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_types
+ 899              		.file 29 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/reent.
+ 900              		.file 30 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/lock.h
+ 901              		.file 31 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+ 902              		.file 32 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h"
+ 903              		.file 33 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 904              		.file 34 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
+ 905              		.file 35 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/wchar.h"
+ 906              		.file 36 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/locale.h"
+ 907              		.file 37 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdio.h"
+ 908              		.file 38 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 909              		.file 39 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/string.h"
+ 910              		.file 40 "<built-in>"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 37
+
+
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s 			page 38
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 Grain.cpp
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:17     .text._ZN10graindelay5Grain8SetSpeedEf:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:26     .text._ZN10graindelay5Grain8SetSpeedEf:0000000000000000 _ZN10graindelay5Grain8SetSpeedEf
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:95     .text._ZN10graindelay5Grain15updateGrainSizeEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:103    .text._ZN10graindelay5Grain15updateGrainSizeEv:0000000000000000 _ZN10graindelay5Grain15updateGrainSizeEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:231    .text._ZN10graindelay5Grain15updateGrainSizeEv:0000000000000090 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:237    .text._ZN10graindelay5Grain7ProcessEf:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:245    .text._ZN10graindelay5Grain7ProcessEf:0000000000000000 _ZN10graindelay5Grain7ProcessEf
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:841    .text._ZN10graindelay5Grain7ProcessEf:0000000000000218 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:874    .rodata._ZN10graindelay5Grain20kSizeVariationAmountE:0000000000000000 _ZN10graindelay5Grain20kSizeVariationAmountE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:868    .rodata._ZN10graindelay5Grain18kInterpolationTailE:0000000000000000 _ZN10graindelay5Grain18kInterpolationTailE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:856    .rodata._ZN10graindelay5Grain12kPanMaxWidthE:0000000000000000 _ZN10graindelay5Grain12kPanMaxWidthE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:862    .rodata._ZN10graindelay5Grain17kGrainMinDurationE:0000000000000000 _ZN10graindelay5Grain17kGrainMinDurationE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:853    .rodata._ZN10graindelay5Grain12kPanMaxWidthE:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:859    .rodata._ZN10graindelay5Grain17kGrainMinDurationE:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:865    .rodata._ZN10graindelay5Grain18kInterpolationTailE:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccaf1LQx.s:871    .rodata._ZN10graindelay5Grain20kSizeVariationAmountE:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+rand
+_ZN7daisysp5AdEnv7ProcessEv
+_ZN7daisysp3Svf7ProcessEf

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.cc": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp",
+        "random": "cpp",
+        "functional": "cpp",
+        "streambuf": "cpp"
+    }
+}

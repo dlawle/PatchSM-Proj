@@ -176,6 +176,8 @@ build/thilia.o: thilia.cpp \
  ../../DaisySP//Source/Effects/pitchshifter.h \
  ../../DaisySP//Source/Effects/sampleratereducer.h \
  ../../DaisySP//Source/Effects/tremolo.h \
+ ../../DaisySP//Source/Effects/wavefolder.h \
+ ../../DaisySP//Source/Utility/dcblock.h \
  ../../DaisySP//Source/Filters/allpass.h \
  ../../DaisySP//Source/Filters/atone.h \
  ../../DaisySP//Source/Filters/biquad.h \
@@ -195,7 +197,6 @@ build/thilia.o: thilia.cpp \
  ../../DaisySP//Source/PhysicalModeling/resonator.h \
  ../../DaisySP//Source/PhysicalModeling/pluck.h \
  ../../DaisySP//Source/PhysicalModeling/PolyPluck.h \
- ../../DaisySP//Source/Utility/dcblock.h \
  ../../DaisySP//Source/PhysicalModeling/KarplusString.h \
  ../../DaisySP//Source/PhysicalModeling/stringvoice.h \
  ../../DaisySP//Source/Synthesis/blosc.h \
@@ -213,7 +214,8 @@ build/thilia.o: thilia.cpp \
  ../../DaisySP//Source/Utility/metro.h \
  ../../DaisySP//Source/Utility/port.h \
  ../../DaisySP//Source/Utility/samplehold.h \
- ../../DaisySP//Source/Utility/smooth_random.h
+ ../../DaisySP//Source/Utility/smooth_random.h daisy_bed.h \
+ ../../libDaisy//src/daisy.h
 ../../libDaisy//Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
 ../../libDaisy//Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h750xx.h:
 ../../libDaisy//Drivers/CMSIS/Include/core_cm7.h:
@@ -421,6 +423,8 @@ build/thilia.o: thilia.cpp \
 ../../DaisySP//Source/Effects/pitchshifter.h:
 ../../DaisySP//Source/Effects/sampleratereducer.h:
 ../../DaisySP//Source/Effects/tremolo.h:
+../../DaisySP//Source/Effects/wavefolder.h:
+../../DaisySP//Source/Utility/dcblock.h:
 ../../DaisySP//Source/Filters/allpass.h:
 ../../DaisySP//Source/Filters/atone.h:
 ../../DaisySP//Source/Filters/biquad.h:
@@ -441,7 +445,6 @@ build/thilia.o: thilia.cpp \
 ../../DaisySP//Source/PhysicalModeling/resonator.h:
 ../../DaisySP//Source/PhysicalModeling/pluck.h:
 ../../DaisySP//Source/PhysicalModeling/PolyPluck.h:
-../../DaisySP//Source/Utility/dcblock.h:
 ../../DaisySP//Source/PhysicalModeling/KarplusString.h:
 ../../DaisySP//Source/PhysicalModeling/stringvoice.h:
 ../../DaisySP//Source/Synthesis/blosc.h:
@@ -460,3 +463,5 @@ build/thilia.o: thilia.cpp \
 ../../DaisySP//Source/Utility/port.h:
 ../../DaisySP//Source/Utility/samplehold.h:
 ../../DaisySP//Source/Utility/smooth_random.h:
+daisy_bed.h:
+../../libDaisy//src/daisy.h:

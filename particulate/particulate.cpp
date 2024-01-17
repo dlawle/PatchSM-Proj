@@ -8,6 +8,8 @@ using namespace daisysp;
 
 DaisyPatchSM hw;
 GranularProcessorClouds processor;
+Switch      b1; 
+
 
 // Pre-allocate big blocks in main memory and CCM. No malloc here.
 uint8_t block_mem[118784];
@@ -51,7 +53,7 @@ int main(void)
 	hw.SetAudioBlockSize(4); // number of samples handled per callback
 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
 	float sample_rate = hw.AudioSampleRate();
-
+    b1.Init(DaisyPatchSM::A8);
 	//init the luts
     InitResources(sample_rate);
 
@@ -74,9 +76,12 @@ int main(void)
 void Controls()
 {
     hw.ProcessAllControls();
+    b1.Debounce();
+    
 
     // gate ins
-    parameters->freeze  = hw.gate_in_1.State() || freeze_btn;
+    parameters->freeze  = hw.gate_in_1.State();
+    parameters->freeze = b1.FallingEdge();
     parameters->trigger = hw.gate_in_2.Trig();
     parameters->gate    = hw.gate_in_2.State();
 }

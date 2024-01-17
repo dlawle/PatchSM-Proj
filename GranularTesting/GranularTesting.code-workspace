@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../custom"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.cc": "cpp",
+			"random": "cpp",
+			"cmath": "cpp",
+			"new": "cpp"
+		}
+	}
+}

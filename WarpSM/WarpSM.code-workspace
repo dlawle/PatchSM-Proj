@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../mutable-instruments/warps"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.cc": "cpp",
+			"*.tcc": "cpp",
+			"optional": "cpp",
+			"system_error": "cpp",
+			"regex": "cpp"
+		}
+	}
+}

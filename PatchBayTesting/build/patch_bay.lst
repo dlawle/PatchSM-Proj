@@ -1,0 +1,2455 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"patch_bay.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN5daisy9Patch_Bay11InitDisplayEv,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_ZN5daisy9Patch_Bay11InitDisplayEv
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN5daisy9Patch_Bay11InitDisplayEv:
+  27              	.LVL0:
+  28              	.LFB2566:
+  29              		.file 1 "patch_bay.cpp"
+   1:patch_bay.cpp **** #include "patch_bay.h"
+   2:patch_bay.cpp **** 
+   3:patch_bay.cpp **** using namespace daisy;
+   4:patch_bay.cpp **** using namespace patch_sm;
+   5:patch_bay.cpp **** 
+   6:patch_bay.cpp **** void Patch_Bay::InitDisplay()
+   7:patch_bay.cpp **** {
+  30              		.loc 1 7 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 96
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+   8:patch_bay.cpp ****     /** OLED display configuration */
+   9:patch_bay.cpp ****     /** Configure the Display */
+  10:patch_bay.cpp **** 	Mydisplay::Config disp_cfg;
+  34              		.loc 1 10 2 view .LVU1
+  11:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_address = 0x3C;
+  12:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.periph = I2CHandle::Config::Peripheral::I2C_1;
+  13:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.speed  = I2CHandle::Config::Speed::I2C_1MHZ;
+  14:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.mode = I2CHandle::Config::Mode::I2C_MASTER;
+  15:patch_bay.cpp ****  	disp_cfg.driver_config.transport_config.i2c_config.pin_config.scl = DaisyPatchSM::B7;
+  16:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.pin_config.sda = DaisyPatchSM::B8;
+  35              		.loc 1 16 68 is_stmt 0 view .LVU2
+  36 0000 DA4B     		ldr	r3, .L8
+  15:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.pin_config.sda = DaisyPatchSM::B8;
+  37              		.loc 1 15 69 view .LVU3
+  38 0002 DB4A     		ldr	r2, .L8+4
+  39              		.loc 1 16 68 view .LVU4
+  40 0004 1B88     		ldrh	r3, [r3]	@ unaligned
+  15:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.pin_config.sda = DaisyPatchSM::B8;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 2
+
+
+  41              		.loc 1 15 69 view .LVU5
+  42 0006 1288     		ldrh	r2, [r2]	@ unaligned
+   7:patch_bay.cpp ****     /** OLED display configuration */
+  43              		.loc 1 7 1 view .LVU6
+  44 0008 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  45              		.cfi_def_cfa_offset 36
+  46              		.cfi_offset 4, -36
+  47              		.cfi_offset 5, -32
+  48              		.cfi_offset 6, -28
+  49              		.cfi_offset 7, -24
+  50              		.cfi_offset 8, -20
+  51              		.cfi_offset 9, -16
+  52              		.cfi_offset 10, -12
+  53              		.cfi_offset 11, -8
+  54              		.cfi_offset 14, -4
+  55 000c 9BB0     		sub	sp, sp, #108
+  56              		.cfi_def_cfa_offset 144
+  57              	.LVL1:
+  58              	.LBB115:
+  59              	.LBI115:
+  60              		.file 2 "../../libDaisy//src/hid/disp/oled_display.h"
+   1:../../libDaisy//src/hid/disp/oled_display.h **** #pragma once
+   2:../../libDaisy//src/hid/disp/oled_display.h **** #ifndef DSY_OLED_DISPLAY_H
+   3:../../libDaisy//src/hid/disp/oled_display.h **** #define DSY_OLED_DISPLAY_H /**< Macro */
+   4:../../libDaisy//src/hid/disp/oled_display.h **** 
+   5:../../libDaisy//src/hid/disp/oled_display.h **** #include "display.h"
+   6:../../libDaisy//src/hid/disp/oled_display.h **** 
+   7:../../libDaisy//src/hid/disp/oled_display.h **** namespace daisy
+   8:../../libDaisy//src/hid/disp/oled_display.h **** {
+   9:../../libDaisy//src/hid/disp/oled_display.h **** /** 
+  10:../../libDaisy//src/hid/disp/oled_display.h ****  * This class is for drawing to a monochrome OLED display. 
+  11:../../libDaisy//src/hid/disp/oled_display.h ****  * @ingroup device
+  12:../../libDaisy//src/hid/disp/oled_display.h **** */
+  13:../../libDaisy//src/hid/disp/oled_display.h **** template <typename DisplayDriver>
+  14:../../libDaisy//src/hid/disp/oled_display.h **** class OledDisplay : public OneBitGraphicsDisplayImpl<OledDisplay<DisplayDriver>>
+  15:../../libDaisy//src/hid/disp/oled_display.h **** {
+  16:../../libDaisy//src/hid/disp/oled_display.h ****   public:
+  17:../../libDaisy//src/hid/disp/oled_display.h ****     OledDisplay() {}
+  18:../../libDaisy//src/hid/disp/oled_display.h ****     virtual ~OledDisplay() {}
+  19:../../libDaisy//src/hid/disp/oled_display.h **** 
+  20:../../libDaisy//src/hid/disp/oled_display.h ****     struct Config
+  61              		.loc 2 20 12 is_stmt 1 view .LVU7
+  62              	.LBB116:
+  63              	.LBI116:
+  64              		.file 3 "../../libDaisy//src/dev/oled_ssd130x.h"
+   1:../../libDaisy//src/dev/oled_ssd130x.h **** #pragma once
+   2:../../libDaisy//src/dev/oled_ssd130x.h **** #ifndef SA_OLED_SSD130X_H
+   3:../../libDaisy//src/dev/oled_ssd130x.h **** #define SA_OLED_SSD130X_H /**< & */
+   4:../../libDaisy//src/dev/oled_ssd130x.h **** 
+   5:../../libDaisy//src/dev/oled_ssd130x.h **** #include "per/i2c.h"
+   6:../../libDaisy//src/dev/oled_ssd130x.h **** #include "per/spi.h"
+   7:../../libDaisy//src/dev/oled_ssd130x.h **** #include "per/gpio.h"
+   8:../../libDaisy//src/dev/oled_ssd130x.h **** #include "sys/system.h"
+   9:../../libDaisy//src/dev/oled_ssd130x.h **** 
+  10:../../libDaisy//src/dev/oled_ssd130x.h **** namespace daisy
+  11:../../libDaisy//src/dev/oled_ssd130x.h **** {
+  12:../../libDaisy//src/dev/oled_ssd130x.h **** /**
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 3
+
+
+  13:../../libDaisy//src/dev/oled_ssd130x.h ****  * I2C Transport for SSD1306 / SSD1309 OLED display devices
+  14:../../libDaisy//src/dev/oled_ssd130x.h ****  */
+  15:../../libDaisy//src/dev/oled_ssd130x.h **** class SSD130xI2CTransport
+  16:../../libDaisy//src/dev/oled_ssd130x.h **** {
+  17:../../libDaisy//src/dev/oled_ssd130x.h ****   public:
+  18:../../libDaisy//src/dev/oled_ssd130x.h ****     struct Config
+  19:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+  20:../../libDaisy//src/dev/oled_ssd130x.h ****         Config()
+  21:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+  22:../../libDaisy//src/dev/oled_ssd130x.h ****             // Intialize using defaults
+  23:../../libDaisy//src/dev/oled_ssd130x.h ****             Defaults();
+  24:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+  25:../../libDaisy//src/dev/oled_ssd130x.h ****         I2CHandle::Config i2c_config;
+  26:../../libDaisy//src/dev/oled_ssd130x.h ****         uint8_t           i2c_address;
+  27:../../libDaisy//src/dev/oled_ssd130x.h ****         void              Defaults()
+  28:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+  29:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.periph         = I2CHandle::Config::Peripheral::I2C_1;
+  30:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.speed          = I2CHandle::Config::Speed::I2C_1MHZ;
+  31:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.mode           = I2CHandle::Config::Mode::I2C_MASTER;
+  32:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.pin_config.scl = {DSY_GPIOB, 8};
+  33:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.pin_config.sda = {DSY_GPIOB, 9};
+  34:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_address               = 0x3C;
+  35:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+  36:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+  37:../../libDaisy//src/dev/oled_ssd130x.h ****     void Init(const Config& config)
+  38:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+  39:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_address_ = config.i2c_address;
+  40:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.Init(config.i2c_config);
+  41:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     void SendCommand(uint8_t cmd)
+  43:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         uint8_t buf[2] = {0X00, cmd};
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+  46:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+  47:../../libDaisy//src/dev/oled_ssd130x.h **** 
+  48:../../libDaisy//src/dev/oled_ssd130x.h ****     void SendData(uint8_t* buff, size_t size)
+  49:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+  50:../../libDaisy//src/dev/oled_ssd130x.h ****         for(size_t i = 0; i < size; i++)
+  51:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+  52:../../libDaisy//src/dev/oled_ssd130x.h ****             uint8_t buf[2] = {0X40, buff[i]};
+  53:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+  54:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+  55:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+  56:../../libDaisy//src/dev/oled_ssd130x.h **** 
+  57:../../libDaisy//src/dev/oled_ssd130x.h ****   private:
+  58:../../libDaisy//src/dev/oled_ssd130x.h ****     daisy::I2CHandle i2c_;
+  59:../../libDaisy//src/dev/oled_ssd130x.h ****     uint8_t          i2c_address_;
+  60:../../libDaisy//src/dev/oled_ssd130x.h **** };
+  61:../../libDaisy//src/dev/oled_ssd130x.h **** 
+  62:../../libDaisy//src/dev/oled_ssd130x.h **** /**
+  63:../../libDaisy//src/dev/oled_ssd130x.h ****  * 4 Wire SPI Transport for SSD1306 / SSD1309 OLED display devices
+  64:../../libDaisy//src/dev/oled_ssd130x.h ****  */
+  65:../../libDaisy//src/dev/oled_ssd130x.h **** class SSD130x4WireSpiTransport
+  66:../../libDaisy//src/dev/oled_ssd130x.h **** {
+  67:../../libDaisy//src/dev/oled_ssd130x.h ****   public:
+  68:../../libDaisy//src/dev/oled_ssd130x.h ****     struct Config
+  69:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 4
+
+
+  70:../../libDaisy//src/dev/oled_ssd130x.h ****         Config()
+  71:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+  72:../../libDaisy//src/dev/oled_ssd130x.h ****             // Initialize using defaults
+  73:../../libDaisy//src/dev/oled_ssd130x.h ****             Defaults();
+  74:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+  75:../../libDaisy//src/dev/oled_ssd130x.h ****         SpiHandle::Config spi_config;
+  76:../../libDaisy//src/dev/oled_ssd130x.h ****         struct
+  77:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+  78:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_pin dc;    /**< & */
+  79:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_pin reset; /**< & */
+  80:../../libDaisy//src/dev/oled_ssd130x.h ****         } pin_config;
+  81:../../libDaisy//src/dev/oled_ssd130x.h ****         void Defaults()
+  82:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+  83:../../libDaisy//src/dev/oled_ssd130x.h ****             // SPI peripheral config
+  84:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.periph = SpiHandle::Config::Peripheral::SPI_1;
+  85:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.mode   = SpiHandle::Config::Mode::MASTER;
+  86:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.direction
+  87:../../libDaisy//src/dev/oled_ssd130x.h ****                 = SpiHandle::Config::Direction::TWO_LINES_TX_ONLY;
+  88:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.datasize       = 8;
+  89:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.clock_polarity = SpiHandle::Config::ClockPolarity::LOW;
+  90:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.clock_phase    = SpiHandle::Config::ClockPhase::ONE_EDGE;
+  91:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.nss            = SpiHandle::Config::NSS::HARD_OUTPUT;
+  92:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.baud_prescaler = SpiHandle::Config::BaudPrescaler::PS_8;
+  93:../../libDaisy//src/dev/oled_ssd130x.h ****             // SPI pin config
+  94:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.pin_config.sclk = {DSY_GPIOG, 11};
+  95:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.pin_config.miso = {DSY_GPIOX, 0};
+  96:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.pin_config.mosi = {DSY_GPIOB, 5};
+  97:../../libDaisy//src/dev/oled_ssd130x.h ****             spi_config.pin_config.nss  = {DSY_GPIOG, 10};
+  98:../../libDaisy//src/dev/oled_ssd130x.h ****             // SSD130x control pin config
+  99:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.dc    = {DSY_GPIOB, 4};
+ 100:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.reset = {DSY_GPIOB, 15};
+ 101:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 102:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 103:../../libDaisy//src/dev/oled_ssd130x.h ****     void Init(const Config& config)
+ 104:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 105:../../libDaisy//src/dev/oled_ssd130x.h ****         // Initialize both GPIO
+ 106:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_dc_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+ 107:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_dc_.pin  = config.pin_config.dc;
+ 108:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_dc_);
+ 109:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+ 110:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_reset_.pin  = config.pin_config.reset;
+ 111:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_reset_);
+ 112:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 113:../../libDaisy//src/dev/oled_ssd130x.h ****         // Initialize SPI
+ 114:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.Init(config.spi_config);
+ 115:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 116:../../libDaisy//src/dev/oled_ssd130x.h ****         // Reset and Configure OLED.
+ 117:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 0);
+ 118:../../libDaisy//src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 119:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 1);
+ 120:../../libDaisy//src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 121:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 122:../../libDaisy//src/dev/oled_ssd130x.h ****     void SendCommand(uint8_t cmd)
+ 123:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_dc_, 0);
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 126:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 5
+
+
+ 127:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 128:../../libDaisy//src/dev/oled_ssd130x.h ****     void SendData(uint8_t* buff, size_t size)
+ 129:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 130:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_dc_, 1);
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
+ 132:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 133:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 134:../../libDaisy//src/dev/oled_ssd130x.h ****   private:
+ 135:../../libDaisy//src/dev/oled_ssd130x.h ****     SpiHandle spi_;
+ 136:../../libDaisy//src/dev/oled_ssd130x.h ****     dsy_gpio  pin_reset_;
+ 137:../../libDaisy//src/dev/oled_ssd130x.h ****     dsy_gpio  pin_dc_;
+ 138:../../libDaisy//src/dev/oled_ssd130x.h **** };
+ 139:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 140:../../libDaisy//src/dev/oled_ssd130x.h **** /**
+ 141:../../libDaisy//src/dev/oled_ssd130x.h ****  * Soft SPI Transport for SSD1306 / SSD1309 OLED display devices
+ 142:../../libDaisy//src/dev/oled_ssd130x.h ****  */
+ 143:../../libDaisy//src/dev/oled_ssd130x.h **** class SSD130x4WireSoftSpiTransport
+ 144:../../libDaisy//src/dev/oled_ssd130x.h **** {
+ 145:../../libDaisy//src/dev/oled_ssd130x.h ****   public:
+ 146:../../libDaisy//src/dev/oled_ssd130x.h ****     struct Config
+ 147:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 148:../../libDaisy//src/dev/oled_ssd130x.h ****         Config()
+ 149:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 150:../../libDaisy//src/dev/oled_ssd130x.h ****             // Initialize using defaults
+ 151:../../libDaisy//src/dev/oled_ssd130x.h ****             Defaults();
+ 152:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 153:../../libDaisy//src/dev/oled_ssd130x.h ****         struct
+ 154:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 155:../../libDaisy//src/dev/oled_ssd130x.h ****             uint32_t     sclk_delay;
+ 156:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_pin sclk;
+ 157:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_pin mosi;
+ 158:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_pin dc;
+ 159:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_pin reset;
+ 160:../../libDaisy//src/dev/oled_ssd130x.h ****         } pin_config;
+ 161:../../libDaisy//src/dev/oled_ssd130x.h ****         void Defaults()
+ 162:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 163:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.sclk_delay = 0; // fast as possible?!
+ 164:../../libDaisy//src/dev/oled_ssd130x.h ****             // SPI peripheral config
+ 165:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.sclk = {DSY_GPIOD, 3}; /**< D10 - SPI2 SCK  */
+ 166:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.mosi = {DSY_GPIOC, 3}; /**< D9  - SPI2 MOSI */
+ 167:../../libDaisy//src/dev/oled_ssd130x.h ****             // SSD130x control pin config
+ 168:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.dc    = {DSY_GPIOC, 11}; //D2
+ 169:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.reset = {DSY_GPIOC, 10}; //D3
+ 170:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 171:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 172:../../libDaisy//src/dev/oled_ssd130x.h ****     void Init(const Config& config)
+ 173:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 174:../../libDaisy//src/dev/oled_ssd130x.h ****         // Initialize both GPIO
+ 175:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_sclk_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+ 176:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_sclk_.pin  = config.pin_config.sclk;
+ 177:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_sclk_);
+ 178:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_sclk_, 1); //ClockPolarity::LOW
+ 179:../../libDaisy//src/dev/oled_ssd130x.h ****         clk_delay      = config.pin_config.sclk_delay;
+ 180:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_mosi_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+ 181:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_mosi_.pin  = config.pin_config.mosi;
+ 182:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_mosi_);
+ 183:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_mosi_, 0);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 6
+
+
+ 184:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 185:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_dc_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+ 186:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_dc_.pin  = config.pin_config.dc;
+ 187:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_dc_);
+ 188:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+ 189:../../libDaisy//src/dev/oled_ssd130x.h ****         pin_reset_.pin  = config.pin_config.reset;
+ 190:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_reset_);
+ 191:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 192:../../libDaisy//src/dev/oled_ssd130x.h ****         // Reset and Configure OLED.
+ 193:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 0);
+ 194:../../libDaisy//src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 195:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 1);
+ 196:../../libDaisy//src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 197:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 198:../../libDaisy//src/dev/oled_ssd130x.h ****     void SendCommand(uint8_t cmd)
+ 199:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 200:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_dc_, 0);
+ 201:../../libDaisy//src/dev/oled_ssd130x.h ****         SoftSpiTransmit(cmd);
+ 202:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 203:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 204:../../libDaisy//src/dev/oled_ssd130x.h ****     void SendData(uint8_t* buff, size_t size)
+ 205:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 206:../../libDaisy//src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_dc_, 1);
+ 207:../../libDaisy//src/dev/oled_ssd130x.h ****         for(size_t i = 0; i < size; i++)
+ 208:../../libDaisy//src/dev/oled_ssd130x.h ****             SoftSpiTransmit(buff[i]);
+ 209:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 210:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 211:../../libDaisy//src/dev/oled_ssd130x.h ****   private:
+ 212:../../libDaisy//src/dev/oled_ssd130x.h ****     void SoftSpiTransmit(uint8_t val)
+ 213:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 214:../../libDaisy//src/dev/oled_ssd130x.h ****         // bit flip
+ 215:../../libDaisy//src/dev/oled_ssd130x.h ****         val = ((val & 0x01) << 7) | ((val & 0x02) << 5) | ((val & 0x04) << 3)
+ 216:../../libDaisy//src/dev/oled_ssd130x.h ****               | ((val & 0x08) << 1) | ((val & 0x10) >> 1) | ((val & 0x20) >> 3)
+ 217:../../libDaisy//src/dev/oled_ssd130x.h ****               | ((val & 0x40) >> 5) | ((val & 0x80) >> 7);
+ 218:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 219:../../libDaisy//src/dev/oled_ssd130x.h ****         for(uint8_t bit = 0u; bit < 8u; bit++)
+ 220:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 221:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_write(&pin_mosi_, ((val & (1 << bit)) ? 1 : 0));
+ 222:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 223:../../libDaisy//src/dev/oled_ssd130x.h ****             System::DelayTicks(clk_delay);
+ 224:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 225:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_toggle(&pin_sclk_);
+ 226:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 227:../../libDaisy//src/dev/oled_ssd130x.h ****             System::DelayTicks(clk_delay);
+ 228:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 229:../../libDaisy//src/dev/oled_ssd130x.h ****             dsy_gpio_toggle(&pin_sclk_);
+ 230:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 231:../../libDaisy//src/dev/oled_ssd130x.h ****     }
+ 232:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 233:../../libDaisy//src/dev/oled_ssd130x.h ****     uint32_t clk_delay;
+ 234:../../libDaisy//src/dev/oled_ssd130x.h ****     dsy_gpio pin_sclk_;
+ 235:../../libDaisy//src/dev/oled_ssd130x.h ****     dsy_gpio pin_mosi_;
+ 236:../../libDaisy//src/dev/oled_ssd130x.h ****     dsy_gpio pin_reset_;
+ 237:../../libDaisy//src/dev/oled_ssd130x.h ****     dsy_gpio pin_dc_;
+ 238:../../libDaisy//src/dev/oled_ssd130x.h **** };
+ 239:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 240:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 7
+
+
+ 241:../../libDaisy//src/dev/oled_ssd130x.h **** /**
+ 242:../../libDaisy//src/dev/oled_ssd130x.h ****  * A driver implementation for the SSD1306/SSD1309
+ 243:../../libDaisy//src/dev/oled_ssd130x.h ****  */
+ 244:../../libDaisy//src/dev/oled_ssd130x.h **** template <size_t width, size_t height, typename Transport>
+ 245:../../libDaisy//src/dev/oled_ssd130x.h **** class SSD130xDriver
+ 246:../../libDaisy//src/dev/oled_ssd130x.h **** {
+ 247:../../libDaisy//src/dev/oled_ssd130x.h ****   public:
+ 248:../../libDaisy//src/dev/oled_ssd130x.h ****     struct Config
+  65              		.loc 3 248 12 view .LVU8
+  66              	.LBB117:
+  67              	.LBI117:
+  20:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+  68              		.loc 3 20 9 view .LVU9
+  69              	.LBB118:
+  70              	.LBB119:
+  71              	.LBI119:
+  72              		.file 4 "../../libDaisy//src/per/i2c.h"
+   1:../../libDaisy//src/per/i2c.h **** #pragma once
+   2:../../libDaisy//src/per/i2c.h **** #include "daisy_core.h"
+   3:../../libDaisy//src/per/i2c.h **** 
+   4:../../libDaisy//src/per/i2c.h **** namespace daisy
+   5:../../libDaisy//src/per/i2c.h **** {
+   6:../../libDaisy//src/per/i2c.h **** /** A handle for interacting with an I2C peripheral. This is a dumb
+   7:../../libDaisy//src/per/i2c.h ****  *  gateway that internally points to one of the four I2C peripherals
+   8:../../libDaisy//src/per/i2c.h ****  *  after it was initialised. It can then be copied and passed around.
+   9:../../libDaisy//src/per/i2c.h ****  *  Use an I2CHandle like this:
+  10:../../libDaisy//src/per/i2c.h ****  *  
+  11:../../libDaisy//src/per/i2c.h ****  *      // setup the configuration
+  12:../../libDaisy//src/per/i2c.h ****  *      I2CHandle::Config i2c_conf;
+  13:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.periph = I2CHandle::Config::Peripheral::I2C_1;
+  14:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.speed  = I2CHandle::Config::Speed::I2C_400KHZ;
+  15:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.mode   = I2CHandle::Config::Mode::Master;
+  16:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.pin_config.scl  = {DSY_GPIOB, 8};
+  17:../../libDaisy//src/per/i2c.h ****  *      i2c_conf.pin_config.sda  = {DSY_GPIOB, 9};
+  18:../../libDaisy//src/per/i2c.h ****  *      // initialise the peripheral
+  19:../../libDaisy//src/per/i2c.h ****  *      I2CHandle i2c;
+  20:../../libDaisy//src/per/i2c.h ****  *      i2c.Init(i2c_conf);
+  21:../../libDaisy//src/per/i2c.h ****  *      // now i2c points to the corresponding peripheral and can be used.
+  22:../../libDaisy//src/per/i2c.h ****  *      i2c.TransmitBlocking( ... );
+  23:../../libDaisy//src/per/i2c.h ****  */
+  24:../../libDaisy//src/per/i2c.h **** class I2CHandle
+  25:../../libDaisy//src/per/i2c.h **** {
+  26:../../libDaisy//src/per/i2c.h ****   public:
+  27:../../libDaisy//src/per/i2c.h ****     /** Contains settings for initialising an I2C interface. */
+  28:../../libDaisy//src/per/i2c.h ****     struct Config
+  73              		.loc 4 28 12 view .LVU10
+  74              		.loc 4 28 12 is_stmt 0 view .LVU11
+  75              	.LBE119:
+  76              	.LBE118:
+  77              	.LBE117:
+  78              	.LBE116:
+  79              	.LBE115:
+  23:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+  80              		.loc 3 23 13 is_stmt 1 view .LVU12
+  81              	.LBB124:
+  82              	.LBB123:
+  83              	.LBB122:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 8
+
+
+  84              	.LBB121:
+  85              	.LBB120:
+  86              	.LBI120:
+  27:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+  87              		.loc 3 27 27 view .LVU13
+  88              	.LBE120:
+  89              	.LBE121:
+  90              	.LBE122:
+  91              	.LBE123:
+  92              	.LBE124:
+  29:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.speed          = I2CHandle::Config::Speed::I2C_1MHZ;
+  93              		.loc 3 29 13 view .LVU14
+  30:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.mode           = I2CHandle::Config::Mode::I2C_MASTER;
+  94              		.loc 3 30 13 view .LVU15
+  31:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.pin_config.scl = {DSY_GPIOB, 8};
+  95              		.loc 3 31 13 view .LVU16
+  32:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_config.pin_config.sda = {DSY_GPIOB, 9};
+  96              		.loc 3 32 13 view .LVU17
+  33:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_address               = 0x3C;
+  97              		.loc 3 33 13 view .LVU18
+  34:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+  98              		.loc 3 34 13 view .LVU19
+  11:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.periph = I2CHandle::Config::Peripheral::I2C_1;
+  99              		.loc 1 11 2 view .LVU20
+  12:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.speed  = I2CHandle::Config::Speed::I2C_1MHZ;
+ 100              		.loc 1 12 2 view .LVU21
+  13:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.mode = I2CHandle::Config::Mode::I2C_MASTER;
+ 101              		.loc 1 13 2 view .LVU22
+  14:patch_bay.cpp ****  	disp_cfg.driver_config.transport_config.i2c_config.pin_config.scl = DaisyPatchSM::B7;
+ 102              		.loc 1 14 2 view .LVU23
+  15:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.pin_config.sda = DaisyPatchSM::B8;
+ 103              		.loc 1 15 3 view .LVU24
+ 104 000e 4FF00008 		mov	r8, #0
+ 105 0012 4FF00209 		mov	r9, #2
+   7:patch_bay.cpp ****     /** OLED display configuration */
+ 106              		.loc 1 7 1 is_stmt 0 view .LVU25
+ 107 0016 0446     		mov	r4, r0
+ 108              		.loc 1 16 68 view .LVU26
+ 109 0018 ADF82630 		strh	r3, [sp, #38]	@ unaligned
+ 110 001c 1023     		movs	r3, #16
+  15:patch_bay.cpp **** 	disp_cfg.driver_config.transport_config.i2c_config.pin_config.sda = DaisyPatchSM::B8;
+ 111              		.loc 1 15 69 view .LVU27
+ 112 001e ADF82420 		strh	r2, [sp, #36]	@ unaligned
+ 113              		.loc 1 16 2 is_stmt 1 view .LVU28
+  17:patch_bay.cpp **** 
+  18:patch_bay.cpp **** 	//display_config.driver_config.transport_config.Defaults();
+  19:patch_bay.cpp **** 	display.Init(disp_cfg);
+ 114              		.loc 1 19 2 view .LVU29
+ 115              	.LVL2:
+ 116              		.loc 1 19 2 is_stmt 0 view .LVU30
+ 117 0022 0DF1200E 		add	lr, sp, #32
+ 118 0026 8DF83030 		strb	r3, [sp, #48]
+ 119 002a 4FF03C03 		mov	r3, #60
+ 120 002e 0EAA     		add	r2, sp, #56
+ 121              	.LBB125:
+ 122              	.LBB126:
+  21:../../libDaisy//src/hid/disp/oled_display.h ****     {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 9
+
+
+  22:../../libDaisy//src/hid/disp/oled_display.h ****         typename DisplayDriver::Config driver_config;
+  23:../../libDaisy//src/hid/disp/oled_display.h ****     };
+  24:../../libDaisy//src/hid/disp/oled_display.h **** 
+  25:../../libDaisy//src/hid/disp/oled_display.h ****     void Init(Config config) { driver_.Init(config.driver_config); }
+ 123              		.loc 2 25 44 view .LVU31
+ 124 0030 00F15005 		add	r5, r0, #80
+ 125 0034 8DF83430 		strb	r3, [sp, #52]
+ 126 0038 00F1D703 		add	r3, r0, #215
+ 127 003c 0592     		str	r2, [sp, #20]
+ 128 003e 1646     		mov	r6, r2
+ 129 0040 CDF82080 		str	r8, [sp, #32]
+ 130 0044 00F2D74B 		addw	fp, r0, #1239
+ 131 0048 0393     		str	r3, [sp, #12]
+ 132 004a 0DF1500C 		add	ip, sp, #80
+ 133              	.LBB127:
+ 134              	.LBB128:
+ 135              	.LBB129:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 136              		.loc 3 45 30 view .LVU32
+ 137 004e 4FF47A7A 		mov	r10, #1000
+ 138              	.LBE129:
+ 139              	.LBE128:
+ 140              	.LBE127:
+ 141              	.LBE126:
+ 142              	.LBE125:
+ 143              		.loc 1 19 14 view .LVU33
+ 144 0052 B027     		movs	r7, #176
+ 145 0054 CDE90A98 		strd	r9, r8, [sp, #40]
+ 146 0058 BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
+ 147              	.LVL3:
+ 148              		.loc 1 19 14 view .LVU34
+ 149 005c 0FC6     		stmia	r6!, {r0, r1, r2, r3}
+ 150 005e 9EE80300 		ldm	lr, {r0, r1}
+ 151 0062 0496     		str	r6, [sp, #16]
+ 152 0064 86E80300 		stm	r6, {r0, r1}
+ 153              	.LVL4:
+ 154              	.LBB186:
+ 155              	.LBI125:
+ 156              		.loc 2 25 10 is_stmt 1 view .LVU35
+ 157              		.loc 2 25 10 is_stmt 0 view .LVU36
+ 158 0068 059E     		ldr	r6, [sp, #20]
+ 159 006a 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
+ 160 006c ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 161 0070 96E80300 		ldm	r6, {r0, r1}
+ 162              	.LBB184:
+ 163              	.LBB182:
+ 164              	.LBB131:
+ 165              	.LBB132:
+  39:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.Init(config.i2c_config);
+ 166              		.loc 3 39 22 view .LVU37
+ 167 0074 4FF03C03 		mov	r3, #60
+ 168 0078 8CE80300 		stm	ip, {r0, r1}
+ 169              	.LBE132:
+ 170              	.LBE131:
+ 171              	.LBI127:
+ 249:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 250:../../libDaisy//src/dev/oled_ssd130x.h ****         typename Transport::Config transport_config;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 10
+
+
+ 251:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 252:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 253:../../libDaisy//src/dev/oled_ssd130x.h ****     void Init(Config config)
+ 172              		.loc 3 253 10 is_stmt 1 view .LVU38
+ 173              	.LVL5:
+ 174              	.LBB134:
+ 175              	.LBI131:
+  37:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 176              		.loc 3 37 10 view .LVU39
+ 177              	.LBB133:
+  39:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.Init(config.i2c_config);
+ 178              		.loc 3 39 9 view .LVU40
+  39:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.Init(config.i2c_config);
+ 179              		.loc 3 39 22 is_stmt 0 view .LVU41
+ 180 007c 84F85430 		strb	r3, [r4, #84]
+  40:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 181              		.loc 3 40 9 is_stmt 1 view .LVU42
+  40:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 182              		.loc 3 40 18 is_stmt 0 view .LVU43
+ 183 0080 14A9     		add	r1, sp, #80
+ 184              	.LVL6:
+  40:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 185              		.loc 3 40 18 view .LVU44
+ 186 0082 2846     		mov	r0, r5
+ 187 0084 FFF7FEFF 		bl	_ZN5daisy9I2CHandle4InitERKNS0_6ConfigE
+ 188              	.LVL7:
+  40:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 189              		.loc 3 40 18 view .LVU45
+ 190              	.LBE133:
+ 191              	.LBE134:
+ 192              	.LBB135:
+ 193              	.LBI128:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 194              		.loc 3 42 10 is_stmt 1 view .LVU46
+ 195              	.LBB130:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 196              		.loc 3 44 9 view .LVU47
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 197              		.loc 3 44 36 is_stmt 0 view .LVU48
+ 198 0088 AE23     		movs	r3, #174
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 199              		.loc 3 45 30 view .LVU49
+ 200 008a 07AA     		add	r2, sp, #28
+ 201 008c CDF800A0 		str	r10, [sp]
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 202              		.loc 3 44 36 view .LVU50
+ 203 0090 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 204              		.loc 3 45 9 is_stmt 1 view .LVU51
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 205              		.loc 3 45 30 is_stmt 0 view .LVU52
+ 206 0094 2846     		mov	r0, r5
+ 207 0096 4B46     		mov	r3, r9
+ 208 0098 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 209              		.loc 3 44 17 view .LVU53
+ 210 009c 8DF81C80 		strb	r8, [sp, #28]
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 11
+
+
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 211              		.loc 3 45 30 view .LVU54
+ 212 00a0 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 213              	.LVL8:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 214              		.loc 3 45 30 view .LVU55
+ 215              	.LBE130:
+ 216              	.LBE135:
+ 217              	.LBB136:
+ 218              	.LBI136:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 219              		.loc 3 42 10 is_stmt 1 view .LVU56
+ 220              	.LBB137:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 221              		.loc 3 44 9 view .LVU57
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 222              		.loc 3 44 36 is_stmt 0 view .LVU58
+ 223 00a4 D523     		movs	r3, #213
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 224              		.loc 3 45 30 view .LVU59
+ 225 00a6 07AA     		add	r2, sp, #28
+ 226 00a8 CDF800A0 		str	r10, [sp]
+ 227 00ac 2846     		mov	r0, r5
+ 228 00ae 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 229              		.loc 3 44 36 view .LVU60
+ 230 00b2 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 231              		.loc 3 45 9 is_stmt 1 view .LVU61
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 232              		.loc 3 45 30 is_stmt 0 view .LVU62
+ 233 00b6 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 234              		.loc 3 44 17 view .LVU63
+ 235 00b8 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 236              		.loc 3 45 30 view .LVU64
+ 237 00bc FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 238              	.LVL9:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 239              		.loc 3 45 30 view .LVU65
+ 240              	.LBE137:
+ 241              	.LBE136:
+ 242              	.LBB138:
+ 243              	.LBI138:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 244              		.loc 3 42 10 is_stmt 1 view .LVU66
+ 245              	.LBB139:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 246              		.loc 3 44 9 view .LVU67
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 247              		.loc 3 44 36 is_stmt 0 view .LVU68
+ 248 00c0 8023     		movs	r3, #128
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 249              		.loc 3 45 30 view .LVU69
+ 250 00c2 07AA     		add	r2, sp, #28
+ 251 00c4 CDF800A0 		str	r10, [sp]
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 12
+
+
+ 252 00c8 2846     		mov	r0, r5
+ 253 00ca 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 254              		.loc 3 44 36 view .LVU70
+ 255 00ce 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 256              		.loc 3 45 9 is_stmt 1 view .LVU71
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 257              		.loc 3 45 30 is_stmt 0 view .LVU72
+ 258 00d2 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 259              		.loc 3 44 17 view .LVU73
+ 260 00d4 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 261              		.loc 3 45 30 view .LVU74
+ 262 00d8 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 263              	.LVL10:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 264              		.loc 3 45 30 view .LVU75
+ 265              	.LBE139:
+ 266              	.LBE138:
+ 267              	.LBB140:
+ 268              	.LBI140:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 269              		.loc 3 42 10 is_stmt 1 view .LVU76
+ 270              	.LBB141:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 271              		.loc 3 44 9 view .LVU77
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 272              		.loc 3 44 36 is_stmt 0 view .LVU78
+ 273 00dc A823     		movs	r3, #168
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 274              		.loc 3 45 30 view .LVU79
+ 275 00de 07AA     		add	r2, sp, #28
+ 276 00e0 CDF800A0 		str	r10, [sp]
+ 277 00e4 2846     		mov	r0, r5
+ 278 00e6 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 279              		.loc 3 44 36 view .LVU80
+ 280 00ea 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 281              		.loc 3 45 9 is_stmt 1 view .LVU81
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 282              		.loc 3 45 30 is_stmt 0 view .LVU82
+ 283 00ee 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 284              		.loc 3 44 17 view .LVU83
+ 285 00f0 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 286              		.loc 3 45 30 view .LVU84
+ 287 00f4 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 288              	.LVL11:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 289              		.loc 3 45 30 view .LVU85
+ 290              	.LBE141:
+ 291              	.LBE140:
+ 292              	.LBB142:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 13
+
+
+ 293              	.LBI142:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 294              		.loc 3 42 10 is_stmt 1 view .LVU86
+ 295              	.LBB143:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 296              		.loc 3 44 9 view .LVU87
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 297              		.loc 3 44 36 is_stmt 0 view .LVU88
+ 298 00f8 3F23     		movs	r3, #63
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 299              		.loc 3 45 30 view .LVU89
+ 300 00fa 07AA     		add	r2, sp, #28
+ 301 00fc CDF800A0 		str	r10, [sp]
+ 302 0100 2846     		mov	r0, r5
+ 303 0102 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 304              		.loc 3 44 36 view .LVU90
+ 305 0106 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 306              		.loc 3 45 9 is_stmt 1 view .LVU91
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 307              		.loc 3 45 30 is_stmt 0 view .LVU92
+ 308 010a 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 309              		.loc 3 44 17 view .LVU93
+ 310 010c 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 311              		.loc 3 45 30 view .LVU94
+ 312 0110 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 313              	.LVL12:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 314              		.loc 3 45 30 view .LVU95
+ 315              	.LBE143:
+ 316              	.LBE142:
+ 317              	.LBB144:
+ 318              	.LBI144:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 319              		.loc 3 42 10 is_stmt 1 view .LVU96
+ 320              	.LBB145:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 321              		.loc 3 44 9 view .LVU97
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 322              		.loc 3 44 36 is_stmt 0 view .LVU98
+ 323 0114 DA23     		movs	r3, #218
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 324              		.loc 3 45 30 view .LVU99
+ 325 0116 07AA     		add	r2, sp, #28
+ 326 0118 CDF800A0 		str	r10, [sp]
+ 327 011c 2846     		mov	r0, r5
+ 328 011e 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 329              		.loc 3 44 36 view .LVU100
+ 330 0122 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 331              		.loc 3 45 9 is_stmt 1 view .LVU101
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 332              		.loc 3 45 30 is_stmt 0 view .LVU102
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 14
+
+
+ 333 0126 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 334              		.loc 3 44 17 view .LVU103
+ 335 0128 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 336              		.loc 3 45 30 view .LVU104
+ 337 012c FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 338              	.LVL13:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 339              		.loc 3 45 30 view .LVU105
+ 340              	.LBE145:
+ 341              	.LBE144:
+ 342              	.LBB146:
+ 343              	.LBI146:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 344              		.loc 3 42 10 is_stmt 1 view .LVU106
+ 345              	.LBB147:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 346              		.loc 3 44 9 view .LVU107
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 347              		.loc 3 44 36 is_stmt 0 view .LVU108
+ 348 0130 1223     		movs	r3, #18
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 349              		.loc 3 45 30 view .LVU109
+ 350 0132 07AA     		add	r2, sp, #28
+ 351 0134 CDF800A0 		str	r10, [sp]
+ 352 0138 2846     		mov	r0, r5
+ 353 013a 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 354              		.loc 3 44 36 view .LVU110
+ 355 013e 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 356              		.loc 3 45 9 is_stmt 1 view .LVU111
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 357              		.loc 3 45 30 is_stmt 0 view .LVU112
+ 358 0142 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 359              		.loc 3 44 17 view .LVU113
+ 360 0144 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 361              		.loc 3 45 30 view .LVU114
+ 362 0148 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 363              	.LVL14:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 364              		.loc 3 45 30 view .LVU115
+ 365              	.LBE147:
+ 366              	.LBE146:
+ 367              	.LBB148:
+ 368              	.LBI148:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 369              		.loc 3 42 10 is_stmt 1 view .LVU116
+ 370              	.LBB149:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 371              		.loc 3 44 9 view .LVU117
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 372              		.loc 3 44 36 is_stmt 0 view .LVU118
+ 373 014c D323     		movs	r3, #211
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 15
+
+
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 374              		.loc 3 45 30 view .LVU119
+ 375 014e 07AA     		add	r2, sp, #28
+ 376 0150 CDF800A0 		str	r10, [sp]
+ 377 0154 2846     		mov	r0, r5
+ 378 0156 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 379              		.loc 3 44 36 view .LVU120
+ 380 015a 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 381              		.loc 3 45 9 is_stmt 1 view .LVU121
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 382              		.loc 3 45 30 is_stmt 0 view .LVU122
+ 383 015e 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 384              		.loc 3 44 17 view .LVU123
+ 385 0160 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 386              		.loc 3 45 30 view .LVU124
+ 387 0164 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 388              	.LVL15:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 389              		.loc 3 45 30 view .LVU125
+ 390              	.LBE149:
+ 391              	.LBE148:
+ 392              	.LBB150:
+ 393              	.LBI150:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 394              		.loc 3 42 10 is_stmt 1 view .LVU126
+ 395              	.LBB151:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 396              		.loc 3 44 9 view .LVU127
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 397              		.loc 3 45 30 is_stmt 0 view .LVU128
+ 398 0168 4B46     		mov	r3, r9
+ 399 016a 07AA     		add	r2, sp, #28
+ 400 016c CDF800A0 		str	r10, [sp]
+ 401 0170 2846     		mov	r0, r5
+ 402 0172 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 403              		.loc 3 44 17 view .LVU129
+ 404 0176 8DF81C80 		strb	r8, [sp, #28]
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 405              		.loc 3 44 36 view .LVU130
+ 406 017a 8DF81D80 		strb	r8, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 407              		.loc 3 45 9 is_stmt 1 view .LVU131
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 408              		.loc 3 45 30 is_stmt 0 view .LVU132
+ 409 017e FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 410              	.LVL16:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 411              		.loc 3 45 30 view .LVU133
+ 412              	.LBE151:
+ 413              	.LBE150:
+ 414              	.LBB152:
+ 415              	.LBI152:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 16
+
+
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 416              		.loc 3 42 10 is_stmt 1 view .LVU134
+ 417              	.LBB153:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 418              		.loc 3 44 9 view .LVU135
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 419              		.loc 3 44 36 is_stmt 0 view .LVU136
+ 420 0182 4023     		movs	r3, #64
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 421              		.loc 3 45 30 view .LVU137
+ 422 0184 07AA     		add	r2, sp, #28
+ 423 0186 CDF800A0 		str	r10, [sp]
+ 424 018a 2846     		mov	r0, r5
+ 425 018c 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 426              		.loc 3 44 36 view .LVU138
+ 427 0190 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 428              		.loc 3 45 9 is_stmt 1 view .LVU139
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 429              		.loc 3 45 30 is_stmt 0 view .LVU140
+ 430 0194 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 431              		.loc 3 44 17 view .LVU141
+ 432 0196 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 433              		.loc 3 45 30 view .LVU142
+ 434 019a FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 435              	.LVL17:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 436              		.loc 3 45 30 view .LVU143
+ 437              	.LBE153:
+ 438              	.LBE152:
+ 439              	.LBB154:
+ 440              	.LBI154:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 441              		.loc 3 42 10 is_stmt 1 view .LVU144
+ 442              	.LBB155:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 443              		.loc 3 44 9 view .LVU145
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 444              		.loc 3 44 36 is_stmt 0 view .LVU146
+ 445 019e A623     		movs	r3, #166
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 446              		.loc 3 45 30 view .LVU147
+ 447 01a0 07AA     		add	r2, sp, #28
+ 448 01a2 CDF800A0 		str	r10, [sp]
+ 449 01a6 2846     		mov	r0, r5
+ 450 01a8 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 451              		.loc 3 44 36 view .LVU148
+ 452 01ac 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 453              		.loc 3 45 9 is_stmt 1 view .LVU149
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 454              		.loc 3 45 30 is_stmt 0 view .LVU150
+ 455 01b0 4B46     		mov	r3, r9
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 17
+
+
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 456              		.loc 3 44 17 view .LVU151
+ 457 01b2 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 458              		.loc 3 45 30 view .LVU152
+ 459 01b6 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 460              	.LVL18:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 461              		.loc 3 45 30 view .LVU153
+ 462              	.LBE155:
+ 463              	.LBE154:
+ 464              	.LBB156:
+ 465              	.LBI156:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 466              		.loc 3 42 10 is_stmt 1 view .LVU154
+ 467              	.LBB157:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 468              		.loc 3 44 9 view .LVU155
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 469              		.loc 3 44 36 is_stmt 0 view .LVU156
+ 470 01ba A423     		movs	r3, #164
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 471              		.loc 3 45 30 view .LVU157
+ 472 01bc 07AA     		add	r2, sp, #28
+ 473 01be CDF800A0 		str	r10, [sp]
+ 474 01c2 2846     		mov	r0, r5
+ 475 01c4 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 476              		.loc 3 44 36 view .LVU158
+ 477 01c8 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 478              		.loc 3 45 9 is_stmt 1 view .LVU159
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 479              		.loc 3 45 30 is_stmt 0 view .LVU160
+ 480 01cc 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 481              		.loc 3 44 17 view .LVU161
+ 482 01ce 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 483              		.loc 3 45 30 view .LVU162
+ 484 01d2 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 485              	.LVL19:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 486              		.loc 3 45 30 view .LVU163
+ 487              	.LBE157:
+ 488              	.LBE156:
+ 489              	.LBB158:
+ 490              	.LBI158:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 491              		.loc 3 42 10 is_stmt 1 view .LVU164
+ 492              	.LBB159:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 493              		.loc 3 44 9 view .LVU165
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 494              		.loc 3 44 36 is_stmt 0 view .LVU166
+ 495 01d6 8D23     		movs	r3, #141
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 18
+
+
+ 496              		.loc 3 45 30 view .LVU167
+ 497 01d8 07AA     		add	r2, sp, #28
+ 498 01da CDF800A0 		str	r10, [sp]
+ 499 01de 2846     		mov	r0, r5
+ 500 01e0 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 501              		.loc 3 44 36 view .LVU168
+ 502 01e4 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 503              		.loc 3 45 9 is_stmt 1 view .LVU169
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 504              		.loc 3 45 30 is_stmt 0 view .LVU170
+ 505 01e8 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 506              		.loc 3 44 17 view .LVU171
+ 507 01ea 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 508              		.loc 3 45 30 view .LVU172
+ 509 01ee FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 510              	.LVL20:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 511              		.loc 3 45 30 view .LVU173
+ 512              	.LBE159:
+ 513              	.LBE158:
+ 514              	.LBB160:
+ 515              	.LBI160:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 516              		.loc 3 42 10 is_stmt 1 view .LVU174
+ 517              	.LBB161:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 518              		.loc 3 44 9 view .LVU175
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 519              		.loc 3 44 36 is_stmt 0 view .LVU176
+ 520 01f2 1423     		movs	r3, #20
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 521              		.loc 3 45 30 view .LVU177
+ 522 01f4 07AA     		add	r2, sp, #28
+ 523 01f6 CDF800A0 		str	r10, [sp]
+ 524 01fa 2846     		mov	r0, r5
+ 525 01fc 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 526              		.loc 3 44 36 view .LVU178
+ 527 0200 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 528              		.loc 3 45 9 is_stmt 1 view .LVU179
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 529              		.loc 3 45 30 is_stmt 0 view .LVU180
+ 530 0204 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 531              		.loc 3 44 17 view .LVU181
+ 532 0206 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 533              		.loc 3 45 30 view .LVU182
+ 534 020a FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 535              	.LVL21:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 536              		.loc 3 45 30 view .LVU183
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 19
+
+
+ 537              	.LBE161:
+ 538              	.LBE160:
+ 539              	.LBB162:
+ 540              	.LBI162:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 541              		.loc 3 42 10 is_stmt 1 view .LVU184
+ 542              	.LBB163:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 543              		.loc 3 44 9 view .LVU185
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 544              		.loc 3 44 36 is_stmt 0 view .LVU186
+ 545 020e A123     		movs	r3, #161
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 546              		.loc 3 45 30 view .LVU187
+ 547 0210 07AA     		add	r2, sp, #28
+ 548 0212 CDF800A0 		str	r10, [sp]
+ 549 0216 2846     		mov	r0, r5
+ 550 0218 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 551              		.loc 3 44 36 view .LVU188
+ 552 021c 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 553              		.loc 3 45 9 is_stmt 1 view .LVU189
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 554              		.loc 3 45 30 is_stmt 0 view .LVU190
+ 555 0220 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 556              		.loc 3 44 17 view .LVU191
+ 557 0222 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 558              		.loc 3 45 30 view .LVU192
+ 559 0226 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 560              	.LVL22:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 561              		.loc 3 45 30 view .LVU193
+ 562              	.LBE163:
+ 563              	.LBE162:
+ 564              	.LBB164:
+ 565              	.LBI164:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 566              		.loc 3 42 10 is_stmt 1 view .LVU194
+ 567              	.LBB165:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 568              		.loc 3 44 9 view .LVU195
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 569              		.loc 3 44 36 is_stmt 0 view .LVU196
+ 570 022a C823     		movs	r3, #200
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 571              		.loc 3 45 30 view .LVU197
+ 572 022c 07AA     		add	r2, sp, #28
+ 573 022e CDF800A0 		str	r10, [sp]
+ 574 0232 2846     		mov	r0, r5
+ 575 0234 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 576              		.loc 3 44 36 view .LVU198
+ 577 0238 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 20
+
+
+ 578              		.loc 3 45 9 is_stmt 1 view .LVU199
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 579              		.loc 3 45 30 is_stmt 0 view .LVU200
+ 580 023c 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 581              		.loc 3 44 17 view .LVU201
+ 582 023e 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 583              		.loc 3 45 30 view .LVU202
+ 584 0242 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 585              	.LVL23:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 586              		.loc 3 45 30 view .LVU203
+ 587              	.LBE165:
+ 588              	.LBE164:
+ 589              	.LBB166:
+ 590              	.LBI166:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 591              		.loc 3 42 10 is_stmt 1 view .LVU204
+ 592              	.LBB167:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 593              		.loc 3 44 9 view .LVU205
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 594              		.loc 3 44 36 is_stmt 0 view .LVU206
+ 595 0246 8123     		movs	r3, #129
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 596              		.loc 3 45 30 view .LVU207
+ 597 0248 07AA     		add	r2, sp, #28
+ 598 024a CDF800A0 		str	r10, [sp]
+ 599 024e 2846     		mov	r0, r5
+ 600 0250 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 601              		.loc 3 44 36 view .LVU208
+ 602 0254 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 603              		.loc 3 45 9 is_stmt 1 view .LVU209
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 604              		.loc 3 45 30 is_stmt 0 view .LVU210
+ 605 0258 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 606              		.loc 3 44 17 view .LVU211
+ 607 025a 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 608              		.loc 3 45 30 view .LVU212
+ 609 025e FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 610              	.LVL24:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 611              		.loc 3 45 30 view .LVU213
+ 612              	.LBE167:
+ 613              	.LBE166:
+ 614              	.LBB168:
+ 615              	.LBI168:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 616              		.loc 3 42 10 is_stmt 1 view .LVU214
+ 617              	.LBB169:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 618              		.loc 3 44 9 view .LVU215
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 21
+
+
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 619              		.loc 3 44 36 is_stmt 0 view .LVU216
+ 620 0262 8F23     		movs	r3, #143
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 621              		.loc 3 45 30 view .LVU217
+ 622 0264 07AA     		add	r2, sp, #28
+ 623 0266 CDF800A0 		str	r10, [sp]
+ 624 026a 2846     		mov	r0, r5
+ 625 026c 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 626              		.loc 3 44 36 view .LVU218
+ 627 0270 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 628              		.loc 3 45 9 is_stmt 1 view .LVU219
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 629              		.loc 3 45 30 is_stmt 0 view .LVU220
+ 630 0274 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 631              		.loc 3 44 17 view .LVU221
+ 632 0276 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 633              		.loc 3 45 30 view .LVU222
+ 634 027a FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 635              	.LVL25:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 636              		.loc 3 45 30 view .LVU223
+ 637              	.LBE169:
+ 638              	.LBE168:
+ 639              	.LBB170:
+ 640              	.LBI170:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 641              		.loc 3 42 10 is_stmt 1 view .LVU224
+ 642              	.LBB171:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 643              		.loc 3 44 9 view .LVU225
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 644              		.loc 3 44 36 is_stmt 0 view .LVU226
+ 645 027e D923     		movs	r3, #217
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 646              		.loc 3 45 30 view .LVU227
+ 647 0280 07AA     		add	r2, sp, #28
+ 648 0282 CDF800A0 		str	r10, [sp]
+ 649 0286 2846     		mov	r0, r5
+ 650 0288 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 651              		.loc 3 44 36 view .LVU228
+ 652 028c 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 653              		.loc 3 45 9 is_stmt 1 view .LVU229
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 654              		.loc 3 45 30 is_stmt 0 view .LVU230
+ 655 0290 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 656              		.loc 3 44 17 view .LVU231
+ 657 0292 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 658              		.loc 3 45 30 view .LVU232
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 22
+
+
+ 659 0296 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 660              	.LVL26:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 661              		.loc 3 45 30 view .LVU233
+ 662              	.LBE171:
+ 663              	.LBE170:
+ 664              	.LBB172:
+ 665              	.LBI172:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 666              		.loc 3 42 10 is_stmt 1 view .LVU234
+ 667              	.LBB173:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 668              		.loc 3 44 9 view .LVU235
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 669              		.loc 3 44 36 is_stmt 0 view .LVU236
+ 670 029a 2523     		movs	r3, #37
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 671              		.loc 3 45 30 view .LVU237
+ 672 029c 07AA     		add	r2, sp, #28
+ 673 029e CDF800A0 		str	r10, [sp]
+ 674 02a2 2846     		mov	r0, r5
+ 675 02a4 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 676              		.loc 3 44 36 view .LVU238
+ 677 02a8 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 678              		.loc 3 45 9 is_stmt 1 view .LVU239
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 679              		.loc 3 45 30 is_stmt 0 view .LVU240
+ 680 02ac 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 681              		.loc 3 44 17 view .LVU241
+ 682 02ae 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 683              		.loc 3 45 30 view .LVU242
+ 684 02b2 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 685              	.LVL27:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 686              		.loc 3 45 30 view .LVU243
+ 687              	.LBE173:
+ 688              	.LBE172:
+ 689              	.LBB174:
+ 690              	.LBI174:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 691              		.loc 3 42 10 is_stmt 1 view .LVU244
+ 692              	.LBB175:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 693              		.loc 3 44 9 view .LVU245
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 694              		.loc 3 44 36 is_stmt 0 view .LVU246
+ 695 02b6 DB23     		movs	r3, #219
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 696              		.loc 3 45 30 view .LVU247
+ 697 02b8 07AA     		add	r2, sp, #28
+ 698 02ba CDF800A0 		str	r10, [sp]
+ 699 02be 2846     		mov	r0, r5
+ 700 02c0 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 23
+
+
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 701              		.loc 3 44 36 view .LVU248
+ 702 02c4 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 703              		.loc 3 45 9 is_stmt 1 view .LVU249
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 704              		.loc 3 45 30 is_stmt 0 view .LVU250
+ 705 02c8 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 706              		.loc 3 44 17 view .LVU251
+ 707 02ca 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 708              		.loc 3 45 30 view .LVU252
+ 709 02ce FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 710              	.LVL28:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 711              		.loc 3 45 30 view .LVU253
+ 712              	.LBE175:
+ 713              	.LBE174:
+ 714              	.LBB176:
+ 715              	.LBI176:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 716              		.loc 3 42 10 is_stmt 1 view .LVU254
+ 717              	.LBB177:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 718              		.loc 3 44 9 view .LVU255
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 719              		.loc 3 44 36 is_stmt 0 view .LVU256
+ 720 02d2 3423     		movs	r3, #52
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 721              		.loc 3 45 30 view .LVU257
+ 722 02d4 07AA     		add	r2, sp, #28
+ 723 02d6 CDF800A0 		str	r10, [sp]
+ 724 02da 2846     		mov	r0, r5
+ 725 02dc 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 726              		.loc 3 44 36 view .LVU258
+ 727 02e0 8DF81D30 		strb	r3, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 728              		.loc 3 45 9 is_stmt 1 view .LVU259
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 729              		.loc 3 45 30 is_stmt 0 view .LVU260
+ 730 02e4 4B46     		mov	r3, r9
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 731              		.loc 3 44 17 view .LVU261
+ 732 02e6 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 733              		.loc 3 45 30 view .LVU262
+ 734 02ea FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 735              	.LVL29:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 736              		.loc 3 45 30 view .LVU263
+ 737              	.LBE177:
+ 738              	.LBE176:
+ 739              	.LBB178:
+ 740              	.LBI178:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 24
+
+
+ 741              		.loc 3 42 10 is_stmt 1 view .LVU264
+ 742              	.LBB179:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 743              		.loc 3 44 9 view .LVU265
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 744              		.loc 3 44 36 is_stmt 0 view .LVU266
+ 745 02ee AF21     		movs	r1, #175
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 746              		.loc 3 45 30 view .LVU267
+ 747 02f0 CDF800A0 		str	r10, [sp]
+ 748 02f4 4B46     		mov	r3, r9
+ 749 02f6 07AA     		add	r2, sp, #28
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 750              		.loc 3 44 36 view .LVU268
+ 751 02f8 8DF81D10 		strb	r1, [sp, #29]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 752              		.loc 3 45 9 is_stmt 1 view .LVU269
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 753              		.loc 3 45 30 is_stmt 0 view .LVU270
+ 754 02fc 2846     		mov	r0, r5
+ 755 02fe 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 756              		.loc 3 44 17 view .LVU271
+ 757 0302 8DF81C80 		strb	r8, [sp, #28]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 758              		.loc 3 45 30 view .LVU272
+ 759 0306 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 760              	.LVL30:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 761              		.loc 3 45 30 view .LVU273
+ 762              	.LBE179:
+ 763              	.LBE178:
+ 764              	.LBE182:
+ 765              	.LBE184:
+ 766              	.LBE186:
+  20:patch_bay.cpp ****     display.Update();
+ 767              		.loc 1 20 5 is_stmt 1 view .LVU274
+ 768              	.LBB187:
+ 769              	.LBI187:
+  26:../../libDaisy//src/hid/disp/oled_display.h **** 
+  27:../../libDaisy//src/hid/disp/oled_display.h ****     uint16_t Height() const override { return driver_.Height(); }
+  28:../../libDaisy//src/hid/disp/oled_display.h ****     uint16_t Width() const override { return driver_.Width(); }
+  29:../../libDaisy//src/hid/disp/oled_display.h **** 
+  30:../../libDaisy//src/hid/disp/oled_display.h ****     /** 
+  31:../../libDaisy//src/hid/disp/oled_display.h ****     Fills the entire display with either on/off.
+  32:../../libDaisy//src/hid/disp/oled_display.h ****     \param on Sets on or off.
+  33:../../libDaisy//src/hid/disp/oled_display.h ****     */
+  34:../../libDaisy//src/hid/disp/oled_display.h ****     void Fill(bool on) override { driver_.Fill(on); }
+  35:../../libDaisy//src/hid/disp/oled_display.h **** 
+  36:../../libDaisy//src/hid/disp/oled_display.h ****     /**
+  37:../../libDaisy//src/hid/disp/oled_display.h ****     Sets the pixel at the specified coordinate to be on/off.
+  38:../../libDaisy//src/hid/disp/oled_display.h ****     \param x   x Coordinate
+  39:../../libDaisy//src/hid/disp/oled_display.h ****     \param y   y coordinate
+  40:../../libDaisy//src/hid/disp/oled_display.h ****     \param on  on or off
+  41:../../libDaisy//src/hid/disp/oled_display.h ****     */
+  42:../../libDaisy//src/hid/disp/oled_display.h ****     void DrawPixel(uint_fast8_t x, uint_fast8_t y, bool on) override
+  43:../../libDaisy//src/hid/disp/oled_display.h ****     {
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 25
+
+
+  44:../../libDaisy//src/hid/disp/oled_display.h ****         driver_.DrawPixel(x, y, on);
+  45:../../libDaisy//src/hid/disp/oled_display.h ****     }
+  46:../../libDaisy//src/hid/disp/oled_display.h **** 
+  47:../../libDaisy//src/hid/disp/oled_display.h ****     /** 
+  48:../../libDaisy//src/hid/disp/oled_display.h ****     Writes the current display buffer to the OLED device using SPI or I2C depending on 
+  49:../../libDaisy//src/hid/disp/oled_display.h ****     how the object was initialized.
+  50:../../libDaisy//src/hid/disp/oled_display.h ****     */
+  51:../../libDaisy//src/hid/disp/oled_display.h ****     void Update() override { driver_.Update(); }
+ 770              		.loc 2 51 10 view .LVU275
+ 771              	.LBB188:
+ 772              	.LBI188:
+ 254:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 255:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.Init(config.transport_config);
+ 256:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 257:../../libDaisy//src/dev/oled_ssd130x.h ****         // Init routine...
+ 258:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 259:../../libDaisy//src/dev/oled_ssd130x.h ****         // Display Off
+ 260:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xaE);
+ 261:../../libDaisy//src/dev/oled_ssd130x.h ****         // Dimension dependent commands...
+ 262:../../libDaisy//src/dev/oled_ssd130x.h ****         switch(height)
+ 263:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 264:../../libDaisy//src/dev/oled_ssd130x.h ****             case 16:
+ 265:../../libDaisy//src/dev/oled_ssd130x.h ****                 // Display Clock Divide Ratio
+ 266:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xD5);
+ 267:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x60);
+ 268:../../libDaisy//src/dev/oled_ssd130x.h ****                 // Multiplex Ratio
+ 269:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xA8);
+ 270:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x0F);
+ 271:../../libDaisy//src/dev/oled_ssd130x.h ****                 // COM Pins
+ 272:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
+ 273:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x02);
+ 274:../../libDaisy//src/dev/oled_ssd130x.h ****                 break;
+ 275:../../libDaisy//src/dev/oled_ssd130x.h ****             case 32:
+ 276:../../libDaisy//src/dev/oled_ssd130x.h ****                 // Display Clock Divide Ratio
+ 277:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xD5);
+ 278:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x80);
+ 279:../../libDaisy//src/dev/oled_ssd130x.h ****                 // Multiplex Ratio
+ 280:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xA8);
+ 281:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x1F);
+ 282:../../libDaisy//src/dev/oled_ssd130x.h ****                 // COM Pins
+ 283:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
+ 284:../../libDaisy//src/dev/oled_ssd130x.h ****                 if(width == 64)
+ 285:../../libDaisy//src/dev/oled_ssd130x.h ****                 {
+ 286:../../libDaisy//src/dev/oled_ssd130x.h ****                     transport_.SendCommand(0x12);
+ 287:../../libDaisy//src/dev/oled_ssd130x.h ****                 }
+ 288:../../libDaisy//src/dev/oled_ssd130x.h ****                 else
+ 289:../../libDaisy//src/dev/oled_ssd130x.h ****                 {
+ 290:../../libDaisy//src/dev/oled_ssd130x.h ****                     transport_.SendCommand(0x02);
+ 291:../../libDaisy//src/dev/oled_ssd130x.h ****                 }
+ 292:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 293:../../libDaisy//src/dev/oled_ssd130x.h ****                 break;
+ 294:../../libDaisy//src/dev/oled_ssd130x.h ****             case 48:
+ 295:../../libDaisy//src/dev/oled_ssd130x.h ****                 // Display Clock Divide Ratio
+ 296:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xD5);
+ 297:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x80);
+ 298:../../libDaisy//src/dev/oled_ssd130x.h ****                 // Multiplex Ratio
+ 299:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xA8);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 26
+
+
+ 300:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x2F);
+ 301:../../libDaisy//src/dev/oled_ssd130x.h ****                 // COM Pins
+ 302:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
+ 303:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x12);
+ 304:../../libDaisy//src/dev/oled_ssd130x.h ****                 break;
+ 305:../../libDaisy//src/dev/oled_ssd130x.h ****             default: // 128
+ 306:../../libDaisy//src/dev/oled_ssd130x.h ****                 // Display Clock Divide Ratio
+ 307:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xD5);
+ 308:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x80);
+ 309:../../libDaisy//src/dev/oled_ssd130x.h ****                 // Multiplex Ratio
+ 310:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xA8);
+ 311:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x3F);
+ 312:../../libDaisy//src/dev/oled_ssd130x.h ****                 // COM Pins
+ 313:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
+ 314:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x12);
+ 315:../../libDaisy//src/dev/oled_ssd130x.h ****                 break;
+ 316:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 317:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 318:../../libDaisy//src/dev/oled_ssd130x.h ****         // Display Offset
+ 319:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xD3);
+ 320:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x00);
+ 321:../../libDaisy//src/dev/oled_ssd130x.h ****         // Start Line Address
+ 322:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x40);
+ 323:../../libDaisy//src/dev/oled_ssd130x.h ****         // Normal Display
+ 324:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xA6);
+ 325:../../libDaisy//src/dev/oled_ssd130x.h ****         // All On Resume
+ 326:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xA4);
+ 327:../../libDaisy//src/dev/oled_ssd130x.h ****         // Charge Pump
+ 328:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x8D);
+ 329:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x14);
+ 330:../../libDaisy//src/dev/oled_ssd130x.h ****         // Set Segment Remap
+ 331:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xA1);
+ 332:../../libDaisy//src/dev/oled_ssd130x.h ****         // COM Output Scan Direction
+ 333:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xC8);
+ 334:../../libDaisy//src/dev/oled_ssd130x.h ****         // Contrast Control
+ 335:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x81);
+ 336:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x8F);
+ 337:../../libDaisy//src/dev/oled_ssd130x.h ****         // Pre Charge
+ 338:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xD9);
+ 339:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x25);
+ 340:../../libDaisy//src/dev/oled_ssd130x.h ****         // VCOM Detect
+ 341:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xDB);
+ 342:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x34);
+ 343:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 344:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 345:../../libDaisy//src/dev/oled_ssd130x.h ****         // Display On
+ 346:../../libDaisy//src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xAF); //--turn on oled panel
+ 347:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 348:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 349:../../libDaisy//src/dev/oled_ssd130x.h ****     size_t Width() const { return width; };
+ 350:../../libDaisy//src/dev/oled_ssd130x.h ****     size_t Height() const { return height; };
+ 351:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 352:../../libDaisy//src/dev/oled_ssd130x.h ****     void DrawPixel(uint_fast8_t x, uint_fast8_t y, bool on)
+ 353:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 354:../../libDaisy//src/dev/oled_ssd130x.h ****         if(x >= width || y >= height)
+ 355:../../libDaisy//src/dev/oled_ssd130x.h ****             return;
+ 356:../../libDaisy//src/dev/oled_ssd130x.h ****         if(on)
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 27
+
+
+ 357:../../libDaisy//src/dev/oled_ssd130x.h ****             buffer_[x + (y / 8) * width] |= (1 << (y % 8));
+ 358:../../libDaisy//src/dev/oled_ssd130x.h ****         else
+ 359:../../libDaisy//src/dev/oled_ssd130x.h ****             buffer_[x + (y / 8) * width] &= ~(1 << (y % 8));
+ 360:../../libDaisy//src/dev/oled_ssd130x.h ****     }
+ 361:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 362:../../libDaisy//src/dev/oled_ssd130x.h ****     void Fill(bool on)
+ 363:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 364:../../libDaisy//src/dev/oled_ssd130x.h ****         for(size_t i = 0; i < sizeof(buffer_); i++)
+ 365:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 366:../../libDaisy//src/dev/oled_ssd130x.h ****             buffer_[i] = on ? 0xff : 0x00;
+ 367:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 368:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 369:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 370:../../libDaisy//src/dev/oled_ssd130x.h ****     /**
+ 371:../../libDaisy//src/dev/oled_ssd130x.h ****      * Update the display 
+ 372:../../libDaisy//src/dev/oled_ssd130x.h ****     */
+ 373:../../libDaisy//src/dev/oled_ssd130x.h ****     void Update()
+ 773              		.loc 3 373 10 view .LVU276
+ 774              	.LBB189:
+ 374:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 375:../../libDaisy//src/dev/oled_ssd130x.h ****         uint8_t i;
+ 376:../../libDaisy//src/dev/oled_ssd130x.h ****         uint8_t high_column_addr;
+ 377:../../libDaisy//src/dev/oled_ssd130x.h ****         switch(height)
+ 378:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 379:../../libDaisy//src/dev/oled_ssd130x.h ****             case 32: high_column_addr = 0x12; break;
+ 380:../../libDaisy//src/dev/oled_ssd130x.h **** 
+ 381:../../libDaisy//src/dev/oled_ssd130x.h ****             default: high_column_addr = 0x10; break;
+ 382:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 383:../../libDaisy//src/dev/oled_ssd130x.h ****         for(i = 0; i < (height / 8); i++)
+ 775              		.loc 3 383 22 view .LVU277
+ 776              	.LBE189:
+ 777              	.LBE188:
+ 778              	.LBE187:
+ 779              	.LBB201:
+ 780              	.LBB185:
+ 781              	.LBB183:
+ 782              	.LBB181:
+ 783              	.LBB180:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 784              		.loc 3 45 30 is_stmt 0 view .LVU278
+ 785 030a 039E     		ldr	r6, [sp, #12]
+ 786              	.LVL31:
+ 787              	.L3:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 788              		.loc 3 45 30 view .LVU279
+ 789              	.LBE180:
+ 790              	.LBE181:
+ 791              	.LBE183:
+ 792              	.LBE185:
+ 793              	.LBE201:
+ 794              	.LBB202:
+ 795              	.LBB200:
+ 796              	.LBB199:
+ 797              	.LBB190:
+ 798              	.LBI190:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 799              		.loc 3 42 10 is_stmt 1 view .LVU280
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 28
+
+
+ 800              	.LBB191:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 801              		.loc 3 44 9 view .LVU281
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 802              		.loc 3 45 30 is_stmt 0 view .LVU282
+ 803 030c 4FF47A7A 		mov	r10, #1000
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 804              		.loc 3 44 17 view .LVU283
+ 805 0310 4FF00009 		mov	r9, #0
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 806              		.loc 3 45 30 view .LVU284
+ 807 0314 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+ 808 0318 0223     		movs	r3, #2
+ 809 031a 14AA     		add	r2, sp, #80
+ 810 031c 2846     		mov	r0, r5
+ 811 031e CDF800A0 		str	r10, [sp]
+ 812 0322 A6F18008 		sub	r8, r6, #128
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 813              		.loc 3 44 17 view .LVU285
+ 814 0326 8DF85090 		strb	r9, [sp, #80]
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 815              		.loc 3 44 36 view .LVU286
+ 816 032a 8DF85170 		strb	r7, [sp, #81]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 817              		.loc 3 45 9 is_stmt 1 view .LVU287
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 818              		.loc 3 45 30 is_stmt 0 view .LVU288
+ 819 032e FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 820              	.LVL32:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 821              		.loc 3 45 30 view .LVU289
+ 822              	.LBE191:
+ 823              	.LBE190:
+ 824              	.LBB192:
+ 825              	.LBI192:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 826              		.loc 3 42 10 is_stmt 1 view .LVU290
+ 827              	.LBB193:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 828              		.loc 3 44 9 view .LVU291
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 829              		.loc 3 45 30 is_stmt 0 view .LVU292
+ 830 0332 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+ 831 0336 0223     		movs	r3, #2
+ 832 0338 14AA     		add	r2, sp, #80
+ 833 033a 2846     		mov	r0, r5
+ 834 033c CDF800A0 		str	r10, [sp]
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 835              		.loc 3 44 17 view .LVU293
+ 836 0340 8DF85090 		strb	r9, [sp, #80]
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 837              		.loc 3 44 36 view .LVU294
+ 838 0344 8DF85190 		strb	r9, [sp, #81]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 839              		.loc 3 45 9 is_stmt 1 view .LVU295
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 840              		.loc 3 45 30 is_stmt 0 view .LVU296
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 29
+
+
+ 841 0348 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 842              	.LVL33:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 843              		.loc 3 45 30 view .LVU297
+ 844              	.LBE193:
+ 845              	.LBE192:
+ 846              	.LBB194:
+ 847              	.LBI194:
+  42:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 848              		.loc 3 42 10 is_stmt 1 view .LVU298
+ 849              	.LBB195:
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 850              		.loc 3 44 9 view .LVU299
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 851              		.loc 3 44 36 is_stmt 0 view .LVU300
+ 852 034c 4FF0100C 		mov	ip, #16
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 853              		.loc 3 45 30 view .LVU301
+ 854 0350 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+ 855 0354 0223     		movs	r3, #2
+ 856 0356 14AA     		add	r2, sp, #80
+ 857 0358 2846     		mov	r0, r5
+ 858 035a CDF800A0 		str	r10, [sp]
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 859              		.loc 3 44 17 view .LVU302
+ 860 035e 8DF85090 		strb	r9, [sp, #80]
+  44:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 861              		.loc 3 44 36 view .LVU303
+ 862 0362 8DF851C0 		strb	ip, [sp, #81]
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 863              		.loc 3 45 9 is_stmt 1 view .LVU304
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 864              		.loc 3 45 30 is_stmt 0 view .LVU305
+ 865 0366 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 866              	.LVL34:
+ 867 036a 03E0     		b	.L9
+ 868              	.L10:
+ 869              		.align	2
+ 870              	.L8:
+ 871 036c 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2B8E
+ 872 0370 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2B7E
+ 873              	.L9:
+ 874              	.LVL35:
+  45:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 875              		.loc 3 45 30 view .LVU306
+ 876              	.LBE195:
+ 877              	.LBE194:
+ 878              	.LBB196:
+ 879              	.LBI196:
+  48:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 880              		.loc 3 48 10 is_stmt 1 view .LVU307
+ 881              	.LBB197:
+  50:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 882              		.loc 3 50 29 view .LVU308
+ 883              	.L2:
+ 884              	.LBB198:
+  52:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 30
+
+
+ 885              		.loc 3 52 13 view .LVU309
+  53:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 886              		.loc 3 53 34 is_stmt 0 view .LVU310
+ 887 0374 4FF47A7E 		mov	lr, #1000
+  52:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 888              		.loc 3 52 21 view .LVU311
+ 889 0378 4020     		movs	r0, #64
+  52:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 890              		.loc 3 52 44 view .LVU312
+ 891 037a 18F801CF 		ldrb	ip, [r8, #1]!	@ zero_extendqisi2
+ 892              	.LVL36:
+  53:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 893              		.loc 3 53 34 view .LVU313
+ 894 037e 0223     		movs	r3, #2
+ 895 0380 94F85410 		ldrb	r1, [r4, #84]	@ zero_extendqisi2
+ 896 0384 14AA     		add	r2, sp, #80
+  52:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 897              		.loc 3 52 21 view .LVU314
+ 898 0386 8DF85000 		strb	r0, [sp, #80]
+  53:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 899              		.loc 3 53 34 view .LVU315
+ 900 038a 2846     		mov	r0, r5
+ 901 038c CDF800E0 		str	lr, [sp]
+  52:../../libDaisy//src/dev/oled_ssd130x.h ****             i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+ 902              		.loc 3 52 44 view .LVU316
+ 903 0390 8DF851C0 		strb	ip, [sp, #81]
+  53:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 904              		.loc 3 53 13 is_stmt 1 view .LVU317
+  53:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 905              		.loc 3 53 34 is_stmt 0 view .LVU318
+ 906 0394 FFF7FEFF 		bl	_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+ 907              	.LVL37:
+ 908              	.LBE198:
+  50:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 909              		.loc 3 50 9 is_stmt 1 view .LVU319
+  50:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 910              		.loc 3 50 29 view .LVU320
+ 911 0398 4645     		cmp	r6, r8
+ 912 039a EBD1     		bne	.L2
+ 913              	.LVL38:
+  50:../../libDaisy//src/dev/oled_ssd130x.h ****         {
+ 914              		.loc 3 50 29 is_stmt 0 view .LVU321
+ 915              	.LBE197:
+ 916              	.LBE196:
+ 917              		.loc 3 383 9 is_stmt 1 view .LVU322
+ 918              		.loc 3 383 22 view .LVU323
+ 919 039c 8036     		adds	r6, r6, #128
+ 920 039e 0137     		adds	r7, r7, #1
+ 921              	.LVL39:
+ 922              		.loc 3 383 22 is_stmt 0 view .LVU324
+ 923 03a0 B345     		cmp	fp, r6
+ 924 03a2 FFB2     		uxtb	r7, r7
+ 925 03a4 B2D1     		bne	.L3
+ 926              	.LBE199:
+ 927              	.LBE200:
+ 928              	.LBE202:
+  21:patch_bay.cpp **** };
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 31
+
+
+ 929              		.loc 1 21 1 view .LVU325
+ 930 03a6 1BB0     		add	sp, sp, #108
+ 931              		.cfi_def_cfa_offset 36
+ 932              		@ sp needed
+ 933 03a8 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 934              		.loc 1 21 1 view .LVU326
+ 935              		.cfi_endproc
+ 936              	.LFE2566:
+ 938              		.section	.text._ZN5daisy9Patch_Bay11InitButtonsEv,"ax",%progbits
+ 939              		.align	1
+ 940              		.p2align 2,,3
+ 941              		.global	_ZN5daisy9Patch_Bay11InitButtonsEv
+ 942              		.syntax unified
+ 943              		.thumb
+ 944              		.thumb_func
+ 945              		.fpu fpv5-d16
+ 947              	_ZN5daisy9Patch_Bay11InitButtonsEv:
+ 948              	.LVL40:
+ 949              	.LFB2573:
+  22:patch_bay.cpp **** 
+  23:patch_bay.cpp **** void Patch_Bay::InitButtons()
+  24:patch_bay.cpp **** {
+ 950              		.loc 1 24 1 is_stmt 1 view -0
+ 951              		.cfi_startproc
+ 952              		@ args = 0, pretend = 0, frame = 0
+ 953              		@ frame_needed = 0, uses_anonymous_args = 0
+ 954              		@ link register save eliminated.
+  25:patch_bay.cpp ****     shift.Init(DaisyPatchSM::D10);
+ 955              		.loc 1 25 5 view .LVU328
+ 956              		.loc 1 25 15 is_stmt 0 view .LVU329
+ 957 0000 044B     		ldr	r3, .L12
+ 958 0002 1030     		adds	r0, r0, #16
+ 959              	.LVL41:
+ 960              		.loc 1 25 15 view .LVU330
+ 961 0004 9FED040A 		vldr.32	s0, .L12+4
+ 962 0008 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 963 000a 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 964 000c 42EA0121 		orr	r1, r2, r1, lsl #8
+ 965 0010 FFF7FEBF 		b	_ZN5daisy6Switch4InitE12dsy_gpio_pinf
+ 966              	.LVL42:
+ 967              	.L13:
+ 968              		.loc 1 25 15 view .LVU331
+ 969              		.align	2
+ 970              	.L12:
+ 971 0014 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM3D10E
+ 972 0018 00000000 		.word	0
+ 973              		.cfi_endproc
+ 974              	.LFE2573:
+ 976              		.section	.text._ZN5daisy9Patch_Bay11InitEncoderEv,"ax",%progbits
+ 977              		.align	1
+ 978              		.p2align 2,,3
+ 979              		.global	_ZN5daisy9Patch_Bay11InitEncoderEv
+ 980              		.syntax unified
+ 981              		.thumb
+ 982              		.thumb_func
+ 983              		.fpu fpv5-d16
+ 985              	_ZN5daisy9Patch_Bay11InitEncoderEv:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 32
+
+
+ 986              	.LVL43:
+ 987              	.LFB2574:
+  26:patch_bay.cpp **** };
+  27:patch_bay.cpp **** 
+  28:patch_bay.cpp **** void Patch_Bay::InitEncoder()
+  29:patch_bay.cpp **** {
+ 988              		.loc 1 29 1 is_stmt 1 view -0
+ 989              		.cfi_startproc
+ 990              		@ args = 0, pretend = 0, frame = 0
+ 991              		@ frame_needed = 0, uses_anonymous_args = 0
+ 992              		@ link register save eliminated.
+  30:patch_bay.cpp ****     enc.Init(DaisyPatchSM::D1,DaisyPatchSM::A9,DaisyPatchSM::A8);
+ 993              		.loc 1 30 5 view .LVU333
+ 994              		.loc 1 30 13 is_stmt 0 view .LVU334
+ 995 0000 0B4A     		ldr	r2, .L16
+ 996 0002 2030     		adds	r0, r0, #32
+ 997              	.LVL44:
+ 998              		.loc 1 30 13 view .LVU335
+ 999 0004 0B49     		ldr	r1, .L16+4
+ 1000 0006 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1001 0008 5278     		ldrb	r2, [r2, #1]	@ zero_extendqisi2
+ 1002 000a 9FED0B0A 		vldr.32	s0, .L16+8
+ 1003 000e 43EA0223 		orr	r3, r3, r2, lsl #8
+ 1004 0012 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 1005 0014 4978     		ldrb	r1, [r1, #1]	@ zero_extendqisi2
+  29:patch_bay.cpp ****     enc.Init(DaisyPatchSM::D1,DaisyPatchSM::A9,DaisyPatchSM::A8);
+ 1006              		.loc 1 29 1 view .LVU336
+ 1007 0016 10B4     		push	{r4}
+ 1008              		.cfi_def_cfa_offset 4
+ 1009              		.cfi_offset 4, -4
+ 1010              		.loc 1 30 13 view .LVU337
+ 1011 0018 084C     		ldr	r4, .L16+12
+ 1012 001a 42EA0122 		orr	r2, r2, r1, lsl #8
+ 1013 001e 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+ 1014 0020 6478     		ldrb	r4, [r4, #1]	@ zero_extendqisi2
+ 1015 0022 41EA0421 		orr	r1, r1, r4, lsl #8
+  31:patch_bay.cpp **** };
+ 1016              		.loc 1 31 1 view .LVU338
+ 1017 0026 5DF8044B 		ldr	r4, [sp], #4
+ 1018              		.cfi_restore 4
+ 1019              		.cfi_def_cfa_offset 0
+  30:patch_bay.cpp ****     enc.Init(DaisyPatchSM::D1,DaisyPatchSM::A9,DaisyPatchSM::A8);
+ 1020              		.loc 1 30 13 view .LVU339
+ 1021 002a FFF7FEBF 		b	_ZN5daisy7Encoder4InitE12dsy_gpio_pinS1_S1_f
+ 1022              	.LVL45:
+ 1023              	.L17:
+  30:patch_bay.cpp ****     enc.Init(DaisyPatchSM::D1,DaisyPatchSM::A9,DaisyPatchSM::A8);
+ 1024              		.loc 1 30 13 view .LVU340
+ 1025 002e 00BF     		.align	2
+ 1026              	.L16:
+ 1027 0030 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2A8E
+ 1028 0034 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2A9E
+ 1029 0038 00000000 		.word	0
+ 1030 003c 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2D1E
+ 1031              		.cfi_endproc
+ 1032              	.LFE2574:
+ 1034              		.section	.text._ZN5daisy9Patch_Bay6InitSDEv,"ax",%progbits
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 33
+
+
+ 1035              		.align	1
+ 1036              		.p2align 2,,3
+ 1037              		.global	_ZN5daisy9Patch_Bay6InitSDEv
+ 1038              		.syntax unified
+ 1039              		.thumb
+ 1040              		.thumb_func
+ 1041              		.fpu fpv5-d16
+ 1043              	_ZN5daisy9Patch_Bay6InitSDEv:
+ 1044              	.LVL46:
+ 1045              	.LFB2575:
+  32:patch_bay.cpp **** 
+  33:patch_bay.cpp **** void Patch_Bay::InitSD()
+  34:patch_bay.cpp **** {
+ 1046              		.loc 1 34 1 is_stmt 1 view -0
+ 1047              		.cfi_startproc
+ 1048              		@ args = 0, pretend = 0, frame = 16
+ 1049              		@ frame_needed = 0, uses_anonymous_args = 0
+  35:patch_bay.cpp ****     SdmmcHandler::Config sd_cfg;
+ 1050              		.loc 1 35 5 view .LVU342
+  36:patch_bay.cpp ****     sd_cfg.Defaults();
+ 1051              		.loc 1 36 5 view .LVU343
+  34:patch_bay.cpp ****     SdmmcHandler::Config sd_cfg;
+ 1052              		.loc 1 34 1 is_stmt 0 view .LVU344
+ 1053 0000 10B5     		push	{r4, lr}
+ 1054              		.cfi_def_cfa_offset 8
+ 1055              		.cfi_offset 4, -8
+ 1056              		.cfi_offset 14, -4
+ 1057 0002 84B0     		sub	sp, sp, #16
+ 1058              		.cfi_def_cfa_offset 24
+ 1059              	.LVL47:
+ 1060              	.LBB205:
+ 1061              	.LBI205:
+ 1062              		.file 5 "../../libDaisy//src/per/sdmmc.h"
+   1:../../libDaisy//src/per/sdmmc.h **** /*
+   2:../../libDaisy//src/per/sdmmc.h **** TODO: 
+   3:../../libDaisy//src/per/sdmmc.h **** - Implement configuration (currently all settings are fixed).
+   4:../../libDaisy//src/per/sdmmc.h **** */
+   5:../../libDaisy//src/per/sdmmc.h **** #pragma once
+   6:../../libDaisy//src/per/sdmmc.h **** #ifndef DSY_SDMMC_H
+   7:../../libDaisy//src/per/sdmmc.h **** #define DSY_SDMMC_H /**< macro */
+   8:../../libDaisy//src/per/sdmmc.h **** 
+   9:../../libDaisy//src/per/sdmmc.h **** #include <stdint.h>
+  10:../../libDaisy//src/per/sdmmc.h **** 
+  11:../../libDaisy//src/per/sdmmc.h **** 
+  12:../../libDaisy//src/per/sdmmc.h **** namespace daisy
+  13:../../libDaisy//src/per/sdmmc.h **** {
+  14:../../libDaisy//src/per/sdmmc.h **** /** @ingroup peripheral
+  15:../../libDaisy//src/per/sdmmc.h ****     @{
+  16:../../libDaisy//src/per/sdmmc.h ****     */
+  17:../../libDaisy//src/per/sdmmc.h **** 
+  18:../../libDaisy//src/per/sdmmc.h **** /** Configuration for interfacing with SD cards.
+  19:../../libDaisy//src/per/sdmmc.h ****  *  Currently only supports operation using FatFS filesystem
+  20:../../libDaisy//src/per/sdmmc.h ****  * 
+  21:../../libDaisy//src/per/sdmmc.h ****  *  Only SDMMC1 is supported at this time.
+  22:../../libDaisy//src/per/sdmmc.h ****  *
+  23:../../libDaisy//src/per/sdmmc.h ****  *  Pins are fixed to the following:
+  24:../../libDaisy//src/per/sdmmc.h ****  *  PC12 - SDMMC1 CK
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 34
+
+
+  25:../../libDaisy//src/per/sdmmc.h ****  *  PD2  - SDMMC1 CMD
+  26:../../libDaisy//src/per/sdmmc.h ****  *  PC8  - SDMMC1 D0
+  27:../../libDaisy//src/per/sdmmc.h ****  *  PC9  - SDMMC1 D1 (optional)
+  28:../../libDaisy//src/per/sdmmc.h ****  *  PC10 - SDMMC1 D2 (optional)
+  29:../../libDaisy//src/per/sdmmc.h ****  *  PC11 - SDMMC1 D3 (optional)
+  30:../../libDaisy//src/per/sdmmc.h **** */
+  31:../../libDaisy//src/per/sdmmc.h **** class SdmmcHandler
+  32:../../libDaisy//src/per/sdmmc.h **** {
+  33:../../libDaisy//src/per/sdmmc.h ****   public:
+  34:../../libDaisy//src/per/sdmmc.h ****     /** Return values for the SdmmcHandler class */
+  35:../../libDaisy//src/per/sdmmc.h ****     enum class Result
+  36:../../libDaisy//src/per/sdmmc.h ****     {
+  37:../../libDaisy//src/per/sdmmc.h ****         OK,
+  38:../../libDaisy//src/per/sdmmc.h ****         ERROR,
+  39:../../libDaisy//src/per/sdmmc.h ****     };
+  40:../../libDaisy//src/per/sdmmc.h **** 
+  41:../../libDaisy//src/per/sdmmc.h ****     /** Sets whether 4-bit mode or 1-bit mode is used for the SDMMC */
+  42:../../libDaisy//src/per/sdmmc.h ****     enum class BusWidth
+  43:../../libDaisy//src/per/sdmmc.h ****     {
+  44:../../libDaisy//src/per/sdmmc.h ****         BITS_1, /**< Only 1 bit of data per clock is transferred */
+  45:../../libDaisy//src/per/sdmmc.h ****         BITS_4, /**< 4-bits of parallel data for each clock pulse */
+  46:../../libDaisy//src/per/sdmmc.h ****     };
+  47:../../libDaisy//src/per/sdmmc.h **** 
+  48:../../libDaisy//src/per/sdmmc.h ****     /** 
+  49:../../libDaisy//src/per/sdmmc.h ****     Sets the desired clock speed of the SD card bus. \n 
+  50:../../libDaisy//src/per/sdmmc.h ****     Initialization is always done at or below 400kHz, and then the user speed is set.
+  51:../../libDaisy//src/per/sdmmc.h ****     */
+  52:../../libDaisy//src/per/sdmmc.h ****     enum class Speed
+  53:../../libDaisy//src/per/sdmmc.h ****     {
+  54:../../libDaisy//src/per/sdmmc.h ****         SLOW, /**< 400kHz, initialization  performed at this rate, before moving to user value */
+  55:../../libDaisy//src/per/sdmmc.h ****         MEDIUM_SLOW, /**< 12.5MHz - half of standard rate */
+  56:../../libDaisy//src/per/sdmmc.h ****         STANDARD,    /**< 25MHz - DS (Default Speed for SDMMC) */
+  57:../../libDaisy//src/per/sdmmc.h ****         FAST,        /**< 50MHz - HS (High Speed signaling) */
+  58:../../libDaisy//src/per/sdmmc.h ****         VERY_FAST, /**< 100MHz - SDR50 Overclocked rate for maximum transfer rates */
+  59:../../libDaisy//src/per/sdmmc.h ****     };
+  60:../../libDaisy//src/per/sdmmc.h **** 
+  61:../../libDaisy//src/per/sdmmc.h ****     struct Config
+  62:../../libDaisy//src/per/sdmmc.h ****     {
+  63:../../libDaisy//src/per/sdmmc.h ****         Speed    speed;
+  64:../../libDaisy//src/per/sdmmc.h ****         BusWidth width;
+  65:../../libDaisy//src/per/sdmmc.h ****         bool
+  66:../../libDaisy//src/per/sdmmc.h ****             clock_powersave; /**< When true, the clock will stop between transfers to save power. *
+  67:../../libDaisy//src/per/sdmmc.h **** 
+  68:../../libDaisy//src/per/sdmmc.h ****         /** Configures settings to their default settings */
+  69:../../libDaisy//src/per/sdmmc.h ****         void Defaults()
+ 1063              		.loc 5 69 14 is_stmt 1 view .LVU345
+ 1064              	.LBB206:
+  70:../../libDaisy//src/per/sdmmc.h ****         {
+  71:../../libDaisy//src/per/sdmmc.h ****             speed           = Speed::FAST;
+ 1065              		.loc 5 71 13 view .LVU346
+  72:../../libDaisy//src/per/sdmmc.h ****             width           = BusWidth::BITS_4;
+ 1066              		.loc 5 72 29 is_stmt 0 view .LVU347
+ 1067 0004 0122     		movs	r2, #1
+  73:../../libDaisy//src/per/sdmmc.h ****             clock_powersave = false;
+ 1068              		.loc 5 73 29 view .LVU348
+ 1069 0006 0023     		movs	r3, #0
+  71:../../libDaisy//src/per/sdmmc.h ****             width           = BusWidth::BITS_4;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 35
+
+
+ 1070              		.loc 5 71 29 view .LVU349
+ 1071 0008 0324     		movs	r4, #3
+ 1072              	.LBE206:
+ 1073              	.LBE205:
+  37:patch_bay.cpp ****     sd.Init(sd_cfg);
+ 1074              		.loc 1 37 12 view .LVU350
+ 1075 000a 01A9     		add	r1, sp, #4
+ 1076              	.LVL48:
+ 1077              	.LBB208:
+ 1078              	.LBB207:
+ 1079              		.loc 5 73 29 view .LVU351
+ 1080 000c 8DF80C30 		strb	r3, [sp, #12]
+  72:../../libDaisy//src/per/sdmmc.h ****             clock_powersave = false;
+ 1081              		.loc 5 72 29 view .LVU352
+ 1082 0010 CDE90142 		strd	r4, r2, [sp, #4]
+ 1083              		.loc 5 73 13 is_stmt 1 view .LVU353
+ 1084              	.LVL49:
+ 1085              		.loc 5 73 13 is_stmt 0 view .LVU354
+ 1086              	.LBE207:
+ 1087              	.LBE208:
+ 1088              		.loc 1 37 5 is_stmt 1 view .LVU355
+ 1089              		.loc 1 37 12 is_stmt 0 view .LVU356
+ 1090 0014 FFF7FEFF 		bl	_ZN5daisy12SdmmcHandler4InitERKNS0_6ConfigE
+ 1091              	.LVL50:
+  38:patch_bay.cpp **** };
+ 1092              		.loc 1 38 1 view .LVU357
+ 1093 0018 04B0     		add	sp, sp, #16
+ 1094              		.cfi_def_cfa_offset 8
+ 1095              		@ sp needed
+ 1096 001a 10BD     		pop	{r4, pc}
+ 1097              		.cfi_endproc
+ 1098              	.LFE2575:
+ 1100              		.section	.text._ZN5daisy9Patch_Bay8InitLedsEv,"ax",%progbits
+ 1101              		.align	1
+ 1102              		.p2align 2,,3
+ 1103              		.global	_ZN5daisy9Patch_Bay8InitLedsEv
+ 1104              		.syntax unified
+ 1105              		.thumb
+ 1106              		.thumb_func
+ 1107              		.fpu fpv5-d16
+ 1109              	_ZN5daisy9Patch_Bay8InitLedsEv:
+ 1110              	.LVL51:
+ 1111              	.LFB2576:
+  39:patch_bay.cpp **** 
+  40:patch_bay.cpp **** void Patch_Bay::InitLeds()
+  41:patch_bay.cpp **** {
+ 1112              		.loc 1 41 1 is_stmt 1 view -0
+ 1113              		.cfi_startproc
+ 1114              		@ args = 0, pretend = 0, frame = 8
+ 1115              		@ frame_needed = 0, uses_anonymous_args = 0
+  42:patch_bay.cpp ****     cv_ind.Init(DaisyPatchSM::C10,false);
+ 1116              		.loc 1 42 5 view .LVU359
+ 1117              		.loc 1 42 16 is_stmt 0 view .LVU360
+ 1118 0000 154B     		ldr	r3, .L22
+ 1119 0002 9FED160A 		vldr.32	s0, .L22+4
+ 1120 0006 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1121 0008 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 36
+
+
+  41:patch_bay.cpp ****     cv_ind.Init(DaisyPatchSM::C10,false);
+ 1122              		.loc 1 41 1 view .LVU361
+ 1123 000a 10B5     		push	{r4, lr}
+ 1124              		.cfi_def_cfa_offset 8
+ 1125              		.cfi_offset 4, -8
+ 1126              		.cfi_offset 14, -4
+ 1127 000c 82B0     		sub	sp, sp, #8
+ 1128              		.cfi_def_cfa_offset 16
+  41:patch_bay.cpp ****     cv_ind.Init(DaisyPatchSM::C10,false);
+ 1129              		.loc 1 41 1 view .LVU362
+ 1130 000e 0446     		mov	r4, r0
+ 1131              		.loc 1 42 16 view .LVU363
+ 1132 0010 42EA0121 		orr	r1, r2, r1, lsl #8
+ 1133 0014 00F58B60 		add	r0, r0, #1112
+ 1134              	.LVL52:
+ 1135              		.loc 1 42 16 view .LVU364
+ 1136 0018 0022     		movs	r2, #0
+ 1137 001a 8DED010A 		vstr.32	s0, [sp, #4]	@ int
+ 1138 001e FFF7FEFF 		bl	_ZN5daisy3Led4InitE12dsy_gpio_pinbf
+ 1139              	.LVL53:
+  43:patch_bay.cpp ****     gate_1.Init(DaisyPatchSM::B5, false);
+ 1140              		.loc 1 43 5 is_stmt 1 view .LVU365
+ 1141              		.loc 1 43 16 is_stmt 0 view .LVU366
+ 1142 0022 0F4B     		ldr	r3, .L22+8
+ 1143 0024 9DED010A 		vldr.32	s0, [sp, #4]	@ int
+ 1144 0028 04F27440 		addw	r0, r4, #1140
+ 1145 002c 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1146 002e 0022     		movs	r2, #0
+ 1147 0030 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1148 0032 41EA0321 		orr	r1, r1, r3, lsl #8
+ 1149 0036 FFF7FEFF 		bl	_ZN5daisy3Led4InitE12dsy_gpio_pinbf
+ 1150              	.LVL54:
+  44:patch_bay.cpp ****     gate_2.Init(DaisyPatchSM::B6, false);
+ 1151              		.loc 1 44 5 is_stmt 1 view .LVU367
+ 1152              		.loc 1 44 16 is_stmt 0 view .LVU368
+ 1153 003a 0A4B     		ldr	r3, .L22+12
+ 1154 003c 9DED010A 		vldr.32	s0, [sp, #4]	@ int
+ 1155 0040 0022     		movs	r2, #0
+ 1156 0042 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1157 0044 04F59260 		add	r0, r4, #1168
+ 1158 0048 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1159 004a 41EA0321 		orr	r1, r1, r3, lsl #8
+  45:patch_bay.cpp **** }
+ 1160              		.loc 1 45 1 view .LVU369
+ 1161 004e 02B0     		add	sp, sp, #8
+ 1162              		.cfi_def_cfa_offset 8
+ 1163              		@ sp needed
+ 1164 0050 BDE81040 		pop	{r4, lr}
+ 1165              		.cfi_restore 14
+ 1166              		.cfi_restore 4
+ 1167              		.cfi_def_cfa_offset 0
+ 1168              	.LVL55:
+  44:patch_bay.cpp ****     gate_2.Init(DaisyPatchSM::B6, false);
+ 1169              		.loc 1 44 16 view .LVU370
+ 1170 0054 FFF7FEBF 		b	_ZN5daisy3Led4InitE12dsy_gpio_pinbf
+ 1171              	.LVL56:
+ 1172              	.L23:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 37
+
+
+  44:patch_bay.cpp ****     gate_2.Init(DaisyPatchSM::B6, false);
+ 1173              		.loc 1 44 16 view .LVU371
+ 1174              		.align	2
+ 1175              	.L22:
+ 1176 0058 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM3C10E
+ 1177 005c 00007A44 		.word	1148846080
+ 1178 0060 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2B5E
+ 1179 0064 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2B6E
+ 1180              		.cfi_endproc
+ 1181              	.LFE2576:
+ 1183              		.section	.text._ZN5daisy9Patch_Bay4InitEv,"ax",%progbits
+ 1184              		.align	1
+ 1185              		.p2align 2,,3
+ 1186              		.global	_ZN5daisy9Patch_Bay4InitEv
+ 1187              		.syntax unified
+ 1188              		.thumb
+ 1189              		.thumb_func
+ 1190              		.fpu fpv5-d16
+ 1192              	_ZN5daisy9Patch_Bay4InitEv:
+ 1193              	.LVL57:
+ 1194              	.LFB2577:
+  46:patch_bay.cpp **** 
+  47:patch_bay.cpp **** void Patch_Bay::Init()
+  48:patch_bay.cpp **** {
+ 1195              		.loc 1 48 1 is_stmt 1 view -0
+ 1196              		.cfi_startproc
+ 1197              		@ args = 0, pretend = 0, frame = 24
+ 1198              		@ frame_needed = 0, uses_anonymous_args = 0
+  49:patch_bay.cpp ****     Patch_Bay::InitButtons();
+ 1199              		.loc 1 49 5 view .LVU373
+ 1200              	.LBB217:
+ 1201              	.LBB218:
+  25:patch_bay.cpp **** };
+ 1202              		.loc 1 25 15 is_stmt 0 view .LVU374
+ 1203 0000 194B     		ldr	r3, .L26
+ 1204 0002 9FED1A0A 		vldr.32	s0, .L26+4
+ 1205 0006 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1206 0008 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 1207              	.LBE218:
+ 1208              	.LBE217:
+  48:patch_bay.cpp ****     Patch_Bay::InitButtons();
+ 1209              		.loc 1 48 1 view .LVU375
+ 1210 000a 30B5     		push	{r4, r5, lr}
+ 1211              		.cfi_def_cfa_offset 12
+ 1212              		.cfi_offset 4, -12
+ 1213              		.cfi_offset 5, -8
+ 1214              		.cfi_offset 14, -4
+ 1215 000c 0446     		mov	r4, r0
+ 1216              	.LVL58:
+ 1217              	.LBB221:
+ 1218              	.LBI217:
+  23:patch_bay.cpp **** {
+ 1219              		.loc 1 23 6 is_stmt 1 view .LVU376
+ 1220              	.LBB219:
+  25:patch_bay.cpp **** };
+ 1221              		.loc 1 25 5 view .LVU377
+ 1222              	.LBE219:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 38
+
+
+ 1223              	.LBE221:
+  48:patch_bay.cpp ****     Patch_Bay::InitButtons();
+ 1224              		.loc 1 48 1 is_stmt 0 view .LVU378
+ 1225 000e 87B0     		sub	sp, sp, #28
+ 1226              		.cfi_def_cfa_offset 40
+ 1227              	.LBB222:
+ 1228              	.LBB220:
+  25:patch_bay.cpp **** };
+ 1229              		.loc 1 25 15 view .LVU379
+ 1230 0010 42EA0121 		orr	r1, r2, r1, lsl #8
+ 1231 0014 1030     		adds	r0, r0, #16
+ 1232              	.LVL59:
+  25:patch_bay.cpp **** };
+ 1233              		.loc 1 25 15 view .LVU380
+ 1234 0016 8DED010A 		vstr.32	s0, [sp, #4]	@ int
+ 1235 001a FFF7FEFF 		bl	_ZN5daisy6Switch4InitE12dsy_gpio_pinf
+ 1236              	.LVL60:
+  25:patch_bay.cpp **** };
+ 1237              		.loc 1 25 15 view .LVU381
+ 1238              	.LBE220:
+ 1239              	.LBE222:
+  50:patch_bay.cpp ****     Patch_Bay::InitDisplay();
+ 1240              		.loc 1 50 5 is_stmt 1 view .LVU382
+ 1241              		.loc 1 50 27 is_stmt 0 view .LVU383
+ 1242 001e 2046     		mov	r0, r4
+ 1243              	.LBB223:
+ 1244              	.LBB224:
+ 1245              	.LBB225:
+ 1246              	.LBB226:
+  71:../../libDaisy//src/per/sdmmc.h ****             width           = BusWidth::BITS_4;
+ 1247              		.loc 5 71 29 view .LVU384
+ 1248 0020 0325     		movs	r5, #3
+ 1249              	.LBE226:
+ 1250              	.LBE225:
+ 1251              	.LBE224:
+ 1252              	.LBE223:
+ 1253              		.loc 1 50 27 view .LVU385
+ 1254 0022 FFF7FEFF 		bl	_ZN5daisy9Patch_Bay11InitDisplayEv
+ 1255              	.LVL61:
+  51:patch_bay.cpp ****     Patch_Bay::InitEncoder();
+ 1256              		.loc 1 51 5 is_stmt 1 view .LVU386
+ 1257              	.LBB232:
+ 1258              	.LBI232:
+  28:patch_bay.cpp **** {
+ 1259              		.loc 1 28 6 view .LVU387
+ 1260              	.LBB233:
+  30:patch_bay.cpp **** };
+ 1261              		.loc 1 30 5 view .LVU388
+  30:patch_bay.cpp **** };
+ 1262              		.loc 1 30 13 is_stmt 0 view .LVU389
+ 1263 0026 124A     		ldr	r2, .L26+8
+ 1264 0028 1249     		ldr	r1, .L26+12
+ 1265 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1266 002c 5278     		ldrb	r2, [r2, #1]	@ zero_extendqisi2
+ 1267 002e 1248     		ldr	r0, .L26+16
+ 1268 0030 43EA0223 		orr	r3, r3, r2, lsl #8
+ 1269 0034 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 39
+
+
+ 1270 0036 4978     		ldrb	r1, [r1, #1]	@ zero_extendqisi2
+ 1271 0038 9DED010A 		vldr.32	s0, [sp, #4]	@ int
+ 1272 003c 42EA0122 		orr	r2, r2, r1, lsl #8
+ 1273 0040 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
+ 1274 0042 4078     		ldrb	r0, [r0, #1]	@ zero_extendqisi2
+ 1275 0044 41EA0021 		orr	r1, r1, r0, lsl #8
+ 1276 0048 04F12000 		add	r0, r4, #32
+ 1277 004c FFF7FEFF 		bl	_ZN5daisy7Encoder4InitE12dsy_gpio_pinS1_S1_f
+ 1278              	.LVL62:
+  30:patch_bay.cpp **** };
+ 1279              		.loc 1 30 13 view .LVU390
+ 1280              	.LBE233:
+ 1281              	.LBE232:
+  52:patch_bay.cpp ****     Patch_Bay::InitSD();
+ 1282              		.loc 1 52 5 is_stmt 1 view .LVU391
+ 1283              	.LBB234:
+ 1284              	.LBI223:
+  33:patch_bay.cpp **** {
+ 1285              		.loc 1 33 6 view .LVU392
+ 1286              	.LBB231:
+  35:patch_bay.cpp ****     sd_cfg.Defaults();
+ 1287              		.loc 1 35 5 view .LVU393
+  36:patch_bay.cpp ****     sd.Init(sd_cfg);
+ 1288              		.loc 1 36 5 view .LVU394
+ 1289              	.LBB229:
+ 1290              	.LBI225:
+  69:../../libDaisy//src/per/sdmmc.h ****         {
+ 1291              		.loc 5 69 14 view .LVU395
+ 1292              	.LBB227:
+  71:../../libDaisy//src/per/sdmmc.h ****             width           = BusWidth::BITS_4;
+ 1293              		.loc 5 71 13 view .LVU396
+  72:../../libDaisy//src/per/sdmmc.h ****             clock_powersave = false;
+ 1294              		.loc 5 72 29 is_stmt 0 view .LVU397
+ 1295 0050 0122     		movs	r2, #1
+ 1296              		.loc 5 73 29 view .LVU398
+ 1297 0052 0023     		movs	r3, #0
+ 1298              	.LBE227:
+ 1299              	.LBE229:
+  37:patch_bay.cpp **** };
+ 1300              		.loc 1 37 12 view .LVU399
+ 1301 0054 03A9     		add	r1, sp, #12
+ 1302              	.LVL63:
+  37:patch_bay.cpp **** };
+ 1303              		.loc 1 37 12 view .LVU400
+ 1304 0056 2046     		mov	r0, r4
+ 1305              	.LBB230:
+ 1306              	.LBB228:
+ 1307              		.loc 5 73 29 view .LVU401
+ 1308 0058 8DF81430 		strb	r3, [sp, #20]
+  72:../../libDaisy//src/per/sdmmc.h ****             clock_powersave = false;
+ 1309              		.loc 5 72 29 view .LVU402
+ 1310 005c CDE90352 		strd	r5, r2, [sp, #12]
+ 1311              		.loc 5 73 13 is_stmt 1 view .LVU403
+ 1312              	.LVL64:
+ 1313              		.loc 5 73 13 is_stmt 0 view .LVU404
+ 1314              	.LBE228:
+ 1315              	.LBE230:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 40
+
+
+  37:patch_bay.cpp **** };
+ 1316              		.loc 1 37 5 is_stmt 1 view .LVU405
+  37:patch_bay.cpp **** };
+ 1317              		.loc 1 37 12 is_stmt 0 view .LVU406
+ 1318 0060 FFF7FEFF 		bl	_ZN5daisy12SdmmcHandler4InitERKNS0_6ConfigE
+ 1319              	.LVL65:
+  37:patch_bay.cpp **** };
+ 1320              		.loc 1 37 12 view .LVU407
+ 1321              	.LBE231:
+ 1322              	.LBE234:
+  53:patch_bay.cpp **** };...
+ 1323              		.loc 1 53 1 view .LVU408
+ 1324 0064 07B0     		add	sp, sp, #28
+ 1325              		.cfi_def_cfa_offset 12
+ 1326              		@ sp needed
+ 1327 0066 30BD     		pop	{r4, r5, pc}
+ 1328              	.LVL66:
+ 1329              	.L27:
+ 1330              		.loc 1 53 1 view .LVU409
+ 1331              		.align	2
+ 1332              	.L26:
+ 1333 0068 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM3D10E
+ 1334 006c 00000000 		.word	0
+ 1335 0070 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2A8E
+ 1336 0074 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2A9E
+ 1337 0078 00000000 		.word	_ZN5daisy8patch_sm12DaisyPatchSM2D1E
+ 1338              		.cfi_endproc
+ 1339              	.LFE2577:
+ 1341              		.text
+ 1342              	.Letext0:
+ 1343              		.file 6 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
+ 1344              		.file 7 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+ 1345              		.file 8 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h"
+ 1346              		.file 9 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/incl
+ 1347              		.file 10 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1348              		.file 11 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1349              		.file 12 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1350              		.file 13 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1351              		.file 14 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1352              		.file 15 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1353              		.file 16 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1354              		.file 17 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1355              		.file 18 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1356              		.file 19 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1357              		.file 20 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1358              		.file 21 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1359              		.file 22 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1360              		.file 23 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1361              		.file 24 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_types
+ 1362              		.file 25 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/reent.
+ 1363              		.file 26 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/lock.h
+ 1364              		.file 27 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+ 1365              		.file 28 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h"
+ 1366              		.file 29 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1367              		.file 30 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1368              		.file 31 "../../libDaisy//src/daisy_core.h"
+ 1369              		.file 32 "../../libDaisy//src/hid/switch.h"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 41
+
+
+ 1370              		.file 33 "../../libDaisy//src/hid/encoder.h"
+ 1371              		.file 34 "../../libDaisy//src/util/wav_format.h"
+ 1372              		.file 35 "../../libDaisy//src/hid/led.h"
+ 1373              		.file 36 "../../libDaisy//src/dev/max11300.h"
+ 1374              		.file 37 "../../libDaisy//src/daisy_patch_sm.h"
+ 1375              		.file 38 "patch_bay.h"
+ 1376              		.file 39 "../../libDaisy//src/per/gpio.h"
+ 1377              		.file 40 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
+ 1378              		.file 41 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdio.h"
+ 1379              		.file 42 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/string.h"
+ 1380              		.file 43 "<built-in>"
+ 1381              		.file 44 "../../libDaisy//src/dev/sr_595.h"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s 			page 42
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 patch_bay.cpp
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:17     .text._ZN5daisy9Patch_Bay11InitDisplayEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:26     .text._ZN5daisy9Patch_Bay11InitDisplayEv:0000000000000000 _ZN5daisy9Patch_Bay11InitDisplayEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:871    .text._ZN5daisy9Patch_Bay11InitDisplayEv:000000000000036c $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:887    .text._ZN5daisy9Patch_Bay11InitDisplayEv:0000000000000374 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:939    .text._ZN5daisy9Patch_Bay11InitButtonsEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:947    .text._ZN5daisy9Patch_Bay11InitButtonsEv:0000000000000000 _ZN5daisy9Patch_Bay11InitButtonsEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:971    .text._ZN5daisy9Patch_Bay11InitButtonsEv:0000000000000014 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:977    .text._ZN5daisy9Patch_Bay11InitEncoderEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:985    .text._ZN5daisy9Patch_Bay11InitEncoderEv:0000000000000000 _ZN5daisy9Patch_Bay11InitEncoderEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1027   .text._ZN5daisy9Patch_Bay11InitEncoderEv:0000000000000030 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1035   .text._ZN5daisy9Patch_Bay6InitSDEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1043   .text._ZN5daisy9Patch_Bay6InitSDEv:0000000000000000 _ZN5daisy9Patch_Bay6InitSDEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1101   .text._ZN5daisy9Patch_Bay8InitLedsEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1109   .text._ZN5daisy9Patch_Bay8InitLedsEv:0000000000000000 _ZN5daisy9Patch_Bay8InitLedsEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1176   .text._ZN5daisy9Patch_Bay8InitLedsEv:0000000000000058 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1184   .text._ZN5daisy9Patch_Bay4InitEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1192   .text._ZN5daisy9Patch_Bay4InitEv:0000000000000000 _ZN5daisy9Patch_Bay4InitEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccQNLHYH.s:1333   .text._ZN5daisy9Patch_Bay4InitEv:0000000000000068 $d
+
+UNDEFINED SYMBOLS
+_ZN5daisy9I2CHandle4InitERKNS0_6ConfigE
+_ZN5daisy9I2CHandle16TransmitBlockingEtPhtm
+_ZN5daisy8patch_sm12DaisyPatchSM2B8E
+_ZN5daisy8patch_sm12DaisyPatchSM2B7E
+_ZN5daisy6Switch4InitE12dsy_gpio_pinf
+_ZN5daisy8patch_sm12DaisyPatchSM3D10E
+_ZN5daisy7Encoder4InitE12dsy_gpio_pinS1_S1_f
+_ZN5daisy8patch_sm12DaisyPatchSM2A8E
+_ZN5daisy8patch_sm12DaisyPatchSM2A9E
+_ZN5daisy8patch_sm12DaisyPatchSM2D1E
+_ZN5daisy12SdmmcHandler4InitERKNS0_6ConfigE
+_ZN5daisy3Led4InitE12dsy_gpio_pinbf
+_ZN5daisy8patch_sm12DaisyPatchSM3C10E
+_ZN5daisy8patch_sm12DaisyPatchSM2B5E
+_ZN5daisy8patch_sm12DaisyPatchSM2B6E

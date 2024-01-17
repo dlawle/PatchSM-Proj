@@ -1,0 +1,454 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"correlator.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN10Correlator4InitEPmS0_,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_ZN10Correlator4InitEPmS0_
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN10Correlator4InitEPmS0_:
+  27              	.LVL0:
+  28              	.LFB3656:
+  29              		.file 1 "dsp/correlator.cpp"
+   1:dsp/correlator.cpp **** // Copyright 2014 Emilie Gillet.
+   2:dsp/correlator.cpp **** //
+   3:dsp/correlator.cpp **** // Author: Emilie Gillet (emilie.o.gillet@gmail.com)
+   4:dsp/correlator.cpp **** //
+   5:dsp/correlator.cpp **** // Permission is hereby granted, free of charge, to any person obtaining a copy
+   6:dsp/correlator.cpp **** // of this software and associated documentation files (the "Software"), to deal
+   7:dsp/correlator.cpp **** // in the Software without restriction, including without limitation the rights
+   8:dsp/correlator.cpp **** // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   9:dsp/correlator.cpp **** // copies of the Software, and to permit persons to whom the Software is
+  10:dsp/correlator.cpp **** // furnished to do so, subject to the following conditions:
+  11:dsp/correlator.cpp **** //
+  12:dsp/correlator.cpp **** // The above copyright notice and this permission notice shall be included in
+  13:dsp/correlator.cpp **** // all copies or substantial portions of the Software.
+  14:dsp/correlator.cpp **** //
+  15:dsp/correlator.cpp **** // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  16:dsp/correlator.cpp **** // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  17:dsp/correlator.cpp **** // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  18:dsp/correlator.cpp **** // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  19:dsp/correlator.cpp **** // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  20:dsp/correlator.cpp **** // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  21:dsp/correlator.cpp **** // THE SOFTWARE.
+  22:dsp/correlator.cpp **** //
+  23:dsp/correlator.cpp **** // See http://creativecommons.org/licenses/MIT/ for more information.
+  24:dsp/correlator.cpp **** //
+  25:dsp/correlator.cpp **** // -----------------------------------------------------------------------------
+  26:dsp/correlator.cpp **** //
+  27:dsp/correlator.cpp **** // Search for stretch/shift splicing points by maximizing correlation.
+  28:dsp/correlator.cpp **** 
+  29:dsp/correlator.cpp **** #include "correlator.h"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 2
+
+
+  30:dsp/correlator.cpp **** 
+  31:dsp/correlator.cpp **** #include <algorithm>
+  32:dsp/correlator.cpp **** 
+  33:dsp/correlator.cpp **** using namespace daisysp;
+  34:dsp/correlator.cpp **** 
+  35:dsp/correlator.cpp **** using namespace std;
+  36:dsp/correlator.cpp **** 
+  37:dsp/correlator.cpp **** void Correlator::Init(uint32_t* source, uint32_t* destination)
+  38:dsp/correlator.cpp **** {
+  30              		.loc 1 38 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  39:dsp/correlator.cpp ****     source_      = source;
+  35              		.loc 1 39 5 view .LVU1
+  40:dsp/correlator.cpp ****     destination_ = destination;
+  41:dsp/correlator.cpp ****     offset_      = 0;
+  36              		.loc 1 41 18 is_stmt 0 view .LVU2
+  37 0000 0023     		movs	r3, #0
+  42:dsp/correlator.cpp ****     best_match_  = 0;
+  43:dsp/correlator.cpp ****     done_        = true;
+  38              		.loc 1 43 18 view .LVU3
+  39 0002 4FF0010C 		mov	ip, #1
+  40:dsp/correlator.cpp ****     destination_ = destination;
+  40              		.loc 1 40 18 view .LVU4
+  41 0006 C0E90012 		strd	r1, r2, [r0]
+  41:dsp/correlator.cpp ****     best_match_  = 0;
+  42              		.loc 1 41 5 is_stmt 1 view .LVU5
+  41:dsp/correlator.cpp ****     best_match_  = 0;
+  43              		.loc 1 41 18 is_stmt 0 view .LVU6
+  44 000a 8360     		str	r3, [r0, #8]
+  42:dsp/correlator.cpp ****     best_match_  = 0;
+  45              		.loc 1 42 5 is_stmt 1 view .LVU7
+  42:dsp/correlator.cpp ****     best_match_  = 0;
+  46              		.loc 1 42 18 is_stmt 0 view .LVU8
+  47 000c C361     		str	r3, [r0, #28]
+  48              		.loc 1 43 5 is_stmt 1 view .LVU9
+  49              		.loc 1 43 18 is_stmt 0 view .LVU10
+  50 000e 80F824C0 		strb	ip, [r0, #36]
+  44:dsp/correlator.cpp **** }
+  51              		.loc 1 44 1 view .LVU11
+  52 0012 7047     		bx	lr
+  53              		.cfi_endproc
+  54              	.LFE3656:
+  56              		.section	.text._ZN10Correlator21EvaluateNextCandidateEv,"ax",%progbits
+  57              		.align	1
+  58              		.p2align 2,,3
+  59              		.global	_ZN10Correlator21EvaluateNextCandidateEv
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  63              		.fpu fpv5-d16
+  65              	_ZN10Correlator21EvaluateNextCandidateEv:
+  66              	.LVL1:
+  67              	.LFB3657:
+  45:dsp/correlator.cpp **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 3
+
+
+  46:dsp/correlator.cpp **** void Correlator::EvaluateNextCandidate()
+  47:dsp/correlator.cpp **** {
+  68              		.loc 1 47 1 is_stmt 1 view -0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  48:dsp/correlator.cpp ****     if(done_)
+  72              		.loc 1 48 5 view .LVU13
+  47:dsp/correlator.cpp ****     if(done_)
+  73              		.loc 1 47 1 is_stmt 0 view .LVU14
+  74 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+  75              		.cfi_def_cfa_offset 28
+  76              		.cfi_offset 4, -28
+  77              		.cfi_offset 5, -24
+  78              		.cfi_offset 6, -20
+  79              		.cfi_offset 7, -16
+  80              		.cfi_offset 8, -12
+  81              		.cfi_offset 9, -8
+  82              		.cfi_offset 14, -4
+  83              		.loc 1 48 5 view .LVU15
+  84 0004 90F82440 		ldrb	r4, [r0, #36]	@ zero_extendqisi2
+  85 0008 002C     		cmp	r4, #0
+  86 000a 48D1     		bne	.L3
+  49:dsp/correlator.cpp ****     {
+  50:dsp/correlator.cpp ****         return;
+  51:dsp/correlator.cpp ****     }
+  52:dsp/correlator.cpp ****     uint32_t  num_words    = size_ >> 5;
+  87              		.loc 1 52 5 is_stmt 1 view .LVU16
+  88              		.loc 1 52 30 is_stmt 0 view .LVU17
+  89 000c D0E90487 		ldrd	r8, r7, [r0, #16]
+  90              	.LVL2:
+  53:dsp/correlator.cpp ****     uint32_t  offset_words = candidate_ >> 5;
+  91              		.loc 1 53 5 is_stmt 1 view .LVU18
+  54:dsp/correlator.cpp ****     uint32_t  offset_bits  = candidate_ & 0x1f;
+  92              		.loc 1 54 5 view .LVU19
+  55:dsp/correlator.cpp ****     uint32_t* source       = &source_[0];
+  93              		.loc 1 55 15 is_stmt 0 view .LVU20
+  94 0010 D0E90023 		ldrd	r2, r3, [r0]
+  53:dsp/correlator.cpp ****     uint32_t  offset_words = candidate_ >> 5;
+  95              		.loc 1 53 41 view .LVU21
+  96 0014 7911     		asrs	r1, r7, #5
+  97              	.LVL3:
+  54:dsp/correlator.cpp ****     uint32_t  offset_bits  = candidate_ & 0x1f;
+  98              		.loc 1 54 15 view .LVU22
+  99 0016 07F01F05 		and	r5, r7, #31
+ 100              	.LVL4:
+ 101              		.loc 1 55 5 is_stmt 1 view .LVU23
+  56:dsp/correlator.cpp ****     uint32_t* destination  = &destination_[offset_words];
+ 102              		.loc 1 56 5 view .LVU24
+ 103              	.LBB2:
+  57:dsp/correlator.cpp **** 
+  58:dsp/correlator.cpp ****     uint32_t xcorr = 0;
+  59:dsp/correlator.cpp ****     for(uint32_t i = 0; i < num_words; ++i)
+ 104              		.loc 1 59 27 is_stmt 0 view .LVU25
+ 105 001a 5FEA681E 		asrs	lr, r8, #5
+ 106              	.LVL5:
+ 107              		.loc 1 59 27 view .LVU26
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 4
+
+
+ 108              	.LBE2:
+  56:dsp/correlator.cpp ****     uint32_t* destination  = &destination_[offset_words];
+ 109              		.loc 1 56 15 view .LVU27
+ 110 001e 03EB810C 		add	ip, r3, r1, lsl #2
+ 111              	.LVL6:
+  58:dsp/correlator.cpp ****     for(uint32_t i = 0; i < num_words; ++i)
+ 112              		.loc 1 58 5 is_stmt 1 view .LVU28
+ 113              		.loc 1 59 5 view .LVU29
+ 114              	.LBB5:
+ 115              		.loc 1 59 27 view .LVU30
+ 116 0022 32D0     		beq	.L5
+ 117 0024 043A     		subs	r2, r2, #4
+ 118              	.LVL7:
+ 119              	.LBB3:
+  60:dsp/correlator.cpp ****     {
+  61:dsp/correlator.cpp ****         uint32_t source_bits      = source[i];
+  62:dsp/correlator.cpp ****         uint32_t destination_bits = 0;
+  63:dsp/correlator.cpp ****         destination_bits |= destination[i] << offset_bits;
+ 120              		.loc 1 63 42 is_stmt 0 view .LVU31
+ 121 0026 53F82110 		ldr	r1, [r3, r1, lsl #2]
+ 122              	.LVL8:
+  64:dsp/correlator.cpp ****         destination_bits |= destination[i + 1] >> (32 - offset_bits);
+ 123              		.loc 1 64 55 view .LVU32
+ 124 002a C5F12006 		rsb	r6, r5, #32
+ 125 002e 02EB8E0E 		add	lr, r2, lr, lsl #2
+ 126              	.LVL9:
+ 127              	.L6:
+  61:dsp/correlator.cpp ****         uint32_t destination_bits = 0;
+ 128              		.loc 1 61 9 is_stmt 1 discriminator 2 view .LVU33
+  62:dsp/correlator.cpp ****         destination_bits |= destination[i] << offset_bits;
+ 129              		.loc 1 62 9 discriminator 2 view .LVU34
+  63:dsp/correlator.cpp ****         destination_bits |= destination[i + 1] >> (32 - offset_bits);
+ 130              		.loc 1 63 9 discriminator 2 view .LVU35
+  63:dsp/correlator.cpp ****         destination_bits |= destination[i + 1] >> (32 - offset_bits);
+ 131              		.loc 1 63 44 is_stmt 0 discriminator 2 view .LVU36
+ 132 0032 01FA05F9 		lsl	r9, r1, r5
+ 133              	.LVL10:
+ 134              		.loc 1 64 9 is_stmt 1 discriminator 2 view .LVU37
+ 135              		.loc 1 64 46 is_stmt 0 discriminator 2 view .LVU38
+ 136 0036 5CF8041F 		ldr	r1, [ip, #4]!
+ 137              	.LVL11:
+  65:dsp/correlator.cpp ****         uint32_t count = ~(source_bits ^ destination_bits);
+ 138              		.loc 1 65 9 is_stmt 1 discriminator 2 view .LVU39
+  64:dsp/correlator.cpp ****         uint32_t count = ~(source_bits ^ destination_bits);
+ 139              		.loc 1 64 48 is_stmt 0 discriminator 2 view .LVU40
+ 140 003a 21FA06F3 		lsr	r3, r1, r6
+  64:dsp/correlator.cpp ****         uint32_t count = ~(source_bits ^ destination_bits);
+ 141              		.loc 1 64 26 discriminator 2 view .LVU41
+ 142 003e 43EA0903 		orr	r3, r3, r9
+ 143              	.LVL12:
+ 144              		.loc 1 65 40 discriminator 2 view .LVU42
+ 145 0042 52F8049F 		ldr	r9, [r2, #4]!
+ 146              	.LVL13:
+ 147              		.loc 1 65 40 discriminator 2 view .LVU43
+ 148 0046 83EA0903 		eor	r3, r3, r9
+ 149              	.LVL14:
+ 150              		.loc 1 65 40 discriminator 2 view .LVU44
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 5
+
+
+ 151              	.LBE3:
+  59:dsp/correlator.cpp ****     {
+ 152              		.loc 1 59 27 discriminator 2 view .LVU45
+ 153 004a 9645     		cmp	lr, r2
+ 154              	.LBB4:
+ 155              		.loc 1 65 18 discriminator 2 view .LVU46
+ 156 004c 6FEA0303 		mvn	r3, r3
+ 157              	.LVL15:
+  66:dsp/correlator.cpp ****         count          = count - ((count >> 1) & 0x55555555);
+ 158              		.loc 1 66 9 is_stmt 1 discriminator 2 view .LVU47
+ 159              		.loc 1 66 42 is_stmt 0 discriminator 2 view .LVU48
+ 160 0050 4FEA5309 		lsr	r9, r3, #1
+ 161              		.loc 1 66 48 discriminator 2 view .LVU49
+ 162 0054 09F05539 		and	r9, r9, #1431655765
+ 163              		.loc 1 66 24 discriminator 2 view .LVU50
+ 164 0058 A3EB0903 		sub	r3, r3, r9
+ 165              	.LVL16:
+  67:dsp/correlator.cpp ****         count          = (count & 0x33333333) + ((count >> 2) & 0x33333333);
+ 166              		.loc 1 67 9 is_stmt 1 discriminator 2 view .LVU51
+ 167              		.loc 1 67 33 is_stmt 0 discriminator 2 view .LVU52
+ 168 005c 03F03339 		and	r9, r3, #858993459
+ 169              		.loc 1 67 57 discriminator 2 view .LVU53
+ 170 0060 4FEA9303 		lsr	r3, r3, #2
+ 171              	.LVL17:
+ 172              		.loc 1 67 63 discriminator 2 view .LVU54
+ 173 0064 03F03333 		and	r3, r3, #858993459
+ 174              		.loc 1 67 24 discriminator 2 view .LVU55
+ 175 0068 4B44     		add	r3, r3, r9
+ 176              	.LVL18:
+  68:dsp/correlator.cpp ****         count = (((count + (count >> 4)) & 0xf0f0f0f) * 0x1010101) >> 24;
+ 177              		.loc 1 68 9 is_stmt 1 discriminator 2 view .LVU56
+ 178              		.loc 1 68 26 is_stmt 0 discriminator 2 view .LVU57
+ 179 006a 03EB1313 		add	r3, r3, r3, lsr #4
+ 180              	.LVL19:
+ 181              		.loc 1 68 42 discriminator 2 view .LVU58
+ 182 006e 03F00F33 		and	r3, r3, #252645135
+ 183              		.loc 1 68 55 discriminator 2 view .LVU59
+ 184 0072 03EB0323 		add	r3, r3, r3, lsl #8
+ 185 0076 03EB0343 		add	r3, r3, r3, lsl #16
+ 186              	.LVL20:
+  69:dsp/correlator.cpp ****         xcorr += count;
+ 187              		.loc 1 69 9 is_stmt 1 discriminator 2 view .LVU60
+ 188              		.loc 1 69 15 is_stmt 0 discriminator 2 view .LVU61
+ 189 007a 04EB1364 		add	r4, r4, r3, lsr #24
+ 190              	.LVL21:
+ 191              		.loc 1 69 15 discriminator 2 view .LVU62
+ 192              	.LBE4:
+  59:dsp/correlator.cpp ****     {
+ 193              		.loc 1 59 5 is_stmt 1 discriminator 2 view .LVU63
+  59:dsp/correlator.cpp ****     {
+ 194              		.loc 1 59 27 discriminator 2 view .LVU64
+ 195 007e D8D1     		bne	.L6
+ 196              	.LBE5:
+  70:dsp/correlator.cpp ****     }
+  71:dsp/correlator.cpp ****     if(xcorr > best_score_)
+ 197              		.loc 1 71 5 view .LVU65
+ 198 0080 8369     		ldr	r3, [r0, #24]
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 6
+
+
+ 199              	.LVL22:
+ 200              		.loc 1 71 5 is_stmt 0 view .LVU66
+ 201 0082 A342     		cmp	r3, r4
+  72:dsp/correlator.cpp ****     {
+  73:dsp/correlator.cpp ****         best_match_ = candidate_;
+ 202              		.loc 1 73 9 is_stmt 1 view .LVU67
+  74:dsp/correlator.cpp ****         best_score_ = xcorr;
+ 203              		.loc 1 74 21 is_stmt 0 view .LVU68
+ 204 0084 38BF     		it	cc
+ 205 0086 C0E90647 		strdcc	r4, r7, [r0, #24]
+ 206              	.LVL23:
+ 207              	.L5:
+  75:dsp/correlator.cpp ****     }
+  76:dsp/correlator.cpp ****     ++candidate_;
+ 208              		.loc 1 76 5 is_stmt 1 view .LVU69
+ 209 008a 0137     		adds	r7, r7, #1
+ 210              	.LVL24:
+  77:dsp/correlator.cpp ****     done_ = candidate_ >= size_;
+ 211              		.loc 1 77 24 is_stmt 0 view .LVU70
+ 212 008c B845     		cmp	r8, r7
+  76:dsp/correlator.cpp ****     done_ = candidate_ >= size_;
+ 213              		.loc 1 76 5 view .LVU71
+ 214 008e 4761     		str	r7, [r0, #20]
+ 215              	.LVL25:
+ 216              		.loc 1 77 5 is_stmt 1 view .LVU72
+ 217              		.loc 1 77 24 is_stmt 0 view .LVU73
+ 218 0090 CCBF     		ite	gt
+ 219 0092 4FF00008 		movgt	r8, #0
+ 220              	.LVL26:
+ 221              		.loc 1 77 24 view .LVU74
+ 222 0096 4FF00108 		movle	r8, #1
+ 223 009a 80F82480 		strb	r8, [r0, #36]
+ 224              	.LVL27:
+ 225              	.L3:
+  78:dsp/correlator.cpp **** }
+ 226              		.loc 1 78 1 view .LVU75
+ 227 009e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 228              		.cfi_endproc
+ 229              	.LFE3657:
+ 231 00a2 00BF     		.section	.text._ZN10Correlator11StartSearchElll,"ax",%progbits
+ 232              		.align	1
+ 233              		.p2align 2,,3
+ 234              		.global	_ZN10Correlator11StartSearchElll
+ 235              		.syntax unified
+ 236              		.thumb
+ 237              		.thumb_func
+ 238              		.fpu fpv5-d16
+ 240              	_ZN10Correlator11StartSearchElll:
+ 241              	.LVL28:
+ 242              	.LFB3658:
+  79:dsp/correlator.cpp **** 
+  80:dsp/correlator.cpp **** void Correlator::StartSearch(int32_t size, int32_t offset, int32_t increment)
+  81:dsp/correlator.cpp **** {
+ 243              		.loc 1 81 1 is_stmt 1 view -0
+ 244              		.cfi_startproc
+ 245              		@ args = 0, pretend = 0, frame = 0
+ 246              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 7
+
+
+ 247              		@ link register save eliminated.
+  82:dsp/correlator.cpp ****     offset_     = offset;
+ 248              		.loc 1 82 5 view .LVU77
+  81:dsp/correlator.cpp ****     offset_     = offset;
+ 249              		.loc 1 81 1 is_stmt 0 view .LVU78
+ 250 0000 10B4     		push	{r4}
+ 251              		.cfi_def_cfa_offset 4
+ 252              		.cfi_offset 4, -4
+  83:dsp/correlator.cpp ****     increment_  = increment;
+  84:dsp/correlator.cpp ****     best_score_ = 0;
+ 253              		.loc 1 84 17 view .LVU79
+ 254 0002 0024     		movs	r4, #0
+  83:dsp/correlator.cpp ****     increment_  = increment;
+ 255              		.loc 1 83 17 view .LVU80
+ 256 0004 C0E90223 		strd	r2, r3, [r0, #8]
+ 257              		.loc 1 84 5 is_stmt 1 view .LVU81
+  85:dsp/correlator.cpp ****     best_match_ = 0;
+ 258              		.loc 1 85 17 is_stmt 0 view .LVU82
+ 259 0008 C0E90644 		strd	r4, r4, [r0, #24]
+  86:dsp/correlator.cpp ****     candidate_  = 0;
+ 260              		.loc 1 86 5 is_stmt 1 view .LVU83
+  87:dsp/correlator.cpp ****     size_       = size;
+ 261              		.loc 1 87 17 is_stmt 0 view .LVU84
+ 262 000c C0E90414 		strd	r1, r4, [r0, #16]
+  88:dsp/correlator.cpp ****     done_       = false;
+ 263              		.loc 1 88 5 is_stmt 1 view .LVU85
+ 264              		.loc 1 88 17 is_stmt 0 view .LVU86
+ 265 0010 80F82440 		strb	r4, [r0, #36]
+  89:dsp/correlator.cpp **** }
+ 266              		.loc 1 89 1 view .LVU87
+ 267 0014 5DF8044B 		ldr	r4, [sp], #4
+ 268              		.cfi_restore 4
+ 269              		.cfi_def_cfa_offset 0
+ 270 0018 7047     		bx	lr
+ 271              		.cfi_endproc
+ 272              	.LFE3658:
+ 274 001a 00BF     		.text
+ 275              	.Letext0:
+ 276              		.file 2 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
+ 277              		.file 3 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+ 278              		.file 4 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h"
+ 279              		.file 5 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/incl
+ 280              		.file 6 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 281              		.file 7 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 282              		.file 8 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 283              		.file 9 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 284              		.file 10 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 285              		.file 11 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 286              		.file 12 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 287              		.file 13 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 288              		.file 14 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 289              		.file 15 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 290              		.file 16 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 291              		.file 17 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 292              		.file 18 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 293              		.file 19 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 294              		.file 20 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 8
+
+
+ 295              		.file 21 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 296              		.file 22 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 297              		.file 23 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_types
+ 298              		.file 24 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/reent.
+ 299              		.file 25 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/lock.h
+ 300              		.file 26 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+ 301              		.file 27 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h"
+ 302              		.file 28 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 303              		.file 29 "../../DaisySP//Source/Control/adenv.h"
+ 304              		.file 30 "../../DaisySP//Source/Utility/dsp.h"
+ 305              		.file 31 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
+ 306              		.file 32 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/wchar.h"
+ 307              		.file 33 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/locale.h"
+ 308              		.file 34 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdio.h"
+ 309              		.file 35 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 310              		.file 36 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/string.h"
+ 311              		.file 37 "dsp/correlator.h"
+ 312              		.file 38 "<built-in>"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 correlator.cpp
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s:17     .text._ZN10Correlator4InitEPmS0_:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s:26     .text._ZN10Correlator4InitEPmS0_:0000000000000000 _ZN10Correlator4InitEPmS0_
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s:57     .text._ZN10Correlator21EvaluateNextCandidateEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s:65     .text._ZN10Correlator21EvaluateNextCandidateEv:0000000000000000 _ZN10Correlator21EvaluateNextCandidateEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s:232    .text._ZN10Correlator11StartSearchElll:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccp1hutq.s:240    .text._ZN10Correlator11StartSearchElll:0000000000000000 _ZN10Correlator11StartSearchElll
+
+NO UNDEFINED SYMBOLS

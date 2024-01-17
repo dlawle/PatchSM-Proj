@@ -1,0 +1,49 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccukhoj0.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"random.cc"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.global	_ZN6stmlib6Random10rng_state_E
+  17              		.section	.data._ZN6stmlib6Random10rng_state_E,"aw"
+  18              		.align	2
+  21              	_ZN6stmlib6Random10rng_state_E:
+  22 0000 21000000 		.word	33
+  23              		.text
+  24              	.Letext0:
+  25              		.file 1 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
+  26              		.file 2 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+  27              		.file 3 "../../libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h"
+  28              		.file 4 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+  29              		.file 5 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+  30              		.file 6 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+  31              		.file 7 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+  32              		.file 8 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+  33              		.file 9 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+  34              		.file 10 "../../libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_comp.h"
+  35              		.file 11 "../../libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h"
+  36              		.file 12 "../../libDaisy/src/sys/../../../stmlib/stmlib.h"
+  37              		.file 13 "../../stmlib/utils/random.h"
+  38              		.file 14 "<built-in>"
+  39              		.file 15 "../../stmlib/utils/random.cc"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccukhoj0.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 random.cc
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccukhoj0.s:21     .data._ZN6stmlib6Random10rng_state_E:0000000000000000 _ZN6stmlib6Random10rng_state_E
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccukhoj0.s:18     .data._ZN6stmlib6Random10rng_state_E:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

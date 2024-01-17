@@ -1,0 +1,830 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"FilterButterworth24db.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN22CFilterButterworth24dbD2Ev,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	_ZN22CFilterButterworth24dbD2Ev
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN22CFilterButterworth24dbD2Ev:
+  27              	.LVL0:
+  28              	.LFB548:
+  29              		.file 1 "FilterButterworth24db.cpp"
+   1:FilterButterworth24db.cpp **** 
+   2:FilterButterworth24db.cpp **** #include <math.h>
+   3:FilterButterworth24db.cpp **** 
+   4:FilterButterworth24db.cpp **** #define BUDDA_Q_SCALE 6.f
+   5:FilterButterworth24db.cpp **** 
+   6:FilterButterworth24db.cpp **** #include "FilterButterworth24db.h"
+   7:FilterButterworth24db.cpp **** 
+   8:FilterButterworth24db.cpp **** CFilterButterworth24db::CFilterButterworth24db(void)
+   9:FilterButterworth24db.cpp **** {
+  10:FilterButterworth24db.cpp ****     this->history1 = 0.f;
+  11:FilterButterworth24db.cpp ****     this->history2 = 0.f;
+  12:FilterButterworth24db.cpp ****     this->history3 = 0.f;
+  13:FilterButterworth24db.cpp ****     this->history4 = 0.f;
+  14:FilterButterworth24db.cpp **** 
+  15:FilterButterworth24db.cpp ****     this->SetSampleRate(44100.f);
+  16:FilterButterworth24db.cpp ****     this->Set(22050.f, 0.0);
+  17:FilterButterworth24db.cpp **** }
+  18:FilterButterworth24db.cpp **** 
+  19:FilterButterworth24db.cpp **** CFilterButterworth24db::~CFilterButterworth24db(void)
+  30              		.loc 1 19 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  20:FilterButterworth24db.cpp **** {
+  21:FilterButterworth24db.cpp **** }
+  35              		.loc 1 21 1 is_stmt 0 view .LVU1
+  36 0000 7047     		bx	lr
+  37              		.cfi_endproc
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 2
+
+
+  38              	.LFE548:
+  40              		.global	_ZN22CFilterButterworth24dbD1Ev
+  41              		.thumb_set _ZN22CFilterButterworth24dbD1Ev,_ZN22CFilterButterworth24dbD2Ev
+  42 0002 00BF     		.section	.text._ZN22CFilterButterworth24db13SetSampleRateEf,"ax",%progbits
+  43              		.align	1
+  44              		.p2align 2,,3
+  45              		.global	_ZN22CFilterButterworth24db13SetSampleRateEf
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  49              		.fpu fpv5-d16
+  51              	_ZN22CFilterButterworth24db13SetSampleRateEf:
+  52              	.LVL1:
+  53              	.LFB550:
+  22:FilterButterworth24db.cpp **** 
+  23:FilterButterworth24db.cpp **** void CFilterButterworth24db::SetSampleRate(float fs)
+  24:FilterButterworth24db.cpp **** {
+  54              		.loc 1 24 1 is_stmt 1 view -0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  25:FilterButterworth24db.cpp ****     float pi = 4.f * atanf(1.f);
+  59              		.loc 1 25 5 view .LVU3
+  26:FilterButterworth24db.cpp **** 
+  27:FilterButterworth24db.cpp ****     this->t0 = 4.f * fs * fs;
+  60              		.loc 1 27 5 view .LVU4
+  28:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+  29:FilterButterworth24db.cpp ****     this->t2 = 2.f * fs;
+  30:FilterButterworth24db.cpp ****     this->t3 = pi / fs;
+  61              		.loc 1 30 19 is_stmt 0 view .LVU5
+  62 0000 9FED135A 		vldr.32	s10, .L4
+  27:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+  63              		.loc 1 27 20 view .LVU6
+  64 0004 B1EE007A 		vmov.f32	s14, #4.0e+0
+  28:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+  65              		.loc 1 28 20 view .LVU7
+  66 0008 F2EE007A 		vmov.f32	s15, #8.0e+0
+  31:FilterButterworth24db.cpp **** 
+  32:FilterButterworth24db.cpp ****     this->min_cutoff = fs * 0.01f;
+  67              		.loc 1 32 27 view .LVU8
+  68 000c 9FED116A 		vldr.32	s12, .L4+4
+  30:FilterButterworth24db.cpp **** 
+  69              		.loc 1 30 19 view .LVU9
+  70 0010 C5EE005A 		vdiv.f32	s11, s10, s0
+  33:FilterButterworth24db.cpp ****     this->max_cutoff = fs * 0.45f;
+  71              		.loc 1 33 27 view .LVU10
+  72 0014 DFED106A 		vldr.32	s13, .L4+8
+  27:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+  73              		.loc 1 27 20 view .LVU11
+  74 0018 20EE077A 		vmul.f32	s14, s0, s14
+  28:FilterButterworth24db.cpp ****     this->t2 = 2.f * fs;
+  75              		.loc 1 28 20 view .LVU12
+  76 001c 60EE277A 		vmul.f32	s15, s0, s15
+  29:FilterButterworth24db.cpp ****     this->t3 = pi / fs;
+  77              		.loc 1 29 20 view .LVU13
+  78 0020 30EE005A 		vadd.f32	s10, s0, s0
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 3
+
+
+  32:FilterButterworth24db.cpp ****     this->max_cutoff = fs * 0.45f;
+  79              		.loc 1 32 27 view .LVU14
+  80 0024 20EE066A 		vmul.f32	s12, s0, s12
+  81              		.loc 1 33 27 view .LVU15
+  82 0028 60EE266A 		vmul.f32	s13, s0, s13
+  27:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+  83              		.loc 1 27 25 view .LVU16
+  84 002c 27EE007A 		vmul.f32	s14, s14, s0
+  29:FilterButterworth24db.cpp ****     this->t3 = pi / fs;
+  85              		.loc 1 29 14 view .LVU17
+  86 0030 80ED025A 		vstr.32	s10, [r0, #8]
+  28:FilterButterworth24db.cpp ****     this->t2 = 2.f * fs;
+  87              		.loc 1 28 25 view .LVU18
+  88 0034 27EE800A 		vmul.f32	s0, s15, s0
+  89              	.LVL2:
+  32:FilterButterworth24db.cpp ****     this->max_cutoff = fs * 0.45f;
+  90              		.loc 1 32 22 view .LVU19
+  91 0038 80ED0D6A 		vstr.32	s12, [r0, #52]
+  92              		.loc 1 33 22 view .LVU20
+  93 003c C0ED0E6A 		vstr.32	s13, [r0, #56]
+  27:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+  94              		.loc 1 27 14 view .LVU21
+  95 0040 80ED007A 		vstr.32	s14, [r0]
+  28:FilterButterworth24db.cpp ****     this->t2 = 2.f * fs;
+  96              		.loc 1 28 5 is_stmt 1 view .LVU22
+  28:FilterButterworth24db.cpp ****     this->t2 = 2.f * fs;
+  97              		.loc 1 28 14 is_stmt 0 view .LVU23
+  98 0044 80ED010A 		vstr.32	s0, [r0, #4]
+  29:FilterButterworth24db.cpp ****     this->t3 = pi / fs;
+  99              		.loc 1 29 5 is_stmt 1 view .LVU24
+  30:FilterButterworth24db.cpp **** 
+ 100              		.loc 1 30 5 view .LVU25
+  30:FilterButterworth24db.cpp **** 
+ 101              		.loc 1 30 14 is_stmt 0 view .LVU26
+ 102 0048 C0ED035A 		vstr.32	s11, [r0, #12]
+  32:FilterButterworth24db.cpp ****     this->max_cutoff = fs * 0.45f;
+ 103              		.loc 1 32 5 is_stmt 1 view .LVU27
+ 104              		.loc 1 33 5 view .LVU28
+  34:FilterButterworth24db.cpp **** }
+ 105              		.loc 1 34 1 is_stmt 0 view .LVU29
+ 106 004c 7047     		bx	lr
+ 107              	.L5:
+ 108 004e 00BF     		.align	2
+ 109              	.L4:
+ 110 0050 DB0F4940 		.word	1078530011
+ 111 0054 0AD7233C 		.word	1008981770
+ 112 0058 6666E63E 		.word	1055286886
+ 113              		.cfi_endproc
+ 114              	.LFE550:
+ 116              		.section	.text._ZN22CFilterButterworth24db3SetEff,"ax",%progbits
+ 117              		.align	1
+ 118              		.p2align 2,,3
+ 119              		.global	_ZN22CFilterButterworth24db3SetEff
+ 120              		.syntax unified
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.fpu fpv5-d16
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 4
+
+
+ 125              	_ZN22CFilterButterworth24db3SetEff:
+ 126              	.LVL3:
+ 127              	.LFB551:
+  35:FilterButterworth24db.cpp **** 
+  36:FilterButterworth24db.cpp **** void CFilterButterworth24db::Set(float cutoff, float q)
+  37:FilterButterworth24db.cpp **** {
+ 128              		.loc 1 37 1 is_stmt 1 view -0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+  38:FilterButterworth24db.cpp ****     if (cutoff < this->min_cutoff)
+ 132              		.loc 1 38 5 view .LVU31
+ 133              		.loc 1 38 24 is_stmt 0 view .LVU32
+ 134 0000 D0ED0D7A 		vldr.32	s15, [r0, #52]
+ 135              		.loc 1 38 5 view .LVU33
+ 136 0004 F4EEC07A 		vcmpe.f32	s15, s0
+  37:FilterButterworth24db.cpp ****     if (cutoff < this->min_cutoff)
+ 137              		.loc 1 37 1 view .LVU34
+ 138 0008 10B5     		push	{r4, lr}
+ 139              		.cfi_def_cfa_offset 8
+ 140              		.cfi_offset 4, -8
+ 141              		.cfi_offset 14, -4
+ 142              		.loc 1 38 5 view .LVU35
+ 143 000a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  37:FilterButterworth24db.cpp ****     if (cutoff < this->min_cutoff)
+ 144              		.loc 1 37 1 view .LVU36
+ 145 000e 0446     		mov	r4, r0
+ 146 0010 2DED048B 		vpush.64	{d8, d9}
+ 147              		.cfi_def_cfa_offset 24
+ 148              		.cfi_offset 80, -24
+ 149              		.cfi_offset 81, -20
+ 150              		.cfi_offset 82, -16
+ 151              		.cfi_offset 83, -12
+ 152              		.loc 1 38 5 view .LVU37
+ 153 0014 08DC     		bgt	.L7
+  39:FilterButterworth24db.cpp ****             cutoff = this->min_cutoff;
+  40:FilterButterworth24db.cpp ****     else if(cutoff > this->max_cutoff)
+ 154              		.loc 1 40 10 is_stmt 1 view .LVU38
+ 155              		.loc 1 40 28 is_stmt 0 view .LVU39
+ 156 0016 D0ED0E7A 		vldr.32	s15, [r0, #56]
+ 157 001a F4EEC07A 		vcmpe.f32	s15, s0
+ 158 001e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 159 0022 58BF     		it	pl
+ 160 0024 F0EE407A 		vmovpl.f32	s15, s0
+ 161              	.L7:
+ 162              	.LVL4:
+  41:FilterButterworth24db.cpp ****             cutoff = this->max_cutoff;
+  42:FilterButterworth24db.cpp **** 
+  43:FilterButterworth24db.cpp ****     if(q < 0.f)
+ 163              		.loc 1 43 5 is_stmt 1 view .LVU40
+ 164 0028 F5EEC00A 		vcmpe.f32	s1, #0
+ 165 002c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 166 0030 64D4     		bmi	.L11
+  44:FilterButterworth24db.cpp ****             q = 0.f;
+  45:FilterButterworth24db.cpp ****     else if(q > 1.f)
+ 167              		.loc 1 45 10 view .LVU41
+ 168 0032 B7EE007A 		vmov.f32	s14, #1.0e+0
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 5
+
+
+ 169 0036 F4EEC70A 		vcmpe.f32	s1, s14
+ 170 003a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 171 003e 50DD     		ble	.L14
+ 172 0040 DFED318A 		vldr.32	s17, .L15
+ 173 0044 9FED319A 		vldr.32	s18, .L15+4
+ 174              	.L9:
+ 175              	.LVL5:
+  46:FilterButterworth24db.cpp ****             q = 1.f;
+  47:FilterButterworth24db.cpp **** 
+  48:FilterButterworth24db.cpp ****     float wp = this->t2 * tanf(this->t3 * cutoff);
+ 176              		.loc 1 48 5 view .LVU42
+ 177              		.loc 1 48 31 is_stmt 0 view .LVU43
+ 178 0048 94ED030A 		vldr.32	s0, [r4, #12]
+ 179              		.loc 1 48 22 view .LVU44
+ 180 004c 94ED028A 		vldr.32	s16, [r4, #8]
+ 181              		.loc 1 48 31 view .LVU45
+ 182 0050 27EE800A 		vmul.f32	s0, s15, s0
+ 183 0054 FFF7FEFF 		bl	tanf
+ 184              	.LVL6:
+ 185              		.loc 1 48 11 view .LVU46
+ 186 0058 28EE000A 		vmul.f32	s0, s16, s0
+ 187              	.LVL7:
+  49:FilterButterworth24db.cpp ****     float bd, bd_tmp, b1, b2;
+ 188              		.loc 1 49 5 is_stmt 1 view .LVU47
+  50:FilterButterworth24db.cpp **** 
+  51:FilterButterworth24db.cpp ****     q *= BUDDA_Q_SCALE;
+ 189              		.loc 1 51 5 view .LVU48
+  52:FilterButterworth24db.cpp ****     q += 1.f;
+ 190              		.loc 1 52 5 view .LVU49
+  53:FilterButterworth24db.cpp **** 
+  54:FilterButterworth24db.cpp ****     b1 = (0.765367f / q) / wp;
+ 191              		.loc 1 54 5 view .LVU50
+  55:FilterButterworth24db.cpp ****     b2 = 1.f / (wp * wp);
+ 192              		.loc 1 55 8 is_stmt 0 view .LVU51
+ 193 005c B7EE006A 		vmov.f32	s12, #1.0e+0
+  56:FilterButterworth24db.cpp **** 
+  57:FilterButterworth24db.cpp ****     bd_tmp = this->t0 * b2 + 1.f;
+ 194              		.loc 1 57 12 view .LVU52
+ 195 0060 D4ED003A 		vldr.32	s7, [r4]
+  58:FilterButterworth24db.cpp **** 
+  59:FilterButterworth24db.cpp ****     bd = 1.f / (bd_tmp + this->t2 * b1);
+  60:FilterButterworth24db.cpp **** 
+  61:FilterButterworth24db.cpp ****     this->gain = bd * 0.5f;
+  62:FilterButterworth24db.cpp **** 
+  63:FilterButterworth24db.cpp ****     this->coef2 = (2.f - this->t1 * b2);
+ 196              		.loc 1 63 24 view .LVU53
+ 197 0064 B0EE007A 		vmov.f32	s14, #2.0e+0
+ 198 0068 94ED014A 		vldr.32	s8, [r4, #4]
+  55:FilterButterworth24db.cpp **** 
+ 199              		.loc 1 55 20 view .LVU54
+ 200 006c 60EE007A 		vmul.f32	s15, s0, s0
+  54:FilterButterworth24db.cpp ****     b2 = 1.f / (wp * wp);
+ 201              		.loc 1 54 8 view .LVU55
+ 202 0070 C9EE004A 		vdiv.f32	s9, s18, s0
+ 203              	.LVL8:
+  55:FilterButterworth24db.cpp **** 
+ 204              		.loc 1 55 5 is_stmt 1 view .LVU56
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 6
+
+
+  55:FilterButterworth24db.cpp **** 
+ 205              		.loc 1 55 8 is_stmt 0 view .LVU57
+ 206 0074 C6EE275A 		vdiv.f32	s11, s12, s15
+ 207              	.LVL9:
+  57:FilterButterworth24db.cpp **** 
+ 208              		.loc 1 57 5 is_stmt 1 view .LVU58
+  64:FilterButterworth24db.cpp **** 
+  65:FilterButterworth24db.cpp ****     this->coef0 = this->coef2 * bd;
+  66:FilterButterworth24db.cpp ****     this->coef1 = (bd_tmp - this->t2 * b1) * bd;
+  67:FilterButterworth24db.cpp **** 
+  68:FilterButterworth24db.cpp ****     b1 = (1.847759f / q) / wp;
+ 209              		.loc 1 68 8 is_stmt 0 view .LVU59
+ 210 0078 88EE805A 		vdiv.f32	s10, s17, s0
+  57:FilterButterworth24db.cpp **** 
+ 211              		.loc 1 57 12 view .LVU60
+ 212 007c F0EE467A 		vmov.f32	s15, s12
+  61:FilterButterworth24db.cpp **** 
+ 213              		.loc 1 61 21 view .LVU61
+ 214 0080 F6EE006A 		vmov.f32	s13, #5.0e-1
+  57:FilterButterworth24db.cpp **** 
+ 215              		.loc 1 57 12 view .LVU62
+ 216 0084 E3EEA57A 		vfma.f32	s15, s7, s11
+ 217              	.LVL10:
+  59:FilterButterworth24db.cpp **** 
+ 218              		.loc 1 59 5 is_stmt 1 view .LVU63
+  63:FilterButterworth24db.cpp **** 
+ 219              		.loc 1 63 24 is_stmt 0 view .LVU64
+ 220 0088 A4EE657A 		vfms.f32	s14, s8, s11
+  59:FilterButterworth24db.cpp **** 
+ 221              		.loc 1 59 24 view .LVU65
+ 222 008c F0EE673A 		vmov.f32	s7, s15
+  69:FilterButterworth24db.cpp **** 
+  70:FilterButterworth24db.cpp ****     bd = 1.f / (bd_tmp + this->t2 * b1);
+ 223              		.loc 1 70 24 view .LVU66
+ 224 0090 B0EE674A 		vmov.f32	s8, s15
+  66:FilterButterworth24db.cpp **** 
+ 225              		.loc 1 66 27 view .LVU67
+ 226 0094 F0EE675A 		vmov.f32	s11, s15
+ 227              	.LVL11:
+  59:FilterButterworth24db.cpp **** 
+ 228              		.loc 1 59 24 view .LVU68
+ 229 0098 E8EE243A 		vfma.f32	s7, s16, s9
+ 230              		.loc 1 70 24 view .LVU69
+ 231 009c A8EE054A 		vfma.f32	s8, s16, s10
+  66:FilterButterworth24db.cpp **** 
+ 232              		.loc 1 66 27 view .LVU70
+ 233 00a0 E8EE645A 		vfms.f32	s11, s16, s9
+  71:FilterButterworth24db.cpp **** 
+  72:FilterButterworth24db.cpp ****     this->gain *= bd;
+  73:FilterButterworth24db.cpp ****     this->coef2 *= bd;
+  74:FilterButterworth24db.cpp ****     this->coef3 = (bd_tmp - this->t2 * b1) * bd;
+ 234              		.loc 1 74 27 view .LVU71
+ 235 00a4 E8EE457A 		vfms.f32	s15, s16, s10
+ 236              	.LVL12:
+  75:FilterButterworth24db.cpp **** }
+ 237              		.loc 1 75 1 view .LVU72
+ 238 00a8 BDEC048B 		vldm	sp!, {d8-d9}
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 7
+
+
+ 239              		.cfi_remember_state
+ 240              		.cfi_restore 82
+ 241              		.cfi_restore 83
+ 242              		.cfi_restore 80
+ 243              		.cfi_restore 81
+ 244              		.cfi_def_cfa_offset 8
+  59:FilterButterworth24db.cpp **** 
+ 245              		.loc 1 59 8 view .LVU73
+ 246 00ac C6EE234A 		vdiv.f32	s9, s12, s7
+ 247              	.LVL13:
+  61:FilterButterworth24db.cpp **** 
+ 248              		.loc 1 61 5 is_stmt 1 view .LVU74
+  63:FilterButterworth24db.cpp **** 
+ 249              		.loc 1 63 5 view .LVU75
+  65:FilterButterworth24db.cpp ****     this->coef1 = (bd_tmp - this->t2 * b1) * bd;
+ 250              		.loc 1 65 5 view .LVU76
+  70:FilterButterworth24db.cpp **** 
+ 251              		.loc 1 70 8 is_stmt 0 view .LVU77
+ 252 00b0 86EE045A 		vdiv.f32	s10, s12, s8
+  61:FilterButterworth24db.cpp **** 
+ 253              		.loc 1 61 21 view .LVU78
+ 254 00b4 64EEA66A 		vmul.f32	s13, s9, s13
+  65:FilterButterworth24db.cpp ****     this->coef1 = (bd_tmp - this->t2 * b1) * bd;
+ 255              		.loc 1 65 31 view .LVU79
+ 256 00b8 27EE244A 		vmul.f32	s8, s14, s9
+  66:FilterButterworth24db.cpp **** 
+ 257              		.loc 1 66 44 view .LVU80
+ 258 00bc 25EEA46A 		vmul.f32	s12, s11, s9
+ 259              	.LVL14:
+  65:FilterButterworth24db.cpp ****     this->coef1 = (bd_tmp - this->t2 * b1) * bd;
+ 260              		.loc 1 65 17 view .LVU81
+ 261 00c0 84ED044A 		vstr.32	s8, [r4, #16]
+  73:FilterButterworth24db.cpp ****     this->coef3 = (bd_tmp - this->t2 * b1) * bd;
+ 262              		.loc 1 73 17 view .LVU82
+ 263 00c4 27EE057A 		vmul.f32	s14, s14, s10
+  66:FilterButterworth24db.cpp **** 
+ 264              		.loc 1 66 17 view .LVU83
+ 265 00c8 84ED056A 		vstr.32	s12, [r4, #20]
+  74:FilterButterworth24db.cpp **** }
+ 266              		.loc 1 74 44 view .LVU84
+ 267 00cc 67EE857A 		vmul.f32	s15, s15, s10
+  66:FilterButterworth24db.cpp **** 
+ 268              		.loc 1 66 5 is_stmt 1 view .LVU85
+  68:FilterButterworth24db.cpp **** 
+ 269              		.loc 1 68 5 view .LVU86
+ 270              	.LVL15:
+  70:FilterButterworth24db.cpp **** 
+ 271              		.loc 1 70 5 view .LVU87
+  72:FilterButterworth24db.cpp ****     this->coef2 *= bd;
+ 272              		.loc 1 72 5 view .LVU88
+  72:FilterButterworth24db.cpp ****     this->coef2 *= bd;
+ 273              		.loc 1 72 16 is_stmt 0 view .LVU89
+ 274 00d0 66EE856A 		vmul.f32	s13, s13, s10
+  73:FilterButterworth24db.cpp ****     this->coef3 = (bd_tmp - this->t2 * b1) * bd;
+ 275              		.loc 1 73 17 view .LVU90
+ 276 00d4 84ED067A 		vstr.32	s14, [r4, #24]
+  74:FilterButterworth24db.cpp **** }
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 8
+
+
+ 277              		.loc 1 74 17 view .LVU91
+ 278 00d8 C4ED077A 		vstr.32	s15, [r4, #28]
+  72:FilterButterworth24db.cpp ****     this->coef2 *= bd;
+ 279              		.loc 1 72 16 view .LVU92
+ 280 00dc C4ED0C6A 		vstr.32	s13, [r4, #48]
+  73:FilterButterworth24db.cpp ****     this->coef3 = (bd_tmp - this->t2 * b1) * bd;
+ 281              		.loc 1 73 5 is_stmt 1 view .LVU93
+  74:FilterButterworth24db.cpp **** }
+ 282              		.loc 1 74 5 view .LVU94
+ 283              		.loc 1 75 1 is_stmt 0 view .LVU95
+ 284 00e0 10BD     		pop	{r4, pc}
+ 285              	.LVL16:
+ 286              	.L14:
+ 287              		.cfi_restore_state
+  52:FilterButterworth24db.cpp **** 
+ 288              		.loc 1 52 7 view .LVU96
+ 289 00e2 F1EE085A 		vmov.f32	s11, #6.0e+0
+  54:FilterButterworth24db.cpp ****     b2 = 1.f / (wp * wp);
+ 290              		.loc 1 54 21 view .LVU97
+ 291 00e6 9FED0A6A 		vldr.32	s12, .L15+8
+  68:FilterButterworth24db.cpp **** 
+ 292              		.loc 1 68 21 view .LVU98
+ 293 00ea DFED0A6A 		vldr.32	s13, .L15+12
+  52:FilterButterworth24db.cpp **** 
+ 294              		.loc 1 52 7 view .LVU99
+ 295 00ee A0EEA57A 		vfma.f32	s14, s1, s11
+  54:FilterButterworth24db.cpp ****     b2 = 1.f / (wp * wp);
+ 296              		.loc 1 54 21 view .LVU100
+ 297 00f2 86EE079A 		vdiv.f32	s18, s12, s14
+  68:FilterButterworth24db.cpp **** 
+ 298              		.loc 1 68 21 view .LVU101
+ 299 00f6 C6EE878A 		vdiv.f32	s17, s13, s14
+ 300 00fa A5E7     		b	.L9
+ 301              	.L11:
+  68:FilterButterworth24db.cpp **** 
+ 302              		.loc 1 68 21 view .LVU102
+ 303 00fc DFED058A 		vldr.32	s17, .L15+12
+ 304 0100 9FED039A 		vldr.32	s18, .L15+8
+ 305 0104 A0E7     		b	.L9
+ 306              	.L16:
+ 307 0106 00BF     		.align	2
+ 308              	.L15:
+ 309 0108 7F26873E 		.word	1049044607
+ 310 010c ADECDF3D 		.word	1038085293
+ 311 0110 17EF433F 		.word	1061416727
+ 312 0114 5E83EC3F 		.word	1072464734
+ 313              		.cfi_endproc
+ 314              	.LFE551:
+ 316              		.section	.text._ZN22CFilterButterworth24dbC2Ev,"ax",%progbits
+ 317              		.align	1
+ 318              		.p2align 2,,3
+ 319              		.global	_ZN22CFilterButterworth24dbC2Ev
+ 320              		.syntax unified
+ 321              		.thumb
+ 322              		.thumb_func
+ 323              		.fpu fpv5-d16
+ 325              	_ZN22CFilterButterworth24dbC2Ev:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 9
+
+
+ 326              	.LVL17:
+ 327              	.LFB545:
+   8:FilterButterworth24db.cpp **** {
+ 328              		.loc 1 8 1 is_stmt 1 view -0
+ 329              		.cfi_startproc
+ 330              		@ args = 0, pretend = 0, frame = 0
+ 331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 332              	.LBB5:
+  10:FilterButterworth24db.cpp ****     this->history2 = 0.f;
+ 333              		.loc 1 10 5 view .LVU104
+ 334              	.LBB6:
+ 335              	.LBB7:
+  27:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+ 336              		.loc 1 27 14 is_stmt 0 view .LVU105
+ 337 0000 0E49     		ldr	r1, .L19
+  28:FilterButterworth24db.cpp ****     this->t2 = 2.f * fs;
+ 338              		.loc 1 28 14 view .LVU106
+ 339 0002 0F4A     		ldr	r2, .L19+4
+  29:FilterButterworth24db.cpp ****     this->t3 = pi / fs;
+ 340              		.loc 1 29 14 view .LVU107
+ 341 0004 0F4B     		ldr	r3, .L19+8
+ 342              	.LBE7:
+ 343              	.LBE6:
+  10:FilterButterworth24db.cpp ****     this->history2 = 0.f;
+ 344              		.loc 1 10 20 view .LVU108
+ 345 0006 DFED100A 		vldr.32	s1, .L19+12
+  16:FilterButterworth24db.cpp **** }
+ 346              		.loc 1 16 14 view .LVU109
+ 347 000a 9FED100A 		vldr.32	s0, .L19+16
+ 348              	.LBE5:
+   8:FilterButterworth24db.cpp **** {
+ 349              		.loc 1 8 1 view .LVU110
+ 350 000e 10B5     		push	{r4, lr}
+ 351              		.cfi_def_cfa_offset 8
+ 352              		.cfi_offset 4, -8
+ 353              		.cfi_offset 14, -4
+ 354              	.LBB14:
+ 355              	.LBB11:
+ 356              	.LBB8:
+  27:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+ 357              		.loc 1 27 14 view .LVU111
+ 358 0010 0160     		str	r1, [r0]	@ float
+ 359              	.LBE8:
+ 360              	.LBE11:
+ 361              	.LBE14:
+   8:FilterButterworth24db.cpp **** {
+ 362              		.loc 1 8 1 view .LVU112
+ 363 0012 0446     		mov	r4, r0
+ 364              	.LBB15:
+ 365              	.LBB12:
+ 366              	.LBB9:
+  30:FilterButterworth24db.cpp **** 
+ 367              		.loc 1 30 14 view .LVU113
+ 368 0014 0E49     		ldr	r1, .L19+20
+  28:FilterButterworth24db.cpp ****     this->t2 = 2.f * fs;
+ 369              		.loc 1 28 14 view .LVU114
+ 370 0016 4260     		str	r2, [r0, #4]	@ float
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 10
+
+
+  29:FilterButterworth24db.cpp ****     this->t3 = pi / fs;
+ 371              		.loc 1 29 14 view .LVU115
+ 372 0018 8360     		str	r3, [r0, #8]	@ float
+  32:FilterButterworth24db.cpp ****     this->max_cutoff = fs * 0.45f;
+ 373              		.loc 1 32 22 view .LVU116
+ 374 001a 0E4A     		ldr	r2, .L19+24
+  33:FilterButterworth24db.cpp **** }
+ 375              		.loc 1 33 22 view .LVU117
+ 376 001c 0E4B     		ldr	r3, .L19+28
+ 377              	.LBE9:
+ 378              	.LBE12:
+  10:FilterButterworth24db.cpp ****     this->history2 = 0.f;
+ 379              		.loc 1 10 20 view .LVU118
+ 380 001e C0ED080A 		vstr.32	s1, [r0, #32]
+  11:FilterButterworth24db.cpp ****     this->history3 = 0.f;
+ 381              		.loc 1 11 5 is_stmt 1 view .LVU119
+  11:FilterButterworth24db.cpp ****     this->history3 = 0.f;
+ 382              		.loc 1 11 20 is_stmt 0 view .LVU120
+ 383 0022 C0ED090A 		vstr.32	s1, [r0, #36]
+  12:FilterButterworth24db.cpp ****     this->history4 = 0.f;
+ 384              		.loc 1 12 5 is_stmt 1 view .LVU121
+  12:FilterButterworth24db.cpp ****     this->history4 = 0.f;
+ 385              		.loc 1 12 20 is_stmt 0 view .LVU122
+ 386 0026 C0ED0A0A 		vstr.32	s1, [r0, #40]
+  13:FilterButterworth24db.cpp **** 
+ 387              		.loc 1 13 5 is_stmt 1 view .LVU123
+  13:FilterButterworth24db.cpp **** 
+ 388              		.loc 1 13 20 is_stmt 0 view .LVU124
+ 389 002a C0ED0B0A 		vstr.32	s1, [r0, #44]
+  15:FilterButterworth24db.cpp ****     this->Set(22050.f, 0.0);
+ 390              		.loc 1 15 5 is_stmt 1 view .LVU125
+ 391              	.LVL18:
+ 392              	.LBB13:
+ 393              	.LBI6:
+  23:FilterButterworth24db.cpp **** {
+ 394              		.loc 1 23 6 view .LVU126
+ 395              	.LBB10:
+  25:FilterButterworth24db.cpp **** 
+ 396              		.loc 1 25 5 view .LVU127
+  27:FilterButterworth24db.cpp ****     this->t1 = 8.f * fs * fs;
+ 397              		.loc 1 27 5 view .LVU128
+  28:FilterButterworth24db.cpp ****     this->t2 = 2.f * fs;
+ 398              		.loc 1 28 5 view .LVU129
+  29:FilterButterworth24db.cpp ****     this->t3 = pi / fs;
+ 399              		.loc 1 29 5 view .LVU130
+  30:FilterButterworth24db.cpp **** 
+ 400              		.loc 1 30 5 view .LVU131
+  30:FilterButterworth24db.cpp **** 
+ 401              		.loc 1 30 14 is_stmt 0 view .LVU132
+ 402 002e C160     		str	r1, [r0, #12]	@ float
+  32:FilterButterworth24db.cpp ****     this->max_cutoff = fs * 0.45f;
+ 403              		.loc 1 32 5 is_stmt 1 view .LVU133
+  32:FilterButterworth24db.cpp ****     this->max_cutoff = fs * 0.45f;
+ 404              		.loc 1 32 22 is_stmt 0 view .LVU134
+ 405 0030 4263     		str	r2, [r0, #52]	@ float
+  33:FilterButterworth24db.cpp **** }
+ 406              		.loc 1 33 5 is_stmt 1 view .LVU135
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 11
+
+
+  33:FilterButterworth24db.cpp **** }
+ 407              		.loc 1 33 22 is_stmt 0 view .LVU136
+ 408 0032 8363     		str	r3, [r0, #56]	@ float
+ 409              	.LVL19:
+  33:FilterButterworth24db.cpp **** }
+ 410              		.loc 1 33 22 view .LVU137
+ 411              	.LBE10:
+ 412              	.LBE13:
+  16:FilterButterworth24db.cpp **** }
+ 413              		.loc 1 16 5 is_stmt 1 view .LVU138
+  16:FilterButterworth24db.cpp **** }
+ 414              		.loc 1 16 14 is_stmt 0 view .LVU139
+ 415 0034 FFF7FEFF 		bl	_ZN22CFilterButterworth24db3SetEff
+ 416              	.LVL20:
+  16:FilterButterworth24db.cpp **** }
+ 417              		.loc 1 16 14 view .LVU140
+ 418              	.LBE15:
+  17:FilterButterworth24db.cpp **** 
+ 419              		.loc 1 17 1 view .LVU141
+ 420 0038 2046     		mov	r0, r4
+ 421 003a 10BD     		pop	{r4, pc}
+ 422              	.LVL21:
+ 423              	.L20:
+  17:FilterButterworth24db.cpp **** 
+ 424              		.loc 1 17 1 view .LVU142
+ 425              		.align	2
+ 426              	.L19:
+ 427 003c E4D6E74F 		.word	1340593892
+ 428 0040 E4D66750 		.word	1348982500
+ 429 0044 0044AC47 		.word	1202471936
+ 430 0048 00000000 		.word	0
+ 431 004c 0044AC46 		.word	1185694720
+ 432 0050 93659538 		.word	949314963
+ 433 0054 0080DC43 		.word	1138524160
+ 434 0058 000A9B46 		.word	1184565760
+ 435              		.cfi_endproc
+ 436              	.LFE545:
+ 438              		.global	_ZN22CFilterButterworth24dbC1Ev
+ 439              		.thumb_set _ZN22CFilterButterworth24dbC1Ev,_ZN22CFilterButterworth24dbC2Ev
+ 440              		.section	.text._ZN22CFilterButterworth24db3RunEf,"ax",%progbits
+ 441              		.align	1
+ 442              		.p2align 2,,3
+ 443              		.global	_ZN22CFilterButterworth24db3RunEf
+ 444              		.syntax unified
+ 445              		.thumb
+ 446              		.thumb_func
+ 447              		.fpu fpv5-d16
+ 449              	_ZN22CFilterButterworth24db3RunEf:
+ 450              	.LVL22:
+ 451              	.LFB552:
+  76:FilterButterworth24db.cpp **** 
+  77:FilterButterworth24db.cpp **** float CFilterButterworth24db::Run(float input)
+  78:FilterButterworth24db.cpp **** {
+ 452              		.loc 1 78 1 is_stmt 1 view -0
+ 453              		.cfi_startproc
+ 454              		@ args = 0, pretend = 0, frame = 0
+ 455              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 12
+
+
+ 456              		@ link register save eliminated.
+  79:FilterButterworth24db.cpp ****     float output = input * this->gain;
+ 457              		.loc 1 79 5 view .LVU144
+  80:FilterButterworth24db.cpp ****     float new_hist;
+  81:FilterButterworth24db.cpp **** 
+  82:FilterButterworth24db.cpp ****     output -= this->history1 * this->coef0;
+ 458              		.loc 1 82 21 is_stmt 0 view .LVU145
+ 459 0000 90ED086A 		vldr.32	s12, [r0, #32]
+  83:FilterButterworth24db.cpp ****     new_hist = output - this->history2 * this->coef1;
+  84:FilterButterworth24db.cpp **** 
+  85:FilterButterworth24db.cpp ****     output = new_hist + this->history1 * 2.f;
+ 460              		.loc 1 85 12 view .LVU146
+ 461 0004 B0EE005A 		vmov.f32	s10, #2.0e+0
+ 462              	.LVL23:
+  80:FilterButterworth24db.cpp ****     float new_hist;
+ 463              		.loc 1 80 5 is_stmt 1 view .LVU147
+  82:FilterButterworth24db.cpp ****     new_hist = output - this->history2 * this->coef1;
+ 464              		.loc 1 82 5 view .LVU148
+  82:FilterButterworth24db.cpp ****     new_hist = output - this->history2 * this->coef1;
+ 465              		.loc 1 82 30 is_stmt 0 view .LVU149
+ 466 0008 90ED047A 		vldr.32	s14, [r0, #16]
+  82:FilterButterworth24db.cpp ****     new_hist = output - this->history2 * this->coef1;
+ 467              		.loc 1 82 12 view .LVU150
+ 468 000c 90ED0C3A 		vldr.32	s6, [r0, #48]
+ 469 0010 27EE467A 		vnmul.f32	s14, s14, s12
+  83:FilterButterworth24db.cpp ****     new_hist = output - this->history2 * this->coef1;
+ 470              		.loc 1 83 31 view .LVU151
+ 471 0014 D0ED097A 		vldr.32	s15, [r0, #36]
+  83:FilterButterworth24db.cpp ****     new_hist = output - this->history2 * this->coef1;
+ 472              		.loc 1 83 14 view .LVU152
+ 473 0018 D0ED053A 		vldr.32	s7, [r0, #20]
+  86:FilterButterworth24db.cpp ****     output += this->history2;
+  87:FilterButterworth24db.cpp **** 
+  88:FilterButterworth24db.cpp ****     this->history2 = this->history1;
+  89:FilterButterworth24db.cpp ****     this->history1 = new_hist;
+  90:FilterButterworth24db.cpp **** 
+  91:FilterButterworth24db.cpp ****     output -= this->history3 * this->coef2;
+ 474              		.loc 1 91 21 view .LVU153
+ 475 001c D0ED0A6A 		vldr.32	s13, [r0, #40]
+  82:FilterButterworth24db.cpp ****     new_hist = output - this->history2 * this->coef1;
+ 476              		.loc 1 82 12 view .LVU154
+ 477 0020 A3EE007A 		vfma.f32	s14, s6, s0
+ 478              	.LVL24:
+  83:FilterButterworth24db.cpp **** 
+ 479              		.loc 1 83 5 is_stmt 1 view .LVU155
+ 480              		.loc 1 91 12 is_stmt 0 view .LVU156
+ 481 0024 90ED064A 		vldr.32	s8, [r0, #24]
+  92:FilterButterworth24db.cpp ****     new_hist = output - this->history4 * this->coef3;
+ 482              		.loc 1 92 31 view .LVU157
+ 483 0028 D0ED0B5A 		vldr.32	s11, [r0, #44]
+ 484              		.loc 1 92 14 view .LVU158
+ 485 002c D0ED074A 		vldr.32	s9, [r0, #28]
+  88:FilterButterworth24db.cpp ****     this->history1 = new_hist;
+ 486              		.loc 1 88 20 view .LVU159
+ 487 0030 80ED096A 		vstr.32	s12, [r0, #36]
+  93:FilterButterworth24db.cpp **** 
+  94:FilterButterworth24db.cpp ****     output = new_hist + this->history3 * 2.f;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 13
+
+
+  95:FilterButterworth24db.cpp ****     output += this->history4;
+  96:FilterButterworth24db.cpp **** 
+  97:FilterButterworth24db.cpp ****     this->history4 = this->history3;
+ 488              		.loc 1 97 20 view .LVU160
+ 489 0034 C0ED0B6A 		vstr.32	s13, [r0, #44]
+  83:FilterButterworth24db.cpp **** 
+ 490              		.loc 1 83 14 view .LVU161
+ 491 0038 A7EEE37A 		vfms.f32	s14, s15, s7
+ 492              	.LVL25:
+  85:FilterButterworth24db.cpp ****     output += this->history2;
+ 493              		.loc 1 85 5 is_stmt 1 view .LVU162
+  85:FilterButterworth24db.cpp ****     output += this->history2;
+ 494              		.loc 1 85 12 is_stmt 0 view .LVU163
+ 495 003c F0EE473A 		vmov.f32	s7, s14
+  89:FilterButterworth24db.cpp **** 
+ 496              		.loc 1 89 20 view .LVU164
+ 497 0040 80ED087A 		vstr.32	s14, [r0, #32]
+  85:FilterButterworth24db.cpp ****     output += this->history2;
+ 498              		.loc 1 85 12 view .LVU165
+ 499 0044 E6EE053A 		vfma.f32	s7, s12, s10
+ 500              	.LVL26:
+  86:FilterButterworth24db.cpp **** 
+ 501              		.loc 1 86 5 is_stmt 1 view .LVU166
+  86:FilterButterworth24db.cpp **** 
+ 502              		.loc 1 86 12 is_stmt 0 view .LVU167
+ 503 0048 77EEA37A 		vadd.f32	s15, s15, s7
+ 504              	.LVL27:
+  88:FilterButterworth24db.cpp ****     this->history1 = new_hist;
+ 505              		.loc 1 88 5 is_stmt 1 view .LVU168
+  89:FilterButterworth24db.cpp **** 
+ 506              		.loc 1 89 5 view .LVU169
+  91:FilterButterworth24db.cpp ****     new_hist = output - this->history4 * this->coef3;
+ 507              		.loc 1 91 5 view .LVU170
+  91:FilterButterworth24db.cpp ****     new_hist = output - this->history4 * this->coef3;
+ 508              		.loc 1 91 12 is_stmt 0 view .LVU171
+ 509 004c E6EEC47A 		vfms.f32	s15, s13, s8
+ 510              	.LVL28:
+  92:FilterButterworth24db.cpp **** 
+ 511              		.loc 1 92 5 is_stmt 1 view .LVU172
+  92:FilterButterworth24db.cpp **** 
+ 512              		.loc 1 92 14 is_stmt 0 view .LVU173
+ 513 0050 E5EEE47A 		vfms.f32	s15, s11, s9
+ 514              	.LVL29:
+  94:FilterButterworth24db.cpp ****     output += this->history4;
+ 515              		.loc 1 94 5 is_stmt 1 view .LVU174
+  94:FilterButterworth24db.cpp ****     output += this->history4;
+ 516              		.loc 1 94 12 is_stmt 0 view .LVU175
+ 517 0054 B0EE670A 		vmov.f32	s0, s15
+ 518              	.LVL30:
+  98:FilterButterworth24db.cpp ****     this->history3 = new_hist;
+ 519              		.loc 1 98 20 view .LVU176
+ 520 0058 C0ED0A7A 		vstr.32	s15, [r0, #40]
+  94:FilterButterworth24db.cpp ****     output += this->history4;
+ 521              		.loc 1 94 12 view .LVU177
+ 522 005c A6EE850A 		vfma.f32	s0, s13, s10
+ 523              	.LVL31:
+  95:FilterButterworth24db.cpp **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 14
+
+
+ 524              		.loc 1 95 5 is_stmt 1 view .LVU178
+  97:FilterButterworth24db.cpp ****     this->history3 = new_hist;
+ 525              		.loc 1 97 5 view .LVU179
+ 526              		.loc 1 98 5 view .LVU180
+  99:FilterButterworth24db.cpp **** 
+ 100:FilterButterworth24db.cpp ****     return output;
+ 527              		.loc 1 100 5 view .LVU181
+ 101:FilterButterworth24db.cpp **** }...
+ 528              		.loc 1 101 1 is_stmt 0 view .LVU182
+ 529 0060 35EE800A 		vadd.f32	s0, s11, s0
+ 530              	.LVL32:
+ 531              		.loc 1 101 1 view .LVU183
+ 532 0064 7047     		bx	lr
+ 533              		.cfi_endproc
+ 534              	.LFE552:
+ 536 0066 00BF     		.text
+ 537              	.Letext0:
+ 538              		.file 2 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 539              		.file 3 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 540              		.file 4 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 541              		.file 5 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+ 542              		.file 6 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 543              		.file 7 "FilterButterworth24db.h"
+ 544              		.file 8 "<built-in>"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 FilterButterworth24db.cpp
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:17     .text._ZN22CFilterButterworth24dbD2Ev:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:26     .text._ZN22CFilterButterworth24dbD2Ev:0000000000000000 _ZN22CFilterButterworth24dbD2Ev
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:26     .text._ZN22CFilterButterworth24dbD2Ev:0000000000000000 _ZN22CFilterButterworth24dbD1Ev
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:43     .text._ZN22CFilterButterworth24db13SetSampleRateEf:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:51     .text._ZN22CFilterButterworth24db13SetSampleRateEf:0000000000000000 _ZN22CFilterButterworth24db13SetSampleRateEf
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:110    .text._ZN22CFilterButterworth24db13SetSampleRateEf:0000000000000050 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:117    .text._ZN22CFilterButterworth24db3SetEff:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:125    .text._ZN22CFilterButterworth24db3SetEff:0000000000000000 _ZN22CFilterButterworth24db3SetEff
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:309    .text._ZN22CFilterButterworth24db3SetEff:0000000000000108 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:317    .text._ZN22CFilterButterworth24dbC2Ev:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:325    .text._ZN22CFilterButterworth24dbC2Ev:0000000000000000 _ZN22CFilterButterworth24dbC2Ev
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:427    .text._ZN22CFilterButterworth24dbC2Ev:000000000000003c $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:325    .text._ZN22CFilterButterworth24dbC2Ev:0000000000000000 _ZN22CFilterButterworth24dbC1Ev
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:441    .text._ZN22CFilterButterworth24db3RunEf:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccgi57nI.s:449    .text._ZN22CFilterButterworth24db3RunEf:0000000000000000 _ZN22CFilterButterworth24db3RunEf
+
+UNDEFINED SYMBOLS
+tanf

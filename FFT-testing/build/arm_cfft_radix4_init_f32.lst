@@ -1,0 +1,419 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"arm_cfft_radix4_init_f32.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.arm_cfft_radix4_init_f32,"ax",%progbits
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.global	arm_cfft_radix4_init_f32
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	arm_cfft_radix4_init_f32:
+  27              	.LVL0:
+  28              	.LFB353:
+  29              		.file 1 "../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c"
+   1:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** /* ----------------------------------------------------------------------
+   2:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * Project:      CMSIS DSP Library
+   3:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * Title:        arm_cfft_radix4_init_f32.c
+   4:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * Description:  Radix-4 Decimation in Frequency Floating-point CFFT & CIFFT Initialization functio
+   5:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  *
+   6:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * $Date:        27. January 2017
+   7:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * $Revision:    V.1.5.1
+   8:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  *
+   9:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * Target Processor: Cortex-M cores
+  10:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * -------------------------------------------------------------------- */
+  11:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** /*
+  12:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * Copyright (C) 2010-2017 ARM Limited or its affiliates. All rights reserved.
+  13:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  *
+  14:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * SPDX-License-Identifier: Apache-2.0
+  15:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  *
+  16:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  17:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * not use this file except in compliance with the License.
+  18:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * You may obtain a copy of the License at
+  19:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  *
+  20:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * www.apache.org/licenses/LICENSE-2.0
+  21:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  *
+  22:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * Unless required by applicable law or agreed to in writing, software
+  23:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  24:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  25:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * See the License for the specific language governing permissions and
+  26:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * limitations under the License.
+  27:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  */
+  28:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  29:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** #include "arm_math.h"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s 			page 2
+
+
+  30:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** #include "arm_common_tables.h"
+  31:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  32:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** /**
+  33:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * @ingroup groupTransforms
+  34:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  */
+  35:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  36:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** /**
+  37:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * @addtogroup ComplexFFT
+  38:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  * @{
+  39:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****  */
+  40:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  41:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** /**
+  42:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * @brief  Initialization function for the floating-point CFFT/CIFFT.
+  43:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * @deprecated Do not use this function.  It has been superceded by \ref arm_cfft_f32 and will be re
+  44:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * in the future.
+  45:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * @param[in,out] *S             points to an instance of the floating-point CFFT/CIFFT structure.
+  46:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * @param[in]     fftLen         length of the FFT.
+  47:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * @param[in]     ifftFlag       flag that selects forward (ifftFlag=0) or inverse (ifftFlag=1) tran
+  48:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * @param[in]     bitReverseFlag flag that enables (bitReverseFlag=1) or disables (bitReverseFlag=0)
+  49:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * @return        The function returns ARM_MATH_SUCCESS if initialization is successful or ARM_MATH_
+  50:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** *
+  51:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * \par Description:
+  52:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * \par
+  53:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * The parameter <code>ifftFlag</code> controls whether a forward or inverse transform is computed.
+  54:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * Set(=1) ifftFlag for calculation of CIFFT otherwise  CFFT is calculated
+  55:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * \par
+  56:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * The parameter <code>bitReverseFlag</code> controls whether output is in normal order or bit rever
+  57:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * Set(=1) bitReverseFlag for output to be in normal order otherwise output is in bit reversed order
+  58:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * \par
+  59:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * The parameter <code>fftLen</code>	Specifies length of CFFT/CIFFT process. Supported FFT Lengths a
+  60:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * \par
+  61:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** * This Function also initializes Twiddle factor table pointer and Bit reversal table pointer.
+  62:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** */
+  63:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  64:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** arm_status arm_cfft_radix4_init_f32(
+  65:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   arm_cfft_radix4_instance_f32 * S,
+  66:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   uint16_t fftLen,
+  67:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   uint8_t ifftFlag,
+  68:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   uint8_t bitReverseFlag)
+  69:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** {
+  30              		.loc 1 69 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  70:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   /*  Initialise the default arm status */
+  71:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   arm_status status = ARM_MATH_SUCCESS;
+  35              		.loc 1 71 3 view .LVU1
+  72:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  73:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   /*  Initialise the FFT length */
+  74:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   S->fftLen = fftLen;
+  36              		.loc 1 74 3 view .LVU2
+  69:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   /*  Initialise the default arm status */
+  37              		.loc 1 69 1 is_stmt 0 view .LVU3
+  38 0000 8446     		mov	ip, r0
+  75:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  76:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   /*  Initialise the Twiddle coefficient pointer */
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s 			page 3
+
+
+  77:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   S->pTwiddle = (float32_t *) twiddleCoef;
+  78:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  79:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   /*  Initialise the Flag for selection of CFFT or CIFFT */
+  80:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   S->ifftFlag = ifftFlag;
+  81:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  82:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   /*  Initialise the Flag for calculation Bit reversal or not */
+  83:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   S->bitReverseFlag = bitReverseFlag;
+  84:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  85:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   /*  Initializations of structure parameters depending on the FFT length */
+  86:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   switch (S->fftLen)
+  39              		.loc 1 86 3 view .LVU4
+  40 0002 B1F5807F 		cmp	r1, #256
+  77:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  41              		.loc 1 77 15 view .LVU5
+  42 0006 2748     		ldr	r0, .L11
+  43              	.LVL1:
+  74:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  44              		.loc 1 74 13 view .LVU6
+  45 0008 ACF80010 		strh	r1, [ip]	@ movhi
+  77:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  46              		.loc 1 77 3 is_stmt 1 view .LVU7
+  80:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  47              		.loc 1 80 15 is_stmt 0 view .LVU8
+  48 000c 8CF80220 		strb	r2, [ip, #2]
+  77:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  49              		.loc 1 77 15 view .LVU9
+  50 0010 CCF80400 		str	r0, [ip, #4]
+  80:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  51              		.loc 1 80 3 is_stmt 1 view .LVU10
+  83:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  52              		.loc 1 83 3 view .LVU11
+  83:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  53              		.loc 1 83 21 is_stmt 0 view .LVU12
+  54 0014 8CF80330 		strb	r3, [ip, #3]
+  55              		.loc 1 86 3 is_stmt 1 view .LVU13
+  56 0018 20D0     		beq	.L2
+  57 001a 10D9     		bls	.L10
+  58 001c B1F5806F 		cmp	r1, #1024
+  59 0020 27D0     		beq	.L7
+  60 0022 B1F5805F 		cmp	r1, #4096
+  61 0026 3AD1     		bne	.L8
+  87:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   {
+  88:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  89:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   case 4096u:
+  90:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initializations of structure parameters for 4096 point FFT */
+  91:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  92:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the twiddle coef modifier value */
+  93:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->twidCoefModifier = 1u;
+  62              		.loc 1 93 5 view .LVU14
+  94:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table modifier */
+  95:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 1u;
+  63              		.loc 1 95 5 view .LVU15
+  96:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table pointer */
+  97:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->pBitRevTable = (uint16_t *) armBitRevTable;
+  64              		.loc 1 97 5 view .LVU16
+  65              		.loc 1 97 21 is_stmt 0 view .LVU17
+  66 0028 1F49     		ldr	r1, .L11+4
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s 			page 4
+
+
+  67              	.LVL2:
+  93:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table modifier */
+  68              		.loc 1 93 25 view .LVU18
+  69 002a 4FF00112 		mov	r2, #65537
+  70              	.LVL3:
+  98:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the 1/fftLen Value */
+  99:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->onebyfftLen = 0.000244140625;
+  71              		.loc 1 99 20 view .LVU19
+  72 002e 4FF06653 		mov	r3, #964689920
+  73              	.LVL4:
+  71:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+  74              		.loc 1 71 14 view .LVU20
+  75 0032 0020     		movs	r0, #0
+  93:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table modifier */
+  76              		.loc 1 93 25 view .LVU21
+  77 0034 CCE90212 		strd	r1, r2, [ip, #8]
+  78              		.loc 1 99 20 view .LVU22
+  79 0038 CCF81030 		str	r3, [ip, #16]	@ float
+ 100:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+  80              		.loc 1 100 5 is_stmt 1 view .LVU23
+  81 003c 7047     		bx	lr
+  82              	.LVL5:
+  83              	.L10:
+  86:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   {
+  84              		.loc 1 86 3 is_stmt 0 view .LVU24
+  85 003e 1029     		cmp	r1, #16
+  86 0040 22D0     		beq	.L4
+  87 0042 4029     		cmp	r1, #64
+  88 0044 2BD1     		bne	.L8
+ 101:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 102:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   case 1024u:
+ 103:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initializations of structure parameters for 1024 point FFT */
+ 104:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 105:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the twiddle coef modifier value */
+ 106:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->twidCoefModifier = 4u;
+ 107:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table modifier */
+ 108:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 4u;
+ 109:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table pointer */
+ 110:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->pBitRevTable = (uint16_t *) & armBitRevTable[3];
+ 111:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the 1/fftLen Value */
+ 112:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->onebyfftLen = 0.0009765625f;
+ 113:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 114:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 115:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 116:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   case 256u:
+ 117:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initializations of structure parameters for 256 point FFT */
+ 118:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->twidCoefModifier = 16u;
+ 119:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 16u;
+ 120:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->pBitRevTable = (uint16_t *) & armBitRevTable[15];
+ 121:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->onebyfftLen = 0.00390625f;
+ 122:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 123:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 124:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   case 64u:
+ 125:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initializations of structure parameters for 64 point FFT */
+ 126:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->twidCoefModifier = 64u;
+  89              		.loc 1 126 5 is_stmt 1 view .LVU25
+ 127:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 64u;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s 			page 5
+
+
+  90              		.loc 1 127 5 view .LVU26
+ 128:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->pBitRevTable = (uint16_t *) & armBitRevTable[63];
+  91              		.loc 1 128 5 view .LVU27
+  92              		.loc 1 128 21 is_stmt 0 view .LVU28
+  93 0046 1949     		ldr	r1, .L11+8
+  94              	.LVL6:
+ 126:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 64u;
+  95              		.loc 1 126 25 view .LVU29
+  96 0048 4FF04012 		mov	r2, #4194368
+  97              	.LVL7:
+ 129:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->onebyfftLen = 0.015625f;
+  98              		.loc 1 129 20 view .LVU30
+  99 004c 4FF07253 		mov	r3, #1015021568
+ 100              	.LVL8:
+  71:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 101              		.loc 1 71 14 view .LVU31
+ 102 0050 0020     		movs	r0, #0
+ 126:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 64u;
+ 103              		.loc 1 126 25 view .LVU32
+ 104 0052 CCE90212 		strd	r1, r2, [ip, #8]
+ 105              		.loc 1 129 20 view .LVU33
+ 106 0056 CCF81030 		str	r3, [ip, #16]	@ float
+ 130:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 107              		.loc 1 130 5 is_stmt 1 view .LVU34
+ 108 005a 7047     		bx	lr
+ 109              	.LVL9:
+ 110              	.L2:
+ 118:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 16u;
+ 111              		.loc 1 118 5 view .LVU35
+ 119:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->pBitRevTable = (uint16_t *) & armBitRevTable[15];
+ 112              		.loc 1 119 5 view .LVU36
+ 120:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->onebyfftLen = 0.00390625f;
+ 113              		.loc 1 120 5 view .LVU37
+ 120:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->onebyfftLen = 0.00390625f;
+ 114              		.loc 1 120 21 is_stmt 0 view .LVU38
+ 115 005c 1449     		ldr	r1, .L11+12
+ 116              	.LVL10:
+ 118:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 16u;
+ 117              		.loc 1 118 25 view .LVU39
+ 118 005e 4FF01012 		mov	r2, #1048592
+ 119              	.LVL11:
+ 121:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 120              		.loc 1 121 20 view .LVU40
+ 121 0062 4FF06E53 		mov	r3, #998244352
+ 122              	.LVL12:
+  71:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 123              		.loc 1 71 14 view .LVU41
+ 124 0066 0020     		movs	r0, #0
+ 118:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 16u;
+ 125              		.loc 1 118 25 view .LVU42
+ 126 0068 CCE90212 		strd	r1, r2, [ip, #8]
+ 121:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 127              		.loc 1 121 20 view .LVU43
+ 128 006c CCF81030 		str	r3, [ip, #16]	@ float
+ 122:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 129              		.loc 1 122 5 is_stmt 1 view .LVU44
+ 130 0070 7047     		bx	lr
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s 			page 6
+
+
+ 131              	.LVL13:
+ 132              	.L7:
+ 106:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table modifier */
+ 133              		.loc 1 106 5 view .LVU45
+ 108:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table pointer */
+ 134              		.loc 1 108 5 view .LVU46
+ 110:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the 1/fftLen Value */
+ 135              		.loc 1 110 5 view .LVU47
+ 110:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the 1/fftLen Value */
+ 136              		.loc 1 110 21 is_stmt 0 view .LVU48
+ 137 0072 1049     		ldr	r1, .L11+16
+ 138              	.LVL14:
+ 106:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table modifier */
+ 139              		.loc 1 106 25 view .LVU49
+ 140 0074 4FF00412 		mov	r2, #262148
+ 141              	.LVL15:
+ 112:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 142              		.loc 1 112 20 view .LVU50
+ 143 0078 4FF06A53 		mov	r3, #981467136
+ 144              	.LVL16:
+  71:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 145              		.loc 1 71 14 view .LVU51
+ 146 007c 0020     		movs	r0, #0
+ 106:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initialise the bit reversal table modifier */
+ 147              		.loc 1 106 25 view .LVU52
+ 148 007e CCE90212 		strd	r1, r2, [ip, #8]
+ 112:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 149              		.loc 1 112 20 view .LVU53
+ 150 0082 CCF81030 		str	r3, [ip, #16]	@ float
+ 113:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 151              		.loc 1 113 5 is_stmt 1 view .LVU54
+ 152 0086 7047     		bx	lr
+ 153              	.LVL17:
+ 154              	.L4:
+ 131:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 132:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   case 16u:
+ 133:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Initializations of structure parameters for 16 point FFT */
+ 134:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->twidCoefModifier = 256u;
+ 155              		.loc 1 134 5 view .LVU55
+ 135:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 256u;
+ 156              		.loc 1 135 5 view .LVU56
+ 136:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->pBitRevTable = (uint16_t *) & armBitRevTable[255];
+ 157              		.loc 1 136 5 view .LVU57
+ 158              		.loc 1 136 21 is_stmt 0 view .LVU58
+ 159 0088 0B49     		ldr	r1, .L11+20
+ 160              	.LVL18:
+ 134:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 256u;
+ 161              		.loc 1 134 25 view .LVU59
+ 162 008a 4FF00122 		mov	r2, #16777472
+ 163              	.LVL19:
+ 137:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->onebyfftLen = 0.0625f;
+ 164              		.loc 1 137 20 view .LVU60
+ 165 008e 4FF07653 		mov	r3, #1031798784
+ 166              	.LVL20:
+  71:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 167              		.loc 1 71 14 view .LVU61
+ 168 0092 0020     		movs	r0, #0
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s 			page 7
+
+
+ 134:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     S->bitRevFactor = 256u;
+ 169              		.loc 1 134 25 view .LVU62
+ 170 0094 CCE90212 		strd	r1, r2, [ip, #8]
+ 171              		.loc 1 137 20 view .LVU63
+ 172 0098 CCF81030 		str	r3, [ip, #16]	@ float
+ 138:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 173              		.loc 1 138 5 is_stmt 1 view .LVU64
+ 174 009c 7047     		bx	lr
+ 175              	.LVL21:
+ 176              	.L8:
+  86:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   {
+ 177              		.loc 1 86 3 is_stmt 0 view .LVU65
+ 178 009e 4FF0FF30 		mov	r0, #-1
+ 179              	.LVL22:
+ 139:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 140:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 141:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   default:
+ 142:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     /*  Reporting argument error if fftSize is not valid value */
+ 143:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     status = ARM_MATH_ARGUMENT_ERROR;
+ 144:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****     break;
+ 145:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   }
+ 146:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** 
+ 147:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c ****   return (status);
+ 180              		.loc 1 147 3 is_stmt 1 view .LVU66
+ 148:../../libDaisy//Drivers/CMSIS/DSP/Source/TransformFunctions/arm_cfft_radix4_init_f32.c **** }
+ 181              		.loc 1 148 1 is_stmt 0 view .LVU67
+ 182 00a2 7047     		bx	lr
+ 183              	.L12:
+ 184              		.align	2
+ 185              	.L11:
+ 186 00a4 00000000 		.word	twiddleCoef_4096
+ 187 00a8 00000000 		.word	armBitRevTable
+ 188 00ac 7E000000 		.word	armBitRevTable+126
+ 189 00b0 1E000000 		.word	armBitRevTable+30
+ 190 00b4 06000000 		.word	armBitRevTable+6
+ 191 00b8 FE010000 		.word	armBitRevTable+510
+ 192              		.cfi_endproc
+ 193              	.LFE353:
+ 195              		.text
+ 196              	.Letext0:
+ 197              		.file 2 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
+ 198              		.file 3 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+ 199              		.file 4 "../../libDaisy//Drivers/CMSIS/DSP/Include/arm_math.h"
+ 200              		.file 5 "../../libDaisy//Drivers/CMSIS/DSP/Include/arm_common_tables.h"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 arm_cfft_radix4_init_f32.c
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s:17     .text.arm_cfft_radix4_init_f32:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s:26     .text.arm_cfft_radix4_init_f32:0000000000000000 arm_cfft_radix4_init_f32
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccyy6qoh.s:186    .text.arm_cfft_radix4_init_f32:00000000000000a4 $d
+
+UNDEFINED SYMBOLS
+twiddleCoef_4096
+armBitRevTable

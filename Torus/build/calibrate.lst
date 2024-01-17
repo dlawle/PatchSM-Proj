@@ -1,0 +1,360 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"calibrate.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN5torus9Calibrate18ProcessCalibrationERfRb,"ax",%progbits
+  17              		.align	1
+  18              		.global	_ZN5torus9Calibrate18ProcessCalibrationERfRb
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv5-d16
+  25              	_ZN5torus9Calibrate18ProcessCalibrationERfRb:
+  26              	.LVL0:
+  27              	.LFB2533:
+  28              		.file 1 "calibrate.cpp"
+   1:calibrate.cpp **** #include "calibrate.h"
+   2:calibrate.cpp **** 
+   3:calibrate.cpp **** namespace torus
+   4:calibrate.cpp **** {
+   5:calibrate.cpp **** 
+   6:calibrate.cpp **** bool Calibrate::ProcessCalibration(float& cv_in, bool& button_pressed)
+   7:calibrate.cpp **** {
+  29              		.loc 1 7 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+   8:calibrate.cpp ****     bool done{false};
+  33              		.loc 1 8 5 view .LVU1
+   9:calibrate.cpp ****     switch(cal_state_)
+  34              		.loc 1 9 5 view .LVU2
+   7:calibrate.cpp ****     bool done{false};
+  35              		.loc 1 7 1 is_stmt 0 view .LVU3
+  36 0000 38B5     		push	{r3, r4, r5, lr}
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 3, -16
+  39              		.cfi_offset 4, -12
+  40              		.cfi_offset 5, -8
+  41              		.cfi_offset 14, -4
+  42              		.loc 1 9 12 view .LVU4
+  43 0002 037B     		ldrb	r3, [r0, #12]	@ zero_extendqisi2
+   7:calibrate.cpp ****     bool done{false};
+  44              		.loc 1 7 1 view .LVU5
+  45 0004 0446     		mov	r4, r0
+  46              		.loc 1 9 5 view .LVU6
+  47 0006 23B1     		cbz	r3, .L2
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s 			page 2
+
+
+  48 0008 012B     		cmp	r3, #1
+  49 000a 15D0     		beq	.L3
+  50              	.LVL1:
+  51              	.L17:
+  10:calibrate.cpp ****     {
+  11:calibrate.cpp ****         case PATCH_1V:
+  12:calibrate.cpp ****             if(button_pressed)
+  13:calibrate.cpp ****             {
+  14:calibrate.cpp ****                 value_1v_  = cv_in;
+  15:calibrate.cpp ****                 cal_state_ = PATCH_3V;
+  16:calibrate.cpp ****             }
+  17:calibrate.cpp ****             /** Waiting for 1V, slow blink */
+  18:calibrate.cpp ****             brightness_ = (System::GetNow() & 1023) > 511 ? 1.f : 0.f;
+  19:calibrate.cpp ****             break;
+  52              		.loc 1 19 13 is_stmt 1 view .LVU7
+   8:calibrate.cpp ****     switch(cal_state_)
+  53              		.loc 1 8 10 is_stmt 0 view .LVU8
+  54 000c 0025     		movs	r5, #0
+  55              	.LVL2:
+  56              	.L4:
+  20:calibrate.cpp ****         case PATCH_3V:
+  21:calibrate.cpp ****             if(button_pressed)
+  22:calibrate.cpp ****             {
+  23:calibrate.cpp ****                 if(cal.Record(value_1v_, cv_in))
+  24:calibrate.cpp ****                 {
+  25:calibrate.cpp ****                     cal_state_ = PATCH_DONE_CALIBRATING;
+  26:calibrate.cpp ****                     // Calibration is complete.
+  27:calibrate.cpp ****                     done = true;
+  28:calibrate.cpp ****                 }
+  29:calibrate.cpp ****             }
+  30:calibrate.cpp ****             /** Waiting for 3V, fast blink */
+  31:calibrate.cpp ****             brightness_ = (System::GetNow() & 255) > 127 ? 1.f : 0.f;
+  32:calibrate.cpp ****             break;
+  33:calibrate.cpp ****         case PATCH_DONE_CALIBRATING: break;
+  34:calibrate.cpp ****     }
+  35:calibrate.cpp ****     return done;
+  57              		.loc 1 35 5 is_stmt 1 view .LVU9
+  36:calibrate.cpp **** }
+  58              		.loc 1 36 1 is_stmt 0 view .LVU10
+  59 000e 2846     		mov	r0, r5
+  60 0010 38BD     		pop	{r3, r4, r5, pc}
+  61              	.LVL3:
+  62              	.L2:
+  11:calibrate.cpp ****             if(button_pressed)
+  63              		.loc 1 11 9 is_stmt 1 view .LVU11
+  12:calibrate.cpp ****             {
+  64              		.loc 1 12 13 view .LVU12
+  65 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  66 0014 1BB1     		cbz	r3, .L5
+  14:calibrate.cpp ****                 cal_state_ = PATCH_3V;
+  67              		.loc 1 14 17 view .LVU13
+  14:calibrate.cpp ****                 cal_state_ = PATCH_3V;
+  68              		.loc 1 14 30 is_stmt 0 view .LVU14
+  69 0016 0B68     		ldr	r3, [r1]	@ float
+  14:calibrate.cpp ****                 cal_state_ = PATCH_3V;
+  70              		.loc 1 14 28 view .LVU15
+  71 0018 0361     		str	r3, [r0, #16]	@ float
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s 			page 3
+
+
+  15:calibrate.cpp ****             }
+  72              		.loc 1 15 17 is_stmt 1 view .LVU16
+  15:calibrate.cpp ****             }
+  73              		.loc 1 15 28 is_stmt 0 view .LVU17
+  74 001a 0123     		movs	r3, #1
+  75 001c 0373     		strb	r3, [r0, #12]
+  76              	.L5:
+  18:calibrate.cpp ****             break;
+  77              		.loc 1 18 13 is_stmt 1 view .LVU18
+  18:calibrate.cpp ****             break;
+  78              		.loc 1 18 42 is_stmt 0 view .LVU19
+  79 001e FFF7FEFF 		bl	_ZN5daisy6System6GetNowEv
+  80              	.LVL4:
+  18:calibrate.cpp ****             break;
+  81              		.loc 1 18 59 view .LVU20
+  82 0022 F7EE007A 		vmov.f32	s15, #1.0e+0
+  83 0026 10F4007F 		tst	r0, #512
+  84 002a 9FED157A 		vldr.32	s14, .L18
+  85 002e 47FE277A 		vseleq.f32	s15, s14, s15
+  18:calibrate.cpp ****             break;
+  86              		.loc 1 18 25 view .LVU21
+  87 0032 C4ED057A 		vstr.32	s15, [r4, #20]
+  88 0036 E9E7     		b	.L17
+  89              	.LVL5:
+  90              	.L3:
+  20:calibrate.cpp ****             if(button_pressed)
+  91              		.loc 1 20 9 is_stmt 1 view .LVU22
+  21:calibrate.cpp ****             {
+  92              		.loc 1 21 13 view .LVU23
+  21:calibrate.cpp ****             {
+  93              		.loc 1 21 16 is_stmt 0 view .LVU24
+  94 0038 1578     		ldrb	r5, [r2]	@ zero_extendqisi2
+  21:calibrate.cpp ****             {
+  95              		.loc 1 21 13 view .LVU25
+  96 003a A5B1     		cbz	r5, .L7
+  23:calibrate.cpp ****                 {
+  97              		.loc 1 23 17 is_stmt 1 view .LVU26
+  98              	.LBB4:
+  99              	.LBB5:
+ 100              		.file 2 "../../libDaisy/src/util/VoctCalibration.h"
+   1:../../libDaisy/src/util/VoctCalibration.h **** #pragma once
+   2:../../libDaisy/src/util/VoctCalibration.h **** 
+   3:../../libDaisy/src/util/VoctCalibration.h **** namespace daisy
+   4:../../libDaisy/src/util/VoctCalibration.h **** {
+   5:../../libDaisy/src/util/VoctCalibration.h **** /** @brief Helper class for calibrating an input to 1V/oct response 
+   6:../../libDaisy/src/util/VoctCalibration.h ****  *  @author shensley
+   7:../../libDaisy/src/util/VoctCalibration.h ****  * 
+   8:../../libDaisy/src/util/VoctCalibration.h ****  *  This provides a scale and offset value for converting
+   9:../../libDaisy/src/util/VoctCalibration.h ****  *  incoming CV into MIDI note numbers accurately for musical pitch tracking.
+  10:../../libDaisy/src/util/VoctCalibration.h ****  * 
+  11:../../libDaisy/src/util/VoctCalibration.h ****  *  To use, record both the 1V and 3V values using the specified functions
+  12:../../libDaisy/src/util/VoctCalibration.h ****  *  once calibration is complete you can use the GetData function to retrieve
+  13:../../libDaisy/src/util/VoctCalibration.h ****  *  the calibration values.
+  14:../../libDaisy/src/util/VoctCalibration.h ****  * 
+  15:../../libDaisy/src/util/VoctCalibration.h ****  *  This can also be used for 100mV/Semitone calibration as used by Buchla synthesizer 
+  16:../../libDaisy/src/util/VoctCalibration.h ****  *  modules. To calibrate for this standard. You would send 1.2V, and 3.6V
+  17:../../libDaisy/src/util/VoctCalibration.h ****  */
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s 			page 4
+
+
+  18:../../libDaisy/src/util/VoctCalibration.h **** class VoctCalibration
+  19:../../libDaisy/src/util/VoctCalibration.h **** {
+  20:../../libDaisy/src/util/VoctCalibration.h ****   public:
+  21:../../libDaisy/src/util/VoctCalibration.h ****     VoctCalibration() : scale_(0.f), offset_(0.f), cal_(false) {}
+  22:../../libDaisy/src/util/VoctCalibration.h **** 
+  23:../../libDaisy/src/util/VoctCalibration.h ****     ~VoctCalibration() {}
+  24:../../libDaisy/src/util/VoctCalibration.h **** 
+  25:../../libDaisy/src/util/VoctCalibration.h ****     /** Uses the values retrieved for 1V and 3V in order to compute
+  26:../../libDaisy/src/util/VoctCalibration.h ****      *  a scale and offset value that can be used to convert a CV input 
+  27:../../libDaisy/src/util/VoctCalibration.h ****      *  signal to a calibrated 1V/oct range. 
+  28:../../libDaisy/src/util/VoctCalibration.h ****      * 
+  29:../../libDaisy/src/util/VoctCalibration.h ****      *  \param val1V ADC reading for 1 volt
+  30:../../libDaisy/src/util/VoctCalibration.h ****      *  \param val3V ADC reading for 3 volts
+  31:../../libDaisy/src/util/VoctCalibration.h ****      *  \retval returns true if the calibraiton is successful - this is always true
+  32:../../libDaisy/src/util/VoctCalibration.h ****      * 
+  33:../../libDaisy/src/util/VoctCalibration.h ****      *  \todo Add some sort of range validation. Originally we had a check
+  34:../../libDaisy/src/util/VoctCalibration.h ****      *        for a valid range on the input, but given that the input circuit
+  35:../../libDaisy/src/util/VoctCalibration.h ****      *        or the AnalogControl configuration can have a drastic effect on
+  36:../../libDaisy/src/util/VoctCalibration.h ****      *        input, that could cause unintentional failure to calibrate, 
+  37:../../libDaisy/src/util/VoctCalibration.h ****      *        it was removed.
+  38:../../libDaisy/src/util/VoctCalibration.h ****      **/
+  39:../../libDaisy/src/util/VoctCalibration.h ****     bool Record(float val1V, float val3V)
+  40:../../libDaisy/src/util/VoctCalibration.h ****     {
+  41:../../libDaisy/src/util/VoctCalibration.h ****         float delta = val3V - val1V;
+ 101              		.loc 2 41 15 is_stmt 0 view .LVU27
+ 102 003c D1ED007A 		vldr.32	s15, [r1]
+  42:../../libDaisy/src/util/VoctCalibration.h ****         scale_      = 24.f / delta;
+ 103              		.loc 2 42 28 view .LVU28
+ 104 0040 B3EE086A 		vmov.f32	s12, #2.4e+1
+ 105              	.LBE5:
+ 106              	.LBE4:
+  23:calibrate.cpp ****                 {
+ 107              		.loc 1 23 30 view .LVU29
+ 108 0044 D0ED046A 		vldr.32	s13, [r0, #16]
+ 109              	.LVL6:
+ 110              	.LBB9:
+ 111              	.LBI4:
+  39:../../libDaisy/src/util/VoctCalibration.h ****     {
+ 112              		.loc 2 39 10 is_stmt 1 view .LVU30
+ 113              	.LBB6:
+  41:../../libDaisy/src/util/VoctCalibration.h ****         scale_      = 24.f / delta;
+ 114              		.loc 2 41 9 view .LVU31
+ 115              		.loc 2 42 9 view .LVU32
+  43:../../libDaisy/src/util/VoctCalibration.h ****         offset_     = 12.f - scale_ * val1V;
+  44:../../libDaisy/src/util/VoctCalibration.h ****         cal_        = true;
+ 116              		.loc 2 44 21 is_stmt 0 view .LVU33
+ 117 0048 0372     		strb	r3, [r0, #8]
+ 118              	.LBE6:
+ 119              	.LBE9:
+  25:calibrate.cpp ****                     // Calibration is complete.
+ 120              		.loc 1 25 32 view .LVU34
+ 121 004a 0223     		movs	r3, #2
+ 122              	.LBB10:
+ 123              	.LBB7:
+  41:../../libDaisy/src/util/VoctCalibration.h ****         scale_      = 24.f / delta;
+ 124              		.loc 2 41 15 view .LVU35
+ 125 004c 77EEE67A 		vsub.f32	s15, s15, s13
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s 			page 5
+
+
+ 126              	.LVL7:
+  41:../../libDaisy/src/util/VoctCalibration.h ****         scale_      = 24.f / delta;
+ 127              		.loc 2 41 15 view .LVU36
+ 128              	.LBE7:
+ 129              	.LBE10:
+  25:calibrate.cpp ****                     // Calibration is complete.
+ 130              		.loc 1 25 32 view .LVU37
+ 131 0050 0373     		strb	r3, [r0, #12]
+ 132              	.LBB11:
+ 133              	.LBB8:
+  42:../../libDaisy/src/util/VoctCalibration.h ****         offset_     = 12.f - scale_ * val1V;
+ 134              		.loc 2 42 28 view .LVU38
+ 135 0052 86EE277A 		vdiv.f32	s14, s12, s15
+  43:../../libDaisy/src/util/VoctCalibration.h ****         offset_     = 12.f - scale_ * val1V;
+ 136              		.loc 2 43 28 view .LVU39
+ 137 0056 F2EE087A 		vmov.f32	s15, #1.2e+1
+ 138              	.LVL8:
+  43:../../libDaisy/src/util/VoctCalibration.h ****         offset_     = 12.f - scale_ * val1V;
+ 139              		.loc 2 43 28 view .LVU40
+ 140 005a E6EEC77A 		vfms.f32	s15, s13, s14
+  42:../../libDaisy/src/util/VoctCalibration.h ****         offset_     = 12.f - scale_ * val1V;
+ 141              		.loc 2 42 21 view .LVU41
+ 142 005e 80ED007A 		vstr.32	s14, [r0]
+ 143              	.LVL9:
+  43:../../libDaisy/src/util/VoctCalibration.h ****         offset_     = 12.f - scale_ * val1V;
+ 144              		.loc 2 43 9 is_stmt 1 view .LVU42
+  43:../../libDaisy/src/util/VoctCalibration.h ****         offset_     = 12.f - scale_ * val1V;
+ 145              		.loc 2 43 21 is_stmt 0 view .LVU43
+ 146 0062 C0ED017A 		vstr.32	s15, [r0, #4]
+ 147              		.loc 2 44 9 is_stmt 1 view .LVU44
+  45:../../libDaisy/src/util/VoctCalibration.h ****         return cal_;
+ 148              		.loc 2 45 9 view .LVU45
+ 149              	.LVL10:
+ 150              		.loc 2 45 9 is_stmt 0 view .LVU46
+ 151              	.LBE8:
+ 152              	.LBE11:
+  25:calibrate.cpp ****                     // Calibration is complete.
+ 153              		.loc 1 25 21 is_stmt 1 view .LVU47
+  27:calibrate.cpp ****                 }
+ 154              		.loc 1 27 21 view .LVU48
+ 155              	.L7:
+  31:calibrate.cpp ****             break;
+ 156              		.loc 1 31 13 view .LVU49
+  31:calibrate.cpp ****             break;
+ 157              		.loc 1 31 42 is_stmt 0 view .LVU50
+ 158 0066 FFF7FEFF 		bl	_ZN5daisy6System6GetNowEv
+ 159              	.LVL11:
+  31:calibrate.cpp ****             break;
+ 160              		.loc 1 31 58 view .LVU51
+ 161 006a F7EE007A 		vmov.f32	s15, #1.0e+0
+ 162 006e 10F0800F 		tst	r0, #128
+ 163 0072 9FED037A 		vldr.32	s14, .L18
+ 164 0076 47FE277A 		vseleq.f32	s15, s14, s15
+  31:calibrate.cpp ****             break;
+ 165              		.loc 1 31 25 view .LVU52
+ 166 007a C4ED057A 		vstr.32	s15, [r4, #20]
+  32:calibrate.cpp ****         case PATCH_DONE_CALIBRATING: break;
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s 			page 6
+
+
+ 167              		.loc 1 32 13 is_stmt 1 view .LVU53
+ 168 007e C6E7     		b	.L4
+ 169              	.L19:
+ 170              		.align	2
+ 171              	.L18:
+ 172 0080 00000000 		.word	0
+ 173              		.cfi_endproc
+ 174              	.LFE2533:
+ 176              		.text
+ 177              	.Letext0:
+ 178              		.file 3 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
+ 179              		.file 4 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+ 180              		.file 5 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdint.h"
+ 181              		.file 6 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/incl
+ 182              		.file 7 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 183              		.file 8 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 184              		.file 9 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 185              		.file 10 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 186              		.file 11 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 187              		.file 12 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 188              		.file 13 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 189              		.file 14 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 190              		.file 15 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 191              		.file 16 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 192              		.file 17 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 193              		.file 18 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 194              		.file 19 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 195              		.file 20 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 196              		.file 21 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_types
+ 197              		.file 22 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/reent.
+ 198              		.file 23 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/lock.h
+ 199              		.file 24 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+ 200              		.file 25 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdlib.h"
+ 201              		.file 26 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 202              		.file 27 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 203              		.file 28 "../../libDaisy/src/daisy_core.h"
+ 204              		.file 29 "../../libDaisy/src/per/tim.h"
+ 205              		.file 30 "../../libDaisy/src/sys/system.h"
+ 206              		.file 31 "../../libDaisy/src/util/wav_format.h"
+ 207              		.file 32 "../../libDaisy/src/dev/max11300.h"
+ 208              		.file 33 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/inc
+ 209              		.file 34 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/stdio.h"
+ 210              		.file 35 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/string.h"
+ 211              		.file 36 "calibrate.h"
+ 212              		.file 37 "<built-in>"
+ 213              		.file 38 "../../libDaisy/src/dev/sr_595.h"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 calibrate.cpp
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s:17     .text._ZN5torus9Calibrate18ProcessCalibrationERfRb:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s:25     .text._ZN5torus9Calibrate18ProcessCalibrationERfRb:0000000000000000 _ZN5torus9Calibrate18ProcessCalibrationERfRb
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccT3ZLcB.s:172    .text._ZN5torus9Calibrate18ProcessCalibrationERfRb:0000000000000080 $d
+
+UNDEFINED SYMBOLS
+_ZN5daisy6System6GetNowEv

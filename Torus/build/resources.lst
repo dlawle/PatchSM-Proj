@@ -1,0 +1,1657 @@
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"resources.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN5torus13InitResourcesEv,"ax",%progbits
+  17              		.align	1
+  18              		.global	_ZN5torus13InitResourcesEv
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv5-d16
+  25              	_ZN5torus13InitResourcesEv:
+  26              	.LFB545:
+  27              		.file 1 "resources.cpp"
+   1:resources.cpp **** // Copyright 2015 Emilie Gillet.
+   2:resources.cpp **** //
+   3:resources.cpp **** // Author: Emilie Gillet (emilie.o.gillet@gmail.com)
+   4:resources.cpp **** //
+   5:resources.cpp **** // Permission is hereby granted, free of charge, to any person obtaining a copy
+   6:resources.cpp **** // of this software and associated documentation files (the "Software"), to deal
+   7:resources.cpp **** // in the Software without restriction, including without limitation the rights
+   8:resources.cpp **** // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   9:resources.cpp **** // copies of the Software, and to permit persons to whom the Software is
+  10:resources.cpp **** // furnished to do so, subject to the following conditions:
+  11:resources.cpp **** //
+  12:resources.cpp **** // The above copyright notice and this permission notice shall be included in
+  13:resources.cpp **** // all copies or substantial portions of the Software.
+  14:resources.cpp **** //
+  15:resources.cpp **** // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  16:resources.cpp **** // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  17:resources.cpp **** // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  18:resources.cpp **** // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  19:resources.cpp **** // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  20:resources.cpp **** // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  21:resources.cpp **** // THE SOFTWARE.
+  22:resources.cpp **** //
+  23:resources.cpp **** // See http://creativecommons.org/licenses/MIT/ for more information.
+  24:resources.cpp **** //
+  25:resources.cpp **** // -----------------------------------------------------------------------------
+  26:resources.cpp **** //
+  27:resources.cpp **** // Resources definitions.
+  28:resources.cpp **** //
+  29:resources.cpp **** // Automatically generated with:
+  30:resources.cpp **** // make resources
+  31:resources.cpp **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 2
+
+
+  32:resources.cpp **** // This is the only thing we'd need DaisySP for, so I'll just define it here
+  33:resources.cpp **** #define PI_F 3.1415927410125732421875f
+  34:resources.cpp **** #define TWOPI_F (2.0f * PI_F)
+  35:resources.cpp **** 
+  36:resources.cpp **** #include "resources.h"
+  37:resources.cpp **** 
+  38:resources.cpp **** namespace torus
+  39:resources.cpp **** {
+  40:resources.cpp **** void InitResources()
+  41:resources.cpp **** {
+  28              		.loc 1 41 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  42:resources.cpp ****     // lut_sine
+  43:resources.cpp ****     for(int i = 0; i < LUT_SINE_SIZE; i++)
+  32              		.loc 1 43 5 view .LVU1
+  33              	.LVL0:
+  34              	.LBB6:
+  35              		.loc 1 43 22 view .LVU2
+  36              	.LBE6:
+  41:resources.cpp ****     // lut_sine
+  37              		.loc 1 41 1 is_stmt 0 view .LVU3
+  38 0000 38B5     		push	{r3, r4, r5, lr}
+  39              		.cfi_def_cfa_offset 16
+  40              		.cfi_offset 3, -16
+  41              		.cfi_offset 4, -12
+  42              		.cfi_offset 5, -8
+  43              		.cfi_offset 14, -4
+  44 0002 0A4D     		ldr	r5, .L4
+  45              	.LBB16:
+  46              		.loc 1 43 13 view .LVU4
+  47 0004 0024     		movs	r4, #0
+  48              	.LVL1:
+  49              	.L2:
+  50              	.LBB7:
+  44:resources.cpp ****     {
+  45:resources.cpp ****         float t     = (float)i / 4096.f * TWOPI_F;
+  51              		.loc 1 45 9 is_stmt 1 discriminator 2 view .LVU5
+  46:resources.cpp ****         lut_sine[i] = sin(t);
+  52              		.loc 1 46 9 discriminator 2 view .LVU6
+  53              	.LBB8:
+  54              	.LBI8:
+  55              		.file 2 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+   1:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // -*- C++ -*- C forwarding header.
+   2:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+   3:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Copyright (C) 1997-2020 Free Software Foundation, Inc.
+   4:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
+   5:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // software; you can redistribute it and/or modify it under the
+   7:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // terms of the GNU General Public License as published by the
+   8:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Free Software Foundation; either version 3, or (at your option)
+   9:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // any later version.
+  10:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  11:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // This library is distributed in the hope that it will be useful,
+  12:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 3
+
+
+  14:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // GNU General Public License for more details.
+  15:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  16:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // permissions described in the GCC Runtime Library Exception, version
+  18:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // 3.1, as published by the Free Software Foundation.
+  19:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  20:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // You should have received a copy of the GNU General Public License and
+  21:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // <http://www.gnu.org/licenses/>.
+  24:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  25:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** /** @file include/cmath
+  26:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  This is a Standard C++ Library file.  You should @c \#include this file
+  27:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  in your programs, rather than any of the @a *.h implementation files.
+  28:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *
+  29:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  This is the C++ version of the Standard C Library header @c math.h,
+  30:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  and its contents are (mostly) the same as that header, but are all
+  31:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  contained in the namespace @c std (except for names which are defined
+  32:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  *  as macros in C).
+  33:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****  */
+  34:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  35:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
+  36:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // ISO C++ 14882: 26.5  C library
+  37:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** //
+  38:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  39:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #pragma GCC system_header
+  40:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  41:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/c++config.h>
+  42:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/cpp_type_traits.h>
+  43:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <ext/type_traits.h>
+  44:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #define _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  45:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include_next <math.h>
+  46:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS
+  47:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #include <bits/std_abs.h>
+  48:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  49:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef _GLIBCXX_CMATH
+  50:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #define _GLIBCXX_CMATH 1
+  51:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  52:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** // Get rid of those macros defined in <math.h> in lieu of real functions.
+  53:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef div
+  54:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef acos
+  55:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef asin
+  56:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef atan
+  57:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef atan2
+  58:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef ceil
+  59:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef cos
+  60:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef cosh
+  61:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef exp
+  62:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef fabs
+  63:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef floor
+  64:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef fmod
+  65:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef frexp
+  66:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef ldexp
+  67:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef log
+  68:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef log10
+  69:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef modf
+  70:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef pow
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 4
+
+
+  71:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sin
+  72:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sinh
+  73:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef sqrt
+  74:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef tan
+  75:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #undef tanh
+  76:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  77:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** extern "C++"
+  78:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** {
+  79:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** namespace std _GLIBCXX_VISIBILITY(default)
+  80:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** {
+  81:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  82:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  83:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::acos;
+  84:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  85:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+  86:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+  87:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   acos(float __x)
+  88:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_acosf(__x); }
+  89:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  90:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+  91:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   acos(long double __x)
+  92:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_acosl(__x); }
+  93:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+  94:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+  95:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+  96:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+  97:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+  98:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+  99:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     acos(_Tp __x)
+ 100:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_acos(__x); }
+ 101:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 102:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::asin;
+ 103:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 104:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 105:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 106:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   asin(float __x)
+ 107:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_asinf(__x); }
+ 108:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 109:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 110:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   asin(long double __x)
+ 111:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_asinl(__x); }
+ 112:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 113:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 114:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 115:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 116:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 117:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 118:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     asin(_Tp __x)
+ 119:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_asin(__x); }
+ 120:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 121:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::atan;
+ 122:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 123:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 124:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 125:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan(float __x)
+ 126:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atanf(__x); }
+ 127:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 5
+
+
+ 128:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 129:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan(long double __x)
+ 130:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atanl(__x); }
+ 131:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 132:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 133:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 134:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 135:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 136:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 137:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     atan(_Tp __x)
+ 138:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_atan(__x); }
+ 139:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 140:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::atan2;
+ 141:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 142:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 143:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 144:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan2(float __y, float __x)
+ 145:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atan2f(__y, __x); }
+ 146:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 147:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 148:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   atan2(long double __y, long double __x)
+ 149:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_atan2l(__y, __x); }
+ 150:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 151:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 152:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp, typename _Up>
+ 153:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 154:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 155:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     atan2(_Tp __y, _Up __x)
+ 156:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     {
+ 157:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 158:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       return atan2(__type(__y), __type(__x));
+ 159:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     }
+ 160:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 161:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::ceil;
+ 162:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 163:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 164:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 165:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ceil(float __x)
+ 166:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ceilf(__x); }
+ 167:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 168:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 169:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ceil(long double __x)
+ 170:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ceill(__x); }
+ 171:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 172:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 173:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 174:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 175:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 176:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 177:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     ceil(_Tp __x)
+ 178:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_ceil(__x); }
+ 179:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 180:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::cos;
+ 181:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 182:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 183:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 184:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cos(float __x)
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 6
+
+
+ 185:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_cosf(__x); }
+ 186:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 187:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 188:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cos(long double __x)
+ 189:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_cosl(__x); }
+ 190:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 191:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 192:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 193:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 194:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 195:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 196:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     cos(_Tp __x)
+ 197:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_cos(__x); }
+ 198:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 199:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::cosh;
+ 200:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 201:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 202:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 203:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cosh(float __x)
+ 204:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_coshf(__x); }
+ 205:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 206:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 207:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   cosh(long double __x)
+ 208:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_coshl(__x); }
+ 209:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 210:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 211:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 212:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 213:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 214:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 215:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     cosh(_Tp __x)
+ 216:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_cosh(__x); }
+ 217:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 218:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::exp;
+ 219:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 220:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 221:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 222:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   exp(float __x)
+ 223:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_expf(__x); }
+ 224:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 225:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 226:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   exp(long double __x)
+ 227:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_expl(__x); }
+ 228:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 229:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 230:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 231:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 232:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 233:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 234:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     exp(_Tp __x)
+ 235:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_exp(__x); }
+ 236:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 237:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::fabs;
+ 238:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 239:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 240:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 241:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fabs(float __x)
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 7
+
+
+ 242:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fabsf(__x); }
+ 243:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 244:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 245:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fabs(long double __x)
+ 246:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fabsl(__x); }
+ 247:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 248:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 249:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 250:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 251:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 252:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 253:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     fabs(_Tp __x)
+ 254:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_fabs(__x); }
+ 255:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 256:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::floor;
+ 257:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 258:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 259:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 260:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   floor(float __x)
+ 261:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_floorf(__x); }
+ 262:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 263:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 264:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   floor(long double __x)
+ 265:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_floorl(__x); }
+ 266:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 267:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 268:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 269:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 270:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 271:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 272:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     floor(_Tp __x)
+ 273:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_floor(__x); }
+ 274:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 275:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::fmod;
+ 276:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 277:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 278:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 279:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fmod(float __x, float __y)
+ 280:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fmodf(__x, __y); }
+ 281:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 282:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 283:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   fmod(long double __x, long double __y)
+ 284:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_fmodl(__x, __y); }
+ 285:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 286:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 287:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp, typename _Up>
+ 288:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 289:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 290:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     fmod(_Tp __x, _Up __y)
+ 291:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     {
+ 292:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 293:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       return fmod(__type(__x), __type(__y));
+ 294:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     }
+ 295:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 296:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::frexp;
+ 297:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 298:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 8
+
+
+ 299:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline float
+ 300:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   frexp(float __x, int* __exp)
+ 301:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_frexpf(__x, __exp); }
+ 302:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 303:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline long double
+ 304:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   frexp(long double __x, int* __exp)
+ 305:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_frexpl(__x, __exp); }
+ 306:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 307:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 308:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 309:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 310:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 311:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 312:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     frexp(_Tp __x, int* __exp)
+ 313:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_frexp(__x, __exp); }
+ 314:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 315:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::ldexp;
+ 316:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 317:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 318:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 319:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ldexp(float __x, int __exp)
+ 320:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ldexpf(__x, __exp); }
+ 321:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 322:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 323:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   ldexp(long double __x, int __exp)
+ 324:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_ldexpl(__x, __exp); }
+ 325:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 326:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 327:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 328:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 329:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 330:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 331:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     ldexp(_Tp __x, int __exp)
+ 332:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_ldexp(__x, __exp); }
+ 333:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 334:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::log;
+ 335:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 336:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 337:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 338:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   log(float __x)
+ 339:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_logf(__x); }
+ 340:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 341:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 342:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   log(long double __x)
+ 343:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_logl(__x); }
+ 344:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 345:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 346:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 347:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 348:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value, 
+ 349:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 350:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     log(_Tp __x)
+ 351:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_log(__x); }
+ 352:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 353:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::log10;
+ 354:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 355:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 9
+
+
+ 356:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 357:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   log10(float __x)
+ 358:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_log10f(__x); }
+ 359:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 360:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 361:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   log10(long double __x)
+ 362:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_log10l(__x); }
+ 363:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 364:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 365:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp>
+ 366:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 367:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+ 368:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****                                     double>::__type
+ 369:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     log10(_Tp __x)
+ 370:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     { return __builtin_log10(__x); }
+ 371:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 372:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::modf;
+ 373:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 374:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 375:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline float
+ 376:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   modf(float __x, float* __iptr)
+ 377:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_modff(__x, __iptr); }
+ 378:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 379:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline long double
+ 380:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   modf(long double __x, long double* __iptr)
+ 381:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_modfl(__x, __iptr); }
+ 382:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 383:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 384:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::pow;
+ 385:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 386:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 387:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 388:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(float __x, float __y)
+ 389:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powf(__x, __y); }
+ 390:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 391:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR long double
+ 392:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(long double __x, long double __y)
+ 393:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powl(__x, __y); }
+ 394:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 395:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #if __cplusplus < 201103L
+ 396:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   // _GLIBCXX_RESOLVE_LIB_DEFECTS
+ 397:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   // DR 550. What should the return type of pow(float,int) be?
+ 398:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline double
+ 399:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(double __x, int __i)
+ 400:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powi(__x, __i); }
+ 401:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 402:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline float
+ 403:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(float __x, int __n)
+ 404:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powif(__x, __n); }
+ 405:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 406:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline long double
+ 407:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   pow(long double __x, int __n)
+ 408:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_powil(__x, __n); }
+ 409:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 410:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #endif
+ 411:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 412:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   template<typename _Tp, typename _Up>
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 10
+
+
+ 413:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     inline _GLIBCXX_CONSTEXPR
+ 414:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+ 415:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     pow(_Tp __x, _Up __y)
+ 416:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     {
+ 417:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+ 418:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****       return pow(__type(__x), __type(__y));
+ 419:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****     }
+ 420:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 421:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   using ::sin;
+ 422:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** 
+ 423:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath **** #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+ 424:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   inline _GLIBCXX_CONSTEXPR float
+ 425:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   sin(float __x)
+  56              		.loc 2 425 3 discriminator 2 view .LVU7
+  57              	.LBB9:
+ 426:/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cmath ****   { return __builtin_sinf(__x); }
+  58              		.loc 2 426 5 discriminator 2 view .LVU8
+  59              	.LBE9:
+  60              	.LBE8:
+  45:resources.cpp ****         lut_sine[i] = sin(t);
+  61              		.loc 1 45 32 is_stmt 0 discriminator 2 view .LVU9
+  62 0006 00EE104A 		vmov	s0, r4	@ int
+  63              	.LBB12:
+  64              	.LBB10:
+  65              		.loc 2 426 26 discriminator 2 view .LVU10
+  66 000a DFED097A 		vldr.32	s15, .L4+4
+  67              	.LBE10:
+  68              	.LBE12:
+  69              	.LBE7:
+  43:resources.cpp ****     {
+  70              		.loc 1 43 5 discriminator 2 view .LVU11
+  71 000e 0134     		adds	r4, r4, #1
+  72              	.LVL2:
+  73              	.LBB14:
+  45:resources.cpp ****         lut_sine[i] = sin(t);
+  74              		.loc 1 45 32 discriminator 2 view .LVU12
+  75 0010 BAEECA0A 		vcvt.f32.s32	s0, s0, #12
+  76              	.LVL3:
+  77              	.LBB13:
+  78              	.LBB11:
+  79              		.loc 2 426 26 discriminator 2 view .LVU13
+  80 0014 20EE270A 		vmul.f32	s0, s0, s15
+  81              	.LVL4:
+  82              		.loc 2 426 26 discriminator 2 view .LVU14
+  83 0018 FFF7FEFF 		bl	sinf
+  84              	.LVL5:
+  85              		.loc 2 426 26 discriminator 2 view .LVU15
+  86              	.LBE11:
+  87              	.LBE13:
+  88              	.LBE14:
+  43:resources.cpp ****     {
+  89              		.loc 1 43 22 discriminator 2 view .LVU16
+  90 001c 41F20143 		movw	r3, #5121
+  91              	.LBB15:
+  92              		.loc 1 46 21 discriminator 2 view .LVU17
+  93 0020 A5EC010A 		vstmia.32	r5!, {s0}
+  94              	.LBE15:
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 11
+
+
+  43:resources.cpp ****     {
+  95              		.loc 1 43 5 is_stmt 1 discriminator 2 view .LVU18
+  96              	.LVL6:
+  43:resources.cpp ****     {
+  97              		.loc 1 43 22 discriminator 2 view .LVU19
+  98 0024 9C42     		cmp	r4, r3
+  99 0026 EED1     		bne	.L2
+ 100              	.LBE16:
+  47:resources.cpp ****     }
+  48:resources.cpp **** }
+ 101              		.loc 1 48 1 is_stmt 0 view .LVU20
+ 102 0028 38BD     		pop	{r3, r4, r5, pc}
+ 103              	.LVL7:
+ 104              	.L5:
+ 105              		.loc 1 48 1 view .LVU21
+ 106 002a 00BF     		.align	2
+ 107              	.L4:
+ 108 002c 00000000 		.word	_ZN5torus8lut_sineE
+ 109 0030 DB0FC940 		.word	1086918619
+ 110              		.cfi_endproc
+ 111              	.LFE545:
+ 113              		.global	_ZN5torus18lookup_table_tableE
+ 114              		.global	_ZN5torus26lut_fm_frequency_quantizerE
+ 115              		.global	_ZN5torus13lut_stiffnessE
+ 116              		.global	_ZN5torus13lut_svf_shiftE
+ 117              		.global	_ZN5torus13lut_4_decadesE
+ 118              		.global	_ZN5torus8lut_sineE
+ 119              		.global	_ZN5torus25lookup_table_uint32_tableE
+ 120              		.global	_ZN5torus24lookup_table_int16_tableE
+ 121              		.section	.bss._ZN5torus24lookup_table_int16_tableE,"aw",%nobits
+ 122              		.align	2
+ 125              	_ZN5torus24lookup_table_int16_tableE:
+ 126              		.section	.bss._ZN5torus25lookup_table_uint32_tableE,"aw",%nobits
+ 127              		.align	2
+ 130              	_ZN5torus25lookup_table_uint32_tableE:
+ 131              		.section	.bss._ZN5torus8lut_sineE,"aw",%nobits
+ 132              		.align	2
+ 135              	_ZN5torus8lut_sineE:
+ 136 0000 00000000 		.space	20484
+ 136      00000000 
+ 136      00000000 
+ 136      00000000 
+ 136      00000000 
+ 137              		.section	.data._ZN5torus18lookup_table_tableE,"aw"
+ 138              		.align	2
+ 141              	_ZN5torus18lookup_table_tableE:
+ 142 0000 00000000 		.word	_ZN5torus8lut_sineE
+ 143 0004 00000000 		.word	_ZN5torus13lut_4_decadesE
+ 144 0008 00000000 		.word	_ZN5torus13lut_svf_shiftE
+ 145 000c 00000000 		.word	_ZN5torus13lut_stiffnessE
+ 146 0010 00000000 		.word	_ZN5torus26lut_fm_frequency_quantizerE
+ 147              		.section	.rodata._ZN5torus13lut_4_decadesE,"a"
+ 148              		.align	2
+ 151              	_ZN5torus13lut_4_decadesE:
+ 152 0000 0000803F 		.word	1065353216
+ 153 0004 63B0843F 		.word	1065660515
+ 154 0008 C08C893F 		.word	1065979072
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 12
+
+
+ 155 000c B2968E3F 		.word	1066309298
+ 156 0010 E5CF933F 		.word	1066651621
+ 157 0014 153A993F 		.word	1067006485
+ 158 0018 0CD79E3F 		.word	1067374348
+ 159 001c A8A8A43F 		.word	1067755688
+ 160 0020 D5B0AA3F 		.word	1068150997
+ 161 0024 93F1B03F 		.word	1068560787
+ 162 0028 F56CB73F 		.word	1068985589
+ 163 002c 2025BE3F 		.word	1069425952
+ 164 0030 501CC53F 		.word	1069882448
+ 165 0034 D254CC3F 		.word	1070355666
+ 166 0038 0CD1D33F 		.word	1070846220
+ 167 003c 7893DB3F 		.word	1071354744
+ 168 0040 A99EE33F 		.word	1071881897
+ 169 0044 49F5EB3F 		.word	1072428361
+ 170 0048 1B9AF43F 		.word	1072994843
+ 171 004c FE8FFD3F 		.word	1073582078
+ 172 0050 F46C0340 		.word	1073966324
+ 173 0054 783D0840 		.word	1074281848
+ 174 0058 223B0D40 		.word	1074608930
+ 175 005c 99671240 		.word	1074947993
+ 176 0060 96C41740 		.word	1075299478
+ 177 0064 DF531D40 		.word	1075663839
+ 178 0068 4B172340 		.word	1076041547
+ 179 006c C4102940 		.word	1076433092
+ 180 0070 44422F40 		.word	1076838980
+ 181 0074 DAAD3540 		.word	1077259738
+ 182 0078 A4553C40 		.word	1077695908
+ 183 007c D93B4340 		.word	1078148057
+ 184 0080 C2624A40 		.word	1078616770
+ 185 0084 BDCC5140 		.word	1079102653
+ 186 0088 3F7C5940 		.word	1079606335
+ 187 008c D4736140 		.word	1080128468
+ 188 0090 21B66940 		.word	1080669729
+ 189 0094 E2457240 		.word	1081230818
+ 190 0098 ED257B40 		.word	1081812461
+ 191 009c 9A2C8240 		.word	1082272922
+ 192 00a0 61F18640 		.word	1082585441
+ 193 00a4 E0E28B40 		.word	1082909408
+ 194 00a8 BC029140 		.word	1083245244
+ 195 00ac A6529640 		.word	1083593382
+ 196 00b0 61D49B40 		.word	1083954273
+ 197 00b4 C189A140 		.word	1084328385
+ 198 00b8 AA74A740 		.word	1084716202
+ 199 00bc 1197AD40 		.word	1085118225
+ 200 00c0 00F3B340 		.word	1085534976
+ 201 00c4 928ABA40 		.word	1085966994
+ 202 00c8 F65FC140 		.word	1086414838
+ 203 00cc 6F75C840 		.word	1086879087
+ 204 00d0 58CDCF40 		.word	1087360344
+ 205 00d4 1E6AD740 		.word	1087859230
+ 206 00d8 484EDF40 		.word	1088376392
+ 207 00dc 737CE740 		.word	1088912499
+ 208 00e0 55F7EF40 		.word	1089468245
+ 209 00e4 BEC1F840 		.word	1090044350
+ 210 00e8 4CEF0041 		.word	1090580300
+ 211 00ec 73A80541 		.word	1090889843
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 13
+
+
+ 212 00f0 E68D0A41 		.word	1091210726
+ 213 00f4 44A10F41 		.word	1091543364
+ 214 00f8 3BE41441 		.word	1091888187
+ 215 00fc 8A581A41 		.word	1092245642
+ 216 0100 00002041 		.word	1092616192
+ 217 0104 7CDC2541 		.word	1093000316
+ 218 0108 F0EF2B41 		.word	1093398512
+ 219 010c 5F3C3241 		.word	1093811295
+ 220 0110 DFC33841 		.word	1094239199
+ 221 0114 9A883F41 		.word	1094682778
+ 222 0118 D08C4641 		.word	1095142608
+ 223 011c D2D24D41 		.word	1095619282
+ 224 0120 0A5D5541 		.word	1096113418
+ 225 0124 F72D5D41 		.word	1096625655
+ 226 0128 32486541 		.word	1097156658
+ 227 012c 69AE6D41 		.word	1097707113
+ 228 0130 64637641 		.word	1098277732
+ 229 0134 076A7F41 		.word	1098869255
+ 230 0138 A7628441 		.word	1099195047
+ 231 013c 2B3C8941 		.word	1099512875
+ 232 0140 2A438E41 		.word	1099842346
+ 233 0144 4E799341 		.word	1100183886
+ 234 0148 51E09841 		.word	1100537937
+ 235 014c FF799E41 		.word	1100904959
+ 236 0150 3148A441 		.word	1101285425
+ 237 0154 D64CAA41 		.word	1101679830
+ 238 0158 EA89B041 		.word	1102088682
+ 239 015c 8001B741 		.word	1102512512
+ 240 0160 BCB5BD41 		.word	1102951868
+ 241 0164 D7A8C441 		.word	1103407319
+ 242 0168 1EDDCB41 		.word	1103879454
+ 243 016c F554D341 		.word	1104368885
+ 244 0170 D612DB41 		.word	1104876246
+ 245 0174 5019E341 		.word	1105402192
+ 246 0178 0D6BEB41 		.word	1105947405
+ 247 017c D00AF441 		.word	1106512592
+ 248 0180 72FBFC41 		.word	1107098482
+ 249 0184 F61F0342 		.word	1107501046
+ 250 0188 A7ED0742 		.word	1107815847
+ 251 018c 65E80C42 		.word	1108142181
+ 252 0190 D5111242 		.word	1108480469
+ 253 0194 AD6B1742 		.word	1108831149
+ 254 0198 B4F71C42 		.word	1109194676
+ 255 019c C0B72242 		.word	1109571520
+ 256 01a0 B9AD2842 		.word	1109962169
+ 257 01a4 98DB2E42 		.word	1110367128
+ 258 01a8 6B433542 		.word	1110786923
+ 259 01ac 4FE73B42 		.word	1111222095
+ 260 01b0 79C94242 		.word	1111673209
+ 261 01b4 31EC4942 		.word	1112140849
+ 262 01b8 D4515142 		.word	1112625620
+ 263 01bc D6FC5842 		.word	1113128150
+ 264 01c0 C0EF6042 		.word	1113649088
+ 265 01c4 372D6942 		.word	1114189111
+ 266 01c8 F3B77142 		.word	1114748915
+ 267 01cc CB927A42 		.word	1115329227
+ 268 01d0 57E08142 		.word	1115807831
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 14
+
+
+ 269 01d4 53A28642 		.word	1116119635
+ 270 01d8 ED908B42 		.word	1116442861
+ 271 01dc C8AD9042 		.word	1116777928
+ 272 01e0 95FA9542 		.word	1117125269
+ 273 01e4 17799B42 		.word	1117485335
+ 274 01e8 1F2BA142 		.word	1117858591
+ 275 01ec 9012A742 		.word	1118245520
+ 276 01f0 6031AD42 		.word	1118646624
+ 277 01f4 9589B342 		.word	1119062421
+ 278 01f8 4A1DBA42 		.word	1119493450
+ 279 01fc ADEEC042 		.word	1119940269
+ 280 0200 0000C842 		.word	1120403456
+ 281 0204 9B53CF42 		.word	1120883611
+ 282 0208 ECEBD642 		.word	1121381356
+ 283 020c 76CBDE42 		.word	1121897334
+ 284 0210 D6F4E642 		.word	1122432214
+ 285 0214 C16AEF42 		.word	1122986689
+ 286 0218 0330F842 		.word	1123561475
+ 287 021c C3A30043 		.word	1124115395
+ 288 0220 265A0543 		.word	1124424230
+ 289 0224 BB3C0A43 		.word	1124744379
+ 290 0228 1F4D0F43 		.word	1125076255
+ 291 022c 018D1443 		.word	1125420289
+ 292 0230 1EFE1943 		.word	1125776926
+ 293 0234 44A21F43 		.word	1126146628
+ 294 0238 517B2543 		.word	1126529873
+ 295 023c 368B2B43 		.word	1126927158
+ 296 0240 F4D33143 		.word	1127338996
+ 297 0244 A1573843 		.word	1127765921
+ 298 0248 65183F43 		.word	1128208485
+ 299 024c 7E184643 		.word	1128667262
+ 300 0250 3E5A4D43 		.word	1129142846
+ 301 0254 0BE05443 		.word	1129635851
+ 302 0258 64AC5C43 		.word	1130146916
+ 303 025c E0C16443 		.word	1130676704
+ 304 0260 2B236D43 		.word	1131225899
+ 305 0264 0CD37543 		.word	1131795212
+ 306 0268 66D47E43 		.word	1132385382
+ 307 026c 19158443 		.word	1132729625
+ 308 0270 C5EB8843 		.word	1133046725
+ 309 0274 D2EF8D43 		.word	1133375442
+ 310 0278 E8229343 		.word	1133716200
+ 311 027c C2869843 		.word	1134069442
+ 312 0280 271D9E43 		.word	1134435623
+ 313 0284 F3E7A343 		.word	1134815219
+ 314 0288 11E9A943 		.word	1135208721
+ 315 028c 7E22B043 		.word	1135616638
+ 316 0290 4A96B643 		.word	1136039498
+ 317 0294 9846BD43 		.word	1136477848
+ 318 0298 A135C443 		.word	1136932257
+ 319 029c B065CB43 		.word	1137403312
+ 320 02a0 27D9D243 		.word	1137891623
+ 321 02a4 7E92DA43 		.word	1138397822
+ 322 02a8 4594E243 		.word	1138922565
+ 323 02ac 23E1EA43 		.word	1139466531
+ 324 02b0 D87BF343 		.word	1140030424
+ 325 02b4 3E67FC43 		.word	1140614974
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 15
+
+
+ 326 02b8 25D30244 		.word	1141035813
+ 327 02bc 069E0744 		.word	1141349894
+ 328 02c0 D8950C44 		.word	1141675480
+ 329 02c4 42BC1144 		.word	1142012994
+ 330 02c8 F8121744 		.word	1142362872
+ 331 02cc BF9B1C44 		.word	1142725567
+ 332 02d0 6D582244 		.word	1143101549
+ 333 02d4 E84A2844 		.word	1143491304
+ 334 02d8 28752E44 		.word	1143895336
+ 335 02dc 3AD93444 		.word	1144314170
+ 336 02e0 3B793B44 		.word	1144748347
+ 337 02e4 5D574244 		.word	1145198429
+ 338 02e8 E6754944 		.word	1145664998
+ 339 02ec 34D75044 		.word	1146148660
+ 340 02f0 B77D5844 		.word	1146650039
+ 341 02f4 FA6B6044 		.word	1147169786
+ 342 02f8 9CA46844 		.word	1147708572
+ 343 02fc 582A7144 		.word	1148267096
+ 344 0300 00007A44 		.word	1148846080
+ 345 0304 41948144 		.word	1149342785
+ 346 0308 73538644 		.word	1149653875
+ 347 030c 2A3F8B44 		.word	1149976362
+ 348 0310 06599044 		.word	1150310662
+ 349 0314 B9A29544 		.word	1150657209
+ 350 0318 021E9B44 		.word	1151016450
+ 351 031c B4CCA044 		.word	1151388852
+ 352 0320 B0B0A644 		.word	1151774896
+ 353 0324 E9CBAC44 		.word	1152175081
+ 354 0328 6720B344 		.word	1152589927
+ 355 032c 42B0B944 		.word	1153019970
+ 356 0330 A67DC044 		.word	1153465766
+ 357 0334 D58AC744 		.word	1153927893
+ 358 0338 26DACE44 		.word	1154406950
+ 359 033c 036ED644 		.word	1154903555
+ 360 0340 F148DE44 		.word	1155418353
+ 361 0344 896DE644 		.word	1155952009
+ 362 0348 7FDEEE44 		.word	1156505215
+ 363 034c 9E9EF744 		.word	1157078686
+ 364 0350 67580045 		.word	1157650535
+ 365 0354 070C0545 		.word	1157958663
+ 366 0358 BFEB0945 		.word	1158278079
+ 367 035c 2CF90E45 		.word	1158609196
+ 368 0360 FB351445 		.word	1158952443
+ 369 0364 E8A31945 		.word	1159308264
+ 370 0368 BF441F45 		.word	1159677119
+ 371 036c 601A2545 		.word	1160059488
+ 372 0370 B7262B45 		.word	1160455863
+ 373 0374 C76B3145 		.word	1160866759
+ 374 0378 A3EB3745 		.word	1161292707
+ 375 037c 72A83E45 		.word	1161734258
+ 376 0380 71A44545 		.word	1162191985
+ 377 0384 F0E14C45 		.word	1162666480
+ 378 0388 55635445 		.word	1163158357
+ 379 038c 1D2B5C45 		.word	1163668253
+ 380 0390 DC3B6445 		.word	1164196828
+ 381 0394 3E986C45 		.word	1164744766
+ 382 0398 09437545 		.word	1165312777
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 16
+
+
+ 383 039c 1C3F7E45 		.word	1165901596
+ 384 03a0 B8C78345 		.word	1166264248
+ 385 03a4 8F9B8845 		.word	1166580623
+ 386 03a8 AB9C8D45 		.word	1166908587
+ 387 03ac B6CC9245 		.word	1167248566
+ 388 03b0 672D9845 		.word	1167600999
+ 389 03b4 87C09D45 		.word	1167966343
+ 390 03b8 EE87A345 		.word	1168345070
+ 391 03bc 8785A945 		.word	1168737671
+ 392 03c0 4EBBAF45 		.word	1169144654
+ 393 03c4 532BB645 		.word	1169566547
+ 394 03c8 B6D7BC45 		.word	1170003894
+ 395 03cc AFC2C345 		.word	1170457263
+ 396 03d0 88EECA45 		.word	1170927240
+ 397 03d4 A15DD245 		.word	1171414433
+ 398 03d8 7212DA45 		.word	1171919474
+ 399 03dc 880FE245 		.word	1172443016
+ 400 03e0 8957EA45 		.word	1172985737
+ 401 03e4 34EDF245 		.word	1173548340
+ 402 03e8 60D3FB45 		.word	1174131552
+ 403 03ec 80860246 		.word	1174570624
+ 404 03f0 934E0746 		.word	1174883987
+ 405 03f4 7C430C46 		.word	1175208828
+ 406 03f8 E2661146 		.word	1175545570
+ 407 03fc 77BA1646 		.word	1175894647
+ 408 0400 00401C46 		.word	1176256512
+ 409              		.section	.rodata._ZN5torus13lut_stiffnessE,"a"
+ 410              		.align	2
+ 413              	_ZN5torus13lut_stiffnessE:
+ 414 0000 000080BD 		.word	-1115684864
+ 415 0004 00007CBD 		.word	-1115947008
+ 416 0008 000078BD 		.word	-1116209152
+ 417 000c 000074BD 		.word	-1116471296
+ 418 0010 000070BD 		.word	-1116733440
+ 419 0014 00006CBD 		.word	-1116995584
+ 420 0018 000068BD 		.word	-1117257728
+ 421 001c 000064BD 		.word	-1117519872
+ 422 0020 000060BD 		.word	-1117782016
+ 423 0024 00005CBD 		.word	-1118044160
+ 424 0028 000058BD 		.word	-1118306304
+ 425 002c 000054BD 		.word	-1118568448
+ 426 0030 000050BD 		.word	-1118830592
+ 427 0034 00004CBD 		.word	-1119092736
+ 428 0038 000048BD 		.word	-1119354880
+ 429 003c 000044BD 		.word	-1119617024
+ 430 0040 000040BD 		.word	-1119879168
+ 431 0044 00003CBD 		.word	-1120141312
+ 432 0048 000038BD 		.word	-1120403456
+ 433 004c 000034BD 		.word	-1120665600
+ 434 0050 000030BD 		.word	-1120927744
+ 435 0054 00002CBD 		.word	-1121189888
+ 436 0058 000028BD 		.word	-1121452032
+ 437 005c 000024BD 		.word	-1121714176
+ 438 0060 000020BD 		.word	-1121976320
+ 439 0064 00001CBD 		.word	-1122238464
+ 440 0068 000018BD 		.word	-1122500608
+ 441 006c 000014BD 		.word	-1122762752
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 17
+
+
+ 442 0070 000010BD 		.word	-1123024896
+ 443 0074 00000CBD 		.word	-1123287040
+ 444 0078 000008BD 		.word	-1123549184
+ 445 007c 000004BD 		.word	-1123811328
+ 446 0080 000000BD 		.word	-1124073472
+ 447 0084 0000F8BC 		.word	-1124597760
+ 448 0088 0000F0BC 		.word	-1125122048
+ 449 008c 0000E8BC 		.word	-1125646336
+ 450 0090 0000E0BC 		.word	-1126170624
+ 451 0094 0000D8BC 		.word	-1126694912
+ 452 0098 0000D0BC 		.word	-1127219200
+ 453 009c 0000C8BC 		.word	-1127743488
+ 454 00a0 0000C0BC 		.word	-1128267776
+ 455 00a4 0000B8BC 		.word	-1128792064
+ 456 00a8 0000B0BC 		.word	-1129316352
+ 457 00ac 0000A8BC 		.word	-1129840640
+ 458 00b0 0000A0BC 		.word	-1130364928
+ 459 00b4 000098BC 		.word	-1130889216
+ 460 00b8 000090BC 		.word	-1131413504
+ 461 00bc 000088BC 		.word	-1131937792
+ 462 00c0 000080BC 		.word	-1132462080
+ 463 00c4 000070BC 		.word	-1133510656
+ 464 00c8 000060BC 		.word	-1134559232
+ 465 00cc 000050BC 		.word	-1135607808
+ 466 00d0 000040BC 		.word	-1136656384
+ 467 00d4 000030BC 		.word	-1137704960
+ 468 00d8 000020BC 		.word	-1138753536
+ 469 00dc 000010BC 		.word	-1139802112
+ 470 00e0 000000BC 		.word	-1140850688
+ 471 00e4 0000E0BB 		.word	-1142947840
+ 472 00e8 0000C0BB 		.word	-1145044992
+ 473 00ec 0000A0BB 		.word	-1147142144
+ 474 00f0 000080BB 		.word	-1149239296
+ 475 00f4 000040BB 		.word	-1153433600
+ 476 00f8 000000BB 		.word	-1157627904
+ 477 00fc 000080BA 		.word	-1166016512
+ 478 0100 00000000 		.word	0
+ 479 0104 00000000 		.word	0
+ 480 0108 00000000 		.word	0
+ 481 010c 00000000 		.word	0
+ 482 0110 00000000 		.word	0
+ 483 0114 00000000 		.word	0
+ 484 0118 00000000 		.word	0
+ 485 011c 00000000 		.word	0
+ 486 0120 00000000 		.word	0
+ 487 0124 00000000 		.word	0
+ 488 0128 00000000 		.word	0
+ 489 012c 00000000 		.word	0
+ 490 0130 00000000 		.word	0
+ 491 0134 4DE47C38 		.word	947709005
+ 492 0138 098DC039 		.word	968920329
+ 493 013c 5633333A 		.word	976434006
+ 494 0140 F453843A 		.word	981750772
+ 495 0144 FF5BB03A 		.word	984636415
+ 496 0148 FBBBDD3A 		.word	987610107
+ 497 014c 333F063B 		.word	990265139
+ 498 0150 09571E3B 		.word	991844105
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 18
+
+
+ 499 0154 112B373B 		.word	993471249
+ 500 0158 0BC1503B 		.word	995148043
+ 501 015c E01E6B3B 		.word	996876000
+ 502 0160 5525833B 		.word	998450517
+ 503 0164 5825913B 		.word	999368024
+ 504 0168 B8929F3B 		.word	1000313528
+ 505 016c C970AE3B 		.word	1001287881
+ 506 0170 FCC2BD3B 		.word	1002291964
+ 507 0174 DD8CCD3B 		.word	1003326685
+ 508 0178 12D2DD3B 		.word	1004392978
+ 509 017c 5F96EE3B 		.word	1005491807
+ 510 0180 A4DDFF3B 		.word	1006624164
+ 511 0184 F0D5083C 		.word	1007212016
+ 512 0188 9902123C 		.word	1007813273
+ 513 018c EC761B3C 		.word	1008432876
+ 514 0190 1935253C 		.word	1009071385
+ 515 0194 613F2F3C 		.word	1009729377
+ 516 0198 1598393C 		.word	1010407445
+ 517 019c 9C41443C 		.word	1011106204
+ 518 01a0 6B3E4F3C 		.word	1011826283
+ 519 01a4 0E915A3C 		.word	1012568334
+ 520 01a8 243C663C 		.word	1013333028
+ 521 01ac 5E42723C 		.word	1014121054
+ 522 01b0 85A67E3C 		.word	1014933125
+ 523 01b4 BBB5853C 		.word	1015395771
+ 524 01b8 134A8C3C 		.word	1015826963
+ 525 01bc D011933C 		.word	1016271312
+ 526 01c0 830E9A3C 		.word	1016729219
+ 527 01c4 CB41A13C 		.word	1017201099
+ 528 01c8 50ADA83C 		.word	1017687376
+ 529 01cc CC52B03C 		.word	1018188492
+ 530 01d0 0234B83C 		.word	1018704898
+ 531 01d4 C452C03C 		.word	1019237060
+ 532 01d8 F5B0C83C 		.word	1019785461
+ 533 01dc 8350D13C 		.word	1020350595
+ 534 01e0 6C33DA3C 		.word	1020932972
+ 535 01e4 C05BE33C 		.word	1021533120
+ 536 01e8 9BCBEC3C 		.word	1022151579
+ 537 01ec 2E85F63C 		.word	1022788910
+ 538 01f0 5C45003D 		.word	1023427932
+ 539 01f4 446F053D 		.word	1023766340
+ 540 01f8 83C10A3D 		.word	1024115075
+ 541 01fc 523D103D 		.word	1024474450
+ 542 0200 F7E3153D 		.word	1024844791
+ 543 0204 C0B61B3D 		.word	1025226432
+ 544 0208 06B7213D 		.word	1025619718
+ 545 020c 2DE6273D 		.word	1026025005
+ 546 0210 A1452E3D 		.word	1026442657
+ 547 0214 DED6343D 		.word	1026873054
+ 548 0218 679B3B3D 		.word	1027316583
+ 549 021c CD94423D 		.word	1027773645
+ 550 0220 ADC4493D 		.word	1028244653
+ 551 0224 B22C513D 		.word	1028730034
+ 552 0228 90CE583D 		.word	1029230224
+ 553 022c 0DAC603D 		.word	1029745677
+ 554 0230 FAC6683D 		.word	1030276858
+ 555 0234 3721713D 		.word	1030824247
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 19
+
+
+ 556 0238 B2BC793D 		.word	1031388338
+ 557 023c B44D813D 		.word	1031884212
+ 558 0240 B4DF853D 		.word	1032183732
+ 559 0244 68958A3D 		.word	1032492392
+ 560 0248 E56F8F3D 		.word	1032810469
+ 561 024c 4C70943D 		.word	1033138252
+ 562 0250 C497993D 		.word	1033476036
+ 563 0254 7FE79E3D 		.word	1033824127
+ 564 0258 B760A43D 		.word	1034182839
+ 565 025c B104AA3D 		.word	1034552497
+ 566 0260 B9D4AF3D 		.word	1034933433
+ 567 0264 2AD2B53D 		.word	1035325994
+ 568 0268 64FEBB3D 		.word	1035730532
+ 569 026c D65AC23D 		.word	1036147414
+ 570 0270 F8E8C83D 		.word	1036577016
+ 571 0274 4FAACF3D 		.word	1037019727
+ 572 0278 6AA0D63D 		.word	1037475946
+ 573 027c E5CCDD3D 		.word	1037946085
+ 574 0280 6A31E53D 		.word	1038430570
+ 575 0284 AECFEC3D 		.word	1038929838
+ 576 0288 73A9F43D 		.word	1039444339
+ 577 028c 8CC0FC3D 		.word	1039974540
+ 578 0290 6B8B023E 		.word	1040354155
+ 579 0294 20D7063E 		.word	1040635680
+ 580 0298 63440B3E 		.word	1040925795
+ 581 029c 3BD40F3E 		.word	1041224763
+ 582 02a0 B487143E 		.word	1041532852
+ 583 02a4 E75F193E 		.word	1041850343
+ 584 02a8 F15D1E3E 		.word	1042177521
+ 585 02ac FA82233E 		.word	1042514682
+ 586 02b0 32D0283E 		.word	1042862130
+ 587 02b4 D5462E3E 		.word	1043220181
+ 588 02b8 24E8333E 		.word	1043589156
+ 589 02bc 6EB5393E 		.word	1043969390
+ 590 02c0 0AB03F3E 		.word	1044361226
+ 591 02c4 5AD9453E 		.word	1044765018
+ 592 02c8 CA324C3E 		.word	1045181130
+ 593 02cc D4BD523E 		.word	1045609940
+ 594 02d0 FA7B593E 		.word	1046051834
+ 595 02d4 CB6E603E 		.word	1046507211
+ 596 02d8 E397673E 		.word	1046976483
+ 597 02dc E9F86E3E 		.word	1047460073
+ 598 02e0 9493763E 		.word	1047958420
+ 599 02e4 A4697E3E 		.word	1048471972
+ 600 02e8 753E833E 		.word	1048788597
+ 601 02ec A267873E 		.word	1049061282
+ 602 02f0 50B18B3E 		.word	1049342288
+ 603 02f4 7C1C903E 		.word	1049631868
+ 604 02f8 2BAA943E 		.word	1049930283
+ 605 02fc 6C5B993E 		.word	1050237804
+ 606 0300 55319E3E 		.word	1050554709
+ 607 0304 032DA33E 		.word	1050881283
+ 608 0308 9E4FA83E 		.word	1051217822
+ 609 030c 559AAD3E 		.word	1051564629
+ 610 0310 630EB33E 		.word	1051922019
+ 611 0314 0AADB83E 		.word	1052290314
+ 612 0318 9677BE3E 		.word	1052669846
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 20
+
+
+ 613 031c 5F6FC43E 		.word	1053060959
+ 614 0320 C595CA3E 		.word	1053464005
+ 615 0324 36ECD03E 		.word	1053879350
+ 616 0328 2974D73E 		.word	1054307369
+ 617 032c 1F2FDE3E 		.word	1054748447
+ 618 0330 A81EE53E 		.word	1055202984
+ 619 0334 5E44EC3E 		.word	1055671390
+ 620 0338 E8A1F33E 		.word	1056154088
+ 621 033c FB38FB3E 		.word	1056651515
+ 622 0340 AC85013F 		.word	1057064364
+ 623 0344 678D053F 		.word	1057328487
+ 624 0348 9CB4093F 		.word	1057600668
+ 625 034c 43FC0D3F 		.word	1057881155
+ 626 0350 5965123F 		.word	1058170201
+ 627 0354 E2F0163F 		.word	1058468066
+ 628 0358 EC9F1B3F 		.word	1058775020
+ 629 035c 8B73203F 		.word	1059091339
+ 630 0360 DF6C253F 		.word	1059417311
+ 631 0364 0D8D2A3F 		.word	1059753229
+ 632 0368 44D52F3F 		.word	1060099396
+ 633 036c BE46353F 		.word	1060456126
+ 634 0370 BDE23A3F 		.word	1060823741
+ 635 0374 8DAA403F 		.word	1061202573
+ 636 0378 849F463F 		.word	1061592964
+ 637 037c 04C34C3F 		.word	1061995268
+ 638 0380 7616533F 		.word	1062409846
+ 639 0384 529B593F 		.word	1062837074
+ 640 0388 1B53603F 		.word	1063277339
+ 641 038c 5D3F673F 		.word	1063731037
+ 642 0390 B2616E3F 		.word	1064198578
+ 643 0394 C2BB753F 		.word	1064680386
+ 644 0398 3F4F7D3F 		.word	1065176895
+ 645 039c 0600803F 		.word	1065353222
+ 646 03a0 3C01803F 		.word	1065353532
+ 647 03a4 9A08803F 		.word	1065355418
+ 648 03a8 9C1F803F 		.word	1065361308
+ 649 03ac 3754803F 		.word	1065374775
+ 650 03b0 C9B8803F 		.word	1065400521
+ 651 03b4 E663813F 		.word	1065444326
+ 652 03b8 0970823F 		.word	1065512969
+ 653 03bc FDFA833F 		.word	1065614077
+ 654 03c0 0A25863F 		.word	1065755914
+ 655 03c4 AE0F893F 		.word	1065947054
+ 656 03c8 EFDB8C3F 		.word	1066195951
+ 657 03cc 1AA8913F 		.word	1066510362
+ 658 03d0 018D973F 		.word	1066896641
+ 659 03d4 A39A9E3F 		.word	1067358883
+ 660 03d8 63D4A63F 		.word	1067897955
+ 661 03dc F62CB03F 		.word	1068510454
+ 662 03e0 4C82BA3F 		.word	1069187660
+ 663 03e4 DF99C53F 		.word	1069914591
+ 664 03e8 EF1DD13F 		.word	1070669295
+ 665 03ec 4F9CDC3F 		.word	1071422543
+ 666 03f0 8987E73F 		.word	1072138121
+ 667 03f4 FF3AF13F 		.word	1072773887
+ 668 03f8 D402F93F 		.word	1073283796
+ 669 03fc 00000040 		.word	1073741824
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 21
+
+
+ 670 0400 00000040 		.word	1073741824
+ 671              		.section	.rodata._ZN5torus13lut_svf_shiftE,"a"
+ 672              		.align	2
+ 675              	_ZN5torus13lut_svf_shiftE:
+ 676 0000 0000803E 		.word	1048576000
+ 677 0004 6997763E 		.word	1047959401
+ 678 0008 D4366D3E 		.word	1047344852
+ 679 000c 20E6633E 		.word	1046734368
+ 680 0010 ECAC5A3E 		.word	1046129900
+ 681 0014 7592513E 		.word	1045533301
+ 682 0018 7D9D483E 		.word	1044946301
+ 683 001c 37D43F3E 		.word	1044370487
+ 684 0020 353C373E 		.word	1043807285
+ 685 0024 5ADA2E3E 		.word	1043257946
+ 686 0028 D9B2263E 		.word	1042723545
+ 687 002c 2FC91E3E 		.word	1042204975
+ 688 0030 2920173E 		.word	1041702953
+ 689 0034 E6B90F3E 		.word	1041218022
+ 690 0038 E697083E 		.word	1040750566
+ 691 003c 12BB013E 		.word	1040300818
+ 692 0040 9247F63D 		.word	1039550354
+ 693 0044 E4A3E93D 		.word	1038722020
+ 694 0048 0A8ADD3D 		.word	1037928970
+ 695 004c 3EF8D13D 		.word	1037170750
+ 696 0050 17ECC63D 		.word	1036446743
+ 697 0054 A762BC3D 		.word	1035756199
+ 698 0058 9558B23D 		.word	1035098261
+ 699 005c 30CAA83D 		.word	1034471984
+ 700 0060 86B39F3D 		.word	1033876358
+ 701 0064 7210973D 		.word	1033310322
+ 702 0068 B2DC8E3D 		.word	1032772786
+ 703 006c EE13873D 		.word	1032262638
+ 704 0070 8D637F3D 		.word	1031758733
+ 705 0074 BE63713D 		.word	1030841278
+ 706 0078 C91F643D 		.word	1029971913
+ 707 007c 2D8F573D 		.word	1029148461
+ 708 0080 92A94B3D 		.word	1028368786
+ 709 0084 D666403D 		.word	1027630806
+ 710 0088 16BF353D 		.word	1026932502
+ 711 008c ADAA2B3D 		.word	1026271917
+ 712 0090 3B22223D 		.word	1025647163
+ 713 0094 A61E193D 		.word	1025056422
+ 714 0098 1F99103D 		.word	1024497951
+ 715 009c 1D8B083D 		.word	1023970077
+ 716 00a0 60EE003D 		.word	1023471200
+ 717 00a4 DE79F33C 		.word	1022589406
+ 718 00a8 31E2E53C 		.word	1021698609
+ 719 00ac DE0AD93C 		.word	1020857054
+ 720 00b0 91E9CC3C 		.word	1020062097
+ 721 00b4 7674C13C 		.word	1019311222
+ 722 00b8 37A2B63C 		.word	1018602039
+ 723 00bc F869AC3C 		.word	1017932280
+ 724 00c0 51C3A23C 		.word	1017299793
+ 725 00c4 47A6993C 		.word	1016702535
+ 726 00c8 4D0B913C 		.word	1016138573
+ 727 00cc 39EB883C 		.word	1015606073
+ 728 00d0 443F813C 		.word	1015103300
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 22
+
+
+ 729 00d4 0402743C 		.word	1014235652
+ 730 00d8 C354663C 		.word	1013339331
+ 731 00dc 456B593C 		.word	1012493125
+ 732 00e0 AD3A4D3C 		.word	1011694253
+ 733 00e4 B3B8413C 		.word	1010940083
+ 734 00e8 9FDB363C 		.word	1010228127
+ 735 00ec 439A2C3C 		.word	1009556035
+ 736 00f0 F1EB223C 		.word	1008921585
+ 737 00f4 73C8193C 		.word	1008322675
+ 738 00f8 0B28113C 		.word	1007757323
+ 739 00fc 6603093C 		.word	1007223654
+ 740 0100 9953013C 		.word	1006719897
+ 741 0104 3924F43B 		.word	1005855801
+ 742 0108 8871E63B 		.word	1004958088
+ 743 010c 7783D93B 		.word	1004110711
+ 744 0110 064FCD3B 		.word	1003310854
+ 745 0114 D0C9C13B 		.word	1002555856
+ 746 0118 04EAB63B 		.word	1001843204
+ 747 011c 5EA6AC3B 		.word	1001170526
+ 748 0120 1EF6A23B 		.word	1000535582
+ 749 0124 03D1993B 		.word	999936259
+ 750 0128 3E2F913B 		.word	999370558
+ 751 012c 7409893B 		.word	998836596
+ 752 0130 B158813B 		.word	998332593
+ 753 0134 C92C743B 		.word	997469385
+ 754 0138 BB78663B 		.word	996571323
+ 755 013c 8589593B 		.word	995723653
+ 756 0140 1E544D3B 		.word	994923550
+ 757 0144 18CE413B 		.word	994168344
+ 758 0148 9DED363B 		.word	993455517
+ 759 014c 65A92C3B 		.word	992782693
+ 760 0150 AAF8223B 		.word	992147626
+ 761 0154 27D3193B 		.word	991548199
+ 762 0158 0B31113B 		.word	990982411
+ 763 015c F70A093B 		.word	990448375
+ 764 0160 F659013B 		.word	989944310
+ 765 0164 ED2EF43A 		.word	989081325
+ 766 0168 887AE63A 		.word	988183176
+ 767 016c 098BD93A 		.word	987335433
+ 768 0170 6355CD3A 		.word	986535267
+ 769 0174 2ACFC13A 		.word	985780010
+ 770 0178 84EEB63A 		.word	985067140
+ 771 017c 27AAAC3A 		.word	984394279
+ 772 0180 4DF9A23A 		.word	983759181
+ 773 0184 B0D3993A 		.word	983159728
+ 774 0188 7E31913A 		.word	982593918
+ 775 018c 580B893A 		.word	982059864
+ 776 0190 485A813A 		.word	981555784
+ 777 0194 762F743A 		.word	980692854
+ 778 0198 FB7A663A 		.word	979794683
+ 779 019c 6A8B593A 		.word	978946922
+ 780 01a0 B5554D3A 		.word	978146741
+ 781 01a4 6ECF413A 		.word	977391470
+ 782 01a8 BEEE363A 		.word	976678590
+ 783 01ac 57AA2C3A 		.word	976005719
+ 784 01b0 76F9223A 		.word	975370614
+ 785 01b4 D2D3193A 		.word	974771154
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 23
+
+
+ 786 01b8 9B31113A 		.word	974205339
+ 787 01bc 710B093A 		.word	973671281
+ 788 01c0 5C5A013A 		.word	973167196
+ 789 01c4 982FF439 		.word	972304280
+ 790 01c8 187BE639 		.word	971406104
+ 791 01cc 828BD939 		.word	970558338
+ 792 01d0 C955CD39 		.word	969758153
+ 793 01d4 80CFC139 		.word	969002880
+ 794 01d8 CCEEB639 		.word	968289996
+ 795 01dc 63AAAC39 		.word	967617123
+ 796 01e0 80F9A239 		.word	966982016
+ 797 01e4 DBD39939 		.word	966382555
+ 798 01e8 A2319139 		.word	965816738
+ 799 01ec 770B8939 		.word	965282679
+ 800 01f0 615A8139 		.word	964778593
+ 801 01f4 A12F7439 		.word	963915681
+ 802 01f8 1F7B6639 		.word	963017503
+ 803 01fc 888B5939 		.word	962169736
+ 804 0200 CE554D39 		.word	961369550
+ 805 0204 84CF4139 		.word	960614276
+ 806 0208 D0EE3639 		.word	959901392
+ 807 020c 66AA2C39 		.word	959228518
+ 808 0210 83F92239 		.word	958593411
+ 809 0214 DDD31939 		.word	957993949
+ 810 0218 A4311139 		.word	957428132
+ 811 021c 780B0939 		.word	956894072
+ 812 0220 635A0139 		.word	956389987
+ 813 0224 A32FF438 		.word	955527075
+ 814 0228 217BE638 		.word	954628897
+ 815 022c 898BD938 		.word	953781129
+ 816 0230 D055CD38 		.word	952980944
+ 817 0234 85CFC138 		.word	952225669
+ 818 0238 D0EEB638 		.word	951512784
+ 819 023c 67AAAC38 		.word	950839911
+ 820 0240 83F9A238 		.word	950204803
+ 821 0244 DDD39938 		.word	949605341
+ 822 0248 A4319138 		.word	949039524
+ 823 024c 780B8938 		.word	948505464
+ 824 0250 635A8138 		.word	948001379
+ 825 0254 A32F7438 		.word	947138467
+ 826 0258 217B6638 		.word	946240289
+ 827 025c 8A8B5938 		.word	945392522
+ 828 0260 D0554D38 		.word	944592336
+ 829 0264 85CF4138 		.word	943837061
+ 830 0268 D1EE3638 		.word	943124177
+ 831 026c 67AA2C38 		.word	942451303
+ 832 0270 83F92238 		.word	941816195
+ 833 0274 DDD31938 		.word	941216733
+ 834 0278 A5311138 		.word	940650917
+ 835 027c 790B0938 		.word	940116857
+ 836 0280 635A0138 		.word	939612771
+ 837 0284 A32FF437 		.word	938749859
+ 838 0288 217BE637 		.word	937851681
+ 839 028c 8A8BD937 		.word	937003914
+ 840 0290 D055CD37 		.word	936203728
+ 841 0294 85CFC137 		.word	935448453
+ 842 0298 D1EEB637 		.word	934735569
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 24
+
+
+ 843 029c 67AAAC37 		.word	934062695
+ 844 02a0 83F9A237 		.word	933427587
+ 845 02a4 DDD39937 		.word	932828125
+ 846 02a8 A5319137 		.word	932262309
+ 847 02ac 790B8937 		.word	931728249
+ 848 02b0 635A8137 		.word	931224163
+ 849 02b4 A42F7437 		.word	930361252
+ 850 02b8 217B6637 		.word	929463073
+ 851 02bc 8A8B5937 		.word	928615306
+ 852 02c0 D0554D37 		.word	927815120
+ 853 02c4 85CF4137 		.word	927059845
+ 854 02c8 D1EE3637 		.word	926346961
+ 855 02cc 67AA2C37 		.word	925674087
+ 856 02d0 83F92237 		.word	925038979
+ 857 02d4 DDD31937 		.word	924439517
+ 858 02d8 A5311137 		.word	923873701
+ 859 02dc 790B0937 		.word	923339641
+ 860 02e0 635A0137 		.word	922835555
+ 861 02e4 A42FF436 		.word	921972644
+ 862 02e8 217BE636 		.word	921074465
+ 863 02ec 8A8BD936 		.word	920226698
+ 864 02f0 D055CD36 		.word	919426512
+ 865 02f4 85CFC136 		.word	918671237
+ 866 02f8 D1EEB636 		.word	917958353
+ 867 02fc 67AAAC36 		.word	917285479
+ 868 0300 83F9A236 		.word	916650371
+ 869 0304 DDD39936 		.word	916050909
+ 870 0308 A5319136 		.word	915485093
+ 871 030c 790B8936 		.word	914951033
+ 872 0310 635A8136 		.word	914446947
+ 873 0314 A42F7436 		.word	913584036
+ 874 0318 217B6636 		.word	912685857
+ 875 031c 8A8B5936 		.word	911838090
+ 876 0320 D0554D36 		.word	911037904
+ 877 0324 85CF4136 		.word	910282629
+ 878 0328 D1EE3636 		.word	909569745
+ 879 032c 67AA2C36 		.word	908896871
+ 880 0330 83F92236 		.word	908261763
+ 881 0334 DDD31936 		.word	907662301
+ 882 0338 A5311136 		.word	907096485
+ 883 033c 790B0936 		.word	906562425
+ 884 0340 635A0136 		.word	906058339
+ 885 0344 A42FF435 		.word	905195428
+ 886 0348 217BE635 		.word	904297249
+ 887 034c 8A8BD935 		.word	903449482
+ 888 0350 D055CD35 		.word	902649296
+ 889 0354 85CFC135 		.word	901894021
+ 890 0358 D1EEB635 		.word	901181137
+ 891 035c 67AAAC35 		.word	900508263
+ 892 0360 83F9A235 		.word	899873155
+ 893 0364 DDD39935 		.word	899273693
+ 894 0368 A5319135 		.word	898707877
+ 895 036c 790B8935 		.word	898173817
+ 896 0370 635A8135 		.word	897669731
+ 897 0374 A42F7435 		.word	896806820
+ 898 0378 217B6635 		.word	895908641
+ 899 037c 8A8B5935 		.word	895060874
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 25
+
+
+ 900 0380 D0554D35 		.word	894260688
+ 901 0384 85CF4135 		.word	893505413
+ 902 0388 D1EE3635 		.word	892792529
+ 903 038c 67AA2C35 		.word	892119655
+ 904 0390 83F92235 		.word	891484547
+ 905 0394 DDD31935 		.word	890885085
+ 906 0398 A5311135 		.word	890319269
+ 907 039c 790B0935 		.word	889785209
+ 908 03a0 635A0135 		.word	889281123
+ 909 03a4 A42FF434 		.word	888418212
+ 910 03a8 217BE634 		.word	887520033
+ 911 03ac 8A8BD934 		.word	886672266
+ 912 03b0 D055CD34 		.word	885872080
+ 913 03b4 85CFC134 		.word	885116805
+ 914 03b8 D1EEB634 		.word	884403921
+ 915 03bc 67AAAC34 		.word	883731047
+ 916 03c0 83F9A234 		.word	883095939
+ 917 03c4 DDD39934 		.word	882496477
+ 918 03c8 A5319134 		.word	881930661
+ 919 03cc 790B8934 		.word	881396601
+ 920 03d0 635A8134 		.word	880892515
+ 921 03d4 A42F7434 		.word	880029604
+ 922 03d8 217B6634 		.word	879131425
+ 923 03dc 8A8B5934 		.word	878283658
+ 924 03e0 D0554D34 		.word	877483472
+ 925 03e4 85CF4134 		.word	876728197
+ 926 03e8 D1EE3634 		.word	876015313
+ 927 03ec 67AA2C34 		.word	875342439
+ 928 03f0 83F92234 		.word	874707331
+ 929 03f4 DDD31934 		.word	874107869
+ 930 03f8 A5311134 		.word	873542053
+ 931 03fc 790B0934 		.word	873007993
+ 932 0400 635A0134 		.word	872503907
+ 933              		.section	.rodata._ZN5torus26lut_fm_frequency_quantizerE,"a"
+ 934              		.align	2
+ 937              	_ZN5torus26lut_fm_frequency_quantizerE:
+ 938 0000 000040C1 		.word	-1052770304
+ 939 0004 000040C1 		.word	-1052770304
+ 940 0008 000040C1 		.word	-1052770304
+ 941 000c A4703DC1 		.word	-1052938076
+ 942 0010 A4703DC1 		.word	-1052938076
+ 943 0014 A4703DC1 		.word	-1052938076
+ 944 0018 8FC231C1 		.word	-1053703537
+ 945 001c 7B1426C1 		.word	-1054468997
+ 946 0020 66661AC1 		.word	-1055234458
+ 947 0024 52B80EC1 		.word	-1055999918
+ 948 0028 3D0A03C1 		.word	-1056765379
+ 949 002c 52B8EEC0 		.word	-1058097070
+ 950 0030 295CD7C0 		.word	-1059627991
+ 951 0034 0000C0C0 		.word	-1061158912
+ 952 0038 0000C0C0 		.word	-1061158912
+ 953 003c 0000C0C0 		.word	-1061158912
+ 954 0040 D574B1C0 		.word	-1062112043
+ 955 0044 AAE9A2C0 		.word	-1063065174
+ 956 0048 7E5E94C0 		.word	-1064018306
+ 957 004c 53D385C0 		.word	-1064971437
+ 958 0050 53D385C0 		.word	-1064971437
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 26
+
+
+ 959 0054 53D385C0 		.word	-1064971437
+ 960 0058 D1316AC0 		.word	-1066782255
+ 961 005c FDBC48C0 		.word	-1068974851
+ 962 0060 284827C0 		.word	-1071167448
+ 963 0064 53D305C0 		.word	-1073360045
+ 964 0068 FDBCC8BF 		.word	-1077363459
+ 965 006c 53D385BF 		.word	-1081748653
+ 966 0070 53D305BF 		.word	-1090137261
+ 967 0074 00000000 		.word	0
+ 968 0078 00000000 		.word	0
+ 969 007c 00000000 		.word	0
+ 970 0080 0AD7233E 		.word	1042536202
+ 971 0084 0AD7233E 		.word	1042536202
+ 972 0088 0AD7233E 		.word	1042536202
+ 973 008c 0AD7633F 		.word	1063507722
+ 974 0090 295CCF3F 		.word	1070554153
+ 975 0094 66661640 		.word	1075209830
+ 976 0098 B81E4540 		.word	1078271672
+ 977 009c 0AD77340 		.word	1081333514
+ 978 00a0 AE479140 		.word	1083262894
+ 979 00a4 D7A3A840 		.word	1084793815
+ 980 00a8 0000C040 		.word	1086324736
+ 981 00ac 0000C040 		.word	1086324736
+ 982 00b0 0000C040 		.word	1086324736
+ 983 00b4 2B8BCE40 		.word	1087277867
+ 984 00b8 5616DD40 		.word	1088230998
+ 985 00bc 82A1EB40 		.word	1089184130
+ 986 00c0 AD2CFA40 		.word	1090137261
+ 987 00c4 AD2CFA40 		.word	1090137261
+ 988 00c8 AD2CFA40 		.word	1090137261
+ 989 00cc 88910441 		.word	1090818440
+ 990 00d0 B90C0C41 		.word	1091308729
+ 991 00d4 EB871341 		.word	1091799019
+ 992 00d8 1C031B41 		.word	1092289308
+ 993 00dc 1C031B41 		.word	1092289308
+ 994 00e0 1C031B41 		.word	1092289308
+ 995 00e4 55422441 		.word	1092895317
+ 996 00e8 8E812D41 		.word	1093501326
+ 997 00ec C7C03641 		.word	1094107335
+ 998 00f0 00004041 		.word	1094713344
+ 999 00f4 00004041 		.word	1094713344
+ 1000 00f8 00004041 		.word	1094713344
+ 1001 00fc 5C8F4241 		.word	1094881116
+ 1002 0100 5C8F4241 		.word	1094881116
+ 1003 0104 5C8F4241 		.word	1094881116
+ 1004 0108 8F134A41 		.word	1095373711
+ 1005 010c C2975141 		.word	1095866306
+ 1006 0110 F51B5941 		.word	1096358901
+ 1007 0114 27A06041 		.word	1096851495
+ 1008 0118 27A06041 		.word	1096851495
+ 1009 011c 27A06041 		.word	1096851495
+ 1010 0120 9C856E41 		.word	1097762204
+ 1011 0124 116B7C41 		.word	1098672913
+ 1012 0128 43288541 		.word	1099245635
+ 1013 012c FE1A8C41 		.word	1099700990
+ 1014 0130 FE1A8C41 		.word	1099700990
+ 1015 0134 FE1A8C41 		.word	1099700990
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 27
+
+
+ 1016 0138 00009041 		.word	1099956224
+ 1017 013c 00009041 		.word	1099956224
+ 1018 0140 00009041 		.word	1099956224
+ 1019 0144 05149441 		.word	1100223493
+ 1020 0148 0A289841 		.word	1100490762
+ 1021 014c 0A289841 		.word	1100490762
+ 1022 0150 0A289841 		.word	1100490762
+ 1023 0154 2B8B9E41 		.word	1100909355
+ 1024 0158 2B8B9E41 		.word	1100909355
+ 1025 015c 2B8B9E41 		.word	1100909355
+ 1026 0160 984FA541 		.word	1101352856
+ 1027 0164 0514AC41 		.word	1101796357
+ 1028 0168 0514AC41 		.word	1101796357
+ 1029 016c 0514AC41 		.word	1101796357
+ 1030 0170 040FB141 		.word	1102122756
+ 1031 0174 020AB641 		.word	1102449154
+ 1032 0178 0105BB41 		.word	1102775553
+ 1033 017c 0000C041 		.word	1103101952
+ 1034 0180 0000C041 		.word	1103101952
+ 1035 0184 0000C041 		.word	1103101952
+ 1036 0188 0514C441 		.word	1103369221
+ 1037 018c 0A28C841 		.word	1103636490
+ 1038 0190 0A28C841 		.word	1103636490
+ 1039 0194 0A28C841 		.word	1103636490
+ 1040 0198 D5CACB41 		.word	1103874773
+ 1041 019c 9F6DCF41 		.word	1104113055
+ 1042 01a0 6A10D341 		.word	1104351338
+ 1043 01a4 35B3D641 		.word	1104589621
+ 1044 01a8 35B3D641 		.word	1104589621
+ 1045 01ac 35B3D641 		.word	1104589621
+ 1046 01b0 75CDDA41 		.word	1104858485
+ 1047 01b4 B4E7DE41 		.word	1105127348
+ 1048 01b8 B4E7DE41 		.word	1105127348
+ 1049 01bc B4E7DE41 		.word	1105127348
+ 1050 01c0 C72DE341 		.word	1105407431
+ 1051 01c4 DA73E741 		.word	1105687514
+ 1052 01c8 EDB9EB41 		.word	1105967597
+ 1053 01cc 0000F041 		.word	1106247680
+ 1054 01d0 0000F041 		.word	1106247680
+ 1055 01d4 0000F041 		.word	1106247680
+ 1056 01d8 0000F641 		.word	1106640896
+ 1057 01dc 0000FC41 		.word	1107034112
+ 1058 01e0 00000142 		.word	1107361792
+ 1059 01e4 00000442 		.word	1107558400
+ 1060 01e8 00000742 		.word	1107755008
+ 1061 01ec 00000A42 		.word	1107951616
+ 1062 01f0 00000D42 		.word	1108148224
+ 1063 01f4 00001042 		.word	1108344832
+ 1064 01f8 00001042 		.word	1108344832
+ 1065 01fc 00001042 		.word	1108344832
+ 1066 0200 00001042 		.word	1108344832
+ 1067              		.text
+ 1068              	.Letext0:
+ 1069              		.file 3 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/machine/_de
+ 1070              		.file 4 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/sys/_stdint
+ 1071              		.file 5 "../../libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h"
+ 1072              		.file 6 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 28
+
+
+ 1073              		.file 7 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 1074              		.file 8 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/
+ 1075              		.file 9 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/math.h"
+ 1076              		.file 10 "/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1
+ 1077              		.file 11 "../../libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_comp.h"
+ 1078              		.file 12 "../../libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h"
+ 1079              		.file 13 "../../stmlib/stmlib.h"
+ 1080              		.file 14 "resources.h"
+ 1081              		.file 15 "<built-in>"
+ARM GAS  /var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s 			page 29
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 resources.cpp
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:17     .text._ZN5torus13InitResourcesEv:0000000000000000 $t
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:25     .text._ZN5torus13InitResourcesEv:0000000000000000 _ZN5torus13InitResourcesEv
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:108    .text._ZN5torus13InitResourcesEv:000000000000002c $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:135    .bss._ZN5torus8lut_sineE:0000000000000000 _ZN5torus8lut_sineE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:141    .data._ZN5torus18lookup_table_tableE:0000000000000000 _ZN5torus18lookup_table_tableE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:937    .rodata._ZN5torus26lut_fm_frequency_quantizerE:0000000000000000 _ZN5torus26lut_fm_frequency_quantizerE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:413    .rodata._ZN5torus13lut_stiffnessE:0000000000000000 _ZN5torus13lut_stiffnessE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:675    .rodata._ZN5torus13lut_svf_shiftE:0000000000000000 _ZN5torus13lut_svf_shiftE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:151    .rodata._ZN5torus13lut_4_decadesE:0000000000000000 _ZN5torus13lut_4_decadesE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:130    .bss._ZN5torus25lookup_table_uint32_tableE:0000000000000000 _ZN5torus25lookup_table_uint32_tableE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:125    .bss._ZN5torus24lookup_table_int16_tableE:0000000000000000 _ZN5torus24lookup_table_int16_tableE
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:132    .bss._ZN5torus8lut_sineE:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:138    .data._ZN5torus18lookup_table_tableE:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:148    .rodata._ZN5torus13lut_4_decadesE:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:410    .rodata._ZN5torus13lut_stiffnessE:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:672    .rodata._ZN5torus13lut_svf_shiftE:0000000000000000 $d
+/var/folders/hl/qgbwny5j0fd895c2c41bk3tw0000gp/T//ccIQIFt6.s:934    .rodata._ZN5torus26lut_fm_frequency_quantizerE:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+sinf
